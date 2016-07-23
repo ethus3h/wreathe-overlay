@@ -17,7 +17,7 @@ RDEPEND=""
 
 src_install() {
     insinto /
-    doins -r "ember-satellite-projects/wreathe/*"
+    doins -r ember-satellite-projects/wreathe/*
 }
 
 
