@@ -16,7 +16,8 @@ KEYWORDS="~amd64 -*"
 RDEPEND=""
 
 src_install() {
-    dobin compiz-manager
+    insinto /
+    doins -r "ember-satellite-projects/wreathe/"
 }
 
 
