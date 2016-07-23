@@ -10,5 +10,5 @@ To update in the system, run:
 
 To develop it, in the git directory:
 
-`repoman manifest; git add -- .; git commit -m "Overlay update"`
+`repoman manifest; git add -- .; git commit -m "Overlay update"; git push`
 
