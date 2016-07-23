@@ -8,12 +8,12 @@ inherit git-r3
 
 DESCRIPTION="Wreathe"
 HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="git://github.com/compiz-reloaded/compiz-manager.git"
+EGIT_REPO_URI="git://github.com/ethus3h/ember.git"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="-*"
-RDEPEND="x11-apps/xvinfo"
+KEYWORDS="~amd64 -*"
+RDEPEND=""
 
 src_install() {
     dobin compiz-manager
