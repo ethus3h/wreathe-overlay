@@ -11,12 +11,12 @@ HOMEPAGE="https://futuramerlin.com/"
 EGIT_REPO_URI="git://github.com/ethus3h/ember.git"
 
 LICENSE="GPL-2"
-SLOT="0"
+SLOT="0/1"
 KEYWORDS="~amd64 -*"
-RDEPEND="app-misc/wreathe-backgrounds:=
-app-misc/wreathe-typefaces-redist:=
-app-misc/wreathe-typeface-family:=
-app-misc/wreathe-office-resources:="
+RDEPEND="app-misc/wreathe-backgrounds
+app-misc/wreathe-typefaces-redist
+app-misc/wreathe-typeface-family
+app-misc/wreathe-office-resources"
 
 src_install() {
     insinto /
