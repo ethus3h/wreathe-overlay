@@ -17,7 +17,7 @@ RDEPEND="app-misc/wreathe-base"
 
 src_install() {
     insinto /Wreathe/Typefaces/
-    GLOBIGNORE="README.md .git"
+    GLOBIGNORE="README.md:.git"
     doins -r *
     unset GLOBIGNORE
 }
