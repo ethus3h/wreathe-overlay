@@ -11,7 +11,7 @@ HOMEPAGE="https://futuramerlin.com/"
 EGIT_REPO_URI="git://github.com/ethus3h/ember.git"
 
 LICENSE="GPL-2"
-SLOT="0/3"
+SLOT="0/4"
 KEYWORDS="~amd64 -*"
 RDEPEND="app-misc/wreathe-backgrounds
 app-misc/wreathe-typefaces-redist
