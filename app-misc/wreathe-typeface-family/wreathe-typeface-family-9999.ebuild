@@ -13,7 +13,7 @@ EGIT_REPO_URI="git://github.com/ethus3h/wreathe-typeface-family.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 -*"
-RDEPEND="app-misc/wreathe-base"
+RDEPEND="app-misc/wreathe-base:="
 
 src_install() {
     insinto /Wreathe/Typefaces/

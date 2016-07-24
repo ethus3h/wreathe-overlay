@@ -7,9 +7,7 @@ To add to the system, run:
 
 To install or update in the system, run:
 
-`layman -s wreathe-overlay; emerge wreathe-base wreathe-office-resources wreathe-backgrounds wreathe-typefaces-redist wreathe-typeface-family`
-
-(wreathe-base does depend on the others, but specifying them all is the best way to ensure that they are all updated to keep them from getting out of sync, since that isn't apparently possible just using portage.)
+`layman -s wreathe-overlay; emerge wreathe-base`
 
 To develop it, in the git directory:
 
