@@ -13,7 +13,10 @@ EGIT_REPO_URI="git://github.com/ethus3h/ember.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 -*"
-RDEPEND=""
+RDEPEND="app-misc/wreathe-backgrounds
+app-misc/wreathe-typefaces-redist
+app-misc/wreathe-typeface-family
+app-misc/wreathe-office-resources"
 
 src_install() {
     insinto /
