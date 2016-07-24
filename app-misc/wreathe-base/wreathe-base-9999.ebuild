@@ -20,7 +20,7 @@ app-misc/wreathe-office-resources"
 
 src_install() {
     insinto /
-    doins -r ember-satellite-projects/wreathe/
+    doins -r ember-satellite-projects/wreathe/*
 }
 
 
