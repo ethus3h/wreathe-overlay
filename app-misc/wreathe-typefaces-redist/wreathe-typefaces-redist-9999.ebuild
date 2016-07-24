@@ -17,7 +17,7 @@ RDEPEND="app-misc/wreathe-base"
 
 src_install() {
     insinto /Wreathe/Typefaces/
-    doins -r *
+    doins -r !(README.md)
 }
 
 
