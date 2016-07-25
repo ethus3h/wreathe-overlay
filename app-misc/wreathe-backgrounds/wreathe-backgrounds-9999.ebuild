@@ -13,7 +13,7 @@ EGIT_REPO_URI="git://github.com/ethus3h/wreathe-backgrounds.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 -*"
-RDEPEND="app-misc/wreathe-base:0="
+RDEPEND="app-misc/wreathe-base"
 
 src_install() {
     insinto /Wreathe/
