@@ -18,3 +18,12 @@ RDEPEND="x11-misc/wmctrl
         x11-libs/gtk+:3"
 
 DEPEND="${RDEPEND}"
+
+src_install() {
+    exeinto /usr/bin/
+    doexe bin/opensnap
+    insinto /etc/opensnap/
+    GLOBIGNORE=".git"
+    doins sample_configs/*
+    unset GLOBIGNORE
+}
