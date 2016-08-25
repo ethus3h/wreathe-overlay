@@ -16,7 +16,9 @@ KEYWORDS="~amd64 -*"
 RDEPEND="app-misc/wreathe-backgrounds
 app-misc/wreathe-typefaces-redist
 app-misc/wreathe-typeface-family
-app-misc/wreathe-office-resources"
+app-misc/wreathe-office-resources
+app-misc/crystallise
+app-misc/wreathe-media-resources"
 
 src_install() {
     insinto /
