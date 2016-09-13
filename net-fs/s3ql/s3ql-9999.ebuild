@@ -5,11 +5,11 @@
 EAPI=6
 PYTHON_COMPAT=( python3_{3,4,5} )
 
-inherit distutils-r1
+inherit distutils-r1 git-r3
 
 DESCRIPTION="A full-featured file system for online data storage"
 HOMEPAGE="https://bitbucket.org/nikratio/s3ql/"
-SRC_URI="https://www.bitbucket.org/nikratio/s3ql/downloads/${P}.tar.bz2"
+EGIT_REPO_URI="https://github.com/ethus3h/s3ql.git"
 
 LICENSE="GPL-3"
 SLOT="0"
