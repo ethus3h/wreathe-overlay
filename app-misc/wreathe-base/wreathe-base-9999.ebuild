@@ -18,7 +18,8 @@ app-misc/wreathe-typefaces-redist
 app-misc/wreathe-typeface-family
 app-misc/wreathe-office-resources
 app-misc/crystallise
-app-misc/wreathe-media-resources"
+app-misc/wreathe-media-resources
+x11-plugins/compiz-extra-snowflake-textures"
 
 src_install() {
     insinto /
