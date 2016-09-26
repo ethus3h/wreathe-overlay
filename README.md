@@ -13,7 +13,7 @@ To install, or update the main package, run:
 
 To update all components:
 
-`layman -s wreathe-overlay; emerge wreathe-base wreathe-backgrounds wreathe-media-resources wreathe-office-resources wreathe-typefaces-redist wreathe-typeface-family`
+`layman -s wreathe-overlay; emerge wreathe-base wreathe-backgrounds wreathe-media-resources wreathe-office-resources wreathe-typefaces-redist wreathe-typeface-family compiz-extra-snowflake-textures`
 
 To develop it, in the git directory:
 
