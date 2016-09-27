@@ -8,7 +8,7 @@ inherit git-r3
 
 DESCRIPTION="Wreathe"
 HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="git://github.com/ethus3h/ember.git"
+EGIT_REPO_URI="git://github.com/ethus3h/crystallise.git"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -17,7 +17,7 @@ RDEPEND="app-misc/wreathe-base"
 
 src_install() {
     insinto /usr/bin/
-    doins -r ember-satellite-projects/crystallise/*
+    GLOBIGNORE="README.md:.git"
+    doins -r *
+    unset GLOBIGNORE
 }
-
-
