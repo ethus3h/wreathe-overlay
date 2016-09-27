@@ -1,21 +1,5 @@
 # wreathe-overlay
-ebuilds for Wreathe
 
-Currently experimental / in development.
+This package is part of Wreathe, and is maintained by the Ember project.
 
-To add to the system, run:
-
-`layman -o https://raw.githubusercontent.com/ethus3h/wreathe-overlay/master/wreathe-overlay.xml -f -a wreathe-overlay -p 100`
-
-To install, or update the main package, run:
-
-`layman -s wreathe-overlay; emerge wreathe-base`
-
-To update all components:
-
-`layman -s wreathe-overlay; emerge wreathe-base wreathe-backgrounds wreathe-media-resources wreathe-office-resources wreathe-typefaces-redist wreathe-typeface-family compiz-extra-snowflake-textures`
-
-To develop it, in the git directory:
-
-`repoman manifest; git add *; git commit -am "Overlay update"; git push -u origin master`
-
+Learn about Wreathe at the Ember Web site: http://futuramerlin.com/ancillary/wreathe/
