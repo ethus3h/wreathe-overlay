@@ -16,7 +16,7 @@ KEYWORDS="~amd64 -*"
 RDEPEND="app-misc/wreathe-base"
 
 src_install() {
-    insinto /usr/bin/
+    exeinto /usr/bin/
     GLOBIGNORE="README.md:.git"
     doexe -r *
     unset GLOBIGNORE

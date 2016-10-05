@@ -26,4 +26,6 @@ src_install() {
     GLOBIGNORE="README.md:.git"
     doins -r *
     unset GLOBIGNORE
+    # Provide gmcs as an alias for the mcs compiler for Mono
+    dosym /usr/bin/mcs /usr/bin/gmcs
 }
