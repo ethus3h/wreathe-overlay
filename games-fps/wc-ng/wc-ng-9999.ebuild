@@ -36,7 +36,7 @@ src_prepare() {
 
 	# Patch makefile to use system enet instead of bundled
 	# respect CXXFLAGS, LDFLAGS
-	epatch "${FILESDIR}"/${P}-{system-enet,QA}.patch
+	epatch "${FILESDIR}"/sauerbraten-2013.02.03-{system-enet,QA}.patch
 
 	# Fix links so they point to the correct directory
 	sed -i -e 's:docs/::' README.html || die
