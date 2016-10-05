@@ -28,7 +28,7 @@ RDEPEND="
 		x11-libs/libX11 )"
 DEPEND="${RDEPEND}"
 
-S=${WORKDIR}/${PN}-${PV}
+S=${WORKDIR}/${PN}-${PV}/src
 
 src_prepare() {
 	ecvs_clean
