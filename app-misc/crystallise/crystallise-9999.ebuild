@@ -18,6 +18,6 @@ RDEPEND="app-misc/wreathe-base"
 src_install() {
     exeinto /usr/bin/
     GLOBIGNORE="README.md:.git"
-    doexe -r *
+    doexe *
     unset GLOBIGNORE
 }
