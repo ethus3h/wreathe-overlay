@@ -22,6 +22,7 @@ DEPEND="net-misc/curl
 RDEPEND="${DEPEND}"
 
 src_prepare() {
+	eapply_user
 	sed -e "/docdir=/s:packages/\$(PACKAGE):${PF}:" \
 		-e "/doc_DATA=/d" \
 		-i Makefile.am || die
