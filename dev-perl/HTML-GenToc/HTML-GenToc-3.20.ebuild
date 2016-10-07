@@ -10,6 +10,7 @@ inherit perl-module
 
 DESCRIPTION="hypertoc - generate a table of contents for HTML documents"
 
+SRC_URI="https://cpan.metacpan.org/authors/id/R/RU/RUBYKAT/${P}.tar.gz"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
