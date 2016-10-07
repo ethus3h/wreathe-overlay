@@ -16,6 +16,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 DEPEND="
+	dev-perl/Module-Build
 	test? (
 		dev-perl/Test-Pod
 		dev-perl/Test-Pod-Coverage
