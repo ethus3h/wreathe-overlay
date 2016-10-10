@@ -4,25 +4,22 @@
 
 EAPI=6
 
-MODULE_AUTHOR=RUBYKAT
-MODULE_VERSION=3.20
+MODULE_AUTHOR=GAAS
+MODULE_VERSION=3.72
 inherit perl-module
 
-DESCRIPTION="hypertoc - generate a table of contents for HTML documents"
+DESCRIPTION="HTML::Parser - HTML parser class"
 
-SRC_URI="https://cpan.metacpan.org/authors/id/R/RU/RUBYKAT/${P}.tar.gz"
+SRC_URI="https://cpan.metacpan.org/authors/id/G/GA/GAAS/${P}.tar.gz"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 DEPEND="
 	dev-perl/Module-Build
-	dev-perl/HTML-SimpleParse
-	virtual/perl-Getopt-Long
-	dev-perl/Getopt-ArgvFile
-	dev-perl/Pod-Usage
-	dev-perl/HTML-LinkList
-	dev-perl/HTML-Parser
+	dev-perl/libwww-perl
+	>=dev-lang/perl-5.8
+	dev-perl/HTML-Tagset
 	test? (
 		dev-perl/Test-Pod
 		dev-perl/Test-Pod-Coverage
