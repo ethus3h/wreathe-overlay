@@ -20,7 +20,6 @@ DEPEND="
 	dev-perl/HTML-SimpleParse
 	virtual/perl-Getopt-Long
 	dev-perl/Getopt-ArgvFile
-	dev-perl/File-Basename
 	dev-perl/Pod-Usage
 	dev-perl/HTML-LinkList
 	dev-perl/HTML-Entities
