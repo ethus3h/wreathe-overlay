@@ -17,6 +17,13 @@ IUSE="test"
 
 DEPEND="
 	dev-perl/Module-Build
+	dev-perl/HTML-SimpleParse
+	dev-perl/Getopt-Long
+	dev-perl/Getopt-ArgvFile
+	dev-perl/File-Basename
+	dev-perl/Pod-Usage
+	dev-perl/HTML-LinkList
+	dev-perl/HTML-Entities
 	test? (
 		dev-perl/Test-Pod
 		dev-perl/Test-Pod-Coverage
