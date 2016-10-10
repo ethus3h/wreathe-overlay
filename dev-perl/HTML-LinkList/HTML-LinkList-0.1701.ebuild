@@ -4,22 +4,19 @@
 
 EAPI=6
 
-MODULE_AUTHOR=GAAS
-MODULE_VERSION=3.72
+MODULE_AUTHOR=RUBYKAT
+MODULE_VERSION=0.1701
 inherit perl-module
 
-DESCRIPTION="HTML::Parser - HTML parser class"
+DESCRIPTION="HTML::LinkList - Create a 'smart' list of HTML links."
 
-SRC_URI="https://cpan.metacpan.org/authors/id/G/GA/GAAS/${P}.tar.gz"
+SRC_URI="https://cpan.metacpan.org/authors/id/R/RU/RUBYKAT/${P}.tar.gz"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 DEPEND="
 	dev-perl/Module-Build
-	dev-perl/libwww-perl
-	>=dev-lang/perl-5.8
-	dev-perl/HTML-Tagset
 	test? (
 		dev-perl/Test-Pod
 		dev-perl/Test-Pod-Coverage
