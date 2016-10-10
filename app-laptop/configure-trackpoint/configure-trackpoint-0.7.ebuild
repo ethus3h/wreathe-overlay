@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}
 
 src_prepare() {
 	sed -i -e "/^Exec/s:gksu:kdesu:" ${PN}.desktop || die "Failed to replace gksu with kdesu"
-	sed -i -e "/^Exec/s:trackpoint.png:trackpoint:" ${PN}.desktop || die "Failed to replace gksu with kdesu"
+	sed -i -e "/^Icon/s:trackpoint\.png:trackpoint:" ${PN}.desktop || die "Failed to remove extension from icon name"
 	gnome2_src_prepare
 }
 
