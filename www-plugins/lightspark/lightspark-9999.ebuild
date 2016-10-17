@@ -26,6 +26,7 @@ RDEPEND=">=dev-cpp/libxmlpp-2.33.1:2.6
 	x11-libs/gtk+:2
 	x11-libs/libX11
 	x11-libs/pango
+	media-libs/sdl2-mixer
 	curl? (
 		net-misc/curl
 	)
