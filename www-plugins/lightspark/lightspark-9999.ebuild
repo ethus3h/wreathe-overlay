@@ -60,12 +60,6 @@ pkg_pretend() {
 	fi
 }
 
-src_unpack() {
-	default
-	# rename snapshot directory
-	mv "${WORKDIR}"/${PN}-* "${WORKDIR}"/${P} || die
-}
-
 src_configure() {
 	local audiobackends
 	use pulseaudio && audiobackends+="pulse"
