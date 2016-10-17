@@ -6,9 +6,9 @@ EAPI="6"
 
 inherit git-r3
 
-DESCRIPTION="Crystallise"
+DESCRIPTION="Futuramerlin Web Toolkit"
 HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="git://github.com/ethus3h/crystallise.git"
+EGIT_REPO_URI="git://github.com/ethus3h/futuramerlin-web-toolkit.git"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -17,7 +17,6 @@ RDEPEND="app-misc/wreathe-base"
 
 src_install() {
     exeinto /usr/bin/
-    GLOBIGNORE="README.md:.git"
-    doexe *
-    unset GLOBIGNORE
+    doexe futuramerlin-web-toolkit-build
+    doexe futuramerlin-web-toolkit-aliases
 }
