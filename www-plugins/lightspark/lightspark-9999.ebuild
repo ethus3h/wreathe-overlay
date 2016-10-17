@@ -66,13 +66,13 @@ src_configure() {
 	use sdl && audiobackends+="sdl"
 
 	local mycmakeargs=(
-		$(cmake-utils_use curl ENABLE_CURL)
-		$(cmake-utils_use gles ENABLE_GLES2)
-		$(cmake-utils_use ffmpeg ENABLE_LIBAVCODEC)
-		$(cmake-utils_use nsplugin COMPILE_PLUGIN)
-		$(cmake-utils_use profile ENABLE_MEMORY_USAGE_PROFILING)
-		$(cmake-utils_use profile ENABLE_PROFILING)
-		$(cmake-utils_use rtmp ENABLE_RTMP)
+		-DENABLE_CURL="$(usex curl)"
+		-DENABLE_ENABLE_GLES2="$(usex gles)"
+		-DENABLE_ENABLE_LIBAVCODEC="$(usex ffmpeg)"
+		-DENABLE_COMPILE_PLUGIN="$(usex nsplugin)"
+		-DENABLE_MEMORY_USAGE_PROFILING="$(usex profile)"
+		-DENABLE_PROFILING="$(usex profile)"
+		-DENABLE_RTMP="$(usex rtmp)"
 		-DAUDIO_BACKEND="${audiobackends}"
 		-DPLUGIN_DIRECTORY="${EPREFIX}"/usr/$(get_libdir)/${PN}/plugins
 	)
