@@ -17,6 +17,8 @@ IUSE="curl ffmpeg gles nsplugin profile pulseaudio rtmp sdl"
 RDEPEND=">=dev-cpp/libxmlpp-2.33.1:2.6
 	>=dev-libs/boost-1.42
 	dev-libs/libpcre[cxx]
+	dev-cpp/glibmm
+	dev-util/desktop-file-utils
 	media-fonts/liberation-fonts
 	media-libs/libpng
 	media-libs/libsdl
@@ -46,10 +48,11 @@ RDEPEND=">=dev-cpp/libxmlpp-2.33.1:2.6
 	rtmp? (
 		media-video/rtmpdump
 	)
-	virtual/jpeg"
-DEPEND="${RDEPEND}
+	virtual/jpeg
 	amd64? ( dev-lang/nasm )
 	x86? ( dev-lang/nasm )
+	www-plugins/gnash[gtk]"
+DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 pkg_pretend() {
