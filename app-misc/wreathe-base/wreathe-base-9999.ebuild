@@ -24,9 +24,14 @@ x11-plugins/compiz-extra-snowflake-textures"
 
 src_install() {
     insinto /
-    GLOBIGNORE="README.md:.git"
+    GLOBIGNORE="README.md:.git:usr"
     doins -r *
+    insinto /usr/
+    GLOBIGNORE="bin"
+    doins -r usr/*
     unset GLOBIGNORE
+    exeinto /usr/bin/
+    doexe usr/bin/*
     # Provide gmcs as an alias for the mcs compiler for Mono
     dosym /usr/bin/mcs /usr/bin/gmcs
 }
