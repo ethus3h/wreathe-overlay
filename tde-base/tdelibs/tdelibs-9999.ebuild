@@ -92,6 +92,10 @@ src_configure() {
 	trinity-base_src_configure
 }
 
+src_test() {
+    ctest -E vcardparser_tests
+}
+
 src_install() {
 	trinity-base_src_install
 
