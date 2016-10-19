@@ -92,8 +92,8 @@ src_configure() {
 	trinity-base_src_configure
 }
 
-src_test() {
-    ctest -E vcardparser_tests
+src_compile() {
+    cmake-utils_src_make -E vcardparser_tests "$@"
 }
 
 src_install() {
