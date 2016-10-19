@@ -15,6 +15,7 @@ HOMEPAGE="http://www.trinitydesktop.org/"
 LICENSE="GPL-2 LGPL-2"
 SLOT="${TRINITY_VER}"
 KEYWORDS=
+EGIT_COMMIT="07dbb3b5c92ed22f71123eb84806d55f9962c60b"
 IUSE+=" alsa avahi cups consolekit fam jpeg2k lua lzma networkmanager openexr
 	spell sudo tiff utempter upower udisks old_udisks xcomposite +xrandr"
 
@@ -90,10 +91,6 @@ src_configure() {
 	)
 
 	trinity-base_src_configure
-}
-
-src_compile() {
-    cmake-utils_src_make -E vcardparser_tests "$@"
 }
 
 src_install() {
