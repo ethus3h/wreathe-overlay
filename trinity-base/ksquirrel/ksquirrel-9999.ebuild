@@ -4,7 +4,7 @@
 EAPI="3"
 TRINITY_MODULE_TYPE="applications"
 
-inherit trinity-meta
+inherit trinity-meta autotools
 
 DESCRIPTION="Image viewer for TDE"
 KEYWORDS=
@@ -15,6 +15,6 @@ RDEPEND="trinity-base/tdelibs
 DEPEND="${RDEPEND}"
 
 src_configure() {
-	autoconf ${S}/configure.in
+	eautoconf ${S}/configure.in
     ${S}/configure.gnu
 }
