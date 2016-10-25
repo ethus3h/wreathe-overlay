@@ -17,7 +17,7 @@ RDEPEND="www-plugins/gnash
     dev-lang/mono"
 
 src_install() {
-    insinto /Wreathe/
+    insinto /Wreathe/Apps/BeHeMMOth/
     GLOBIGNORE="README.md:.git"
     doins -r *
     unset GLOBIGNORE
