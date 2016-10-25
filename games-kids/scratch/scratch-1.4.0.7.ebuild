@@ -60,8 +60,10 @@ src_install() {
 		for res in *; do
 			insinto "${icondir}/${res}/apps"
 			doins "${res}"/scratch*.png
-			insinto "${icondir}/${res}/mimetypes"
-			newins "${res}/gnome-mime-application-x-scratch-project.png" mime-application-x-scratch-project.png
+			if [ "${res}" != "32x32" ]; then
+				insinto "${icondir}/${res}/mimetypes"
+				newins "${res}/gnome-mime-application-x-scratch-project.png" mime-application-x-scratch-project.png
+			fi
 		done
 	)
 	install_runner
