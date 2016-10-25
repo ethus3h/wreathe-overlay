@@ -16,6 +16,7 @@ DEPEND="${RDEPEND}"
 
 pkg_setup() {
     use tqt && export QTDIR="/usr/tqt3"
+    use tqt && export QTINC="/usr/include/tqt"
 }
 
 src_prepare() {
