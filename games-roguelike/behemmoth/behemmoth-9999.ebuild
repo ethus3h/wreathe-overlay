@@ -21,4 +21,6 @@ src_install() {
     GLOBIGNORE="README.md:.git"
     doins -r *
     unset GLOBIGNORE
+    exeinto /usr/bin/
+    doexe behemmoth_client behemmoth_server
 }
