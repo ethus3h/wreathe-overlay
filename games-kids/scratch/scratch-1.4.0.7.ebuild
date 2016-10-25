@@ -23,7 +23,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${PN}"
+S="${WORKDIR}/${PN}.src"
 ABI="x86"
 
 pkg_setup() {
