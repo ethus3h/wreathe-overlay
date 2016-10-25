@@ -9,3 +9,8 @@ inherit trinity-meta
 DESCRIPTION="Image viewer for TDE"
 KEYWORDS=
 IUSE=""
+
+src_configure() {
+	${S}/required-etch
+    ${S}/configure.gnu
+}
