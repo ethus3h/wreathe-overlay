@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 EAPI="3"
-TRINITY_MODULE_NAME="tdegraphics"
+TRINITY_MODULE_TYPE="applications"
 
 inherit trinity-meta
 
