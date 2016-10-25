@@ -26,12 +26,6 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/${PN}"
 ABI="x86"
 
-if   use alsa;       then squeak_sound_plugin="ALSA"
-elif use oss;        then squeak_sound_plugin="OSS"
-elif use pulseaudio; then squeak_sound_plugin="pulse"
-else                      squeak_sound_plugin="null"
-fi
-
 pkg_setup() {
 	# Is the a convenience function for "zero or one"?
 	confutils_require_one alsa oss pulseaudio
@@ -73,6 +67,12 @@ src_install() {
 }
 
 install_runner() {
+	if   use alsa;       then squeak_sound_plugin="ALSA"
+	elif use oss;        then squeak_sound_plugin="OSS"
+	elif use pulseaudio; then squeak_sound_plugin="pulse"
+	else                      squeak_sound_plugin="null"
+	fi
+
 	local tmpexe=$(emktemp)
 	cat << EOF > "${tmpexe}"
 #!/bin/sh
