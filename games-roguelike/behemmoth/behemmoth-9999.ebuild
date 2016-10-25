@@ -14,7 +14,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND="www-plugins/gnash
-    "
+    dev-lang/mono"
 
 src_install() {
     insinto /Wreathe/
