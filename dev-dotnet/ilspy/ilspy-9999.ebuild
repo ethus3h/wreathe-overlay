@@ -6,11 +6,11 @@ EAPI="6"
 
 inherit git-r3
 
-DESCRIPTION="ILSpy command line for Mono"
+DESCRIPTION="ILSpy command line decompiler for Mono"
 HOMEPAGE="https://github.com/aerror2/ILSpy-For-MacOSX"
 EGIT_REPO_URI="git://github.com/aerror2/ILSpy-For-MacOSX.git"
 
-LICENSE="AGPL-3"
+LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND="dev-lang/mono"
