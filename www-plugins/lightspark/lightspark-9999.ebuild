@@ -65,19 +65,20 @@ pkg_pretend() {
 }
 
 src_configure() {
-	local audiobackends
-	use pulseaudio && audiobackends+="pulse"
-	use sdl && audiobackends+="sdl"
+	#Audio backends CMake variable doesn't seem to exist now
+	#local audiobackends
+	#use pulseaudio && audiobackends+="pulse"
+	#use sdl && audiobackends+="sdl"
+	#-DAUDIO_BACKEND="${audiobackends}"
 
 	local mycmakeargs=(
 		-DENABLE_CURL="$(usex curl)"
-		-DENABLE_ENABLE_GLES2="$(usex gles)"
-		-DENABLE_ENABLE_LIBAVCODEC="$(usex ffmpeg)"
-		-DENABLE_COMPILE_PLUGIN="$(usex nsplugin)"
+		-DENABLE_GLES2="$(usex gles)"
+		-DENABLE_LIBAVCODEC="$(usex ffmpeg)"
+		-DCOMPILE_PLUGIN="$(usex nsplugin)"
 		-DENABLE_MEMORY_USAGE_PROFILING="$(usex profile)"
 		-DENABLE_PROFILING="$(usex profile)"
 		-DENABLE_RTMP="$(usex rtmp)"
-		-DAUDIO_BACKEND="${audiobackends}"
 		-DPLUGIN_DIRECTORY="${EPREFIX}"/usr/$(get_libdir)/${PN}/plugins
 		-DCMAKE_BUILD_TYPE=Release
 	)
