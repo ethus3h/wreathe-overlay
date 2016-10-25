@@ -47,10 +47,12 @@ src_install() {
 	local datadir="/usr/share/${PN}"
 	local icondir="/usr/share/icons/hicolor"
 	dodir "${libdir}" "${datadir}"
-	cp -r Scratch.* Plugins App/* "${D}${libdir}"
+	cp -r Scratch.* Plugins "${D}${libdir}"
 	cp -r Help locale Media Projects "${D}${datadir}"
 	doman src/man/*
-	dodoc ACKNOWLEDGEMENTS KNOWN-BUGS README.txt
+	dodoc ACKNOWLEDGEMENTS KNOWN-BUGS README
+	exeinto /usr/bin
+	doexe src/scratch
 	insinto /usr/share/mime/packages
 	doins src/scratch.xml
 	(
