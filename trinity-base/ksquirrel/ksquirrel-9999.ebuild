@@ -14,6 +14,10 @@ RDEPEND="trinity-base/tdelibs
     trinity-base/tdegraphics-meta"
 DEPEND="${RDEPEND}"
 
+pkg_setup() {
+    use tqt && export QTDIR="/usr/tqt3"
+}
+
 src_prepare() {
     eautoreconf
 }
