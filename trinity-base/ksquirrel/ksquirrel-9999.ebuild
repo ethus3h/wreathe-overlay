@@ -3,7 +3,6 @@
 # $Id$
 EAPI="3"
 TRINITY_MODULE_TYPE="applications"
-WANT_AUTOCONF="2.5"
 
 inherit trinity-meta autotools
 
@@ -15,7 +14,10 @@ RDEPEND="trinity-base/tdelibs
     trinity-base/tdegraphics-meta"
 DEPEND="${RDEPEND}"
 
+src_prepare() {
+    eautoreconf
+}
+
 src_configure() {
-	eautoconf ${S}/configure.in
     ${S}/configure.gnu
 }
