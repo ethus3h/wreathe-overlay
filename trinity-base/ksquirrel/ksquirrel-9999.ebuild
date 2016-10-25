@@ -11,12 +11,13 @@ KEYWORDS=
 IUSE=""
 
 RDEPEND="trinity-base/tdelibs
-    trinity-base/tdegraphics-meta"
+    trinity-base/tdegraphics-meta
+    dev-qt/tqt"
 DEPEND="${RDEPEND}"
 
 pkg_setup() {
-    use tqt && export QTDIR="/usr/tqt3"
-    use tqt && export QTINC="/usr/include/tqt"
+    export QTDIR="/usr/tqt3"
+    export QTINC="/usr/include/tqt"
 }
 
 src_prepare() {
