@@ -3,7 +3,7 @@
 # $Id$
 EAPI="3"
 TRINITY_MODULE_TYPE="applications"
-WANT_AUTOCONF="2.6"
+WANT_AUTOCONF="2.5"
 
 inherit trinity-meta autotools
 
