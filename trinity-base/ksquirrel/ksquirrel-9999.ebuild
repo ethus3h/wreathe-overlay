@@ -10,7 +10,11 @@ DESCRIPTION="Image viewer for TDE"
 KEYWORDS=
 IUSE=""
 
+RDEPEND="trinity-base/tdelibs
+    trinity-base/tdegraphics-meta"
+DEPEND="${RDEPEND}"
+
 src_configure() {
-	${S}/required-etch
+	autoconf ${S}/configure.in
     ${S}/configure.gnu
 }
