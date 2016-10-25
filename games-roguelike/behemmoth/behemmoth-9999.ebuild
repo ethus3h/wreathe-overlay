@@ -15,6 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND="www-plugins/gnash
     dev-lang/mono"
+DEPEND="${RDEPEND}"
 
 src_install() {
     insinto /Wreathe/Apps/BeHeMMOth/
