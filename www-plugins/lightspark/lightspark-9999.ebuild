@@ -79,6 +79,7 @@ src_configure() {
 		-DENABLE_RTMP="$(usex rtmp)"
 		-DAUDIO_BACKEND="${audiobackends}"
 		-DPLUGIN_DIRECTORY="${EPREFIX}"/usr/$(get_libdir)/${PN}/plugins
+		-DCMAKE_BUILD_TYPE=Release
 	)
 
 	cmake-utils_src_configure
