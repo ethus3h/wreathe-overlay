@@ -13,7 +13,8 @@ EGIT_REPO_URI="git://github.com/ethus3h/crystallise.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 -*"
-RDEPEND="app-misc/wreathe-base"
+RDEPEND="app-misc/wreathe-base
+    dev-python/internetarchive::wreathe-overlay"
 
 src_install() {
     exeinto /usr/bin/
