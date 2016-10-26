@@ -16,3 +16,5 @@ compiz (colorfilter) - Info: Loading filter nightmode (item /usr/share/compiz/fi
 /usr/share/themes/MurrinaCandy/gtk-2.0/gtkrc:46: Murrine configuration option "scrollbar_color" is no longer supported and will be ignored.
 Failed to open BO for returned DRI2 buffer (754x193, dri2 back buffer, named 69).
 This is likely a bug in the X Server that will lead to a crash soon.
+/usr/share/themes/MurrinaCandy/gtk-2.0/gtkrc:46: Murrine configuration option "scrollbar_color" is no longer supported and will be ignored.
+/usr/share/themes/MurrinaCandy/gtk-2.0/gtkrc:46: Murrine configuration option "scrollbar_color" is no longer supported and will be ignored.
