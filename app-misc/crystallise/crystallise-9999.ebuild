@@ -14,7 +14,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND="app-misc/wreathe-base
-    dev-python/internetarchive::wreathe-overlay"
+    dev-python/internetarchive"
 
 src_install() {
     exeinto /usr/bin/
