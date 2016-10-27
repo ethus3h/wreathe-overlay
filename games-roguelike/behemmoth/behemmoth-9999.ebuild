@@ -13,7 +13,8 @@ EGIT_REPO_URI="git://github.com/ethus3h/BeHeMMOth.git"
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
-RDEPEND="|| ( www-plugins/gnash[nsplugin] www-plugins/lightspark[nsplugin] )
+#It doesn't seem to work with gnash, sadly.
+RDEPEND="www-plugins/lightspark
     dev-lang/mono
     dev-lang/perl
     www-servers/apache
