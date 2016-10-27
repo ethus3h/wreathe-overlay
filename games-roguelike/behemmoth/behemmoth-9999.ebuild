@@ -14,7 +14,12 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND="www-plugins/gnash
-    dev-lang/mono"
+    dev-lang/mono
+    dev-lang/perl
+    www-servers/apache
+    dev-lang/php
+    virtual/mysql
+    dev-db/phpmyadmin"
 DEPEND="${RDEPEND}"
 
 src_install() {
