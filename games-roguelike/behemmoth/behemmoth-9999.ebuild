@@ -14,8 +14,8 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
 #It doesn't seem to work with gnash, sadly.
-RDEPEND="www-plugins/lightspark
-    dev-lang/mono
+#Instead, it should depend on www-plugins/lightspark, once I can get it to build.
+RDEPEND="dev-lang/mono
     dev-lang/perl
     www-servers/apache
     dev-lang/php
