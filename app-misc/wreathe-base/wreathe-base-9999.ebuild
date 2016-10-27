@@ -20,7 +20,8 @@ app-misc/wreathe-office-resources
 app-misc/crystallise
 app-misc/futuramerlin-web-toolkit
 app-misc/wreathe-media-resources
-x11-plugins/compiz-extra-snowflake-textures"
+x11-plugins/compiz-extra-snowflake-textures
+games-roguelike/behemmoth"
 
 src_install() {
     insinto /
