@@ -22,12 +22,3 @@ RDEPEND="dev-lang/mono
     virtual/mysql
     dev-db/phpmyadmin"
 DEPEND="${RDEPEND}"
-
-src_install() {
-    insinto /Wreathe/Apps/BeHeMMOth/
-    GLOBIGNORE="README.md:.git"
-    doins -r *
-    unset GLOBIGNORE
-    exeinto /usr/bin/
-    doexe behemmoth_client behemmoth_server
-}
