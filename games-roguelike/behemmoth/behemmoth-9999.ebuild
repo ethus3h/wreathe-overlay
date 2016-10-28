@@ -22,9 +22,3 @@ RDEPEND="dev-lang/mono
     virtual/mysql
     dev-db/phpmyadmin"
 DEPEND="${RDEPEND}"
-
-pkg_preinst() {
-    addwrite /usr/share/games/BeHeMMOth
-    addwrite /usr/bin/behemmoth_client
-    addwrite /usr/bin/behemmoth_server
-}
