@@ -27,5 +27,5 @@ RDEPEND="dev-lang/mono
     dev-java/ini4j:0"
 DEPEND="${RDEPEND}"
 
-JAVA_SRC_DIR="engine/Client Updater/Omod"
-JAVA_GENTOO_CLASSPATH="commons-io:1,ini4j:0,launch4j:0"
+JAVA_SRC_DIR="engine/Client\ Updater/Omod"
+JAVA_GENTOO_CLASSPATH="commons-io:1,ini4j"
