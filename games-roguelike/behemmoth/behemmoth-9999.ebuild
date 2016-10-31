@@ -4,7 +4,7 @@
 
 EAPI="6"
 
-inherit git-r3
+inherit git-r3 java-pkg-2
 
 DESCRIPTION="BeHeMMOth bullet hell MMO game"
 HOMEPAGE="https://futuramerlin.com/"
@@ -21,5 +21,11 @@ RDEPEND="dev-lang/mono
     dev-lang/php
     virtual/mysql
     dev-db/phpmyadmin
-    dev-java/launch4j"
+    virtual/jdk
+    dev-java/commons-io:1
+    dev-java/ini4j:0
+    dev-java/launch4j:0"
 DEPEND="${RDEPEND}"
+
+JAVA_SRC_DIR="engine/Client Updater/Omod"
+JAVA_GENTOO_CLASSPATH="commons-io:1,ini4j:0,launch4j:0"
