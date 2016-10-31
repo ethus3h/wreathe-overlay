@@ -23,6 +23,7 @@ RDEPEND="dev-lang/mono
     dev-lang/php[cgi]
     virtual/mysql
     dev-db/phpmyadmin
+    net-misc/rsync
     >=virtual/jdk-1.8.0
     dev-java/commons-io:1
     dev-java/ini4j:0"
