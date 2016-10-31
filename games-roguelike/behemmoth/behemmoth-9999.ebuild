@@ -4,7 +4,7 @@
 
 EAPI="6"
 
-inherit git-r3 java-pkg-2
+inherit git-r3 java-pkg-2 java-pkg-simple
 
 DESCRIPTION="BeHeMMOth bullet hell MMO game"
 HOMEPAGE="https://futuramerlin.com/"
