@@ -22,7 +22,7 @@ RDEPEND="dev-lang/mono
     dev-lang/php
     virtual/mysql
     dev-db/phpmyadmin
-    virtual/jdk
+    >=virtual/jdk-1.8.0
     dev-java/commons-io:1
     dev-java/ini4j:0"
 DEPEND="${RDEPEND}"
