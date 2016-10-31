@@ -27,3 +27,8 @@ src_prepare() {
 src_compile() {
     ./gradlew build
 }
+
+src_install() {
+    insinto /usr/share/${PN}-${SLOT}/lib/
+    doins -r *
+}
