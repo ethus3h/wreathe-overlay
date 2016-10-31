@@ -15,6 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 -*"
 #It doesn't seem to work with gnash, sadly.
 #Instead, it should depend on www-plugins/lightspark, once I can get it to build.
+#Also, it should depend on and use dev-java/launch4j:0, but I haven't gotten that to build either.
 RDEPEND="dev-lang/mono
     dev-lang/perl
     www-servers/apache
@@ -23,8 +24,7 @@ RDEPEND="dev-lang/mono
     dev-db/phpmyadmin
     virtual/jdk
     dev-java/commons-io:1
-    dev-java/ini4j:0
-    dev-java/launch4j:0"
+    dev-java/ini4j:0"
 DEPEND="${RDEPEND}"
 
 JAVA_SRC_DIR="engine/Client Updater/Omod"
