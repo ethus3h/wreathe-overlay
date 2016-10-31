@@ -19,7 +19,8 @@ KEYWORDS="~amd64 -*"
 RDEPEND="dev-lang/mono
     dev-lang/perl
     www-servers/apache
-    dev-lang/php
+    www-apache/mod_fcgid
+    dev-lang/php[cgi]
     virtual/mysql
     dev-db/phpmyadmin
     >=virtual/jdk-1.8.0
