@@ -26,7 +26,7 @@ games-roguelike/behemmoth"
 src_install() {
     insinto /
     GLOBIGNORE="README.md:.git:usr"
-    doins -r *
+    doins -r ./*
     insinto /usr/
     GLOBIGNORE="bin"
     doins -r usr/*
@@ -35,4 +35,8 @@ src_install() {
     doexe usr/bin/*
     # Provide gmcs as an alias for the mcs compiler for Mono
     dosym /usr/bin/mcs /usr/bin/gmcs
+    # Make php-cgi command available
+    phpfile=$(file /usr/bin/php)
+    cgifile="$(echo -n "$phpfile" | sed 's/\/usr\/bin\/php: symbolic link to \/(.+)\/php([\d\.]+)\/bin\/php//\1/php\2/php-cgi/g')"
+    dosym /usr/bin/php-cgi "$cgifile"
 }
