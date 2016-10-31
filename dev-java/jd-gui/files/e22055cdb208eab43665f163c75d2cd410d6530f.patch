@@ -1,0 +1,40 @@
+From e22055cdb208eab43665f163c75d2cd410d6530f Mon Sep 17 00:00:00 2001
+From: BrunoDM2943 <bdm2943@gmail.com>
+Date: Thu, 13 Oct 2016 20:13:35 -0300
+Subject: [PATCH] #150 Close About Dialog with ESC
+
+I have add some line to close the about dialog to close with ESC key
+---
+ app/src/main/groovy/org/jd/gui/view/MainDescription.groovy | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/app/src/main/groovy/org/jd/gui/view/MainDescription.groovy b/app/src/main/groovy/org/jd/gui/view/MainDescription.groovy
+index dca73aa..38afe94 100644
+--- a/app/src/main/groovy/org/jd/gui/view/MainDescription.groovy
++++ b/app/src/main/groovy/org/jd/gui/view/MainDescription.groovy
+@@ -6,6 +6,8 @@
+ package org.jd.gui.view
+ 
+ import javax.swing.BorderFactory
++import javax.swing.JComponent
++import javax.swing.KeyStroke
+ import javax.swing.UIManager
+ import java.awt.BorderLayout
+ import java.awt.Color
+@@ -19,6 +21,7 @@ import javax.swing.WindowConstants
+ import org.jd.gui.Constants
+ import org.jd.gui.service.platform.PlatformService
+ 
++import java.awt.event.KeyEvent
+ import java.util.jar.Manifest
+ 
+ actions {
+@@ -144,6 +147,8 @@ actions {
+         closure:{
+             aboutDialog.pack()
+             aboutDialog.setLocationRelativeTo(mainFrame)
++            aboutDialog.getRootPane().getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), 'AboutDialog.cancel')
++            aboutDialog.getRootPane().getActionMap().put("AboutDialog.cancel", aboutOkAction)
+             aboutDialog.visible = true
+         }
+ 	)

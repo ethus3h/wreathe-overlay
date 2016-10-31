@@ -20,5 +20,6 @@ RDEPEND="dev-lang/mono
     www-servers/apache
     dev-lang/php
     virtual/mysql
-    dev-db/phpmyadmin"
+    dev-db/phpmyadmin
+    dev-java/launch4j"
 DEPEND="${RDEPEND}"

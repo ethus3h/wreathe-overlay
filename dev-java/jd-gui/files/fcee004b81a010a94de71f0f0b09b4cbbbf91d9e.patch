@@ -1,0 +1,53 @@
+From fcee004b81a010a94de71f0f0b09b4cbbbf91d9e Mon Sep 17 00:00:00 2001
+From: davidepastore <pasdavide@gmail.com>
+Date: Sat, 17 Oct 2015 18:24:38 +0200
+Subject: [PATCH] Add "close on middle mouse click on the tab" support
+
+---
+ .../org/jd/gui/view/component/panel/TabbedPanel.groovy       | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/app/src/main/groovy/org/jd/gui/view/component/panel/TabbedPanel.groovy b/app/src/main/groovy/org/jd/gui/view/component/panel/TabbedPanel.groovy
+index 6d8a8b8..1b7a945 100644
+--- a/app/src/main/groovy/org/jd/gui/view/component/panel/TabbedPanel.groovy
++++ b/app/src/main/groovy/org/jd/gui/view/component/panel/TabbedPanel.groovy
+@@ -15,6 +15,7 @@ import javax.swing.JComponent
+ import javax.swing.JMenu
+ import javax.swing.JMenuItem
+ import javax.swing.JPopupMenu
++import javax.swing.SwingUtilities
+ import javax.swing.ToolTipManager
+ import javax.swing.event.ChangeEvent
+ import java.awt.BorderLayout
+@@ -31,7 +32,6 @@ import javax.swing.ImageIcon
+ import javax.swing.JLabel
+ import javax.swing.JPanel
+ import javax.swing.JTabbedPane
+-import java.awt.event.MouseAdapter
+ import java.awt.event.MouseEvent
+ import java.awt.event.MouseListener
+ 
+@@ -70,7 +70,7 @@ class TabbedPanel extends JPanel implements PreferencesChangeListener {
+             }
+         }
+         ToolTipManager.sharedInstance().registerComponent(tabPanel)
+-        tabPanel.addMouseListener(new MouseAdapter() {
++        tabPanel.addMouseListener(new MouseListener() {
+             void mousePressed(MouseEvent e) { showPopupTabMenu(e) }
+             void mouseReleased(MouseEvent e) { showPopupTabMenu(e) }
+             void showPopupTabMenu(MouseEvent e) {
+@@ -81,6 +81,14 @@ class TabbedPanel extends JPanel implements PreferencesChangeListener {
+                     }
+                 }
+             }
++            void mouseEntered(MouseEvent e) {}
++            void mouseExited(MouseEvent e) {}
++            void mouseClicked(MouseEvent e) {
++                int index = tabPanel.indexAtLocation(e.x, e.y)
++                if (index != -1 && SwingUtilities.isMiddleMouseButton(e)) {
++                    removeComponent(tabPanel.getComponentAt(index))
++                }
++            }
+         })
+         return tabPanel
+ 	}
