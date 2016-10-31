@@ -24,6 +24,7 @@ RDEPEND="dev-lang/mono
     virtual/mysql
     dev-db/phpmyadmin
     net-misc/rsync
+    sys-apps/moreutils
     >=virtual/jdk-1.8.0
     dev-java/commons-io:1
     dev-java/ini4j:0"
