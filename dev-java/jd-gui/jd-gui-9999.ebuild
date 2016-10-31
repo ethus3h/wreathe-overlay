@@ -9,11 +9,12 @@ inherit eutils git-r3
 DESCRIPTION="JD-GUI, a standalone graphical utility that displays Java sources from CLASS files."
 HOMEPAGE="http://jd.benow.ca/"
 EGIT_REPO_URI="git://github.com/nx111/jd-gui.git"
-
+#FIXME This app's buildsystem needs an Internet connection to download binaries!
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND="virtual/jdk"
+
 DEPEND="${RDEPEND}"
 
 src_prepare() {
