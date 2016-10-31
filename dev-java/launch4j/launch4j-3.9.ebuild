@@ -4,7 +4,7 @@
 
 EAPI="6"
 
-inherit java-ant-2
+inherit java-pkg-2 java-ant-2
 
 DESCRIPTION="Cross-platform Java executable wrapper"
 HOMEPAGE="http://jd.benow.ca/"
