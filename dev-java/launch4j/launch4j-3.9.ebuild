@@ -14,3 +14,5 @@ SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND="virtual/jdk"
 DEPEND="${RDEPEND}"
+
+S="${WORKDIR}/${PN}-git-46ea4b931f1760c9ece3ac418a5073d4336f2e3a"
