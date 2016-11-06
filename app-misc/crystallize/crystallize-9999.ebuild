@@ -6,9 +6,9 @@ EAPI="6"
 
 inherit git-r3
 
-DESCRIPTION="Crystallise"
+DESCRIPTION="Crystallize"
 HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="git://github.com/ethus3h/crystallise.git"
+EGIT_REPO_URI="git://github.com/ethus3h/crystallize.git"
 
 LICENSE="GPL-2"
 SLOT="0"
