@@ -15,10 +15,3 @@ SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND="app-misc/wreathe-base
     dev-python/internetarchive"
-
-src_install() {
-    exeinto /usr/local/bin/
-    GLOBIGNORE="README.md:.git"
-    doexe *
-    unset GLOBIGNORE
-}
