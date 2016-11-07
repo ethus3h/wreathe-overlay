@@ -4,11 +4,11 @@
 
 EAPI=6
 
-inherit autotools git-r3
+inherit autotools
 
 DESCRIPTION="FUSE-based single file backing store via Amazon S3"
 HOMEPAGE="https://github.com/archiecobbs/s3backer"
-EGIT_REPO_URI="https://github.com/archiecobbs/s3backer.git"
+SRC_URI="https://s3backer.googlecode.com/files/s3backer-${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
