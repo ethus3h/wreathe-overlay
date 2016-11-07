@@ -15,3 +15,11 @@ SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND="app-misc/wreathe-base
     dev-python/internetarchive"
+
+pkg_preinst() {
+    #Remove the temporary install prefix from scripts where it has been copied
+    tempdir="${D}"
+    export tempdir
+    tempdirEsc="$(perl -0777 -e 'print(quotemeta($ENV{tempdir}))')"
+    find tempdir -exec perl -0777 -p -i -e "s/$tempdirEsc//g" {} \;
+}

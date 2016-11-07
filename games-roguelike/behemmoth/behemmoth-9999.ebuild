@@ -32,3 +32,11 @@ DEPEND="${RDEPEND}"
 
 #JAVA_SRC_DIR="engine/Client Updater/Omod"
 #JAVA_GENTOO_CLASSPATH="commons-io:1,ini4j"
+
+pkg_preinst() {
+    #Remove the temporary install prefix from scripts where it has been copied
+    tempdir="${D}"
+    export tempdir
+    tempdirEsc="$(perl -0777 -e 'print(quotemeta($ENV{tempdir}))')"
+    find tempdir -name "behemmoth_server" -or -name "behemmoth_client" -exec perl -0777 -p -i -e "s/$tempdirEsc//g" {} \;
+}
