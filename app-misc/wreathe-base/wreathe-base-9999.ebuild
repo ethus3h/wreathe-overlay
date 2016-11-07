@@ -33,7 +33,7 @@ src_install() {
     unset GLOBIGNORE
     exeinto /usr/bin/
     doexe usr/bin/*
-    doman man/*
+    doman man/man1/*
     # Provide gmcs as an alias for the mcs compiler for Mono
     dosym /usr/bin/mcs /usr/bin/gmcs
     # Make php-cgi command available
