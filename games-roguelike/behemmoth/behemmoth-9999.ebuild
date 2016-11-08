@@ -38,5 +38,5 @@ pkg_preinst() {
     tempdir="${D}"
     export tempdir
     tempdirEsc="$(perl -0777 -e 'print(quotemeta($ENV{tempdir}))')"
-    find "$tempdir" -name "behemmoth_server" -or -name "behemmoth_client" -exec perl -0777 -p -i -e "s/$tempdirEsc\/usr\/local/\/usr\//g" {} \;
+    find "$tempdir" -name "behemmoth_server" -or -name "behemmoth_client" -exec perl -0777 -p -i -e "s/$tempdirEsc/\//g" {} \;
 }
