@@ -21,5 +21,5 @@ pkg_preinst() {
     tempdir="${D}"
     export tempdir
     tempdirEsc="$(perl -0777 -e 'print(quotemeta($ENV{tempdir}))')"
-    find "$tempdir" -exec perl -0777 -p -i -e "s/$tempdirEsc//g" {} \;
+    find "$tempdir" -type f -exec perl -0777 -p -i -e "s/$tempdirEsc//g" {} \;
 }
