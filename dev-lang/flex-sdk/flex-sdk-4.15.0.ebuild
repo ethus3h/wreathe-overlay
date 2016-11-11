@@ -57,7 +57,6 @@ java_prepare() {
 
     ewarn It is possible that compile-time MXML error
     ewarn reporting and component debugging may not give correct line numbers.
-    fi
 
 	rm * || die
 
