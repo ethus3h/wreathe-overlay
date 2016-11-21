@@ -29,6 +29,8 @@ RDEPEND="dev-lang/mono
     dev-java/commons-io:1
     dev-java/ini4j:0"
 DEPEND="${RDEPEND}"
+#    dev-misc/flex-sdk-4.9.1
+#    dev-misc/air-sdk-15
 
 #JAVA_SRC_DIR="engine/Client Updater/Omod"
 #JAVA_GENTOO_CLASSPATH="commons-io:1,ini4j"
