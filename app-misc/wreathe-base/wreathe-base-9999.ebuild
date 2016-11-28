@@ -15,6 +15,11 @@ SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND=""
 
+src_prepare() {
+    epatch_user
+    
+}
+
 src_install() {
     insinto /
     GLOBIGNORE="README.md:.git:usr:man"
