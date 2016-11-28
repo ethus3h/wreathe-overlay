@@ -4,7 +4,8 @@
 
 EAPI=6
 
-inherit git-r3
+AUTOTOOLS_AUTORECONF=1
+inherit autotools-utils git-r3
 
 DESCRIPTION="Expanded md5sum program with recursive and comparison options"
 HOMEPAGE="http://md5deep.sourceforge.net/"
