@@ -17,7 +17,10 @@ RDEPEND=""
 
 src_prepare() {
     epatch_user
-    
+    (
+        cd var/lib/layman
+        tar xvJ -f git.pax.xz
+    )
 }
 
 src_install() {
