@@ -16,7 +16,7 @@ KEYWORDS="~amd64 -*"
 RDEPEND=""
 
 src_prepare() {
-    epatch_user
+    eapply_user
     (
         cd var/lib/layman
         tar xvJ -f git.pax.xz
