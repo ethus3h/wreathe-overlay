@@ -6,11 +6,11 @@ EAPI=6
 
 DESCRIPTION="Expanded md5sum program with recursive and comparison options"
 HOMEPAGE="http://md5deep.sourceforge.net/"
-SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
+EGIT_REPO_URI="git://github.com/jessek/hashdeep.git"
 
 LICENSE="public-domain GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ~mips ppc ~ppc64 x86 ~amd64-linux ~x86-linux ~ppc-macos"
+KEYWORDS="~amd64 ~arm ~mips ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux ~ppc-macos"
 IUSE=""
 RESTRICT="test"
 
