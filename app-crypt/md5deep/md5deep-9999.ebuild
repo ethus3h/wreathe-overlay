@@ -17,3 +17,7 @@ IUSE=""
 RESTRICT="test"
 
 DOCS="AUTHORS ChangeLog FILEFORMAT NEWS README TODO"
+
+src_prepare() {
+	eautoreconf
+}
