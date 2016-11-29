@@ -22,11 +22,12 @@ src_prepare() {
         tar xvJ -f git.pax.xz
         rm git.pax.xz
     )
+    rm -r boot.disabled
 }
 
 src_install() {
     insinto /
-    GLOBIGNORE="README.md:.git:usr:man:boot.disabled"
+    GLOBIGNORE="README.md:.git:usr:man"
     doins -r ./*
     insinto /usr/
     GLOBIGNORE="bin"
