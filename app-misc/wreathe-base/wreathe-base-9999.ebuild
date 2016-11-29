@@ -20,12 +20,13 @@ src_prepare() {
     (
         cd var/lib/layman
         tar xvJ -f git.pax.xz
+        rm git.pax.xz
     )
 }
 
 src_install() {
     insinto /
-    GLOBIGNORE="README.md:.git:usr:man:git.pax.xz"
+    GLOBIGNORE="README.md:.git:usr:man"
     doins -r ./*
     insinto /usr/
     GLOBIGNORE="bin"
