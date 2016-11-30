@@ -18,6 +18,9 @@ RDEPEND=""
 src_prepare() {
     eapply_user
     rm -r boot.disabled
+    git checkout master
+    git reset --hard
+    git remote -v origin
 }
 
 src_install() {
