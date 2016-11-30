@@ -18,9 +18,14 @@ RDEPEND=""
 src_prepare() {
     eapply_user
     rm -r boot.disabled
-    git checkout master
-    git reset --hard
-    git remote -v origin
+    (
+        cd var/lib/layman
+        git checkout master
+        git reset --hard
+        git remote -v origin
+        here="${PWD##*/}"
+        line=grep $here 
+    )
 }
 
 src_install() {
