@@ -22,7 +22,7 @@ src_prepare() {
 
 src_install() {
     insinto /
-    GLOBIGNORE="README.md:.git:usr:man"
+    GLOBIGNORE="README.md:usr:man"
     doins -r ./*
     insinto /usr/
     GLOBIGNORE="bin"
