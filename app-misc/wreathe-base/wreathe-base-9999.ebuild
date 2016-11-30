@@ -17,11 +17,6 @@ RDEPEND=""
 
 src_prepare() {
     eapply_user
-    (
-        cd var/lib/layman
-        tar xvJ -f git.pax.xz
-        rm git.pax.xz
-    )
     rm -r boot.disabled
 }
 
