@@ -14,6 +14,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 -*"
 
+#TODO make this actually compile the gentoo-sources
 src_install() {
     insinto /usr/src/linux/
     GLOBIGNORE="README.md:.git"
