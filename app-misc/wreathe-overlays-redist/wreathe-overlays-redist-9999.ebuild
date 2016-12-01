@@ -18,11 +18,11 @@ DEPEND="dev-vcs/git"
 src_prepare() {
     eapply_user
     (
-        cd var/lib/layman || exit
+        cd var/lib/layman || exit 1
         for dir in *; do
             if [ -d "${dir}" ]; then
                 (
-                    cd "${dir}" || exit
+                    cd "${dir}" || exit 1
                     here="${PWD##*/}"
                     line="$(grep -A 1 -P -e "path = var/lib/layman/$here" ../../../../.gitmodules | tail -1)"
                     url="${line:7}"
