@@ -20,10 +20,10 @@ src_prepare() {
     rm -r boot.disabled
     (
         cd var/lib/layman || exit
-        for D in *; do
-            if [ -d "${D}" ]; then
+        for dir in *; do
+            if [ -d "${dir}" ]; then
                 (
-                    cd "${D}" || exit
+                    cd "${dir}" || exit
                     here="${PWD##*/}"
                     line="$(grep -A 1 -P -e "path = var/lib/layman/$here" ../../../../.gitmodules | tail -1)"
                     url="${line:7}"
