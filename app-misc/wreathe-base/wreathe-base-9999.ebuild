@@ -17,6 +17,7 @@ RDEPEND=""
 
 src_prepare() {
     eapply_user
+    echo "yo"
     rm -rv boot.disabled
     (
         cd var/lib/layman || exit
