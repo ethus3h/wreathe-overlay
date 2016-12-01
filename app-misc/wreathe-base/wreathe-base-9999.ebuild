@@ -14,35 +14,17 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND="dev-vcs/git"
+DEPEND="app-misc/wreathe-overlays
+    ${RDEPEND}"
 
 src_prepare() {
     eapply_user
-    (
-        cd var/lib/layman || exit
-        for dir in *; do
-            if [ -d "${dir}" ]; then
-                (
-                    cd "${dir}" || exit
-                    here="${PWD##*/}"
-                    line="$(grep -A 1 -P -e "path = var/lib/layman/$here" ../../../../.gitmodules | tail -1)"
-                    url="${line:7}"
-                    git checkout master
-                    git reset --hard
-                    echo "Adding origin URL: $url"
-                    git remote add origin "$url"
-                    git fetch
-                    git branch --set-upstream-to=origin/master master
-                    git pull
-                )
-            fi
-        done
-    )
     rm -rv boot.disabled
 }
 
 src_install() {
     insinto /
-    GLOBIGNORE="README.md:usr:man"
+    GLOBIGNORE="README.md:.git:usr:man"
     doins -r ./*
     insinto /usr/
     GLOBIGNORE="bin"

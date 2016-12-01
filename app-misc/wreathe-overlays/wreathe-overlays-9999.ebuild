@@ -8,8 +8,7 @@ inherit git-r3
 
 DESCRIPTION="Wreathe overlays"
 HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="git://github.com/ethus3h/wreathe.git"
-EGIT_BRANCH="overlays"
+EGIT_REPO_URI="git://github.com/ethus3h/wreathe-overlays-redist.git"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -41,7 +40,7 @@ src_prepare() {
 }
 
 src_install() {
-    insinto /
+    insinto /var/lib/layman/
     GLOBIGNORE="README.md"
     doins -r ./*
 }
