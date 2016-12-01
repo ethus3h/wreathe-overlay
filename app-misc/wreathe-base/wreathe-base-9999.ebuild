@@ -19,14 +19,14 @@ src_prepare() {
     eapply_user
     rm -r boot.disabled
     (
-        cd var/lib/layman
+        cd var/lib/layman || exit
         for D in *; do
             if [ -d "${D}" ]; then
                 (
-                    cd "${D}"
+                    cd "${D}" || exit
                     here="${PWD##*/}"
-                    line="$(awk \'/$here/{getline; print}\' ../../../../.gitmodules | head -1)"
-                    url="${line/        url = /}"
+                    line="$(grep -A 1 -P -e "path = var/lib/layman/$here" ../../../../.gitmodules | tail -1)"
+                    url="${line:7}"
                     git checkout master
                     git reset --hard
                     git remote add origin "$url"
