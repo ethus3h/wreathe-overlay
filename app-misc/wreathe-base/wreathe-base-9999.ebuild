@@ -17,8 +17,6 @@ RDEPEND=""
 
 src_prepare() {
     eapply_user
-    echo "yo"
-    rm -rv boot.disabled
     (
         cd var/lib/layman || exit
         for dir in *; do
@@ -39,6 +37,7 @@ src_prepare() {
             fi
         done
     )
+    rm -rv boot.disabled
 }
 
 src_install() {
