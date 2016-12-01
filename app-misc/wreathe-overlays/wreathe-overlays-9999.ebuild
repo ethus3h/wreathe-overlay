@@ -6,9 +6,10 @@ EAPI="6"
 
 inherit git-r3
 
-DESCRIPTION="Wreathe"
+DESCRIPTION="Wreathe overlays"
 HOMEPAGE="https://futuramerlin.com/"
 EGIT_REPO_URI="git://github.com/ethus3h/wreathe.git"
+EGIT_BRANCH="overlays"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -37,24 +38,10 @@ src_prepare() {
             fi
         done
     )
-    rm -rv boot.disabled
 }
 
 src_install() {
     insinto /
-    GLOBIGNORE="README.md:usr:man"
+    GLOBIGNORE="README.md"
     doins -r ./*
-    insinto /usr/
-    GLOBIGNORE="bin"
-    doins -r usr/*
-    unset GLOBIGNORE
-    exeinto /usr/bin/
-    doexe usr/bin/*
-    doman man/*
-    # Provide gmcs as an alias for the mcs compiler for Mono
-    dosym /usr/bin/mcs /usr/bin/gmcs
-    # Make php-cgi command available
-    phpfile=$(file /usr/bin/php)
-    cgifile="$(echo -n "$phpfile" | sed 's/\/usr\/bin\/php: symbolic link to \/(.+)\/php([\d\.]+)\/bin\/php/\/\1\/php\2\/php-cgi/g')"
-    dosym /usr/bin/php-cgi "$cgifile"
 }
