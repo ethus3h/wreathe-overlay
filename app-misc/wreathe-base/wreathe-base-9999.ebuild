@@ -29,7 +29,9 @@ src_prepare() {
                     url="${line:7}"
                     git checkout master
                     git reset --hard
+                    echo "Adding origin URL: $url"
                     git remote add origin "$url"
+                    sleep 1
                     git branch --set-upstream-to=origin/master master
                 )
             fi
