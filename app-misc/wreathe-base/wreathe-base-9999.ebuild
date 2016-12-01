@@ -31,6 +31,7 @@ src_prepare() {
                     git reset --hard
                     git remote add origin "$url"
                     git branch -u origin/master
+                    git branch --set-upstream-to=origin/master master
                 )
             fi
         done
