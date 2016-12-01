@@ -20,14 +20,17 @@ src_prepare() {
     rm -r boot.disabled
     (
         cd var/lib/layman
-        
-        here="${PWD##*/}"
-        line="$(awk \'/$here/{getline; print}\' ../../../../.gitmodules | head -1)"
-        url="${line/        url = /}"
-        git checkout master
-        git reset --hard
-        git remote add origin "$url"
-        git branch -u origin/master
+        for D in *; do
+            if [ -d "${D}" ]; then
+                here="${PWD##*/}"
+                line="$(awk \'/$here/{getline; print}\' ../../../../.gitmodules | head -1)"
+                url="${line/        url = /}"
+                git checkout master
+                git reset --hard
+                git remote add origin "$url"
+                git branch -u origin/master
+            fi
+        done
     )
 }
 
