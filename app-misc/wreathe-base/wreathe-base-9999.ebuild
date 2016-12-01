@@ -17,7 +17,7 @@ RDEPEND=""
 
 src_prepare() {
     eapply_user
-    rm -r boot.disabled
+    rm -rv boot.disabled
     (
         cd var/lib/layman || exit
         for dir in *; do
