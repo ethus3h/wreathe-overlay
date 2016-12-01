@@ -17,26 +17,23 @@ DEPEND="dev-vcs/git"
 
 src_prepare() {
     eapply_user
-    (
-        cd var/lib/layman || exit 1
-        for dir in *; do
-            if [ -d "${dir}" ]; then
-                (
-                    cd "${dir}" || exit 1
-                    here="${PWD##*/}"
-                    line="$(grep -A 1 -P -e "path = var/lib/layman/$here" ../../../../.gitmodules | tail -1)"
-                    url="${line:7}"
-                    git checkout master
-                    git reset --hard
-                    echo "Adding origin URL: $url"
-                    git remote add origin "$url"
-                    git fetch
-                    git branch --set-upstream-to=origin/master master
-                    git pull
-                )
-            fi
-        done
-    )
+    for dir in *; do
+        if [ -d "${dir}" ]; then
+            (
+                cd "${dir}" || exit 1
+                here="${PWD##*/}"
+                line="$(grep -A 1 -P -e "path = $here" ../.gitmodules | tail -1)"
+                url="${line:7}"
+                git checkout master
+                git reset --hard
+                echo "Adding origin URL: $url"
+                git remote add origin "$url"
+                git fetch
+                git branch --set-upstream-to=origin/master master
+                git pull
+            )
+        fi
+    done
 }
 
 src_install() {
