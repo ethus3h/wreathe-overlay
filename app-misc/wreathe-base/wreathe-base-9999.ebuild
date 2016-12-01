@@ -24,7 +24,8 @@ src_prepare() {
         git reset --hard
         git remote -v origin
         here="${PWD##*/}"
-        line=grep $here 
+        line="$(awk \'/$here/{getline; print}\' ../../../../.gitmodules | head -1)"
+        line="        url = "
     )
 }
 
