@@ -12,7 +12,7 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND="app-misc/wreathe-base
-app-misc/wreathe-overlays
+app-misc/wreathe-overlays-redist
 app-misc/wreathe-backgrounds
 app-misc/wreathe-typefaces-redist
 app-misc/wreathe-typeface-family
