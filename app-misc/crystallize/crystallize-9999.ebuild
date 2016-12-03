@@ -25,20 +25,20 @@ pkg_preinst() {
 }
 
 src_install() {
-	if [[ -f Makefile ]] || [[ -f GNUmakefile]] || [[ -f makefile ]] ; then
-		emake DESTDIR="${D}" install
-	fi
+    if [[ -f Makefile || -f GNUmakefile || -f makefile ]] ; then
+        emake DESTDIR="${D}" install
+    fi
 
-	if ! declare -p DOCS >/dev/null 2>&1 ; then
-		local d
-		for d in README* ChangeLog AUTHORS NEWS TODO CHANGES THANKS BUGS \
-				FAQ CREDITS CHANGELOG ; do
-			[[ -s "${d}" ]] && dodoc "${d}"
-		done
-	elif declare -p DOCS | grep -q "^declare -a " ; then
-		dodoc "${DOCS[@]}"
-	else
-		dodoc ${DOCS}
-	fi
+    if ! declare -p DOCS &>/dev/null ; then
+        local d
+        for d in README* ChangeLog AUTHORS NEWS TODO CHANGES \
+                THANKS BUGS FAQ CREDITS CHANGELOG ; do
+            [[ -s "${d}" ]] && dodoc "${d}"
+        done
+    elif [[ $(declare -p DOCS) == "declare -a "* ]] ; then
+        dodoc "${DOCS[@]}"
+    else
+        dodoc ${DOCS}
+    fi
     dodir /Ember\ Media\ Library/Futuramerlin\ Projects/Data/Crystal\ Index/
 }
