@@ -22,4 +22,4 @@ app-misc/futuramerlin-web-toolkit
 app-misc/wreathe-media-resources
 x11-plugins/compiz-extra-snowflake-textures
 games-roguelike/behemmoth"
-DEPEND="app-misc/wreathe-overlays"
+DEPEND="app-misc/wreathe-overlays-redist"
