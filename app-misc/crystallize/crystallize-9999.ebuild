@@ -14,7 +14,8 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND="app-misc/wreathe-base
-    dev-python/internetarchive"
+    dev-python/internetarchive
+    sys-fs/zfs"
 
 pkg_preinst() {
     #Remove the temporary install prefix from scripts where it has been copied
