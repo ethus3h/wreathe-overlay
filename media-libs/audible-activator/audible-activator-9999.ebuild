@@ -19,3 +19,13 @@ RDEPEND="dev-lang/python:2.7
     www-client/chromium
     www-apps/chromedriver"
 DEPEND="${RDEPEND}"
+
+src_install() {
+    insinto /usr/local/share/audible-activator/
+    GLOBIGNORE="README.md:LICENSE:.git:.gitignore:audible-activator.py"
+    doins -r *
+    unset GLOBIGNORE
+    exeinto /usr/local/share/audible-activator/
+    doexe audible-activator.py
+    dosym /usr/local/share/audible-activator/audible-activator.py /usr/local/bin/audible-activator.py
+}
