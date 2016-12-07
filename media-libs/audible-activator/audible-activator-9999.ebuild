@@ -13,11 +13,11 @@ EGIT_REPO_URI="git://github.com/inAudible-NG/audible-activator.git"
 LICENSE="GPL3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
+#www-client/chromium provides chromedriver
 RDEPEND="dev-lang/python:2.7
     dev-python/selenium
     dev-python/requests
-    www-client/chromium
-    www-apps/chromedriver"
+    www-client/chromium"
 DEPEND="${RDEPEND}"
 
 src_install() {
@@ -28,4 +28,5 @@ src_install() {
     exeinto /usr/local/share/audible-activator/
     doexe audible-activator.py
     dosym /usr/local/share/audible-activator/audible-activator.py /usr/local/bin/audible-activator.py
+    dosym /usr/local/share/audible-activator/chromedriver "$(which chromedriver)"
 }
