@@ -42,5 +42,7 @@ src_install() {
     else
         dodoc ${DOCS}
     fi
-    dodir /Ember\ Library/Futuramerlin\ Projects/Data/Crystal\ Index/
+    if [ ! -e /Ember\ Library ]; then
+        dodir /Ember\ Library/Futuramerlin\ Projects/Data/Crystal\ Index/
+    fi
 }
