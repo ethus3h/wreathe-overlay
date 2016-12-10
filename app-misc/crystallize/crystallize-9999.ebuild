@@ -16,7 +16,7 @@ KEYWORDS="~amd64 -*"
 RDEPEND="app-misc/wreathe-base
     dev-python/internetarchive
     sys-fs/zfs
-    sys-fs/avfs"
+    sys-apps/pv"
 
 pkg_preinst() {
     #Remove the temporary install prefix from scripts where it has been copied
