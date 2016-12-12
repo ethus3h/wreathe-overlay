@@ -20,7 +20,8 @@ RDEPEND="app-misc/wreathe-base
     dev-vcs/git
     app-crypt/md5deep
     net-misc/curl
-    net-misc/wget"
+    net-misc/wget
+    dev-python/awscli"
 
 pkg_preinst() {
     #Remove the temporary install prefix from scripts where it has been copied
