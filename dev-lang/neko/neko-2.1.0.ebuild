@@ -9,7 +9,7 @@ inherit eutils
 
 DESCRIPTION="Neko programming language compiler, virtual machine, and libraries."
 HOMEPAGE="http://nekovm.org/"
-SRC_URI="https://github.com/HaxeFoundation/${PN}/archive/v${PV}.tar.gz"
+SRC_URI="https://github.com/HaxeFoundation/${PN}/archive/v2-1-0.tar.gz"
 
 LICENSE="LGPL-2.1"
 SLOT="0"

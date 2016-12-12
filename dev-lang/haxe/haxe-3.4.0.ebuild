@@ -7,7 +7,7 @@ inherit eutils git
 
 DESCRIPTION="Haxe programming language"
 HOMEPAGE="http://haxe.org/"
-SRC_URI="https://github.com/HaxeFoundation/${PN}/archive/${PV}.tar.gz"
+SRC_URI="https://github.com/HaxeFoundation/${PN}/archive/${PV}-rc1.tar.gz"
 
 LICENSE="GPL-2 LGPL-2.1 BSD"
 SLOT="0"
