@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=6
-inherit eutils git
+inherit eutils
 
 DESCRIPTION="Haxe programming language"
 HOMEPAGE="http://haxe.org/"
@@ -27,6 +27,5 @@ src_prepare() {
 
 src_install() {
     default_src_install
-
     doenvd ${FILESDIR}/99haxe
 }
