@@ -5,14 +5,6 @@
 EAPI=6
 VIRTUALX_REQUIRED="pgo"
 WANT_AUTOCONF="2.1"
-MOZ_ESR=1
-
-# This list can be updated with scripts/get_langs.sh from the mozilla overlay
-MOZ_LANGS=( ach af an ar as ast az be bg bn-BD bn-IN br bs ca cs cy da de
-el en en-GB en-US en-ZA eo es-AR es-CL es-ES es-MX et eu fa fi fr
-fy-NL ga-IE gd gl gu-IN he hi-IN hr hsb hu hy-AM id is it ja kk km kn ko
-lt lv mai mk ml mr ms nb-NO nl nn-NO or pa-IN pl pt-BR pt-PT rm ro ru si
-sk sl son sq sr sv-SE ta te th tr uk uz vi xh zh-CN zh-TW )
 
 MOZ_HTTP_URI="https://archive.mozilla.org/pub/firefox/releases"
 
@@ -21,7 +13,7 @@ MOZ_HTTP_URI="https://archive.mozilla.org/pub/firefox/releases"
 MOZCONFIG_OPTIONAL_WIFI=1
 MOZCONFIG_OPTIONAL_JIT="enabled"
 
-inherit check-reqs flag-o-matic toolchain-funcs eutils gnome2-utils mozconfig-v6.45 pax-utils fdo-mime autotools virtualx mozlinguas-v2 git-r3
+inherit check-reqs flag-o-matic toolchain-funcs eutils gnome2-utils mozconfig-v6.45 pax-utils fdo-mime autotools virtualx git-r3
 
 DESCRIPTION="XULRunner"
 HOMEPAGE="https://developer.mozilla.org/en-US/docs/Archive/Mozilla/XULRunner"
@@ -32,12 +24,6 @@ SLOT="0"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 IUSE="bindist hardened +hwaccel pgo selinux +gmp-autoupdate test"
 RESTRICT="!bindist? ( bindist )"
-
-# More URIs appended below...
-SRC_URI="${SRC_URI}
-	https://dev.gentoo.org/~anarchy/mozilla/patchsets/${PATCH}.tar.xz
-	https://dev.gentoo.org/~axs/mozilla/patchsets/${PATCH}.tar.xz
-	https://dev.gentoo.org/~polynomial-c/mozilla/patchsets/${PATCH}.tar.xz"
 EGIT_REPO_URI="git://github.com/mozilla/gecko-dev.git"
 
 ASM_DEPEND=">=dev-lang/yasm-1.1"
@@ -80,9 +66,6 @@ pkg_pretend() {
 
 src_unpack() {
 	unpack ${A}
-
-	# Unpack language packs
-	mozlinguas_src_unpack
 }
 
 src_prepare() {
@@ -183,9 +166,6 @@ src_install() {
 
 	MOZ_MAKE_FLAGS="${MAKEOPTS}" \
 	emake DESTDIR="${D}" install
-
-	# Install language packs
-	mozlinguas_src_install
 }
 
 pkg_preinst() {
