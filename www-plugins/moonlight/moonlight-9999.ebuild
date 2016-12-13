@@ -10,7 +10,7 @@ inherit autotools eutils flag-o-matic linux-info mono multilib nsplugins pax-uti
 DESCRIPTION="Moonlight is an open source implementation of Silverlight"
 HOMEPAGE="http://www.go-mono.com/moonlight/"
 
-LIBGDIPLUS="libgdiplus-2.8.1"
+LIBGDIPLUS="2.8.1"
 GTKSHARP="gtk-sharp-2.12.10"
 
 LICENSE="BSD-4 GPL-2 GPL-2-with-linking-exception IDPL LGPL-2 MIT Ms-PL NPL-1.1"
@@ -20,8 +20,8 @@ IUSE="alsa +curl +debug hardened +nsplugin pulseaudio sdk test"
 RESTRICT="mirror"
 EGIT_REPO_URI="git://github.com/ethus3h/moon-1.git"
 
-SRC_URI="http://ftp.novell.com/pub/mono/sources/libgdiplus/${LIBGDIPLUS}.tar.bz2
-	http://ftp.novell.com/pub/mono/sources/gtk-sharp212/${GTKSHARP}.tar.bz2"
+SRC_URI="https://github.com/mono/libgdiplus/archive/2.8.1.tar.gz
+	http://web.archive.org/web/20111225065517/http://ftp.novell.com/pub/mono/sources/gtk-sharp212/${GTKSHARP}.tar.bz2"
 
 RDEPEND="
 	alsa? ( >=media-libs/alsa-lib-1.0.18 )
