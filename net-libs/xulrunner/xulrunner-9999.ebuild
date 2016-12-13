@@ -14,6 +14,8 @@ fy-NL ga-IE gd gl gu-IN he hi-IN hr hsb hu hy-AM id is it ja kk km kn ko
 lt lv mai mk ml mr ms nb-NO nl nn-NO or pa-IN pl pt-BR pt-PT rm ro ru si
 sk sl son sq sr sv-SE ta te th tr uk uz vi xh zh-CN zh-TW )
 
+MOZ_HTTP_URI="https://archive.mozilla.org/pub/firefox/releases"
+
 # Kill gtk3 support since gtk+-3.20 breaks it hard prior to 48.0
 #MOZCONFIG_OPTIONAL_GTK3=1
 MOZCONFIG_OPTIONAL_WIFI=1
