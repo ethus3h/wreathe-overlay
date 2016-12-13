@@ -69,20 +69,22 @@ src_unpack() {
 	unpack ${A}
 	cd "${WORKDIR}"
 	mv mono-moon* ${P}
-	epatch "${FILESDIR}/${P}_buildfixes.diff"
-	epatch "${FILESDIR}/${P}_firefox4.diff"
+	epatch "${FILESDIR}/moonlight-3.99.0.2_buildfixes.diff"
+	epatch "${FILESDIR}/moonlight-3.99.0.2_firefox4.diff"
 
+	#These next git repositories are now handled as submodules
+	
 	# Pull mono source to the right revision #
 	#git clone git://github.com/mono/mono.git mono
-	cd mono && git reset --hard 32b3b31f && cd ..
+	#cd mono && git reset --hard 32b3b31f && cd ..
 
 	# Pull mesa source for pixel shader support #
 	#git clone git://anongit.freedesktop.org/mesa/mesa
-	cd mesa && git reset --hard 3ed0a099c && cd ..
+	#cd mesa && git reset --hard 3ed0a099c && cd ..
 
 	# Pull mono-basic source to the right revision #
 	#git clone git://github.com/mono/mono-basic.git mono-basic
-	cd mono-basic && git reset --hard 2e6038e
+	#cd mono-basic && git reset --hard 2e6038e
 }
 
 src_prepare() {
