@@ -30,7 +30,7 @@ case ${PV} in
 	*)
 		# Use this variable to determine distribution method (live or tarball)
 		TARBALL="${MY_P}.tar.gz"
-		SRC_URI="mirror://sourceforge/virtuoso/${TARBALL} mirror://gentoo/VOS-genpatches-${PV}.tar.bz2"
+		SRC_URI="mirror://sourceforge/virtuoso/${TARBALL} http://mirrors.gigenet.com/gentoo/distfiles/VOS-genpatches-6.1.8.tar.bz2"
 		;;
 esac
 
