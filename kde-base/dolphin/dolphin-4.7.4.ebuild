@@ -18,7 +18,7 @@ IUSE="debug semantic-desktop thumbnail"
 DEPEND="
 	kde-base/kdelibs:4
 	kde-apps/libkonq:4
-	semantic-desktop? ( >=dev-libs/shared-desktop-ontologies-0.2 kde-base/kdelibs:4[nepomuk] )
+	semantic-desktop? ( kde-base/nepomuk )
 	thumbnail? ( kde-apps/thumbnailers:4 || ( kde-apps/ffmpegthumbs:4 kde-apps/mplayerthumbs:4 ) )
 	kde-apps/kfind
 	media-gfx/icoutils
