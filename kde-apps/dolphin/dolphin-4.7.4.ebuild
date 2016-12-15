@@ -39,20 +39,6 @@ src_unpack() {
 	default_src_unpack
 }
 
-src_prepare() {
-	(
-		cd dolphin
-		if [[ $(declare -p PATCHES 2>/dev/null) == "declare -a"* ]]; then
-			[[ -n ${PATCHES[@]} ]] && eapply "${PATCHES[@]}"
-		elif [[ -n ${PATCHES} ]]; then
-			eapply ${PATCHES}
-		fi
-
-		eapply_user
-		cd ..
-	)
-}
-
 src_compile() {
 	dosym /usr/share/applications/kde4/dolphin.desktop /usr/share/applications/org.kde.dolphin.desktop
 }
