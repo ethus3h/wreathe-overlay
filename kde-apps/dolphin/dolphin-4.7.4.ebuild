@@ -4,7 +4,7 @@
 
 EAPI=6
 
-KMNAME="kdeapps"
+KMNAME="kde4-baseapps"
 
 inherit cmake-utils kde4-meta
 
