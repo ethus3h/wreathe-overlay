@@ -30,3 +30,7 @@ PDEPEND="${DEPEND}"
 
 RESTRICT="test"
 # bug 393129
+
+src_unpack() {
+	default_src_unpack
+}
