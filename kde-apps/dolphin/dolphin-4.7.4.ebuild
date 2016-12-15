@@ -33,11 +33,11 @@ PDEPEND="${DEPEND}"
 RESTRICT="test"
 # bug 393129
 
+S="${WORKDIR}/kde-baseapps-4.7.4"
+
 src_unpack() {
 	default_src_unpack
 }
-
-S="${WORKDIR}/kde-baseapps-4.7.4"
 
 src_compile() {
 	dosym /usr/share/applications/kde4/dolphin.desktop /usr/share/applications/org.kde.dolphin.desktop
