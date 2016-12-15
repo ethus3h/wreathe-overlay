@@ -14,7 +14,7 @@ DEPEND="
 	$(add_kdeapps_dep libkonq)
 "
 RDEPEND="${DEPEND}
-	$(add_kdeapps_dep kompare)
+	kde-apps/kompare
 	bazaar? ( dev-vcs/bzr )
 	git? ( dev-vcs/git )
 	mercurial? ( dev-vcs/mercurial )
