@@ -4,6 +4,8 @@
 
 EAPI=6
 
+KMNAME="kdeapps"
+
 inherit cmake-utils kde4-meta
 
 DESCRIPTION="A KDE filemanager focusing on usability"
