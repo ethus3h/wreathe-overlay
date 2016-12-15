@@ -24,6 +24,7 @@ DEPEND="
 	thumbnail? ( || ( kde-apps/thumbnailers4 kde-apps/thumbnailers:4 ) || ( kde-apps/ffmpegthumbs:4 kde-apps/mplayerthumbs:4 ) )
 	kde-apps/kfind
 	media-gfx/icoutils
+	app-misc/strigi
 "
 RDEPEND="${DEPEND}"
 PDEPEND="${DEPEND}"
