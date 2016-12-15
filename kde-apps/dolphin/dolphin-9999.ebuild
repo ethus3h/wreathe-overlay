@@ -17,3 +17,7 @@ DEPEND="
 "
 RDEPEND="${DEPEND}"
 PDEPEND="${DEPEND}"
+
+src_install() {
+	dosym /usr/share/applications/kde4/dolphin.desktop /usr/share/applications/org.kde.dolphin.desktop
+}

@@ -21,5 +21,6 @@ app-misc/crystallize
 app-misc/futuramerlin-web-toolkit
 app-misc/wreathe-media-resources
 x11-plugins/compiz-extra-snowflake-textures
-games-roguelike/behemmoth"
+games-roguelike/behemmoth
+=kde-apps/dolphin-9999"
 DEPEND="app-misc/wreathe-overlays-redist"
