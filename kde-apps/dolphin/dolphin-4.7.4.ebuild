@@ -49,6 +49,7 @@ src_prepare() {
 		fi
 
 		eapply_user
+		cd ..
 	)
 }
 
