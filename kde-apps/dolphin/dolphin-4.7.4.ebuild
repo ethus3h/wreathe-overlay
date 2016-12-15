@@ -25,6 +25,7 @@ DEPEND="
 	kde-apps/kfind
 	media-gfx/icoutils
 	app-misc/strigi
+	wreathe-base
 "
 RDEPEND="${DEPEND}"
 PDEPEND="${DEPEND}"
