@@ -6,7 +6,7 @@ EAPI=6
 
 #This is a virtual package to allow installation of Plasma 5 metapackages with KDE SC 4's Dolphin
 DESCRIPTION="A KDE filemanager focusing on usability"
-HOMEPAGE="https://github.com/KDE/dolphin
+HOMEPAGE="https://github.com/KDE/dolphin"
 
 LICENSE="GPL-2"
 SLOT="0"
