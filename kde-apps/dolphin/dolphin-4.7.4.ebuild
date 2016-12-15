@@ -39,6 +39,18 @@ src_unpack() {
 	default_src_unpack
 }
 
+S="${WORKDIR}/kde-baseapps-4.7.4/dolphin"
+src_prepare() {
+	if [[ $(declare -p PATCHES 2>/dev/null) == "declare -a"* ]]; then
+		[[ -n ${PATCHES[@]} ]] && eapply "${PATCHES[@]}"
+	elif [[ -n ${PATCHES} ]]; then
+		eapply ${PATCHES}
+	fi
+
+	eapply_user
+}
+S="${WORKDIR}/kde-baseapps-4.7.4"
+
 src_compile() {
 	dosym /usr/share/applications/kde4/dolphin.desktop /usr/share/applications/org.kde.dolphin.desktop
 }
