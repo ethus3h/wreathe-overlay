@@ -10,7 +10,7 @@ inherit cmake-utils kde4-meta
 
 DESCRIPTION="A KDE filemanager focusing on usability"
 HOMEPAGE="https://github.com/KDE/dolphin/releases/tag/v4.7.4"
-SRC_URI="https://github.com/KDE/dolphin/archive/v${PV}.tar.gz"
+#SRC_URI="https://github.com/KDE/dolphin/archive/v${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="4"
