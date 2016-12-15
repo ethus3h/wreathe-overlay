@@ -39,7 +39,10 @@ src_unpack() {
 
 S="${WORKDIR}/kde-baseapps-4.7.4"
 
+src_compile() {
+	dosym /usr/share/applications/kde4/dolphin.desktop /usr/share/applications/org.kde.dolphin.desktop
+}
+
 src_install() {
 	default_src_install
-	dosym /usr/share/applications/kde4/dolphin.desktop /usr/share/applications/org.kde.dolphin.desktop
 }
