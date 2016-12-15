@@ -39,7 +39,7 @@ src_unpack() {
 	default_src_unpack
 }
 
-S="${WORKDIR}/kde-baseapps-4.7.4/dolphin"
+S="${S}/dolphin"
 src_prepare() {
 	if [[ $(declare -p PATCHES 2>/dev/null) == "declare -a"* ]]; then
 		[[ -n ${PATCHES[@]} ]] && eapply "${PATCHES[@]}"
