@@ -19,7 +19,7 @@ DEPEND="
 	kde-base/kdelibs:4
 	kde-apps/libkonq:4
 	semantic-desktop? ( kde-base/nepomuk )
-	thumbnail? ( kde-apps/thumbnailers:4 || ( kde-apps/ffmpegthumbs:4 kde-apps/mplayerthumbs:4 ) )
+	thumbnail? ( || ( kde-apps/thumbnailers4 kde-apps/thumbnailers:4 ) || ( kde-apps/ffmpegthumbs:4 kde-apps/mplayerthumbs:4 ) )
 	kde-apps/kfind
 	media-gfx/icoutils
 "
