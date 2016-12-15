@@ -35,4 +35,4 @@ src_unpack() {
 	default_src_unpack
 }
 
-S="${WORKDIR}/kde-baseapps-4.7.4/dolphin"
+S="${WORKDIR}/kde-baseapps-4.7.4"
