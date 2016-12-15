@@ -8,7 +8,7 @@ inherit kde4-base
 
 DESCRIPTION="Nepomuk core libraries"
 KEYWORDS="amd64 ~arm ppc ppc64 x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
-IUSE="debug epub exif ffmpeg pdf taglib"
+IUSE="debug epub exif migrator ffmpeg pdf taglib"
 
 DEPEND="
 	>=dev-libs/shared-desktop-ontologies-0.11.0
