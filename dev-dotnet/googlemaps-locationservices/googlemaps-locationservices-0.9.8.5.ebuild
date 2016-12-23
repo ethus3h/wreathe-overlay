@@ -4,7 +4,7 @@
 
 EAPI=6
 
-inherit egit-r3
+inherit git-r3
 
 DESCRIPTION="A simple library (including Nuget Package) for Google Maps geolocation and reverse geolocation"
 HOMEPAGE="https://github.com/sethwebster/GoogleMaps.LocationServices"
@@ -19,6 +19,10 @@ RDEPEND="dev-dotnet/dotnet-cli
     dev-lang/mono"
 
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+    epatch "${FILESDIR}/system-nuget.patch"
+}
 
 src_compile() {
     xbuild 
