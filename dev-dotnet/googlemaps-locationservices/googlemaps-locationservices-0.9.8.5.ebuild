@@ -21,7 +21,7 @@ RDEPEND="dev-dotnet/dotnet-cli
 DEPEND="${RDEPEND}"
 
 src_prepare() {
-    epatch "${FILESDIR}/system-nuget.patch"
+    epatch "${FILESDIR}/0001-Remove-nuget.patch"
 }
 
 src_compile() {
