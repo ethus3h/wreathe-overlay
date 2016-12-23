@@ -12,7 +12,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND=">=dev-ruby/albacore-2.0.0
+RDEPEND="dev-lang/mono
+    >=dev-ruby/albacore-2.0.0
     <dev-ruby/albacore-2.1"
 
 DEPEND="${RDEPEND}"
