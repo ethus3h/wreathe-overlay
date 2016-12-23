@@ -5,10 +5,10 @@
 EAPI=6
 
 DESCRIPTION="A fork of the DotNetZip project without signing with a solution that compiles cleanly. This project aims to follow semver to avoid versioning conflicts. DotNetZip is a FAST, FREE class library and toolset for manipulating zip files. Use VB, C# or any .NET language to easily create, extract, or update zip files."
-HOMEPAGE="https://github.com/haf/DotNetZip.Semverd"
+HOMEPAGE="https://github.com/NetTopologySuite/GeoAPI"
 SRC_URI="https://github.com/haf/DotNetZip.Semverd/archive/v${PV}.tar.gz"
 
-LICENSE="MIT"
+LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
