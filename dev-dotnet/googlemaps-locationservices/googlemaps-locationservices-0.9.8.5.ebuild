@@ -16,6 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-dotnet/dotnet-cli
+    dev-dotnet/nuget
     dev-lang/mono"
 
 DEPEND="${RDEPEND}"
@@ -25,5 +26,5 @@ src_prepare() {
 }
 
 src_compile() {
-    xbuild 
+    xbuild GoogleMaps.LocationServices.sln
 }
