@@ -46,6 +46,6 @@ src_install() {
 	else
 		DIR="Release"
 	fi
-	egacinstall "bin/${DIR}/GoogleMaps.LocationServices.dll"
+	egacinstall "GoogleMaps.LocationServices/bin/${DIR}/GoogleMaps.LocationServices.dll"
 	einstall_pc_file "${PN}" "${PV}" "GoogleMaps.LocationServices"
 }
