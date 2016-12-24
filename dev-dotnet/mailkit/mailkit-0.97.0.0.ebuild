@@ -26,14 +26,7 @@ DEPEND="${RDEPEND}"
 
 src_prepare() {
     default
-    (
-        cd .nuget
-        rm NuGet.exe
-        ln -s "$(which nuget)" NuGet.exe
-        ln -s NuGet.exe nuget.exe
-        ln -s NuGet.targets nuget.targets
-    )
-    perl -0777 -p -i -e 's#Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{637EC535-3921-4A7A-8CB4-00A5AB18FAA2}"\nEndProject##g' GoogleMaps.LocationServices/MailKit.Net45.sln
+    perl -0777 -p -i -e 's#Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{637EC535-3921-4A7A-8CB4-00A5AB18FAA2}"\nEndProject##g' MailKit.Net45.sln
 }
 
 src_compile() {
