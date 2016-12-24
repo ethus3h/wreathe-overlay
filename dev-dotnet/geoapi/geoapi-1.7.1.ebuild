@@ -1,10 +1,14 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=6
+SLOT="0"
 
-inherit subversion
+KEYWORDS="~amd64 ~ppc ~x86"
+USE_DOTNET="net45"
+
+inherit gac dotnet subversion
 
 DESCRIPTION="GeoAPI.NET project provides a common framework based on OGC/ISO standards to improve interoperability among .NET GIS projects."
 HOMEPAGE="https://github.com/NetTopologySuite/GeoAPI"
