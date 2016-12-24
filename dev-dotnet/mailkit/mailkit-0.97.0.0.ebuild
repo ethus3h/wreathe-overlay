@@ -13,7 +13,6 @@ inherit gac dotnet git-r3
 DESCRIPTION="A cross-platform .NET library for IMAP, POP3, and SMTP."
 HOMEPAGE="https://github.com/jstedfast/MailKit"
 EGIT_REPO_URI="git://github.com/ethus3h/MailKit-meta.git"
-EGIT_COMMIT="a6b3cec653228f2c42639e8bdba52f71cc06a810"
 
 LICENSE="MIT"
 SLOT="0"
