@@ -15,7 +15,7 @@ DEPEND="
 	>=dev-libs/soprano-2.9.0
 "
 RDEPEND="${DEPEND}
-	!<kde-base/nepomuk-core-4.9.80:4
+	!<kde-frameworks/nepomuk-core-4.9.80:4
 "
 
 # tests hangs

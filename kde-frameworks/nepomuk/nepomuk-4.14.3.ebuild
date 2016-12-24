@@ -13,7 +13,7 @@ SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND=">=dev-libs/shared-desktop-ontologies-0.2
     >=dev-libs/soprano-2.9.0[dbus,raptor,redland]
-    kde-base/nepomuk-core
-    kde-base/nepomuk-widgets
+    kde-frameworks/nepomuk-core
+    kde-frameworks/nepomuk-widgets
     app-misc/wreathe-base"
 DEPEND="${RDEPEND}"

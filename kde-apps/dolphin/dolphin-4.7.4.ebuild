@@ -1,6 +1,6 @@
 # Copyright 1999-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/kde-base/dolphin/Attic/dolphin-4.7.4.ebuild,v 1.5 2012/02/18 14:47:27 nixnut Exp $
+# $Id$
 
 EAPI=6
 
@@ -20,7 +20,7 @@ IUSE="debug semantic-desktop thumbnail"
 DEPEND="
 	kde-frameworks/kdelibs:4
 	kde-apps/libkonq:4
-	semantic-desktop? ( kde-base/nepomuk )
+	semantic-desktop? ( kde-frameworks/nepomuk )
 	thumbnail? ( || ( kde-apps/thumbnailers4 kde-apps/thumbnailers:4 ) || ( kde-apps/ffmpegthumbs:4 kde-apps/mplayerthumbs:4 ) )
 	kde-apps/kfind
 	media-gfx/icoutils
