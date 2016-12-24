@@ -20,6 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-dotnet/nuget
+    dev-dotnet/bouncycastle
     dev-lang/mono"
 
 DEPEND="${RDEPEND}"

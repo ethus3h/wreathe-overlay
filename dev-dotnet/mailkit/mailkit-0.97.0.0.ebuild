@@ -19,6 +19,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-dotnet/nuget
+    dev-dotnet/bouncycastle
     dev-lang/mono"
 
 DEPEND="${RDEPEND}"
@@ -27,7 +28,7 @@ S="${WORKDIR}/${P}/MailKit"
 
 src_prepare() {
     default
-    mv ../MimeKit .
+    mv ../MimeKit . || die
 }
 
 src_compile() {
