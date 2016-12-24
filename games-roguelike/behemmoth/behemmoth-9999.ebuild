@@ -14,7 +14,6 @@ EGIT_REPO_URI="git://github.com/ethus3h/BeHeMMOth.git"
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
-#It should depend on and use dev-java/launch4j:0, but I haven't gotten that to build either.
 #Note that log4net-1.2.15 is the same as the version 2.0.5 of the NuGet package
 RDEPEND="
     >=virtual/jdk-1.8.0
@@ -46,9 +45,6 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 #    dev-misc/flex-sdk-4.9.1
 #    dev-misc/air-sdk-15
-
-#JAVA_SRC_DIR="engine/Client Updater/Omod"
-#JAVA_GENTOO_CLASSPATH="commons-io:1,ini4j"
 
 pkg_preinst() {
     #Remove the temporary install prefix from scripts where it has been copied
