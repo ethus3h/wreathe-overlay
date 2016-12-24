@@ -42,6 +42,8 @@ src_prepare() {
 	eapply "${FILESDIR}/add-keyfile-option-to-csproj-r2.patch"
 	sed -i -E -e "s#(\[assembly: InternalsVisibleTo(.*)\])#/* \1 */#g" "src/Core/Properties/AssemblyInfo.cs" || die
 	eapply "${FILESDIR}/strongnames-for-ebuild-2.8.1-r2.patch"
+	#Don't build tests
+	sed -i -E -e $'s#        <MonoProjects Include="@(TestProjects)" />\n##g' "Build/Build.proj" || die
 	rm -rv lib
 	default
 }
@@ -55,7 +57,6 @@ src_compile() {
 	xbuild Build/Build.proj /p:Configuration="Mono Release" /flp:LogFile=msbuild.log /verbosity:detailed /t:GoMono
 #	source ./build.sh || die
 }
-
 src_install() {
 	elog "Installing NuGet.Core.dll into GAC"
 	egacinstall "src/Core/obj/Mono Release/NuGet.Core.dll"
