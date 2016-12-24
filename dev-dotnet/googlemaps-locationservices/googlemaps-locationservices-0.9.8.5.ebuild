@@ -26,6 +26,7 @@ DEPEND="${RDEPEND}"
 
 src_prepare() {
     git apply "${FILESDIR}/0001-Remove-nuget.patch"
+    git apply "${FILESDIR}/use-system-nuget.patch"
     default
 }
 
