@@ -27,7 +27,7 @@ DEPEND="${COMMON_DEPEND}
 "
 
 src_compile() {
-	exbuild_strong "Ninject.sln"
+	exbuild /p:TreatWarningsAsErrors=false "Ninject.sln"
 }
 
 src_install() {
