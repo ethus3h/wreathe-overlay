@@ -29,8 +29,8 @@ src_prepare() {
     (
         cd .nuget
         rm NuGet.exe
-        ln -s NuGet.exe "$(which nuget)"
-        ln -s nuget.targets NuGet.targets
+        ln -s "$(which nuget)" NuGet.exe
+        ln -s NuGet.targets nuget.targets
     )
 }
 
