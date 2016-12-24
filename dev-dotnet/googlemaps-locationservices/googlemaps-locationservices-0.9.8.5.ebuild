@@ -8,7 +8,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 USE_DOTNET="net45"
 
-inherit gac dotnet
+inherit gac dotnet git-r3
 
 DESCRIPTION="A simple library (including Nuget Package) for Google Maps geolocation and reverse geolocation"
 HOMEPAGE="https://github.com/sethwebster/GoogleMaps.LocationServices"
@@ -26,7 +26,7 @@ DEPEND="${RDEPEND}"
 
 src_prepare() {
     git apply "${FILESDIR}/0001-Remove-nuget.patch"
-    git apply "${FILESDIR}/use-system-nuget.patch"
+    epatch "${FILESDIR}/use-system-nuget.patch"
     default
 }
 
