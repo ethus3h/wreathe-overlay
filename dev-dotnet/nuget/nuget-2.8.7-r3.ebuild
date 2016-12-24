@@ -27,19 +27,7 @@ IUSE=""
 DEPEND=">=dev-lang/mono-3.2.3
 	<=dev-dotnet/xdt-for-monodevelop-2.8.2[gac]
 	!dev-dotnet/nuget-codeplex
-	app-misc/ca-certificates
-	dev-dotnet/ninject:3
-	>=dev-dotnet/ninject-3.0.0.15
-	dev-dotnet/ninject:2
-	>=dev-dotnet/ninject-2.2.1.4
-	>=dev-dotnet/xunit-extensions-1.9.2
-	>=dev-dotnet/routemagic-1.2
-	>=dev-dotnet/webactivatorex-2.0.2
-	>=dev-dotnet/xunit-1.9.2
-	>=dev-dotnet/moq-4.1.1309.0919
-	>=dev-dotnet/elmah-corelibrary-1.2.2
-	>=dev-dotnet/elmah-1.2.2
-	>=dev-dotnet/microsoft-web-infrastructure-1.0.0.0"
+	app-misc/ca-certificates"
 RDEPEND="${DEPEND}"
 
 pkg_setup() {
