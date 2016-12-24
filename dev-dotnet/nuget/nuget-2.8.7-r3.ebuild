@@ -47,6 +47,15 @@ src_prepare() {
 	echo '</packages>' >> src/Server/packages.config
 	cp src/Server/packages.config test/CommandLine.Test/packages.config
 	cp src/Server/packages.config test/Core.Test/packages.config
+	cp src/Server/packages.config test/Dialog.Test/packages.config
+	cp src/Server/packages.config test/PowerShellCmdlets.Test/packages.config
+	cp src/Server/packages.config test/PowerShellHost.Test/packages.config
+	cp src/Server/packages.config test/Server.Test/packages.config
+	cp src/Server/packages.config test/TeamFoundationServer.Test/packages.config
+	cp src/Server/packages.config test/Test.Integration/packages.config
+	cp src/Server/packages.config test/Test.Utility/packages.config
+	cp src/Server/packages.config test/VisualStudio.Test/packages.config
+	cp src/Server/packages.config WebMatrixExtension/NuGetExtension.Tests/packages.config
 	rm -rv lib
 	default
 }
