@@ -22,7 +22,7 @@ RDEPEND="dev-dotnet/dotnet-cli
     dev-lang/mono"
 
 DEPEND="${RDEPEND}"
-
+#FIXME: See dotnetzip-semverd for a working mono ebuild
 src_compile() {
     ./build.sh
 }
