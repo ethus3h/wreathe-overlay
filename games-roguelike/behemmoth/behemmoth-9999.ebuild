@@ -18,19 +18,8 @@ KEYWORDS="~amd64 -*"
 RDEPEND="
     >=virtual/jdk-1.8.0
     dev-db/phpmyadmin
-    =dev-dotnet/bouncycastle-1.7.0
     =dev-dotnet/dotnetzip-semverd-1.9.2
-    =dev-dotnet/geoapi-1.7.1
     =dev-dotnet/googlemaps-locationservices-0.9.8.5
-    =dev-dotnet/log4net-1.2.15
-    =dev-dotnet/mailkit-0.97.0.0
-    =dev-dotnet/markermetro-unity-ionic-zlib-2.0.0.6
-    =dev-dotnet/metroframework-1.3.0.0.1.3.0.0
-    =dev-dotnet/mimekit-0.96.0.0
-    =dev-dotnet/mysql-data-6.9.6
-    =dev-dotnet/nettopologysuite-1.13.0
-    =dev-dotnet/newtonsoft-json-9.0.1
-    =dev-dotnet/zlib-net-1.0.4.0
     dev-java/commons-io:1
     dev-java/ini4j:0
     dev-lang/mono
@@ -45,6 +34,17 @@ RDEPEND="
 DEPEND="${RDEPEND}"
 #    dev-misc/flex-sdk-4.9.1
 #    dev-misc/air-sdk-15
+# =dev-dotnet/bouncycastle-1.7.0
+# =dev-dotnet/geoapi-1.7.1
+# =dev-dotnet/log4net-1.2.15
+# =dev-dotnet/mailkit-0.97.0.0
+# =dev-dotnet/markermetro-unity-ionic-zlib-2.0.0.6
+# =dev-dotnet/metroframework-1.3.0.0.1.3.0.0
+# =dev-dotnet/mimekit-0.96.0.0
+# =dev-dotnet/mysql-data-6.9.6
+# =dev-dotnet/nettopologysuite-1.13.0
+# =dev-dotnet/newtonsoft-json-9.0.1
+# =dev-dotnet/zlib-net-1.0.4.0
 
 pkg_preinst() {
     #Remove the temporary install prefix from scripts where it has been copied
