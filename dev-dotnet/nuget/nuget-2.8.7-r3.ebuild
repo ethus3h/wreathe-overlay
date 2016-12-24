@@ -42,7 +42,7 @@ src_prepare() {
 	eapply "${FILESDIR}/add-keyfile-option-to-csproj-r2.patch"
 	sed -i -E -e "s#(\[assembly: InternalsVisibleTo(.*)\])#/* \1 */#g" "src/Core/Properties/AssemblyInfo.cs" || die
 	eapply "${FILESDIR}/strongnames-for-ebuild-2.8.1-r2.patch"
-	rm -v 
+	rm -rv lib
 	default
 }
 
