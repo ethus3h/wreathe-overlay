@@ -37,7 +37,7 @@ src_prepare() {
 }
 
 src_compile() {
-    exbuild_strong MailKit.Net45.sln
+    exbuild_strong MailKit.Net40.sln
 }
 
 src_install() {
