@@ -45,9 +45,8 @@ src_prepare() {
 	echo '<?xml version="1.0" encoding="utf-8"?>' > src/Server/packages.config
 	echo '<packages>' >> src/Server/packages.config
 	echo '</packages>' >> src/Server/packages.config
-	echo '<?xml version="1.0" encoding="utf-8"?>' > test/CommandLine.Test/packages.config
-	echo '<packages>' >> test/CommandLine.Test/packages.config
-	echo '</packages>' >> test/CommandLine.Test/packages.config
+	cp src/Server/packages.config test/CommandLine.Test/packages.config
+	cp src/Server/packages.config test/Core.Test/packages.config
 	rm -rv lib
 	default
 }
