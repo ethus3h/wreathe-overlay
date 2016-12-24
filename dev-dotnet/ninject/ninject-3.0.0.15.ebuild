@@ -14,8 +14,8 @@ DESCRIPTION="the ninja of .net dependency injectors"
 HOMEPAGE="http://ninject.org/"
 LICENSE="MS-PL" # https://github.com/haf/DotNetZip.Semverd/blob/master/LICENSE
 EGIT_REPO_URI="https://github.com/ninject/Ninject.git"
-#Assuming the 2.2.1.4 version number means 4 commits after the 2.2.1.0 tag
-EGIT_COMMIT="3b7442c958c454fe71b9c32e277bef107f1480b1"
+#Assuming the 3.0.0.15 version number means 15 commits after the 3.0.0 tag
+EGIT_COMMIT="c0e9bc3d549b68a2c7fbee2cd8b959dcf35d12b5"
 
 IUSE="net45 +gac +nupkg developer debug doc"
 
@@ -27,7 +27,7 @@ DEPEND="${COMMON_DEPEND}
 "
 
 src_compile() {
-	exbuild "Ninject.sln"
+	exbuild_strong "Ninject.sln"
 }
 
 src_install() {
