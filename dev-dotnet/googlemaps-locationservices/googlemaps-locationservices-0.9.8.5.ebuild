@@ -25,13 +25,13 @@ RDEPEND="dev-dotnet/nuget
 DEPEND="${RDEPEND}"
 
 src_prepare() {
+    default
     (
         cd .nuget
         rm NuGet.exe
         ln -s NuGet.exe "$(which nuget)"
         ln -s nuget.targets NuGet.targets
     )
-    default
 }
 
 src_compile() {
