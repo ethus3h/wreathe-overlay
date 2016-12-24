@@ -21,6 +21,7 @@ IUSE=""
 RDEPEND=">=dev-lang/mono-4.0.2.5"
 DEPEND="${RDEPEND}"
 
+#FIXME: doesn't work (I think since Mono doesn't implement SubjectEncoding)
 src_compile() {
 	/usr/bin/mcs \
 		-t:library \

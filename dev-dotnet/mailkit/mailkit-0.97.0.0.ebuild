@@ -12,8 +12,8 @@ inherit gac dotnet git-r3
 
 DESCRIPTION="A cross-platform .NET library for IMAP, POP3, and SMTP."
 HOMEPAGE="https://github.com/jstedfast/MailKit"
-EGIT_REPO_URI="git://github.com/sethwebster/GoogleMaps.LocationServices.git"
-EGIT_COMMIT="e01489c9b4083665e0764014d8fcd6eb270851ca"
+EGIT_REPO_URI="git://github.com/jstedfast/MailKit.git"
+EGIT_COMMIT="a6b3cec653228f2c42639e8bdba52f71cc06a810"
 
 LICENSE="MIT"
 SLOT="0"
@@ -33,11 +33,12 @@ src_prepare() {
         ln -s NuGet.exe nuget.exe
         ln -s NuGet.targets nuget.targets
     )
-    sed -i -e 's#<BuildPackage>true</BuildPackage>#<BuildPackage>false</BuildPackage>#g' GoogleMaps.LocationServices/GoogleMaps.LocationServices.csproj
+    Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{637EC535-3921-4A7A-8CB4-00A5AB18FAA2}"
+    perl -0777 -p -i -e 's#Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{637EC535-3921-4A7A-8CB4-00A5AB18FAA2}"\nEndProject##g' GoogleMaps.LocationServices/MailKit.Net45.sln
 }
 
 src_compile() {
-    exbuild_strong GoogleMaps.LocationServices.sln
+    exbuild_strong MailKit.Net45.sln
 }
 
 src_install() {
@@ -46,6 +47,6 @@ src_install() {
 	else
 		DIR="Release"
 	fi
-	egacinstall "GoogleMaps.LocationServices/bin/${DIR}/GoogleMaps.LocationServices.dll"
-	einstall_pc_file "${PN}" "${PV}" "GoogleMaps.LocationServices"
+	egacinstall "bin/${DIR}/MailKit.dll"
+	einstall_pc_file "${PN}" "${PV}" "MailKit"
 }
