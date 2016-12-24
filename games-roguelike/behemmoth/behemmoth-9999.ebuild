@@ -14,9 +14,8 @@ EGIT_REPO_URI="git://github.com/ethus3h/BeHeMMOth.git"
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
-#It doesn't seem to work with gnash, sadly.
-#Instead, it should depend on www-plugins/lightspark, once I can get it to build.
-#Also, it should depend on and use dev-java/launch4j:0, but I haven't gotten that to build either.
+#It should depend on and use dev-java/launch4j:0, but I haven't gotten that to build either.
+#Note that log4net-1.2.15 is the same as the version 2.0.5 of the NuGet package
 RDEPEND="
     >=virtual/jdk-1.8.0
     dev-db/phpmyadmin
@@ -24,7 +23,7 @@ RDEPEND="
     =dev-dotnet/dotnetzip-semverd-1.9.2
     =dev-dotnet/geoapi-1.7.1
     =dev-dotnet/googlemaps-locationservices-0.9.8.5
-    =dev-dotnet/log4net-2.0.5
+    =dev-dotnet/log4net-1.2.15
     =dev-dotnet/mailkit-0.97.0.0
     =dev-dotnet/markermetro-unity-ionic-zlib-2.0.0.6
     =dev-dotnet/metroframework-1.3.0.0.1.3.0.0
