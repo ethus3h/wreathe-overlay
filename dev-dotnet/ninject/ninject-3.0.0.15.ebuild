@@ -32,10 +32,10 @@ src_compile() {
 
 src_install() {
 	if use debug; then
-		DIR="Debug"
+		DIR="debug"
 	else
-		DIR="Release"
+		DIR="release"
 	fi
-	egacinstall "bin/${DIR}/Ninject.dll"
+	egacinstall "build/${DIR}"/*
 	einstall_pc_file "${PN}" "${PV}" "Ninject"
 }
