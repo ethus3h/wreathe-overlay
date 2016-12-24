@@ -10,10 +10,10 @@ USE_DOTNET="net45"
 
 inherit gac dotnet git-r3
 
-DESCRIPTION="A cross-platform .NET library for IMAP, POP3, and SMTP."
-HOMEPAGE="https://github.com/jstedfast/MailKit"
-EGIT_REPO_URI="git://github.com/ethus3h/MailKit-meta.git"
-EGIT_COMMIT="a6b3cec653228f2c42639e8bdba52f71cc06a810"
+DESCRIPTION="A cross-platform .NET MIME creation and parser library with support for S/MIME, PGP, DKIM, TNEF and Unix mbox spools."
+HOMEPAGE="http://www.mimekit.net/"
+EGIT_REPO_URI="git://github.com/jstedfast/MimeKit.git"
+EGIT_COMMIT="1f5f5f844cab1c243fe95e746c776ee1ac57b01c"
 
 LICENSE="MIT"
 SLOT="0"
