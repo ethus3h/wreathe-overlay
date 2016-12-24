@@ -61,6 +61,7 @@ src_compile() {
 	xbuild Build/Build.proj /p:Configuration="Mono Release" /flp:LogFile=msbuild.log /verbosity:detailed /t:GoMono
 #	source ./build.sh || die
 }
+
 src_install() {
 	elog "Installing NuGet.Core.dll into GAC"
 	egacinstall "src/Core/obj/Mono Release/NuGet.Core.dll"
