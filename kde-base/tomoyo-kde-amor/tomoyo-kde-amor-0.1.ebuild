@@ -18,8 +18,8 @@ DEPEND="${RDEPEND}"
 S="${WORKDIR}"
 
 src_install() {
-    #dodir /usr/share/apps/amor/
-    insinto /usr/trinity/14/share/apps/amor/
+    #dodir "${D}/usr/share/apps/amor/"
+    insinto "${D}/usr/trinity/14/share/apps/amor/"
     doins -r "pics"
     doins "tomoyorc"
 }
