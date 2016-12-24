@@ -26,6 +26,7 @@ DEPEND="${RDEPEND}"
 
 src_prepare() {
     git apply "${FILESDIR}/0001-Remove-nuget.patch"
+    sed -i -e "s@<NuGetExePath>nuget</NuGetExePath>@<NuGetExePath>$(which nuget)</NuGetExePath>@g" "${FILESDIR}/use-system-nuget.patch"
     epatch "${FILESDIR}/use-system-nuget.patch"
     default
 }
