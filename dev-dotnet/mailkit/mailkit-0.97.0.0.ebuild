@@ -23,7 +23,7 @@ RDEPEND="dev-dotnet/nuget
 
 DEPEND="${RDEPEND}"
 
-S="${WORKDIR}/MailKit-meta/${P}"
+S="${WORKDIR}/${P}/MailKit"
 
 src_prepare() {
     default
