@@ -33,7 +33,7 @@ src_prepare() {
         ln -s NuGet.exe nuget.exe
         ln -s NuGet.targets nuget.targets
     )
-    sed -i -e '#<BuildPackage>true</BuildPackage>#<BuildPackage>false</BuildPackage>#g' GoogleMaps.LocationServices/GoogleMaps.LocationServices.csproj
+    sed -i -e 's#<BuildPackage>true</BuildPackage>#<BuildPackage>false</BuildPackage>#g' GoogleMaps.LocationServices/GoogleMaps.LocationServices.csproj
 }
 
 src_compile() {
