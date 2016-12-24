@@ -21,7 +21,7 @@ RDEPEND="
     >=virtual/jdk-1.8.0
     dev-db/phpmyadmin
     =dev-dotnet/bouncycastle-1.7.0
-    =dev-dotnet/dotnetzip-1.9.2
+    =dev-dotnet/dotnetzip-semverd-1.9.2
     =dev-dotnet/geoapi-1.7.1
     =dev-dotnet/googlemaps-locationservices-0.9.8.5
     =dev-dotnet/log4net-2.0.5
