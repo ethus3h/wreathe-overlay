@@ -22,14 +22,24 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~ppc"
 IUSE=""
 
-#FIXME: This ebuild contains binary code and uses the Internet.
-
 # Mask 3.2.0 because of mcs compiler bug : http://stackoverflow.com/a/17926731/238232
 # it fixed in 3.2.3
 DEPEND=">=dev-lang/mono-3.2.3
 	<=dev-dotnet/xdt-for-monodevelop-2.8.2[gac]
 	!dev-dotnet/nuget-codeplex
-	app-misc/ca-certificates"
+	app-misc/ca-certificates
+	dev-dotnet/ninject:3
+	>=dev-dotnet/ninject-3.0.0.15
+	dev-dotnet/ninject:2
+	>=dev-dotnet/ninject-2.2.1.4
+	>=dev-dotnet/xunit-extensions-1.9.2
+	>=dev-dotnet/routemagic-1.2
+	>=dev-dotnet/webactivatorex-2.0.2
+	>=dev-dotnet/xunit-1.9.2
+	>=dev-dotnet/moq-4.1.1309.0919
+	>=dev-dotnet/elmah-corelibrary-1.2.2
+	>=dev-dotnet/elmah-1.2.2
+	>=dev-dotnet/microsoft-web-infrastructure-1.0.0.0"
 RDEPEND="${DEPEND}"
 
 pkg_setup() {
@@ -44,6 +54,7 @@ src_prepare() {
 	eapply "${FILESDIR}/add-keyfile-option-to-csproj-r2.patch"
 	sed -i -E -e "s#(\[assembly: InternalsVisibleTo(.*)\])#/* \1 */#g" "src/Core/Properties/AssemblyInfo.cs" || die
 	eapply "${FILESDIR}/strongnames-for-ebuild-2.8.1-r2.patch"
+	rm -v 
 	default
 }
 
@@ -53,7 +64,8 @@ src_configure() {
 
 src_compile() {
 #	xbuild Build/Build.proj /p:Configuration=Release /p:TreatWarningsAsErrors=false /tv:4.0 /p:TargetFrameworkVersion="v${FRAMEWORK}" /p:Configuration="Mono Release" /t:GoMono || die
-	source ./build.sh || die
+	xbuild Build/Build.proj /p:Configuration="Mono Release" /flp:LogFile=msbuild.log /verbosity:detailed /t:GoMono
+#	source ./build.sh || die
 }
 
 src_install() {
