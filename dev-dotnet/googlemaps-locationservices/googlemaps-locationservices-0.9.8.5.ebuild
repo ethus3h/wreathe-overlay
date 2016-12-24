@@ -25,9 +25,12 @@ RDEPEND="dev-dotnet/nuget
 DEPEND="${RDEPEND}"
 
 src_prepare() {
-    git apply "${FILESDIR}/0001-Remove-nuget.patch"
-    sed -i -e "s@<NuGetExePath>nuget</NuGetExePath>@<NuGetExePath>$(which nuget)</NuGetExePath>@g" "${FILESDIR}/use-system-nuget.patch"
-    epatch "${FILESDIR}/use-system-nuget.patch"
+    (
+        cd .nuget
+        rm NuGet.exe
+        ln -s NuGet.exe "$(which nuget)"
+        ln -s nuget.targets NuGet.targets
+    )
     default
 }
 
