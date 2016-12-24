@@ -27,11 +27,6 @@ RDEPEND="${COMMON_DEPEND}
 DEPEND="${COMMON_DEPEND}
 "
 
-src_prepare() {
-	eapply "${FILESDIR}/version-${PV}.patch"
-	eapply_user
-}
-
 src_compile() {
 	#exbuild "/p:SignAssembly=true" "/p:AssemblyOriginatorKeyFile=${S}/src/Ionic.snk" "src/Zip Reduced/Zip Reduced.csproj"
 	exbuild_strong "src/Zip Reduced/Zip Reduced.csproj"
