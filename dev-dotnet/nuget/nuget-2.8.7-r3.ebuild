@@ -43,7 +43,7 @@ src_prepare() {
 	sed -i -E -e "s#(\[assembly: InternalsVisibleTo(.*)\])#/* \1 */#g" "src/Core/Properties/AssemblyInfo.cs" || die
 	eapply "${FILESDIR}/strongnames-for-ebuild-2.8.1-r2.patch"
 	#Don't build tests
-	sed -i -E -e $'s#        <MonoProjects Include="@(TestProjects)" />\n##g' "Build/Build.proj" || die
+	sed -i -E -e 's#        <MonoProjects Include="@(TestProjects)" />##g' "Build/Build.proj" || die
 	rm -rv lib
 	default
 }
