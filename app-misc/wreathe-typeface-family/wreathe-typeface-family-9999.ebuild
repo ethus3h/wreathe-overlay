@@ -16,7 +16,7 @@ KEYWORDS="~amd64 -*"
 RDEPEND="app-misc/wreathe-base"
 
 src_install() {
-    insinto "${D}/Wreathe/Typefaces/"
+    insinto /Wreathe/Typefaces/
     GLOBIGNORE="README.md:.git"
     doins -r *
     unset GLOBIGNORE

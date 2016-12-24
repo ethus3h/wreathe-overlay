@@ -21,14 +21,14 @@ src_prepare() {
 }
 
 src_install() {
-    insinto "${D}/"
+    insinto /
     GLOBIGNORE="./README.md:./.git:./usr:./man"
     doins -r ./*
-    insinto "${D}/usr/"
+    insinto /usr/
     GLOBIGNORE="./usr/bin"
     doins -r usr/*
     unset GLOBIGNORE
-    exeinto "${D}/usr/bin/"
+    exeinto /usr/bin/
     doexe usr/bin/*
     doman man/*
     # Provide gmcs as an alias for the mcs compiler for Mono
@@ -36,5 +36,5 @@ src_install() {
     # Make php-cgi command available
     phpfile=$(file /usr/bin/php)
     cgifile="$(echo -n "$phpfile" | sed 's/\/usr\/bin\/php: symbolic link to \/(.+)\/php([\d\.]+)\/bin\/php/\/$1\/php$2\/php-cgi/g')"
-    dosym "$cgifile" "${D}/usr/bin/php-cgi"
+    dosym "$cgifile" /usr/bin/php-cgi
 }

@@ -37,7 +37,7 @@ src_prepare() {
 }
 
 src_install() {
-    insinto "${D}/var/lib/layman/"
+    insinto /var/lib/layman/
     GLOBIGNORE="README.md"
     doins -r ./*
     unset GLOBIGNORE
