@@ -55,7 +55,10 @@ src_prepare() {
 	cp src/Server/packages.config test/Test.Integration/packages.config
 	cp src/Server/packages.config test/Test.Utility/packages.config
 	cp src/Server/packages.config test/VisualStudio.Test/packages.config
+	cp src/Server/packages.config test/VisualStudio11.Test/packages.config
+	cp src/Server/packages.config test/VsEvents.Test/packages.config
 	cp src/Server/packages.config WebMatrixExtension/NuGetExtension.Tests/packages.config
+	cp src/Server/packages.config WebMatrixExtension/NuGetExtension/packages.config
 	rm -rv lib
 	default
 }
