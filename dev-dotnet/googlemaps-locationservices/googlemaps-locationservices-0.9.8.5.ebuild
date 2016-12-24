@@ -33,8 +33,19 @@ src_prepare() {
         ln -s NuGet.exe nuget.exe
         ln -s NuGet.targets nuget.targets
     )
+    sed -i -e '#<BuildPackage>true</BuildPackage>#<BuildPackage>false</BuildPackage>#g' GoogleMaps.LocationServices/GoogleMaps.LocationServices.csproj
 }
 
 src_compile() {
     exbuild GoogleMaps.LocationServices.sln
+}
+
+src_install() {
+	if use debug; then
+		DIR="Debug"
+	else
+		DIR="Release"
+	fi
+	egacinstall "bin/${DIR}/GoogleMaps.LocationServices.dll"
+	einstall_pc_file "${PN}" "${PV}" "GoogleMaps.LocationServices"
 }
