@@ -18,7 +18,7 @@ KEYWORDS="amd64 ~arm ppc ~ppc64 x86 ~amd64-linux ~x86-linux"
 IUSE="debug semantic-desktop thumbnail"
 
 DEPEND="
-	kde-base/kdelibs:4
+	kde-frameworks/kdelibs:4
 	kde-apps/libkonq:4
 	semantic-desktop? ( kde-base/nepomuk )
 	thumbnail? ( || ( kde-apps/thumbnailers4 kde-apps/thumbnailers:4 ) || ( kde-apps/ffmpegthumbs:4 kde-apps/mplayerthumbs:4 ) )
