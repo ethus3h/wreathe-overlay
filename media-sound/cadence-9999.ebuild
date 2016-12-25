@@ -22,5 +22,6 @@ src_compile() {
 
 }
 src_install() {
+	dodir /usr/local/share/cadence
 	make install
 }
