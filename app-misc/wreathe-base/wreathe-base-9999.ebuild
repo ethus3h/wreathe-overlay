@@ -35,6 +35,6 @@ src_install() {
     dosym /usr/bin/mcs /usr/bin/gmcs
     # Make php-cgi command available
     phpfile=$(file /usr/bin/php)
-    cgifile="$(echo -n "$phpfile" | perl -p -e 's/\/usr\/bin\/php: symbolic link to \/(.+)\/php([\d\.]+)\/bin\/php/\/$1\/php$2\/bin/php-cgi/g')"
+    cgifile="$(echo -n "$phpfile" | perl -p -e 's/\/usr\/bin\/php: symbolic link to \/(.+)\/php([\d\.]+)\/bin\/php/\/$1\/php$2\/bin\/php-cgi/g')"
     dosym "$cgifile" /usr/bin/php-cgi
 }
