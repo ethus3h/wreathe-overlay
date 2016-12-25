@@ -14,7 +14,7 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND="app-misc/wreathe-meta
-    virtual/perl6"
+    dev-lang/nqp"
 DEPEND="${RDEPEND}"
 
 src_install() {
