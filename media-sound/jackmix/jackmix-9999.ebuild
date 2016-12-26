@@ -27,10 +27,6 @@ DEPEND="${RDEPEND}
 	dev-util/scons
 	virtual/pkgconfig"
 
-src_prepare() {
-	esed_check -i -e "s/-Wall -Werror -g -fpic/${CXXFLAGS}/" SConstruct
-}
-
 src_compile() {
 	tc-export CC CXX
 	QTDIR=/usr \
