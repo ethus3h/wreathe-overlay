@@ -39,6 +39,8 @@ DOCS=( AUTHORS NEWS README )
 
 PATCHES=( "${FILESDIR}/${P}-include.patch" )
 
+S="${WORKDIR}/${PN}-${P}"
+
 src_configure() {
 	NO_WAF_LIBDIR="yes"
 	local mywafconfargs=(
