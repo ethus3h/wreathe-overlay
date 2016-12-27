@@ -1,6 +1,6 @@
 # Copyright 1999-2010 Gentoo Foundation (?)
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 # Based on https://raw.githubusercontent.com/matomic/Gentoo-Overlay/master/www-plugins/moonlight/moonlight-3.99.0.2.ebuild
 
 EAPI=6

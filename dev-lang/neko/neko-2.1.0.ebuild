@@ -1,6 +1,6 @@
 # Copyright 2013 Ilia Glazkov
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+# $Id$
 
 # TODO: Add support for sqlite, mysql, gtk, and apache modules.
 
