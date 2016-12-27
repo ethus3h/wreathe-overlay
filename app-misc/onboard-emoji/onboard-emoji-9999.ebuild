@@ -6,18 +6,20 @@ EAPI="6"
 
 inherit git-r3
 
-DESCRIPTION="Backgrounds for Wreathe"
-HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="git://github.com/ethus3h/wreathe-backgrounds.git"
+DESCRIPTION="Emoji OnBoard keyboard layout"
+HOMEPAGE="https://github.com/qnub/onboard-emoji"
+EGIT_REPO_URI="git://github.com/qnub/onboard-emoji.git"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
-RDEPEND="app-misc/wreathe-base"
+RDEPEND="dev-lang/python:2.7
+    app-accessibility/onboard"
 
+src_compile() {
+    ./gen_layout.py
+}
 src_install() {
-    insinto /Wreathe/
-    GLOBIGNORE="README.md:.git"
-    doins -r *
-    unset GLOBIGNORE
+    insinto /usr/share/onboard/layouts/
+    doins -r layout/*
 }
