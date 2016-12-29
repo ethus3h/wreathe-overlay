@@ -38,7 +38,7 @@ src_prepare() {
 
 src_install() {
     insinto /var/lib/layman/
-    GLOBIGNORE="./README.md:./.git:./.gitmodules"
+    GLOBIGNORE="./README.md:./.git:./.gitmodules:./.egup.tags"
     doins -r ./*
     unset GLOBIGNORE
 }

@@ -17,7 +17,7 @@ RDEPEND="app-misc/wreathe-base"
 
 src_install() {
     insinto /
-    GLOBIGNORE="README.md:.git"
+    GLOBIGNORE="./README.md:./.git:./.egup.tags"
     doins -r *
     unset GLOBIGNORE
 }

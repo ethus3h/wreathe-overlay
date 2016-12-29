@@ -19,7 +19,7 @@ DEPEND="${RDEPEND}"
 
 src_install() {
     insinto /Wreathe/
-    GLOBIGNORE="README.md:.git"
+    GLOBIGNORE="./README.md:./.git:./.egup.tags"
     doins -r *
     unset GLOBIGNORE
 }
