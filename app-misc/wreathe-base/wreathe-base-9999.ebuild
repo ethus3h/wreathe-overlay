@@ -23,7 +23,7 @@ src_prepare() {
 src_install() {
     insinto /
     GLOBIGNORE="README.md:.git:.gitattributes:.gitconfig:usr:man:Makefile:build:.egup.tags"
-    doins -r *
+    doins -r -- *
     insinto /usr/
     GLOBIGNORE="usr/bin"
     doins -r usr/*

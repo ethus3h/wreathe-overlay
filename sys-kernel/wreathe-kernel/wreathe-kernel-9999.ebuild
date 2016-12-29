@@ -18,6 +18,6 @@ KEYWORDS="~amd64 -*"
 src_install() {
     insinto /usr/src/linux/
     GLOBIGNORE="README.md:.git"
-    doins -r *
+    doins -r -- *
     unset GLOBIGNORE
 }

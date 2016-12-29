@@ -18,6 +18,6 @@ RDEPEND="x11-plugins/compiz-plugins-experimental"
 src_install() {
     insinto /usr/share/compiz/snow/
     GLOBIGNORE="README.md:.git"
-    doins -r *
+    doins -r -- *
     unset GLOBIGNORE
 }

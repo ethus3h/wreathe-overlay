@@ -23,7 +23,7 @@ src_compile() {
 src_install() {
     insinto /Wreathe/Apps/ILSpy/
     GLOBIGNORE="README.md:.git"
-    doins -r *
+    doins -r -- *
     unset GLOBIGNORE
     exeinto /usr/bin/
     echo '#!/bin/bash' > ./ilspy

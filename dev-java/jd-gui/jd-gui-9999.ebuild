@@ -30,5 +30,5 @@ src_compile() {
 
 src_install() {
     insinto /usr/share/${PN}-${SLOT}/lib/
-    doins -r *
+    doins -r -- *
 }
