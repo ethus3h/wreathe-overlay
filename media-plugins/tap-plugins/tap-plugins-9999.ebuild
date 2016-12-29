@@ -1,6 +1,6 @@
 # Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
+# $Header: media-plugins/tap-plugins/tap-plugins-9999.ebuild,v 1.1 2014/10/10 18:00:11 Exp $
 
 EAPI=5
 
@@ -44,5 +44,11 @@ multilib_src_install()
 	emake install \
 		INSTALL_PLUGINS_DIR="${ED}"/usr/$(get_libdir)/ladspa \
 		INSTALL_LRDF_DIR="${ED}"/usr/share/ladspa/rdf
-	dohtml -r "${PN}"-doc-*/*
+}
+
+multilib_src_install_all()
+{
+	if use doc ; then
+		dohtml -r "${WORKDIR}"/"${PN}"-doc-*/*
+	fi
 }
