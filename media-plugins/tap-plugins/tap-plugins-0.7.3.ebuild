@@ -44,9 +44,5 @@ multilib_src_install()
 	emake install \
 		INSTALL_PLUGINS_DIR="${ED}"/usr/$(get_libdir)/ladspa \
 		INSTALL_LRDF_DIR="${ED}"/usr/share/ladspa/rdf
-}
-
-multilib_src_install_all()
-{
-	dohtml -r "${WORKDIR}"/${PN}-doc-*/*
+	dohtml -r "${PN}"-doc-*/*
 }
