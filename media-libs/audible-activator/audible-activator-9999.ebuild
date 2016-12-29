@@ -23,7 +23,7 @@ DEPEND="${RDEPEND}"
 src_install() {
     insinto /usr/local/share/audible-activator/
     GLOBIGNORE="README.md:LICENSE:.git:.gitignore:audible-activator.py"
-    doins -r -- *
+    doins -r *
     unset GLOBIGNORE
     exeinto /usr/local/share/audible-activator/
     doexe audible-activator.py
