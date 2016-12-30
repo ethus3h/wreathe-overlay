@@ -11,7 +11,7 @@ KEYWORDS="amd64 ~arm ppc ppc64 x86 ~amd64-fbsd ~amd64-linux ~x86-linux"
 IUSE="debug"
 
 DEPEND="
-	$(add_kdebase_dep nepomuk-core)
+	$(add_kdeframeworks_dep nepomuk-core)
 	>=dev-libs/soprano-2.9.0
 "
 RDEPEND="${DEPEND}
