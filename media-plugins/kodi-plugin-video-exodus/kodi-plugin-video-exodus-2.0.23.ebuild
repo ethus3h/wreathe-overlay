@@ -18,11 +18,10 @@ IUSE=""
 DEPEND="
 	media-tv/kodi
 	media-libs/kodiplatform
-	media-libs/kodi-xbmc-python
-	media-libs/kodi-script-exodus-artwork
-	media-libs/kodi-script-exodus-metadata
-	media-libs/kodi-script-module-urlresolver
-	media-libs/kodi-script-module-metahandler
+	=media-libs/kodi-script-exodus-artwork-1.0.4
+	=media-libs/kodi-script-exodus-metadata-1.0.0
+	=media-libs/kodi-script-module-urlresolver-3.0.0
+	=media-libs/kodi-script-module-metahandler-1.0.0
 	"
 
 RDEPEND="${DEPEND}"
