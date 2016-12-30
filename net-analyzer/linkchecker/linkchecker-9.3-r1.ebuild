@@ -46,6 +46,8 @@ python_prepare_all() {
 		"${FILESDIR}"/${P}-desktop.patch
 		)
 
+	eapply_user
+
 	emake -C doc/html
 
 	distutils-r1_python_prepare_all
