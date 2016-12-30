@@ -17,11 +17,11 @@ IUSE=""
 
 DEPEND="
 	media-tv/kodi
-	=media-libs/kodi-script-exodus-artwork-1.0.4
-	=media-libs/kodi-script-exodus-metadata-1.0.0
-	=media-libs/kodi-script-module-urlresolver-3.0.0
-	=media-libs/kodi-script-module-metahandler-1.0.0
+	=media-plugins/kodi-script-exodus-artwork-1.0.4
+	=media-plugins/kodi-script-exodus-metadata-1.0.0
 	"
+#	=media-plugins/kodi-script-module-urlresolver-3.0.0
+#	=media-plugins/kodi-script-module-metahandler-1.0.0
 
 RDEPEND="${DEPEND}"
 
