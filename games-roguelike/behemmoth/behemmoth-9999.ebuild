@@ -18,13 +18,13 @@ KEYWORDS="~amd64 -*"
 #Note also that currently 1.2.15 won't build on Wreathe (I think because Mono doesn't implement SubjectEncoding), so it's not depending on that version (hopefully it'll work anyway?)
 RDEPEND="
 	>=virtual/jdk-1.8.0
-	dev-db/phpmyadmin:*
+	dev-db/phpmyadmin:=
 	=dev-dotnet/dotnetzip-semverd-1.9.2
 	=dev-dotnet/googlemaps-locationservices-0.9.8.5
 	dev-dotnet/log4net
 	dev-lang/mono
 	dev-lang/perl
-	dev-lang/php:*[cgi]
+	dev-lang/php:=[cgi]
 	net-misc/rsync
 	sys-apps/moreutils
 	virtual/mysql

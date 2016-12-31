@@ -12,11 +12,11 @@ EGIT_REPO_URI="git://github.com/jindrapetrik/jpexs-decompiler.git"
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
-RDEPEND="virtual/jdk:*
+RDEPEND="virtual/jdk:=
 	dev-java/jflex
 	dev-java/trident
 	dev-java/tablelayout
-	dev-java/jna:*
+	dev-java/jna:=
 	dev-java/lzma
 	dev-java/treetable
 	dev-java/ttf

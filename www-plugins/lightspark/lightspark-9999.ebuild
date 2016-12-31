@@ -20,7 +20,7 @@ RDEPEND=">=dev-cpp/libxmlpp-2.33.1:2.6
 	dev-cpp/glibmm
 	dev-util/desktop-file-utils
 	media-fonts/liberation-fonts
-	media-libs/libpng:*
+	media-libs/libpng:=
 	media-libs/libsdl
 	x11-libs/cairo
 	x11-libs/gtk+:2
@@ -34,7 +34,7 @@ RDEPEND=">=dev-cpp/libxmlpp-2.33.1:2.6
 		virtual/ffmpeg
 	)
 	!gles? (
-		>=media-libs/glew-1.5.3:*
+		>=media-libs/glew-1.5.3:=
 		virtual/opengl
 	)
 	gles? (
@@ -46,10 +46,10 @@ RDEPEND=">=dev-cpp/libxmlpp-2.33.1:2.6
 	rtmp? (
 		media-video/rtmpdump
 	)
-	virtual/jpeg:*
+	virtual/jpeg:=
 	www-plugins/gnash[gtk]"
 DEPEND="${RDEPEND}
-	>=sys-devel/gcc-4.6.0:*[cxx]
+	>=sys-devel/gcc-4.6.0:=[cxx]
 	sys-devel/llvm
 	virtual/pkgconfig
 	amd64? ( dev-lang/nasm )

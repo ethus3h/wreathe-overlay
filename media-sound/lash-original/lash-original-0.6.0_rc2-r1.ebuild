@@ -20,7 +20,7 @@ RESTRICT="mirror"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
-IUSE="alsa debug gtk ladish python"
+IUSE="alsa debug gtk ladish libedit python readline"
 REQUIRED_USE="python? ( ${PYTHON_REQUIRED_USE} )"
 
 RDEPEND="
@@ -31,7 +31,8 @@ RDEPEND="
 	alsa? ( media-libs/alsa-lib )
 	gtk? ( x11-libs/gtk+:2 )
 	python? ( ${PYTHON_DEPS} )
-	|| ( sys-libs/readline:= dev-libs/libedit )"
+	readline? ( sys-libs/readline:= )
+	libedit? ( dev-libs/libedit )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	python? ( dev-lang/swig )"

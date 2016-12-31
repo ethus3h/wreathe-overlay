@@ -18,7 +18,7 @@ DEPEND="net-misc/curl
 	sys-fs/fuse
 	sys-libs/zlib
 	dev-libs/expat
-	dev-libs/openssl:*"
+	dev-libs/openssl:="
 RDEPEND="${DEPEND}"
 
 src_prepare() {
