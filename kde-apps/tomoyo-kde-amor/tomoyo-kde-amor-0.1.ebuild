@@ -8,7 +8,7 @@ DESCRIPTION="Tomoyo KDE AMOR"
 HOMEPAGE="http://kdelook.org/content/show.php/Tomoyo+KDE-AMOR?content=158273"
 SRC_URI="http://kdelook.org/CONTENT/content-files/158273-tomoyo%20KDE-AMOR.zip"
 
-LICENSE="LGPL"
+LICENSE="LGPL-2+"
 SLOT="0"
 KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
 

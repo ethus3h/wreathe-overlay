@@ -10,7 +10,7 @@ DESCRIPTION="Retrieves your activation data (activation_bytes) from Audible serv
 HOMEPAGE="https://github.com/inAudible-NG/audible-activator"
 EGIT_REPO_URI="git://github.com/inAudible-NG/audible-activator.git"
 
-LICENSE="GPL3"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
 #www-client/chromium provides chromedriver

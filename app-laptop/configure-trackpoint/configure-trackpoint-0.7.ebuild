@@ -14,7 +14,6 @@ SRC_URI="mirror://sourceforge/tpctl/${PN}/${PV}/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 RDEPEND="app-laptop/tp_smapi
 	>=x11-libs/gtk+-2.2:2

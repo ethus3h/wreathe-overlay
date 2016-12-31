@@ -17,6 +17,7 @@ SRC_URI="http://www.apache.org/dyn/closer.lua/flex/4.15.0/apache-flex-sdk-4.15.0
     )"
 
 LICENSE="Apache-2.0"
+SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="doc samples source +adobe_xerces +adobe_fontengine"
 
