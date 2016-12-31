@@ -4,8 +4,6 @@
 
 EAPI=5
 
-inherit kodi-addon
-
 DESCRIPTION="Zero-cost video source search tool: metadata"
 HOMEPAGE="https://offshoregit.com/exodus/script.exodus.metadata/"
 SRC_URI="https://offshoregit.com/exodus/script.exodus.metadata/script.exodus.metadata-1.0.0.zip"

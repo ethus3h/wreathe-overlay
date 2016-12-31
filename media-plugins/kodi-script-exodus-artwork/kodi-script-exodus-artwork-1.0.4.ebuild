@@ -4,8 +4,6 @@
 
 EAPI=5
 
-inherit kodi-addon
-
 DESCRIPTION="Zero-cost video source search tool: artwork"
 HOMEPAGE="https://offshoregit.com/exodus/script.exodus.artwork/"
 SRC_URI="https://offshoregit.com/exodus/script.exodus.artwork/script.exodus.artwork-1.0.4.zip"
