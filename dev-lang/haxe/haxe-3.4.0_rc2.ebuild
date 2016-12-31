@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 IUSE="+neko"
 
-RDEPEND="neko? ( >=dev-lang/neko-2-1-0 )"
+RDEPEND="neko? ( >=dev-lang/neko-2.1.0 )"
 DEPEND="${RDEPEND}
         dev-lang/ocaml[ocamlopt]
         sys-libs/zlib"
