@@ -42,7 +42,7 @@ RDEPEND="
 	x11-libs/libXrandr
 	"
 DEPEND="${RDEPEND}
-	>=dev-util/pkgconfig-0.23
+	virtual/pkgconfig
 	dev-libs/expat
 	"
 
