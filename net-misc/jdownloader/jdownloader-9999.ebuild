@@ -8,7 +8,6 @@ inherit java-pkg-2 java-ant-2 subversion
 
 DESCRIPTION="Platform Independent Tool to Download Files from One-Click-Hosting Sites"
 HOMEPAGE="http://jdownloader.org"
-LICENSE="GPL-2"
 
 # Workaround for single-valued ESVN_REPO_URI
 # (s. src_unpack())
@@ -19,7 +18,7 @@ ESVN_REPO_URI_JD_BROWSER="svn://svn.jdownloader.org/jdownloader/browser"
 
 ESVN_REPO_URI="${ESVN_REPO_URI_JD}"
 
-LICENSE=""
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
