@@ -25,6 +25,9 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
+addonName="${PN/kodi-/}"
+S="${WORKDIR}/${PN//-/.}"
+
 src_prepare() {
 	#disable automatic updates
 	perl -p -i -e 's/\t\t<import addon="repository\.exodus" version="[\d\.]+" \/>//g' ${S}/addon.xml

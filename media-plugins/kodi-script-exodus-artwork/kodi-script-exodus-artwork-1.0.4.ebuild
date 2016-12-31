@@ -20,3 +20,6 @@ DEPEND="
 	"
 
 RDEPEND="${DEPEND}"
+
+addonName="${PN/kodi-/}"
+S="${WORKDIR}/${PN//-/.}"
