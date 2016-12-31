@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -18,7 +18,7 @@ DEPEND="net-misc/curl
 	sys-fs/fuse
 	sys-libs/zlib
 	dev-libs/expat
-	dev-libs/openssl"
+	dev-libs/openssl:*"
 RDEPEND="${DEPEND}"
 
 src_prepare() {

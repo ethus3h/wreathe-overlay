@@ -1,7 +1,6 @@
-# Copyright 1999-2010 Gentoo Foundation (?)
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
-# Based on https://raw.githubusercontent.com/matomic/Gentoo-Overlay/master/www-plugins/moonlight/moonlight-3.99.0.2.ebuild
 
 EAPI=6
 
@@ -27,7 +26,7 @@ RDEPEND="
 	alsa? ( >=media-libs/alsa-lib-1.0.18 )
 	curl? ( net-misc/curl )
 	pulseaudio? ( >=media-sound/pulseaudio-0.9.14 )
-	>=dev-dotnet/gtk-sharp-2.12.9
+	>=dev-dotnet/gtk-sharp-2.12.9:2
 	dev-dotnet/rsvg-sharp
 	dev-dotnet/wnck-sharp
 	>=dev-lang/mono-2.8
@@ -38,7 +37,7 @@ RDEPEND="
 	>=media-video/ffmpeg-0.6
 	>=net-libs/xulrunner-1.9.1:1.9
 	>=x11-libs/cairo-1.8.4
-	>=x11-libs/gtk+-2.14
+	>=x11-libs/gtk+-2.14:2
 	x11-libs/libXrandr
 	"
 DEPEND="${RDEPEND}

@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -16,7 +16,7 @@ DEPEND="
 	epub? ( app-text/ebook-tools )
 	exif? ( media-gfx/exiv2:= )
 	ffmpeg? ( virtual/ffmpeg )
-	kde-frameworks/baloo
+	kde-frameworks/baloo:4
 	pdf? ( app-text/poppler[qt4] )
 	taglib? ( media-libs/taglib )
 "

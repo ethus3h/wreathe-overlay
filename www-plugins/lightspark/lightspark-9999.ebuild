@@ -1,4 +1,4 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -20,10 +20,8 @@ RDEPEND=">=dev-cpp/libxmlpp-2.33.1:2.6
 	dev-cpp/glibmm
 	dev-util/desktop-file-utils
 	media-fonts/liberation-fonts
-	media-libs/libpng
+	media-libs/libpng:*
 	media-libs/libsdl
-	>=sys-devel/gcc-4.6.0[cxx]
-	sys-devel/llvm
 	x11-libs/cairo
 	x11-libs/gtk+:2
 	x11-libs/libX11
@@ -36,7 +34,7 @@ RDEPEND=">=dev-cpp/libxmlpp-2.33.1:2.6
 		virtual/ffmpeg
 	)
 	!gles? (
-		>=media-libs/glew-1.5.3
+		>=media-libs/glew-1.5.3:*
 		virtual/opengl
 	)
 	gles? (
@@ -48,12 +46,14 @@ RDEPEND=">=dev-cpp/libxmlpp-2.33.1:2.6
 	rtmp? (
 		media-video/rtmpdump
 	)
-	virtual/jpeg
-	amd64? ( dev-lang/nasm )
-	x86? ( dev-lang/nasm )
+	virtual/jpeg:*
 	www-plugins/gnash[gtk]"
 DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+	>=sys-devel/gcc-4.6.0:*[cxx]
+	sys-devel/llvm
+	virtual/pkgconfig
+	amd64? ( dev-lang/nasm )
+	x86? ( dev-lang/nasm )"
 
 pkg_pretend() {
 	if [[ ${MERGE_TYPE} != binary ]]; then

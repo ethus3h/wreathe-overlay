@@ -1,4 +1,4 @@
-# Copyright 1999-2013 Gentoo Foundation
+# Copyright 1999-2016 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -18,9 +18,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="media-sound/jack-audio-connection-kit
-	dev-qt/qtcore
-	dev-qt/qtgui
-	dev-qt/qtxmlpatterns
+	dev-qt/qtcore:4
+	dev-qt/qtgui:4
+	dev-qt/qtxmlpatterns:4
 	>=media-libs/liblo-0.23
 	virtual/liblash"
 DEPEND="${RDEPEND}

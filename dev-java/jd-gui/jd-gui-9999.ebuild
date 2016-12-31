@@ -13,7 +13,7 @@ EGIT_REPO_URI="git://github.com/nx111/jd-gui.git"
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
-RDEPEND="virtual/jdk"
+RDEPEND="virtual/jdk:*"
 
 DEPEND="${RDEPEND}"
 
