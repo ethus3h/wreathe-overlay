@@ -13,7 +13,7 @@ HOMEPAGE="http://www.tkl.iis.u-tokyo.ac.jp/~toyoda/index_e.html http://www.izumi
 SRC_URI="http://www.tkl.iis.u-tokyo.ac.jp/~toyoda/sl/${PN}.tar -> ${P}.tar
 	!vanilla? (
 		http://www.linet.gr.jp/~izumi/sl/${SL_PATCH} -> ${P}-${SL_PATCH}
-		http://www.sodan.ecc.u-tokyo.ac.jp/~okayama/sl/${PN}.en.1.gz -> ${P}.en.1.gz
+		http://gentoo.osuosl.org/distfiles/sl.en.1.gz -> ${P}.en.1.gz
 	)"
 
 LICENSE="freedist"
