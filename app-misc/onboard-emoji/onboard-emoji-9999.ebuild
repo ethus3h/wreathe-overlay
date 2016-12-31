@@ -14,12 +14,12 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND="dev-lang/python:2.7
-    app-accessibility/onboard"
+	app-accessibility/onboard"
 
 src_compile() {
-    ./gen_layout.py
+	./gen_layout.py
 }
 src_install() {
-    insinto /usr/share/onboard/layouts/
-    doins -r layout/*
+	insinto /usr/share/onboard/layouts/
+	doins -r layout/*
 }

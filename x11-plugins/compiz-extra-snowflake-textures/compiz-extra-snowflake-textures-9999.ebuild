@@ -16,8 +16,8 @@ KEYWORDS="~amd64 -*"
 RDEPEND="x11-plugins/compiz-plugins-experimental"
 
 src_install() {
-    insinto /usr/share/compiz/snow/
-    GLOBIGNORE="README.md:.git:.egup.tags"
-    doins -r *
-    unset GLOBIGNORE
+	insinto /usr/share/compiz/snow/
+	GLOBIGNORE="README.md:.git:.egup.tags"
+	doins -r *
+	unset GLOBIGNORE
 }

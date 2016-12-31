@@ -18,6 +18,6 @@ RESTRICT="test"
 DOCS="AUTHORS ChangeLog FILEFORMAT NEWS README TODO"
 
 src_prepare() {
-    eapply_user
-    eautoreconf
+	eapply_user
+	eautoreconf
 }

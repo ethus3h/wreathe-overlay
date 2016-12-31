@@ -16,6 +16,6 @@ KEYWORDS="~amd64 -*"
 RDEPEND="net-misc/curl"
 
 src_install() {
-    exeinto /usr/bin/
-    doexe mysql-export.sh
+	exeinto /usr/bin/
+	doexe mysql-export.sh
 }

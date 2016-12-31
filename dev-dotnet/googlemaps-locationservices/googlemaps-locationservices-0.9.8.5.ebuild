@@ -20,24 +20,24 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-dotnet/nuget
-    dev-lang/mono"
+	dev-lang/mono"
 
 DEPEND="${RDEPEND}"
 
 src_prepare() {
-    default
-    (
-        cd .nuget
-        rm NuGet.exe
-        ln -s "$(which nuget)" NuGet.exe
-        ln -s NuGet.exe nuget.exe
-        ln -s NuGet.targets nuget.targets
-    )
-    sed -i -e 's#<BuildPackage>true</BuildPackage>#<BuildPackage>false</BuildPackage>#g' GoogleMaps.LocationServices/GoogleMaps.LocationServices.csproj
+	default
+	(
+		cd .nuget
+		rm NuGet.exe
+		ln -s "$(which nuget)" NuGet.exe
+		ln -s NuGet.exe nuget.exe
+		ln -s NuGet.targets nuget.targets
+	)
+	sed -i -e 's#<BuildPackage>true</BuildPackage>#<BuildPackage>false</BuildPackage>#g' GoogleMaps.LocationServices/GoogleMaps.LocationServices.csproj
 }
 
 src_compile() {
-    exbuild_strong GoogleMaps.LocationServices.sln
+	exbuild_strong GoogleMaps.LocationServices.sln
 }
 
 src_install() {

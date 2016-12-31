@@ -16,7 +16,7 @@ KEYWORDS="~amd64 -*"
 RDEPEND="app-misc/wreathe-base"
 
 src_install() {
-    exeinto /usr/bin/
-    doexe futuramerlin-web-toolkit-build
-    doexe futuramerlin-web-toolkit-aliases
+	exeinto /usr/bin/
+	doexe futuramerlin-web-toolkit-build
+	doexe futuramerlin-web-toolkit-aliases
 }

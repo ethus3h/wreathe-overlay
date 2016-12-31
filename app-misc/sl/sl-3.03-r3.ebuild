@@ -56,7 +56,7 @@ src_install() {
 	dodoc sl.txt
 
 	if ! use vanilla ; then
-        mv "${WORKDIR}/${P}.en.1" "${WORKDIR}/${PN}.en.1"
+		mv "${WORKDIR}/${P}.en.1" "${WORKDIR}/${PN}.en.1"
 		newman "${WORKDIR}/sl.en.1" sl.1
 	fi
 

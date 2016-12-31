@@ -16,8 +16,8 @@ KEYWORDS="~amd64 -*"
 
 #TODO make this actually compile the gentoo-sources
 src_install() {
-    insinto /usr/src/linux/
-    GLOBIGNORE="README.md:.git"
-    doins -r *
-    unset GLOBIGNORE
+	insinto /usr/src/linux/
+	GLOBIGNORE="README.md:.git"
+	doins -r *
+	unset GLOBIGNORE
 }

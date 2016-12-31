@@ -20,17 +20,17 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-dotnet/nuget
-    dev-dotnet/bouncycastle
-    dev-lang/mono"
+	dev-dotnet/bouncycastle
+	dev-lang/mono"
 
 DEPEND="${RDEPEND}"
 
 src_prepare() {
-    default
+	default
 }
 
 src_compile() {
-    exbuild_strong MailKit.Net40.sln
+	exbuild_strong MailKit.Net40.sln
 }
 
 src_install() {

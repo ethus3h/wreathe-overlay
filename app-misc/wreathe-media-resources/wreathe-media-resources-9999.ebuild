@@ -16,8 +16,8 @@ KEYWORDS="~amd64 -*"
 RDEPEND="app-misc/wreathe-base"
 
 src_install() {
-    insinto /
-    GLOBIGNORE="README.md:.git:.egup.tags"
-    doins -r *
-    unset GLOBIGNORE
+	insinto /
+	GLOBIGNORE="README.md:.git:.egup.tags"
+	doins -r *
+	unset GLOBIGNORE
 }

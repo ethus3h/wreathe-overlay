@@ -10,4 +10,5 @@ HOMEPAGE="http://flex.apache.org/"
 SRC_URI=""
 
 LICENSE="MIT"
+SLOT="0"
 KEYWORDS="~x86 ~amd64"

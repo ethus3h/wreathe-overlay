@@ -12,8 +12,8 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND=">=dev-libs/shared-desktop-ontologies-0.2
-    >=dev-libs/soprano-2.9.0[dbus,raptor,redland]
-    kde-frameworks/nepomuk-core
-    kde-frameworks/nepomuk-widgets
-    app-misc/wreathe-base"
+	>=dev-libs/soprano-2.9.0[dbus,raptor,redland]
+	kde-frameworks/nepomuk-core
+	kde-frameworks/nepomuk-widgets
+	app-misc/wreathe-base"
 DEPEND="${RDEPEND}"

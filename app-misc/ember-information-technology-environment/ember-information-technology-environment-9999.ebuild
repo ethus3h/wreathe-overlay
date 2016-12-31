@@ -14,12 +14,12 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
 RDEPEND="app-misc/wreathe-meta
-    dev-lang/nqp"
+	dev-lang/nqp"
 DEPEND="${RDEPEND}"
 
 src_install() {
-    insinto /Wreathe/
-    GLOBIGNORE="README.md:.git:.egup.tags"
-    doins -r *
-    unset GLOBIGNORE
+	insinto /Wreathe/
+	GLOBIGNORE="README.md:.git:.egup.tags"
+	doins -r *
+	unset GLOBIGNORE
 }

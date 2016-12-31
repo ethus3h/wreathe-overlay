@@ -16,6 +16,6 @@ RDEPEND="dev-lang/mono"
 DEPEND="${RDEPEND}"
 
 src_compile() {
-    #FIXME: warning : /home/kyan/Downloads/csharp/crypto/crypto.csproj: Project file '/home/kyan/Downloads/csharp/crypto/crypto.csproj' is a VS2003 project, which is not supported by xbuild. You need to convert it to msbuild format to build with xbuild.
-    xbuild csharp/csharp.sln
+	#FIXME: warning : /home/kyan/Downloads/csharp/crypto/crypto.csproj: Project file '/home/kyan/Downloads/csharp/crypto/crypto.csproj' is a VS2003 project, which is not supported by xbuild. You need to convert it to msbuild format to build with xbuild.
+	xbuild csharp/csharp.sln
 }

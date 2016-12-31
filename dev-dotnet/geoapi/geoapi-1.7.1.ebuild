@@ -19,10 +19,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-dotnet/dotnet-cli
-    dev-lang/mono"
+	dev-lang/mono"
 
 DEPEND="${RDEPEND}"
 #FIXME: See dotnetzip-semverd for a working mono ebuild
 src_compile() {
-    ./build.sh
+	./build.sh
 }

@@ -12,9 +12,9 @@ DESCRIPTION="The open-source framework for building expressive web and mobile ap
 HOMEPAGE="http://flex.apache.org/"
 
 SRC_URI="http://www.apache.org/dyn/closer.lua/flex/4.15.0/apache-flex-sdk-4.15.0-src.tar.gz
-    doc? (
-        http://www.apache.org/dyn/closer.lua/flex/4.15.0/docs/apache-flex-sdk-4.15.0-asdocs.zip
-    )"
+	doc? (
+		http://www.apache.org/dyn/closer.lua/flex/4.15.0/docs/apache-flex-sdk-4.15.0-asdocs.zip
+	)"
 
 LICENSE="Apache-2.0"
 SLOT="0"
@@ -56,8 +56,8 @@ java_prepare() {
 	ADOBE_JARS="$(echo batik*.jar) ${ADOBE_JARS} "
 	ADOBE_JARS="$(velocity-*.jar) ${ADOBE_JARS}"
 
-    ewarn It is possible that compile-time MXML error
-    ewarn reporting and component debugging may not give correct line numbers.
+	ewarn It is possible that compile-time MXML error
+	ewarn reporting and component debugging may not give correct line numbers.
 
 	rm * || die
 

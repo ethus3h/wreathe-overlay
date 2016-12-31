@@ -11,19 +11,19 @@ KEYWORDS=
 IUSE=""
 
 RDEPEND="trinity-base/tdelibs
-    trinity-base/tdegraphics-meta
-    dev-qt/tqt"
+	trinity-base/tdegraphics-meta
+	dev-qt/tqt"
 DEPEND="${RDEPEND}"
 
 pkg_setup() {
-    export QTDIR="/usr/tqt3"
-    export QTINC="/usr/include/tqt/Qt"
+	export QTDIR="/usr/tqt3"
+	export QTINC="/usr/include/tqt/Qt"
 }
 
 src_prepare() {
-    eautoreconf
+	eautoreconf
 }
 
 src_configure() {
-    ${S}/configure.gnu
+	${S}/configure.gnu
 }

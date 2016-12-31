@@ -20,8 +20,8 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 ruby_add_bdepend ">=dev-ruby/nokogiri-1.5
-    <dev-ruby/nokogiri-2"
+	<dev-ruby/nokogiri-2"
 
 all_ruby_prepare() {
-    sed -i -e '/bundler/I s:^:#:' Rakefile || die
+	sed -i -e '/bundler/I s:^:#:' Rakefile || die
 }

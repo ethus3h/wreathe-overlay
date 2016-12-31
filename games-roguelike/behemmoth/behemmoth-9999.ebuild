@@ -17,25 +17,25 @@ KEYWORDS="~amd64 -*"
 #Note that log4net-1.2.15 is the same as the version 2.0.5 of the NuGet package
 #Note also that currently 1.2.15 won't build on Wreathe (I think because Mono doesn't implement SubjectEncoding), so it's not depending on that version (hopefully it'll work anyway?)
 RDEPEND="
-    >=virtual/jdk-1.8.0
-    dev-db/phpmyadmin
-    =dev-dotnet/dotnetzip-semverd-1.9.2
-    =dev-dotnet/googlemaps-locationservices-0.9.8.5
-    dev-dotnet/log4net
-    dev-java/commons-io:1
-    dev-java/ini4j:0
-    dev-lang/mono
-    dev-lang/perl
-    dev-lang/php[cgi]
-    net-misc/rsync
-    sys-apps/moreutils
-    virtual/mysql
-    www-plugins/lightspark
-    www-servers/apache
-    "
+	>=virtual/jdk-1.8.0
+	dev-db/phpmyadmin
+	=dev-dotnet/dotnetzip-semverd-1.9.2
+	=dev-dotnet/googlemaps-locationservices-0.9.8.5
+	dev-dotnet/log4net
+	dev-java/commons-io:1
+	dev-java/ini4j:0
+	dev-lang/mono
+	dev-lang/perl
+	dev-lang/php[cgi]
+	net-misc/rsync
+	sys-apps/moreutils
+	virtual/mysql
+	www-plugins/lightspark
+	www-servers/apache
+	"
 DEPEND="${RDEPEND}"
-#    dev-misc/flex-sdk-4.9.1
-#    dev-misc/air-sdk-15
+#	dev-misc/flex-sdk-4.9.1
+#	dev-misc/air-sdk-15
 
 # =dev-dotnet/mailkit-0.97.0.0
 # =dev-dotnet/markermetro-unity-ionic-zlib-2.0.0.6
@@ -56,9 +56,9 @@ DEPEND="${RDEPEND}"
 # =dev-dotnet/log4net-1.2.15
 
 pkg_preinst() {
-    #Remove the temporary install prefix from scripts where it has been copied
-    tempdir="${D}"
-    export tempdir
-    tempdirEsc="$(perl -0777 -e 'print(quotemeta($ENV{tempdir}))')"
-    find "$tempdir" -name "behemmoth_server" -or -name "behemmoth_client" -exec perl -0777 -p -i -e "s/$tempdirEsc/\//g" {} \;
+	#Remove the temporary install prefix from scripts where it has been copied
+	tempdir="${D}"
+	export tempdir
+	tempdirEsc="$(perl -0777 -e 'print(quotemeta($ENV{tempdir}))')"
+	find "$tempdir" -name "behemmoth_server" -or -name "behemmoth_client" -exec perl -0777 -p -i -e "s/$tempdirEsc/\//g" {} \;
 }

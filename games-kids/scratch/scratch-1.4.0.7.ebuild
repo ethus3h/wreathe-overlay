@@ -37,8 +37,8 @@ src_prepare() {
 	if ! use v4l; then
 		sed -i '/\/camera/d' "${S}/Makefile"
 	fi
-	use alsa       || rm -f Plugins/vm-sound-ALSA
-	use oss        || rm -f Plugins/vm-sound-OSS
+	use alsa	   || rm -f Plugins/vm-sound-ALSA
+	use oss		|| rm -f Plugins/vm-sound-OSS
 	use pulseaudio || rm -f Plugins/vm-sound-pulse
 }
 
@@ -71,10 +71,10 @@ src_install() {
 }
 
 install_runner() {
-	if   use alsa;       then squeak_sound_plugin="ALSA"
-	elif use oss;        then squeak_sound_plugin="OSS"
+	if   use alsa;	   then squeak_sound_plugin="ALSA"
+	elif use oss;		then squeak_sound_plugin="OSS"
 	elif use pulseaudio; then squeak_sound_plugin="pulse"
-	else                      squeak_sound_plugin="null"
+	else					  squeak_sound_plugin="null"
 	fi
 
 	local tmpexe=$(emktemp)
@@ -82,11 +82,11 @@ install_runner() {
 #!/bin/sh
 cd
 exec \
-	"$(games_get_libdir)/${PN}/scratch_squeak_vm"     \\
-    -plugins "$(games_get_libdir)/${PN}/Plugins" \\
-    -vm-sound-${squeak_sound_plugin}                  \\
-	"$(games_get_libdir)/${PN}/Scratch.image"    \\
-    "${@}"
+	"$(games_get_libdir)/${PN}/scratch_squeak_vm"	 \\
+	-plugins "$(games_get_libdir)/${PN}/Plugins" \\
+	-vm-sound-${squeak_sound_plugin}				  \\
+	"$(games_get_libdir)/${PN}/Scratch.image"	\\
+	"${@}"
 EOF
 	chmod go+rx "${tmpexe}"
 	newbin "${tmpexe}" "${PN}" || die

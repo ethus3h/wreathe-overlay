@@ -14,16 +14,16 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
 RDEPEND="x11-misc/wmctrl
-        x11-libs/libX11
-        x11-libs/gtk+:3"
+		x11-libs/libX11
+		x11-libs/gtk+:3"
 
 DEPEND="${RDEPEND}"
 
 src_install() {
-    exeinto /usr/bin/
-    doexe bin/opensnap
-    insinto /etc/opensnap/
-    GLOBIGNORE=".git"
-    doins sample_configs/*
-    unset GLOBIGNORE
+	exeinto /usr/bin/
+	doexe bin/opensnap
+	insinto /etc/opensnap/
+	GLOBIGNORE=".git"
+	doins sample_configs/*
+	unset GLOBIGNORE
 }

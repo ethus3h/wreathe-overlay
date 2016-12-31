@@ -16,16 +16,16 @@ IUSE="+neko"
 
 RDEPEND="neko? ( >=dev-lang/neko-2.1.0 )"
 DEPEND="${RDEPEND}
-        dev-lang/ocaml[ocamlopt]
-        sys-libs/zlib"
+		dev-lang/ocaml[ocamlopt]
+		sys-libs/zlib"
 
 MAKEOPTS+=" -j1"
 
 src_prepare() {
-    epatch ${FILESDIR}/haxe-3.0-install.patch
+	epatch ${FILESDIR}/haxe-3.0-install.patch
 }
 
 src_install() {
-    default_src_install
-    doenvd ${FILESDIR}/99haxe
+	default_src_install
+	doenvd ${FILESDIR}/99haxe
 }

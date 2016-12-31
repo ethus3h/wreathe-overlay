@@ -16,29 +16,29 @@ KEYWORDS="~amd64 -*"
 DEPEND="dev-vcs/git"
 
 src_prepare() {
-    eapply_user
-    for dir in *; do
-        if [ -d "${dir}" ]; then
-            (
-                cd "${dir}" || exit 1
-                here="${PWD##*/}"
-                line="$(grep -A 1 -P -e "path = $here" ../.gitmodules | tail -1)"
-                url="${line:7}"
-                git checkout master
-                git reset --hard
-                echo "Adding origin URL: $url"
-                git remote add origin "$url"
-                git fetch
-                git branch --set-upstream-to=origin/master master
-                git pull
-            )
-        fi
-    done
+	eapply_user
+	for dir in *; do
+		if [ -d "${dir}" ]; then
+			(
+				cd "${dir}" || exit 1
+				here="${PWD##*/}"
+				line="$(grep -A 1 -P -e "path = $here" ../.gitmodules | tail -1)"
+				url="${line:7}"
+				git checkout master
+				git reset --hard
+				echo "Adding origin URL: $url"
+				git remote add origin "$url"
+				git fetch
+				git branch --set-upstream-to=origin/master master
+				git pull
+			)
+		fi
+	done
 }
 
 src_install() {
-    insinto /var/lib/layman/
-    GLOBIGNORE="README.md:.git:.gitmodules:.egup.tags"
-    doins -r *
-    unset GLOBIGNORE
+	insinto /var/lib/layman/
+	GLOBIGNORE="README.md:.git:.gitmodules:.egup.tags"
+	doins -r *
+	unset GLOBIGNORE
 }

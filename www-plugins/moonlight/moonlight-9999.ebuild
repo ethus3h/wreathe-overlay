@@ -5,7 +5,7 @@
 
 EAPI=6
 
-inherit autotools eutils flag-o-matic linux-info mono multilib nsplugins pax-utils git-r3
+inherit eutils flag-o-matic linux-info mono multilib nsplugins pax-utils git-r3
 
 DESCRIPTION="Moonlight is an open source implementation of Silverlight"
 HOMEPAGE="http://www.go-mono.com/moonlight/"
@@ -73,7 +73,7 @@ src_unpack() {
 	epatch "${FILESDIR}/moonlight-3.99.0.2_firefox4.diff"
 
 	#These next git repositories are now handled as submodules
-	
+
 	# Pull mono source to the right revision #
 	#git clone git://github.com/mono/mono.git mono
 	#cd mono && git reset --hard 32b3b31f && cd ..
@@ -103,7 +103,7 @@ src_prepare() {
 	# Configure, make and install a temporary system mono (without moonlight) #
 	echo && einfo "Building temporary system mono (1st pass without moonlight)" && echo
 	cd "${WORKDIR}/mono"
-	./autogen.sh    --prefix="${WORKDIR}/mono-install" \
+	./autogen.sh	--prefix="${WORKDIR}/mono-install" \
 			--disable-quiet-build \
 			--with-moonlight=no || die "Configure failed for mono"
 	make && make install || die "Make failed for mono"
@@ -132,14 +132,14 @@ src_prepare() {
 	cd "${WORKDIR}/mono"
 	make distclean
 	echo && einfo "Building mono source (2nd pass with moonlight)" && echo
-	./autogen.sh    --disable-quiet-build \
+	./autogen.sh	--disable-quiet-build \
 			--with-moonlight=yes || die "Configure failed for mono"
 	make || die "Make failed for mono"
 
 	# Configure mono-basic #
 	echo && einfo "Configuring mono-basic" && echo
 	cd "${WORKDIR}/mono-basic"
-	./configure     --with-moonlight=yes \
+	./configure	 --with-moonlight=yes \
 			--moonlight-sdk-location="${WORKDIR}/mono/mcs/class/lib/moonlight_raw"
 }
 
