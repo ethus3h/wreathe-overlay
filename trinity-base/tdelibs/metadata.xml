@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<use>
+	<flag name="consolekit">Build with support for consolekit</flag>
+	<flag name="sudo">sudo privilege escalation</flag>
+	<flag name="utempter">Write utmp/wtmp entries</flag>
+	<flag name="old_udisks">Old udisks version</flag>
+</use>
+</pkgmetadata>
