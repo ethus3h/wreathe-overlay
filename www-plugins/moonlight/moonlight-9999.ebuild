@@ -20,7 +20,7 @@ IUSE="alsa +curl +debug hardened +nsplugin pulseaudio sdk test"
 RESTRICT="mirror"
 EGIT_REPO_URI="git://github.com/ethus3h/moon-1.git"
 
-SRC_URI="https://github.com/mono/libgdiplus/archive/2.8.1.tar.gz
+SRC_URI="https://github.com/mono/libgdiplus/archive/2.8.1.tar.gz -> libgdiplus-2.8.1.tar.gz
 	http://web.archive.org/web/20111225065517/http://ftp.novell.com/pub/mono/sources/gtk-sharp212/${GTKSHARP}.tar.bz2"
 
 RDEPEND="

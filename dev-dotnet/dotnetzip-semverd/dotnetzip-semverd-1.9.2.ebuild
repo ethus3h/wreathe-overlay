@@ -10,7 +10,7 @@ USE_DOTNET="net45"
 
 inherit gac dotnet
 
-SRC_URI="https://github.com/haf/DotNetZip.Semverd/archive/v${PV}.tar.gz -> ${PV}.tar.gz"
+SRC_URI="https://github.com/haf/DotNetZip.Semverd/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 RESTRICT="mirror"
 S="${WORKDIR}/DotNetZip.Semverd-${PV}"
 
