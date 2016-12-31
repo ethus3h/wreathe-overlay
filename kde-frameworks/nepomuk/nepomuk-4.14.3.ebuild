@@ -4,7 +4,6 @@
 
 EAPI="6"
 
-
 DESCRIPTION="NEPOMUK metapackage"
 HOMEPAGE="http://nepomuk.semanticdesktop.org/"
 

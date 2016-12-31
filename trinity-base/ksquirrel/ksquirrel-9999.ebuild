@@ -25,5 +25,5 @@ src_prepare() {
 }
 
 src_configure() {
-	${S}/configure.gnu
+	"${S}"/configure.gnu
 }

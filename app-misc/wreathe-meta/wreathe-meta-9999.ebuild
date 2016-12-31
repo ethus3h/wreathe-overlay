@@ -4,7 +4,6 @@
 
 EAPI="6"
 
-
 DESCRIPTION="Wreathe"
 HOMEPAGE="https://futuramerlin.com/"
 

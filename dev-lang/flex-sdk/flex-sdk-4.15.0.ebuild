@@ -40,7 +40,6 @@ DEPEND="virtual/jdk
 RDEPEND="virtual/jre
 	${CDEPEND}"
 
-
 EANT_DOC_TARGET=
 EANT_EXTRA_ARGS="
 	-Drelease=\"Flex ${SLOT}\"
@@ -89,7 +88,6 @@ java_prepare() {
 		chmod 755 "${S}/bin/${unprovided}"
 	done
 
-
 	if use doc; then
 		cd "${WORKDIR}"
 		unpack ${A}
@@ -97,7 +95,6 @@ java_prepare() {
 }
 
 src_compile() {
-
 	einfo Building slimmed-down ASC
 
 	EANT_BUILD_XML="${S}/modules/asc/build/java/build.xml"
@@ -115,9 +112,7 @@ src_compile() {
 	EANT_BUILD_XML="${S}/build.xml"
 	EANT_BUILD_TARGET="main"
 	java-pkg-2_src_compile || die "failed to build flex sdk"
-
 }
-
 
 src_install() {
 	dodoc README.txt
@@ -155,7 +150,6 @@ src_install() {
 		docinto ""
 		dodoc "${WORKDIR}/apache-flex-sdk-4.15.0-asdocs/"*
 	fi
-
 }
 
 pkg_postinst() {
