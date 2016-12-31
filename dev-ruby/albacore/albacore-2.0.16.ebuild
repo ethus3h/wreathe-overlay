@@ -11,7 +11,7 @@ RUBY_FAKEGEM_EXTRADOC="README.md"
 
 inherit ruby-fakegem
 
-DESCRIPTION="Albacore is a professional quality suite of Rake tasks for building .NET or Mono based systems."
+DESCRIPTION="Suite of Rake tasks for building .NET or Mono based systems"
 HOMEPAGE="http://www.albacorebuild.net/"
 
 LICENSE="MIT"

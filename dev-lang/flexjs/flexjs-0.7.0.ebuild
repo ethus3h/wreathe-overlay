@@ -4,8 +4,8 @@
 
 EAPI=6
 
-DESCRIPTION="The open-source framework for building expressive web and mobile applications (JS)."
-HOMEPAGE="http://flex.apache.org/"
+DESCRIPTION="Flex SDK for running MXML/ActionScript in JavaScript environments"
+HOMEPAGE="https://cwiki.apache.org/confluence/display/FLEX/FlexJS"
 
 SRC_URI=""
 

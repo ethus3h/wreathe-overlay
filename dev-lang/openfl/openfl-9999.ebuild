@@ -4,8 +4,8 @@
 
 EAPI=6
 
-DESCRIPTION="OpenFL"
-HOMEPAGE="http://flex.apache.org/"
+DESCRIPTION="Toolset for working with Haxe"
+HOMEPAGE="http://www.openfl.org/"
 
 SRC_URI=""
 

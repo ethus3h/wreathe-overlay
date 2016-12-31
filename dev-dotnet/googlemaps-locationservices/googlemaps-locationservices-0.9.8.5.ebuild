@@ -10,7 +10,7 @@ USE_DOTNET="net45"
 
 inherit gac dotnet git-r3
 
-DESCRIPTION="A simple library (including Nuget Package) for Google Maps geolocation and reverse geolocation"
+DESCRIPTION="Library for Google Maps geolocation and reverse geolocation"
 HOMEPAGE="https://github.com/sethwebster/GoogleMaps.LocationServices"
 EGIT_REPO_URI="git://github.com/sethwebster/GoogleMaps.LocationServices.git"
 EGIT_COMMIT="e01489c9b4083665e0764014d8fcd6eb270851ca"

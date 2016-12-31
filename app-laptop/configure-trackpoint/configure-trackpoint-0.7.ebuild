@@ -6,8 +6,7 @@ EAPI=6
 
 inherit gnome2
 
-DESCRIPTION="Thinkpad configuration utility for TrackPoint (For the linux
-kernel 2.6 TrackPoint driver)"
+DESCRIPTION="Thinkpad configuration utility for Linux 2.6 TrackPoint driver"
 HOMEPAGE="http://tpctl.sourceforge.net/configure-trackpoint.html"
 SRC_URI="mirror://sourceforge/tpctl/${PN}/${PV}/${P}.tar.gz"
 

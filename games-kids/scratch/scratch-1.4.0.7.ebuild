@@ -6,7 +6,7 @@ EAPI=3
 
 inherit games confutils
 
-DESCRIPTION="A programming environment for creating and sharing interactive stories, animations, games, music, and art."
+DESCRIPTION="Programming environment for creative/artistic work"
 HOMEPAGE="http://scratch.mit.edu/"
 SRC_URI="http://download.scratch.mit.edu/${P}.src.tar.gz"
 

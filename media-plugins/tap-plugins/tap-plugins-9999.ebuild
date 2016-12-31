@@ -18,7 +18,7 @@ case "${PV}" in
 esac
 inherit eutils multilib-minimal ${VCS_ECLASS}
 
-DESCRIPTION="TAP LADSPA plugins: contains DeEsser, Dynamics, Equalizer, Reverb, Stereo Echo, Tremolo"
+DESCRIPTION="TAP DeEsser, Dynamics, Equalizer, Reverb, Stereo Echo, Tremolo for LADSPA"
 HOMEPAGE="http://tap-plugins.sf.net"
 SRC_URI+="
 	doc? ( mirror://sourceforge/${PN}/${PN}-doc-20140526.tar.gz )"

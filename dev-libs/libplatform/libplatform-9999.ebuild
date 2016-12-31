@@ -19,9 +19,6 @@ SLOT="0"
 KEYWORDS="~arm ~amd64 ~x86"
 IUSE=""
 
-DEPEND="!dev-libs/libplatform"
-RDEPEND="${DEPEND}"
-
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_SHARED_LIBS=1

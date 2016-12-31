@@ -6,7 +6,7 @@ EAPI="6"
 
 inherit eutils git-r3
 
-DESCRIPTION="Opensource flash SWF decompiler and editor. Extract resources, convert SWF to FLA, edit ActionScript, replace images, sounds, texts or fonts. Various output formats available."
+DESCRIPTION="Flash SWF decompiler and editor"
 HOMEPAGE="https://www.free-decompiler.com/"
 EGIT_REPO_URI="git://github.com/jindrapetrik/jpexs-decompiler.git"
 LICENSE="AGPL-3"
@@ -18,7 +18,6 @@ RDEPEND="virtual/jdk:*
 	dev-java/tablelayout
 	dev-java/jna:*
 	dev-java/lzma
-
 	dev-java/treetable
 	dev-java/ttf
 	dev-java/substance

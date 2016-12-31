@@ -10,7 +10,7 @@ USE_DOTNET="net45"
 
 inherit gac dotnet subversion
 
-DESCRIPTION="GeoAPI.NET project provides a common framework based on OGC/ISO standards to improve interoperability among .NET GIS projects."
+DESCRIPTION="OGC/ISO standards-based .NET GIS interoperability framework"
 HOMEPAGE="https://github.com/NetTopologySuite/GeoAPI"
 ESVN_REPO_URI="https://geoapi.svn.codeplex.com/svn/branches/v${PV}"
 

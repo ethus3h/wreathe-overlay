@@ -4,7 +4,7 @@
 
 EAPI=6
 
-DESCRIPTION="Platform support library used by libCEC and binary add-ons for Kodi (meta-package)."
+DESCRIPTION="Metapackage for libplatform"
 HOMEPAGE="https://github.com/Pulse-Eight/platform"
 
 LICENSE="GPL-2+"

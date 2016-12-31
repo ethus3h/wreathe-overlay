@@ -6,7 +6,7 @@ EAPI=5
 inherit eutils flag-o-matic gnome2-utils games git-r3
 
 EDITION="collect_edition"
-DESCRIPTION="Cube 2: Sauerbraten is an open source game engine (Cube 2) with freeware game data (Sauerbraten). WC-NG client"
+DESCRIPTION="WC-NG client for Cube 2: Sauerbraten"
 HOMEPAGE="https://github.com/tpoechtrager/wc-ng"
 EGIT_REPO_URI="https://github.com/tpoechtrager/wc-ng.git"
 

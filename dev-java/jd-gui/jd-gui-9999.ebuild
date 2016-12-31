@@ -6,7 +6,7 @@ EAPI="6"
 
 inherit eutils git-r3
 
-DESCRIPTION="JD-GUI, a standalone graphical utility that displays Java sources from CLASS files."
+DESCRIPTION="Graphical Java CLASS file decompiler"
 HOMEPAGE="http://jd.benow.ca/"
 EGIT_REPO_URI="git://github.com/nx111/jd-gui.git"
 #FIXME This app's buildsystem needs an Internet connection to download binaries! Plus this ebuild doesn't work.

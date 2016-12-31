@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<use>
+	<flag name="bazaar">Support for Bazaar VCS</flag>
+	<flag name="mercurial">Support for Mercurial VCS</flag>
+</use>
+</pkgmetadata>

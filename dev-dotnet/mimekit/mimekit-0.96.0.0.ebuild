@@ -10,7 +10,7 @@ USE_DOTNET="net45"
 
 inherit gac dotnet git-r3
 
-DESCRIPTION="A cross-platform .NET MIME creation and parser library with support for S/MIME, PGP, DKIM, TNEF and Unix mbox spools."
+DESCRIPTION=".NET MIME creator/parser lib: S/MIME/PGP/DKIM/TNEF/Unix mbox"
 HOMEPAGE="http://www.mimekit.net/"
 EGIT_REPO_URI="git://github.com/jstedfast/MimeKit.git"
 EGIT_COMMIT="1f5f5f844cab1c243fe95e746c776ee1ac57b01c"
