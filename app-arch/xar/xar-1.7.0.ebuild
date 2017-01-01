@@ -7,7 +7,7 @@ inherit autotools eutils
 
 DESCRIPTION="An easily extensible archive format"
 HOMEPAGE="https://github.com/KubaKaszycki/xar"
-SRC_URI="mirror://github/KubaKaszycki/${PN}/${P}.tar.xz"
+SRC_URI="https://github.com/KubaKaszycki/${PN}/releases/download/v${PV}/${P}.tar.xz"
 
 LICENSE="BSD-2"
 SLOT="0"
