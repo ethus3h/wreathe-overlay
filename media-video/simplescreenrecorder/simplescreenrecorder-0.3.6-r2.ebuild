@@ -48,10 +48,7 @@ RDEPEND="
 	x11-libs/libXfixes[${MULTILIB_USEDEP}]
 	jack? ( media-sound/jack-audio-connection-kit )
 	pulseaudio? ( media-sound/pulseaudio )
-	|| (
-		media-video/ffmpeg[vorbis?,vpx?,x264?,mp3?,theora?]
-		media-video/libav[vorbis?,vpx?,x264?,mp3?,theora?]
-	)
+	media-video/ffmpeg[vorbis?,vpx?,x264?,mp3?,theora?]
 	"
 DEPEND="${RDEPEND}"
 
