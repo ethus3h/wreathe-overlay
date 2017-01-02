@@ -49,7 +49,7 @@ RDEPEND="
 	jack? ( media-sound/jack-audio-connection-kit )
 	pulseaudio? ( media-sound/pulseaudio )
 	|| (
-		media-video/ffmpeg:0[vorbis?,vpx?,x264?,mp3?,theora?]
+		media-video/ffmpeg[vorbis?,vpx?,x264?,mp3?,theora?]
 		media-video/libav[vorbis?,vpx?,x264?,mp3?,theora?]
 	)
 	"
