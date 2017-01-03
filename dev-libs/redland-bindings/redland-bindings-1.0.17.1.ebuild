@@ -72,7 +72,7 @@ src_configure() {
 
 src_compile() {
 	if use lua || use perl || use python || use ruby ; then
-		CXX="$(which gcc)" default
+		default
 	fi
 	use php && php-ext-source-r3_src_compile
 }
