@@ -24,7 +24,7 @@ RDEPEND="
 	dev-dotnet/log4net
 	dev-lang/mono
 	dev-lang/perl
-	dev-lang/php:=[cgi]
+	dev-lang/php:=[cgi,cli]
 	net-misc/rsync
 	sys-apps/moreutils
 	virtual/mysql
