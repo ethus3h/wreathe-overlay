@@ -292,7 +292,7 @@ src_prepare() {
 			ext/NDBM_File/Makefile.PL || die
 	fi
 
-	eapply_user
+	epatch_user
 
 	default
 }
