@@ -4,6 +4,8 @@
 
 EAPI=6
 
+inherit cmake-utils
+
 DESCRIPTION="Qt based front end for Oyranos. Application + Library"
 HOMEPAGE="http://www.oyranos.org/synnefo/"
 SRC_URI="https://github.com/oyranos-cms/Synnefo/archive/${PV}.tar.gz -> ${P}.tar.gz"
