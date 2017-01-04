@@ -6,7 +6,7 @@ EAPI=6
 
 DESCRIPTION="Qt based front end for Oyranos. Application + Library"
 HOMEPAGE="http://www.oyranos.org/synnefo/"
-SRC_URI="https://github.com/oyranos-cms/Synnefo/archive/${PV}.tar.gz"
+SRC_URI="https://github.com/oyranos-cms/Synnefo/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="BSD-2"
 SLOT="0"
