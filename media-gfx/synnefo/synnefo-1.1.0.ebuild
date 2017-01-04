@@ -8,7 +8,7 @@ DESCRIPTION="Qt based front end for Oyranos. Application + Library"
 HOMEPAGE="http://www.oyranos.org/synnefo/"
 SRC_URI="https://github.com/oyranos-cms/Synnefo/archive/${PV}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="BSD-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
