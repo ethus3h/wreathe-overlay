@@ -14,3 +14,5 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="media-libs/oyranos"
 DEPEND="${RDEPEND}"
+
+S="${WORKDIR}/Synnefo-${PV}"
