@@ -14,5 +14,5 @@ KEYWORDS="~amd64 ~ppc ~x86"
 IUSE="python"
 
 DEPEND=""
-RDEPEND="|| ( media-sound/lash-original media-sound/ladish[lash] )
-python? ( || ( media-sound/lash-original[python] media-sound/ladish[python] ) )"
+RDEPEND="media-sound/ladish[lash]
+python? ( media-sound/ladish[python] )"

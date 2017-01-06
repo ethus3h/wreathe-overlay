@@ -33,7 +33,7 @@ REQUIRED_USE="python? ( lash ) ${PYTHON_REQUIRED_USE}"
 RDEPEND="lash? ( !media-sound/lash )
 	media-sound/jack-audio-connection-kit[dbus,${MULTILIB_USEDEP}]
 	dev-libs/expat[${MULTILIB_USEDEP}]
-	gtk? ( 
+	gtk? (
 		dev-libs/boost[${MULTILIB_USEDEP}]
 		>=x11-libs/gtk+-2.20.0:2[${MULTILIB_USEDEP}]
 		>=x11-libs/flowcanvas-0.6.4
