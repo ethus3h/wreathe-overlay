@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI=5
-inherit eutils flag-o-matic gnome2-utils git-r3
+inherit eutils flag-o-matic gnome2-utils git-r3 games
 
 EDITION="collect_edition"
 DESCRIPTION="WC-NG client for Cube 2: Sauerbraten"

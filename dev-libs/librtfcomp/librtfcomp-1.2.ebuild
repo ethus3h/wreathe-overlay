@@ -6,7 +6,7 @@ EAPI=4
 
 PYTHON_DEPEND="python? 2:2.7"
 
-inherit python
+inherit python-r1
 
 DESCRIPTION="Library for handling compressed RTF documents"
 HOMEPAGE="https://sourceforge.net/projects/synce/"

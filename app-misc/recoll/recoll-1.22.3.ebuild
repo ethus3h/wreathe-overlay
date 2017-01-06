@@ -5,7 +5,7 @@
 EAPI="4"
 
 PYTHON_DEPEND="2"
-inherit toolchain-funcs qmake-utils qt4-r2 linux-info python
+inherit toolchain-funcs qmake-utils qt4-r2 linux-info python-r1
 
 DESCRIPTION="A personal full text search package"
 HOMEPAGE="http://www.lesbonscomptes.com/recoll/"

@@ -6,7 +6,7 @@ EAPI=4
 
 PYTHON_DEPEND="python? 2:2.7"
 
-inherit python
+inherit python-r1
 
 DESCRIPTION="RRA protocol, for syncing pre WM-2005 PIM data, and files for all versions"
 HOMEPAGE="https://sourceforge.net/projects/synce/"

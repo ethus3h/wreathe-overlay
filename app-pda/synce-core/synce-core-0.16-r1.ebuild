@@ -6,7 +6,7 @@ EAPI=4
 
 PYTHON_DEPEND="python? 2:2.7"
 
-inherit flag-o-matic python
+inherit flag-o-matic python-r1
 
 DESCRIPTION="Base libraries, including RAPI protocol, tools and dccm daemon"
 HOMEPAGE="https://sourceforge.net/projects/synce/"
