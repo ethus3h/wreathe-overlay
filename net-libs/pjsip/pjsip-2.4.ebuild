@@ -53,14 +53,14 @@ src_prepare() {
 		build.mak.in || die "sed failed."
 
 	# apply -fPIC globally
-	cp ${FILESDIR}/user.mak ${S}
+	cp "${FILESDIR}"/user.mak "${S}"
 
 	# FIXME: remove deps to shipped codecs and libs, use system ones
 	# rm -r third_party
 	# libresample: https://ccrma.stanford.edu/~jos/resample/Free_Resampling_Software.html
 
 	use ring && {
-		epatch $WORKDIR/ring/contrib/src/pjproject/*.patch $FILESDIR/pjsip-ring-intptr_t.patch
+		epatch "$WORKDIR"/ring/contrib/src/pjproject/*.patch "$FILESDIR"/pjsip-ring-intptr_t.patch
 		sed -i -e 's#/usr/local#/usr#' aconfigure
 	}
 }
