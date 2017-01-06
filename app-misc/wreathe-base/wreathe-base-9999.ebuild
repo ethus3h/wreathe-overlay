@@ -43,7 +43,9 @@ src_install() {
 
 	unset GLOBIGNORE
 	exeinto /Wreathe/.Resources/Scripts/
-	doexe Wreathe/.Resources/Scripts/*
+	find Wreathe/.Resources/Scripts/ -type f -exec doexe {} \;
+	insinto /Wreathe/.Resources/Scripts/
+	find Wreathe/.Resources/Scripts/ \! -type f -exec doins -r {} \;
 
 	GLOBIGNORE="Wreathe/.Resources/7r2-Compatibility/Scripts"
 	insinto /Wreathe/.Resources/7r2-Compatibility/
