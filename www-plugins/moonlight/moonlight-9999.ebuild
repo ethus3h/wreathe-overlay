@@ -35,7 +35,7 @@ RDEPEND="
 	>=media-libs/fontconfig-2.6.0
 	>=media-libs/freetype-2.3.7
 	>=media-video/ffmpeg-0.6
-	>=net-libs/xulrunner-1.9.1:1.9
+	>=net-libs/xulrunner-1.9.1:=
 	>=x11-libs/cairo-1.8.4
 	>=x11-libs/gtk+-2.14:2
 	x11-libs/libXrandr
