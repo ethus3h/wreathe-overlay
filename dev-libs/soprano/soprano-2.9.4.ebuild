@@ -13,7 +13,7 @@ else
 	KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
 fi
 
-inherit base cmake-utils flag-o-matic ${git_eclass}
+inherit cmake-utils flag-o-matic ${git_eclass}
 
 DESCRIPTION="Library that provides a nice Qt interface to RDF storage solution"
 HOMEPAGE="http://soprano.sourceforge.net"
