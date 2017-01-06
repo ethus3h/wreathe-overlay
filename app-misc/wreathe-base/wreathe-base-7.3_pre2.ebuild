@@ -13,6 +13,8 @@ SLOT="0"
 KEYWORDS="~amd64"
 #RDEPEND="app-misc/wreathe-overlays"
 
+S="${WORKDIR}/wreathe-${PV}"
+
 src_prepare() {
 	eapply_user
 	rm -rv boot.disabled
