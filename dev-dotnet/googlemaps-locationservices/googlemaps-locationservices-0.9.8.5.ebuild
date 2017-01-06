@@ -8,7 +8,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 USE_DOTNET="net45"
 
-inherit gac dotnet-overlay git-r3
+inherit gac dotnet git-r3
 
 DESCRIPTION="Library for Google Maps geolocation and reverse geolocation"
 HOMEPAGE="https://github.com/sethwebster/GoogleMaps.LocationServices"

@@ -4,7 +4,7 @@
 
 EAPI=6
 
-inherit eutils mono-env dotnet-overlay multilib versionator gac
+inherit eutils mono-env dotnet multilib versionator gac
 
 PV_MAJOR=$(get_version_component_range 1-2)
 

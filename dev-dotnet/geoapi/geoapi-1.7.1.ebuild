@@ -8,7 +8,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 USE_DOTNET="net45"
 
-inherit gac dotnet-overlay subversion
+inherit gac dotnet subversion
 
 DESCRIPTION="OGC/ISO standards-based .NET GIS interoperability framework"
 HOMEPAGE="https://github.com/NetTopologySuite/GeoAPI"

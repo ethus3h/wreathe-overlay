@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-# @ECLASS: dotnet-overlay.eclass
+# @ECLASS: dotnet.eclass
 # @MAINTAINER: cynede@gentoo.org
 # @BLURB: common settings and functions for mono and dotnet related packages
 # @DESCRIPTION:
@@ -41,7 +41,7 @@ done
 
 # @FUNCTION: dotnet_pkg_setup
 # @DESCRIPTION:  This function set FRAMEWORK
-dotnet-overlay_pkg_setup() {
+dotnet_pkg_setup() {
 	EBUILD_FRAMEWORK=""
 	for x in ${USE_DOTNET} ; do
 		case ${x} in
@@ -159,7 +159,7 @@ exbuild_strong() {
 
 # @FUNCTION: dotnet_multilib_comply
 # @DESCRIPTION:  multilib comply
-dotnet-overlay_multilib_comply() {
+dotnet_multilib_comply() {
 	use !prefix && has "${EAPI:-0}" 0 1 2 && ED="${D}"
 	local dir finddirs=() mv_command=${mv_command:-mv}
 	if [[ -d "${ED}/usr/lib" && "$(get_libdir)" != "lib" ]]
