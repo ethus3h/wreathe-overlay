@@ -64,10 +64,6 @@ pkg_pretend() {
 	check-reqs_pkg_setup
 }
 
-src_unpack() {
-	unpack ${A}
-}
-
 src_prepare() {
 	# Allow user to apply any additional patches without modifing ebuild
 	eapply_user
