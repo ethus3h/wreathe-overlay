@@ -5,7 +5,7 @@
 EAPI=6
 
 SRC_URI="http://www.vandenoever.info/software/strigi/${P}.tar.bz2"
-KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
 inherit cmake-utils
 
 DESCRIPTION="Fast crawling desktop search engine with Qt4 GUI"
