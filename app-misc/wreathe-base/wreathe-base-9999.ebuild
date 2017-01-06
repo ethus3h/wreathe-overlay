@@ -12,7 +12,7 @@ EGIT_REPO_URI="git://github.com/ethus3h/wreathe.git"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 -*"
+KEYWORDS=""
 #RDEPEND="app-misc/wreathe-overlays"
 
 src_prepare() {
@@ -43,13 +43,13 @@ src_install() {
 
 	unset GLOBIGNORE
 	exeinto /Wreathe/.Resources/Scripts/
-	find Wreathe/.Resources/Scripts/ -type f -exec doexe {} \;
+	find Wreathe/.Resources/Scripts/ -type f -maxdepth 1 -exec doexe {} \;
 	insinto /Wreathe/.Resources/Scripts/
-	find Wreathe/.Resources/Scripts/ \! -type f -exec doins -r {} \;
+	find Wreathe/.Resources/Scripts/ -maxdepth 1 \! -type f -exec doins -r {} \;
 
 	GLOBIGNORE="Wreathe/.Resources/7r2-Compatibility/Scripts"
 	insinto /Wreathe/.Resources/7r2-Compatibility/
-	doins -r Wreathe/.Resources/7r2-Compatibility/* || die "Note: no additional 7r2 compatibility files installed"
+	find Wreathe/.Resources/7r2-Compatibility/ -maxdepth 1 \! -name "Scripts" -exec doins -r {} \;
 
 	unset GLOBIGNORE
 	exeinto /Wreathe/.Resources/7r2-Compatibility/Scripts/

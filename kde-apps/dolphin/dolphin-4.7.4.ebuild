@@ -15,7 +15,7 @@ EGIT_REPO_URI="git://github.com/ethus3h/wreathe-file-manager.git"
 
 LICENSE="GPL-2"
 SLOT="4"
-KEYWORDS="amd64 ~arm ppc ~ppc64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 -*"
 IUSE="debug semantic-desktop thumbnail"
 
 DEPEND="kde-frameworks/kdelibs:4
