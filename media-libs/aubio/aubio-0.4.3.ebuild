@@ -23,7 +23,7 @@ RDEPEND="sci-libs/fftw:3.0[${MULTILIB_USEDEP}]
 	alsa? ( media-libs/alsa-lib[${MULTILIB_USEDEP}] )
 	ffmpeg? ( virtual/ffmpeg[${MULTILIB_USEDEP}] )
 	jack? ( media-sound/jack-audio-connection-kit[${MULTILIB_USEDEP}] )
-	samplerate? ( media-libs/libsamplerate[${MULTILIB_USEDEP}] )
+	libsamplerate? ( media-libs/libsamplerate[${MULTILIB_USEDEP}] )
 	sndfile? ( media-libs/libsndfile[${MULTILIB_USEDEP}] )"
 DEPEND="${RDEPEND}
 	>=dev-lang/swig-1.3.0
@@ -47,7 +47,7 @@ multilib_src_configure()
 		$(use_enable jack)
 		$(use_enable alsa)
 		$(use_enable ffmpeg avcodec)
-		$(use_enable samplerate)
+		$(use_enable libsamplerate)
 		$(use_enable sndfile)
 		"--with-target-platform=${CHOST}"
 	)

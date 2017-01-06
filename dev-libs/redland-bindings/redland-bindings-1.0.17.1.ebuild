@@ -19,15 +19,14 @@ SRC_URI="http://download.librdf.org/source/${P}.tar.gz"
 
 LICENSE="Apache-2.0 GPL-2 LGPL-2.1"
 SLOT="0"
-# Package is broken
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE="lua perl python php ruby"
 
 RDEPEND=">=dev-libs/redland-1.0.14
-	lua? ( >=dev-lang/lua-5.1 )
+	lua? ( >=dev-lang/lua-5.1:= )
 	perl? ( dev-lang/perl:= )
 	python? ( ${PYTHON_DEPS} )
-	ruby? ( dev-lang/ruby dev-ruby/log4r )"
+	ruby? ( dev-lang/ruby:= dev-ruby/log4r )"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	>=dev-lang/swig-2
