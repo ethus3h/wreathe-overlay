@@ -12,7 +12,7 @@ EGIT_REPO_URI="git://github.com/ethus3h/wreathe-typefaces-redist.git"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 -*"
+KEYWORDS=""
 RDEPEND="app-misc/wreathe-base"
 
 src_install() {
