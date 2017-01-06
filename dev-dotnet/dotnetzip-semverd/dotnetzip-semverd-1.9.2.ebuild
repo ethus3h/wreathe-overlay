@@ -8,7 +8,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 USE_DOTNET="net45"
 
-inherit gac dotnet
+inherit gac dotnet-overlay
 
 SRC_URI="https://github.com/haf/DotNetZip.Semverd/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 RESTRICT="mirror"

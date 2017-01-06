@@ -8,7 +8,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 USE_DOTNET="net45"
 
-inherit gac dotnet git-r3
+inherit gac dotnet-overlay git-r3
 
 DESCRIPTION="A cross-platform .NET library for IMAP, POP3, and SMTP."
 HOMEPAGE="https://github.com/jstedfast/MailKit"
