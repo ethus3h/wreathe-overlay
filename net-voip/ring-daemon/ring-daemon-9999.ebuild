@@ -10,7 +10,7 @@ DESCRIPTION="Ring is a Voice-over-IP software phone."
 HOMEPAGE="https://ring.cx/"
 EGIT_REPO_URI="https://gerrit-ring.savoirfairelinux.com/ring-daemon"
 
-LICENSE="GPL"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
 IUSE=""

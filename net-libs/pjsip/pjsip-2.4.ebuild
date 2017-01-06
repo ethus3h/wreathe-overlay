@@ -8,8 +8,7 @@ EAPI="2"
 
 inherit ${VCS_ECLASS} git-r3
 
-DESCRIPTION="Multimedia communication libraries written in C language
-for building VoIP applications."
+DESCRIPTION="Multimedia communication libraries (C language) for building VoIP apps."
 HOMEPAGE="http://www.pjsip.org/"
 if [[ ${PV} == *9999* ]]; then
 	ESVN_REPO_URI="http://svn.pjsip.org/repos/pjproject/trunk"
@@ -56,7 +55,7 @@ src_prepare() {
 	# apply -fPIC globally
 	cp ${FILESDIR}/user.mak ${S}
 
-	# TODO: remove deps to shipped codecs and libs, use system ones
+	# FIXME: remove deps to shipped codecs and libs, use system ones
 	# rm -r third_party
 	# libresample: https://ccrma.stanford.edu/~jos/resample/Free_Resampling_Software.html
 
