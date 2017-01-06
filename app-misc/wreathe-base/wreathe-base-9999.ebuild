@@ -49,9 +49,7 @@ src_install() {
 
 	GLOBIGNORE="Wreathe/.Resources/7r2-Compatibility/Scripts"
 	insinto /Wreathe/.Resources/7r2-Compatibility/
-	(
-		doins -r Wreathe/.Resources/7r2-Compatibility/* || echo "Note: no additional 7r2 compatibility files installed"
-	)
+	doins -r Wreathe/.Resources/7r2-Compatibility/* || die "Note: no additional 7r2 compatibility files installed"
 
 	unset GLOBIGNORE
 	exeinto /Wreathe/.Resources/7r2-Compatibility/Scripts/
