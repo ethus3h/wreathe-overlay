@@ -11,30 +11,31 @@ HOMEPAGE="https://www.free-decompiler.com/"
 EGIT_REPO_URI="git://github.com/jindrapetrik/jpexs-decompiler.git"
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 -*"
+KEYWORDS=""
 RDEPEND="virtual/jdk:=
 	dev-java/jflex
-	dev-java/trident
-	dev-java/tablelayout
 	dev-java/jna:=
 	dev-java/lzma
-	dev-java/treetable
-	dev-java/ttf
-	dev-java/substance
-	dev-java/substance-flamingo
-	dev-java/sfntly
-	dev-java/nellymoser
-	dev-java/jsyntaxpane
-	dev-java/jpacker
-	dev-java/jpproxy
-	dev-java/jl
-	dev-java/gnupdf
-	dev-java/gif
-	dev-java/flashdebugger
-	dev-java/flamingo
-	dev-java/cmykjpeg
-	dev-java/avi
-	dev-java/javactivex"
+	dev-java/tablelayout
+	dev-java/trident
+"
+# dev-java/avi
+# dev-java/cmykjpeg
+# dev-java/flamingo
+# dev-java/flashdebugger
+# dev-java/gif
+# dev-java/gnupdf
+# dev-java/javactivex
+# dev-java/jl
+# dev-java/jpacker
+# dev-java/jpproxy
+# dev-java/jsyntaxpane
+# dev-java/nellymoser
+# dev-java/sfntly
+# dev-java/substance
+# dev-java/substance-flamingo
+# dev-java/treetable
+# dev-java/ttf
 
 DEPEND="${RDEPEND}"
 
