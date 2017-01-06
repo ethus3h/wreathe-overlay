@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI="4"
+EAPI="6"
 
 PYTHON_DEPEND="2"
 inherit toolchain-funcs qmake-utils qt4-r2 linux-info python-r1
