@@ -12,4 +12,6 @@ SRC_URI="http://literatecode.com/get/smacadu.zip -> ${P}.zip"
 
 LICENSE="public-domain"
 SLOT="0"
+# Ebuild is not finished
+KEYWORDS=""
 RESTRICT="test"

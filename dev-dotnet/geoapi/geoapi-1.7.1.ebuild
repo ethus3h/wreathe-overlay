@@ -18,7 +18,8 @@ LICENSE="LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="dev-dotnet/dotnet-cli
+# dev-dotnet/dotnet-cli provided by wreathe-base
+RDEPEND="app-misc/wreathe-base
 	dev-lang/mono"
 
 DEPEND="${RDEPEND}"

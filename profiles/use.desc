@@ -1,0 +1,8 @@
+# Copyright 1999-2017 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+gac - register library assemblies in the gac (where ebuild requests that)
+pkg-config - install .pc file
+nupkg - build binary package for local repository
+developer - create .mdb files
+net45 - .NET 4.5 Framework

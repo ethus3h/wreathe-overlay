@@ -15,7 +15,7 @@ SRC_URI="http://aubio.piem.org/pub/${P}.tar.bz2"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~sparc ~x86"
-IUSE="+alsa doc examples ffmpeg +jack +samplerate +sndfile static-libs"
+IUSE="+alsa doc examples ffmpeg jack libsamplerate sndfile static-libs"
 REQUIRED_USE="${PYHON_REQUIRED_USE}"
 
 RDEPEND="sci-libs/fftw:3.0[${MULTILIB_USEDEP}]

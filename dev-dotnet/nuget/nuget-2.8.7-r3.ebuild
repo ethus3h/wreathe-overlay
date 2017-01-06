@@ -22,10 +22,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86 ~ppc"
 IUSE=""
 
+# FIXME: <=dev-dotnet/xdt-for-monodevelop-2.8.2[gac] provided by app-misc/wreathe-base
 # Mask 3.2.0 because of mcs compiler bug : http://stackoverflow.com/a/17926731/238232
 # it fixed in 3.2.3
 DEPEND=">=dev-lang/mono-3.2.3
-	<=dev-dotnet/xdt-for-monodevelop-2.8.2[gac]
+	app-misc/wreathe-base
 	!dev-dotnet/nuget-codeplex
 	app-misc/ca-certificates"
 RDEPEND="${DEPEND}"
