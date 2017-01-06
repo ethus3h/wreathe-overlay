@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/KDE/thumbnailers"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 ~arm ppc ~ppc64 x86 ~amd64-linux ~x86-linux"
+KEYWORDS=""
 
 DEPEND="
 	kde-apps/thumbnailers:4

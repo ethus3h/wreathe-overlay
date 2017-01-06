@@ -12,7 +12,7 @@ EGIT_REPO_URI="git://github.com/ethus3h/ember-information-technology-environment
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 -*"
+KEYWORDS=""
 RDEPEND="app-misc/wreathe-meta
 	dev-lang/nqp"
 DEPEND="${RDEPEND}"

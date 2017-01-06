@@ -10,7 +10,7 @@ SRC_URI="http://kdelook.org/CONTENT/content-files/158273-tomoyo%20KDE-AMOR.zip"
 
 LICENSE="LGPL-2+"
 SLOT="0"
-KEYWORDS="~alpha amd64 ~arm ~hppa ~ia64 ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86"
+KEYWORDS="~amd64"
 
 RDEPEND="trinity-base/amor:*"
 DEPEND="${RDEPEND}"
