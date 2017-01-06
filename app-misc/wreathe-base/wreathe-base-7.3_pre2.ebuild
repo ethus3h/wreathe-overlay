@@ -18,7 +18,8 @@ KEYWORDS="~amd64"
 S="${WORKDIR}/wreathe-${PV}"
 
 src_prepare() {
-	mv "${WORKDIR}/onboard-emoji-$onboardEmojiRevision" "${S}/build/onscreen-keyboard/onscreen-emoji"
+	rm -rv "${S}/build/onscreen-keyboard/onboard-emoji"
+	mv "${WORKDIR}/onboard-emoji-$onboardEmojiRevision" "${S}/build/onscreen-keyboard/onboard-emoji"
 	eapply_user
 	rm -rv boot.disabled
 }
