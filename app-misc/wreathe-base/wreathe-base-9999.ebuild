@@ -21,18 +21,45 @@ src_prepare() {
 }
 
 src_install() {
+	GLOBIGNORE="README.md:.git:.gitattributes:.gitconfig:usr:man:Makefile:build:.egup.tags:Wreathe"
 	insinto /
-	GLOBIGNORE="README.md:.git:.gitattributes:.gitconfig:usr:man:Makefile:build:.egup.tags"
 	doins -r *
-	insinto /usr/
+
 	GLOBIGNORE="usr/bin"
+	insinto /usr/
 	doins -r usr/*
+
 	unset GLOBIGNORE
 	exeinto /usr/bin/
 	doexe usr/bin/*
+
+	GLOBIGNORE="Wreathe/.Resources"
+	insinto /Wreathe/
+	doins -r Wreathe/*
+
+	GLOBIGNORE="Wreathe/.Resources/7r2-Compatibility:Wreathe/.Resources/Scripts"
+	insinto /Wreathe/.Resources/
+	doins -r Wreathe/.Resources/*
+
+	unset GLOBIGNORE
+	exeinto /Wreathe/.Resources/Scripts/
+	doexe Wreathe/.Resources/Scripts/*
+
+	GLOBIGNORE="Wreathe/.Resources/7r2-Compatibility/Scripts"
+	insinto /Wreathe/.Resources/7r2-Compatibility/
+	doins -r Wreathe/.Resources/7r2-Compatibility/* || echo "Note: no additional 7r2 compatibility files installed"
+
+	unset GLOBIGNORE
+	exeinto /Wreathe/.Resources/7r2-Compatibility/Scripts/
+	doexe Wreathe/.Resources/7r2-Compatibility/Scripts/*
+
+	unset GLOBIGNORE
+
 	doman man/*
+
 	# Provide gmcs as an alias for the mcs compiler for Mono
 	dosym /usr/bin/mcs /usr/bin/gmcs
+
 	# Make php-cgi command available
 	phpfile=$(file /usr/bin/php)
 	cgifile="$(echo -n "$phpfile" | perl -p -e 's/\/usr\/bin\/php: symbolic link to \/(.+)\/php([\d\.]+)\/bin\/php/\/$1\/php$2\/bin\/php-cgi/g')"
