@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI=5
-inherit eutils autotools gnome2-utils games
+inherit eutils autotools gnome2-utils
 
 DESCRIPTION="High speed arctic racing game based on Tux Racer"
 HOMEPAGE="http://extremetuxracer.sourceforge.net/"
@@ -39,12 +39,12 @@ src_install() {
 }
 
 pkg_preinst() {
-	games_pkg_preinst
+	default
 	gnome2_icon_savelist
 }
 
 pkg_postinst() {
-	games_pkg_postinst
+	default
 	gnome2_icon_cache_update
 }
 

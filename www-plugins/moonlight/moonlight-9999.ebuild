@@ -4,7 +4,7 @@
 
 EAPI=6
 
-inherit eutils flag-o-matic linux-info mono multilib nsplugins pax-utils git-r3
+inherit eutils flag-o-matic linux-info mono-env multilib nsplugins pax-utils git-r3
 
 DESCRIPTION="Moonlight is an open source implementation of Silverlight"
 HOMEPAGE="http://www.go-mono.com/moonlight/"
