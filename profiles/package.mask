@@ -1,2 +1,2 @@
 # Ebuild is broken
-=dev-libs/redland-bindings-1.0.17.1::wreathe-overlay
+=dev-libs/redland-bindings-1.0.17.1
