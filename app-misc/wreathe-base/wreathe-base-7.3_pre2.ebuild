@@ -6,7 +6,9 @@ EAPI="6"
 
 DESCRIPTION="Wreathe"
 HOMEPAGE="https://futuramerlin.com/"
-SRC_URI="https://github.com/ethus3h/wreathe/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+onboardEmojiRevision="47314d5aff654d8e315552fb106cf82508915747"
+SRC_URI="https://github.com/ethus3h/wreathe/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	https://github.com/qnub/onboard-emoji/archive/$onboardEmojiRevision.zip -> onboard-emoji-git-$onboardEmojiRevision.zip"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -16,6 +18,7 @@ KEYWORDS="~amd64"
 S="${WORKDIR}/wreathe-${PV}"
 
 src_prepare() {
+	mv "${WORKDIR}/onboard-emoji-$onboardEmojiRevision" "${S}/build/onscreen-keyboard/onscreen-emoji"
 	eapply_user
 	rm -rv boot.disabled
 }
