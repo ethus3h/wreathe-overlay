@@ -4,8 +4,6 @@
 
 EAPI=6
 
-PYTHON_DEPEND="python? 2:2.7"
-
 inherit flag-o-matic python-r1
 
 DESCRIPTION="Base libraries, including RAPI protocol, tools and dccm daemon"
@@ -17,6 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="python static-libs"
 
+PYTHON_COMPAT=( python2_7 )
 # AC_PATH_PROG -> pppd -> net-dialup/ppp
 # AC_PATH_PROG -> ifconfig -> sys-apps/net-tools
 RDEPEND="!app-pda/synce-connector

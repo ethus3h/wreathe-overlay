@@ -4,8 +4,6 @@
 
 EAPI=6
 
-PYTHON_DEPEND="python? 2:2.7"
-
 inherit python-r1
 
 DESCRIPTION="Library for handling compressed RTF documents"
@@ -17,6 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="python static-libs"
 
+PYTHON_COMPAT=( python2_7 )
 RDEPEND="python? ( >=dev-python/pyrex-0.9.6 )"
 DEPEND="${RDEPEND}"
 

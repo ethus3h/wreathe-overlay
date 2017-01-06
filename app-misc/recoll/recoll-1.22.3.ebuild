@@ -4,7 +4,6 @@
 
 EAPI="6"
 
-PYTHON_DEPEND="2"
 inherit toolchain-funcs qmake-utils qt4-r2 linux-info python-r1
 
 DESCRIPTION="A personal full text search package"
@@ -17,6 +16,7 @@ KEYWORDS="~amd64 ~x86"
 INDEX_HELPERS="chm djvu dvi exif postscript ics info lyx msdoc msppt msxls pdf rtf sound tex wordperfect xml"
 IUSE="+spell inotify +qt4 +session camelcase xattr webkit fam ${INDEX_HELPERS}"
 
+PYTHON_COMPAT=( python2_7 )
 DEPEND="
 	virtual/libiconv
 	>=dev-libs/xapian-1.0.12

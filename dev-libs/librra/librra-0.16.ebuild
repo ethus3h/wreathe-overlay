@@ -4,8 +4,6 @@
 
 EAPI=6
 
-PYTHON_DEPEND="python? 2:2.7"
-
 inherit python-r1
 
 DESCRIPTION="RRA protocol, for syncing pre WM-2005 PIM data, and files for all versions"
@@ -17,6 +15,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="python recurrence static-libs"
 
+PYTHON_COMPAT=( python2_7 )
 RDEPEND=">=app-pda/synce-core-0.16[python?]
 	>=dev-libs/libmimedir-0.5.1
 	python? ( >=dev-python/pyrex-0.9.6 )"
