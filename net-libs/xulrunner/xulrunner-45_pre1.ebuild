@@ -143,6 +143,7 @@ src_configure() {
 
 	mozconfig_annotate '' --enable-extensions="${MEXTENSIONS}"
 	mozconfig_annotate '' --disable-mailnews
+	mozconfig_annotate '' --disable-official-branding
 
 	# Allow for a proper pgo build
 	if use pgo; then
