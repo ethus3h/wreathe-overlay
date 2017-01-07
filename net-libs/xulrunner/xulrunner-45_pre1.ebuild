@@ -24,10 +24,14 @@ SLOT="0"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 IUSE="bindist hardened +hwaccel pgo selinux +gmp-autoupdate test"
 RESTRICT="!bindist? ( bindist )"
+
 xulrunnerStubGitRevision="7b5f3b66b4a6a209ff667763e76a82d0b0380be2"
-SRC_URI="https://github.com/ethus3h/xulrunner/archive/v45_pre1.tar.gz -> ${P}
-	https://archive.mozilla.org/pub/firefox/releases/45.6.0esr/source/firefox-45.6.0esr.source.tar.xz
-	https://github.com/ethus3h/xulrunner-stub/archive/$xulrunnerStubGitRevision.zip -> xulrunner-stub-git-$xulrunnerStubGitRevision.zip"
+firefoxVersion="45.6.0esr"
+SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
+	https://archive.mozilla.org/pub/firefox/releases/$firefoxVersion/source/firefox-$firefoxVersion.source.tar.xz
+	https://github.com/duanyao/xulrunner-stub/archive/$xulrunnerStubGitRevision.zip -> xulrunner-stub-git-$xulrunnerStubGitRevision.zip"
+
+S="${WORKDIR}/firefox-$firefoxVersion"
 
 ASM_DEPEND=">=dev-lang/yasm-1.1"
 
@@ -68,6 +72,10 @@ pkg_pretend() {
 }
 
 src_prepare() {
+	mv "${WORKDIR}/${P}" "${S}/xulrunner"
+	mv "${WORKDIR}/xulrunner-stub-git-$xulrunnerStubGitRevision/src/stub/nsXPCOMPrivate.h" "${S}/xpcom/build/"
+	mv "${WORKDIR}/xulrunner-stub-git-$xulrunnerStubGitRevision/src/stub/nsWindowsWMain.cpp" "${S}/toolkit/xre/"
+
 	# Allow user to apply any additional patches without modifing ebuild
 	eapply_user
 
