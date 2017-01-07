@@ -11,6 +11,9 @@ HOMEPAGE="http://www.go-mono.com/moonlight/"
 
 LIBGDIPLUS="2.8.1"
 GTKSHARP="gtk-sharp-2.12.10"
+monoRevision="32b3b31f74ec411d02efba37d58433ade9fa6d98"
+monoBasicRevision="2e6038e088bd9011738c4ec49f2029c681a21cd3"
+mesaRevision="3ed0a099c70e9d771e60e0ddf70bc0b5ba83a483"
 
 LICENSE="BSD-4 GPL-2 GPL-2-with-linking-exception IDPL LGPL-2 MIT Ms-PL NPL-1.1"
 SLOT="0"
@@ -19,7 +22,10 @@ IUSE="alsa +curl +debug hardened +nsplugin pulseaudio sdk test"
 RESTRICT="mirror"
 
 SRC_URI="https://github.com/ethus3h/moon-1/archive/v${PV}.tar.gz -> ${P}.tar.gz
-	https://github.com/mono/libgdiplus/archive/2.8.1.tar.gz -> libgdiplus-2.8.1.tar.gz
+	https://github.com/mono/mono/archive/$monoRevision.zip -> mono-git-$monoRevision.zip
+	https://github.com/mono/mono-basic/archive/$monoBasicRevision.zip -> mono-basic-git-$monoBasicRevision.zip
+	https://cgit.freedesktop.org/mesa/mesa/snapshot/cgit-$mesaRevision.tar.xz -> mesa-git-$mesaRevision.tar.xz
+	https://github.com/mono/libgdiplus/archive/$LIBGDIPLUS.tar.gz -> libgdiplus-$LIBGDIPLUS.tar.gz
 	http://web.archive.org/web/20111225065517/http://ftp.novell.com/pub/mono/sources/gtk-sharp212/${GTKSHARP}.tar.bz2"
 
 RDEPEND="
