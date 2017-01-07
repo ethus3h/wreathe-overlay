@@ -107,11 +107,13 @@ src_prepare() {
 	# That same mono source tree requires itself to be built using a system mono that is of the same version #
 	# To do this we create a temporary base system mono built '--with-moonlight=no' #
 	# Then use that system mono to build the mono source tree '--with-moonlight=yes' #
+	
+	pabsolute="$(pwd ${P})"
 
 	# Configure, make and install a temporary system mono (without moonlight) #
 	echo && einfo "Building temporary system mono (1st pass without moonlight)" && echo
 	cd "${P}/mono"
-	./autogen.sh	--prefix="${P}/mono-install" \
+	./autogen.sh	--prefix="${pabsolute}/mono-install" \
 			--disable-quiet-build \
 			--with-moonlight=no || die "Configure failed for mono"
 	make && make install || die "Make failed for mono"
