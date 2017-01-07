@@ -15,17 +15,18 @@ LIBGDIPLUS="2.8.1"
 GTKSHARP="gtk-sharp-2.12.10"
 monoRevision="32b3b31f74ec411d02efba37d58433ade9fa6d98"
 monoBasicRevision="2e6038e088bd9011738c4ec49f2029c681a21cd3"
+monoBootstrapVersion="2.10.9"
 mesaRevision="3ed0a099c70e9d771e60e0ddf70bc0b5ba83a483"
 
-LICENSE="BSD-4 GPL-2 GPL-2-with-linking-exception IDPL LGPL-2 MIT Ms-PL NPL-1.1"
+LICENSE="BSD-4 GPL-2 GPL-2-with-linking-exception IDPL LGPL-2 LGPL-2.1 MIT Ms-PL NPL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="alsa +curl +debug hardened +nsplugin pulseaudio sdk test"
-RESTRICT="mirror"
 
 SRC_URI="https://github.com/ethus3h/moon-1/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/mono/mono/archive/$monoRevision.zip -> mono-git-$monoRevision.zip
 	https://github.com/mono/mono-basic/archive/$monoBasicRevision.zip -> mono-basic-git-$monoBasicRevision.zip
+	http://mono.ximian.com/monobuild/preview/sources/mono/mono-$monoBootstrapVersion.tar.bz2 -> mono-$monoBootstrapVersion.tar.bz2
 	https://github.com/mesa3d/mesa/archive/$mesaRevision.zip -> mesa-git-$mesaRevision.zip
 	https://github.com/mono/libgdiplus/archive/$LIBGDIPLUS.tar.gz -> libgdiplus-$LIBGDIPLUS.tar.gz
 	http://web.archive.org/web/20111225065517/http://ftp.novell.com/pub/mono/sources/gtk-sharp212/${GTKSHARP}.tar.bz2"
@@ -107,14 +108,16 @@ src_prepare() {
 		sed '/exec/ i\paxctl -m "$r/@mono_runtime@"' -i mono/runtime/mono-wrapper.in
 	fi
 
-	# >=moonlight-3 must be built using a specific mono source tree revision #
-	# That same mono source tree requires itself to be built using a system mono that is of the same version #
-	# To do this we create a temporary base system mono built '--with-moonlight=no' #
-	# Then use that system mono to build the mono source tree '--with-moonlight=yes' #
+	# >=moonlight-3 must be built using a specific mono source tree revision
+	# That same mono source tree requires itself to be built using a system mono that is of the same version
+	# To do this we create a temporary base system mono built '--with-moonlight=no', but we need a Mono 2.x version already to build this with
+	# Then use that system mono to build the mono source tree '--with-moonlight=yes'
 	
 	pabsolute="$(pwd ${P})"
+	
+	# Build a bootstrap mono
 
-	# Configure, make and install a temporary system mono (without moonlight) #
+	# Configure, make and install a temporary system mono (without moonlight)
 	echo && einfo "Building temporary system mono (1st pass without moonlight)" && echo
 	cd "mono"
 	strip-flags
@@ -124,7 +127,7 @@ src_prepare() {
 			--with-moonlight=no || die "Configure failed for mono"
 	make && make install || die "Make failed for mono"
 
-	# Setup mono build environment so that it uses the temporary base system mono #
+	# Setup mono build environment so that it uses the temporary base system mono
 	MONO_PREFIX="${P}/mono-install"
 	GNOME_PREFIX=/usr
 	export DYLD_LIBRARY_FALLBACK_PATH=$MONO_PREFIX/lib:$DYLD_LIBRARY_FALLBACK_PATH

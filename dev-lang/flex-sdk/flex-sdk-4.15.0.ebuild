@@ -21,7 +21,7 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="doc samples source +adobe_xerces"
 
-RESTRICT="strip mirror"
+RESTRICT="strip"
 
 CDEPEND="
 	>=dev-java/ant-core-1.7

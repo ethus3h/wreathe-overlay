@@ -6,7 +6,6 @@ EAPI="6"
 
 inherit exteutils git-r3
 
-RESTRICT="mirror"
 IUSE=""
 
 DESCRIPTION="A mixer app for jack"
