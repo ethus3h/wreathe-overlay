@@ -120,10 +120,10 @@ src_prepare() {
 	
 	# Build a bootstrap mono
 	cd "${WORKDIR}/mono-$monoBootstrapVersion"
-	epatch "${FILESDIR}/mono-$monoBootstrapVersion-threads-access.patch"
-	epatch "${FILESDIR}/mono-$monoBootstrapVersion-CVE-2012-3382.patch"
-	epatch "${FILESDIR}/mono-$monoBootstrapVersion-CVE-2012-3543.patch"
-	epatch "${FILESDIR}/mono-$monoBootstrapVersion-CVE-2012-3543_2.patch"
+	epatch "${FILESDIR}/mono-2.10.2-threads-access.patch"
+	epatch "${FILESDIR}/mono-2.10.9-CVE-2012-3382.patch"
+	epatch "${FILESDIR}/mono-2.10.9-CVE-2012-3543.patch"
+	epatch "${FILESDIR}/mono-2.10.9-CVE-2012-3543_2.patch"
 	strip-flags
 	append-flags -fno-strict-aliasing
 	local myconf=""
