@@ -24,7 +24,7 @@ RESTRICT="mirror"
 SRC_URI="https://github.com/ethus3h/moon-1/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/mono/mono/archive/$monoRevision.zip -> mono-git-$monoRevision.zip
 	https://github.com/mono/mono-basic/archive/$monoBasicRevision.zip -> mono-basic-git-$monoBasicRevision.zip
-	https://cgit.freedesktop.org/mesa/mesa/snapshot/cgit-$mesaRevision.tar.xz -> mesa-git-$mesaRevision.tar.xz
+	https://github.com/mesa3d/mesa/archive/$mesaRevision.zip -> mesa-git-$mesaRevision.tar.xz
 	https://github.com/mono/libgdiplus/archive/$LIBGDIPLUS.tar.gz -> libgdiplus-$LIBGDIPLUS.tar.gz
 	http://web.archive.org/web/20111225065517/http://ftp.novell.com/pub/mono/sources/gtk-sharp212/${GTKSHARP}.tar.bz2"
 
