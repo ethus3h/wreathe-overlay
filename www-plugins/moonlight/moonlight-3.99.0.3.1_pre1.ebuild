@@ -71,7 +71,7 @@ pkg_setup() {
 }
 
 src_unpack() {
-	unpack "${A}"
+	unpack ${A}
 	mv "${WORKDIR}/moon-1-${PV}" "${P}"
 	rm -rf "${P}/mono"
 	mv "${WORKDIR}/mono-$monoRevision" "${P}/mono"
