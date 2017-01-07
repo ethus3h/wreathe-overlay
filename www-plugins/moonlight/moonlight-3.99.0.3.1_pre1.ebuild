@@ -116,6 +116,14 @@ src_prepare() {
 	pabsolute="$(pwd ${P})"
 	
 	# Build a bootstrap mono
+	monoBootstrapPatches=(
+		"${FILESDIR}/mono-$monoBootstrapVersion-threads-access.patch"
+		"${FILESDIR}/mono-$monoBootstrapVersion-CVE-2012-3382.patch"
+		"${FILESDIR}/mono-$monoBootstrapVersion-CVE-2012-3543.patch"
+		"${FILESDIR}/mono-$monoBootstrapVersion-CVE-2012-3543_2.patch"
+	)
+	cd "${WORKDIR}/mono-$monoBootstrapVersion"
+	epatch 
 
 	# Configure, make and install a temporary system mono (without moonlight)
 	echo && einfo "Building temporary system mono (1st pass without moonlight)" && echo
