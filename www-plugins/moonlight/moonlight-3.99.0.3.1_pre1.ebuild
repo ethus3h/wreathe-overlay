@@ -6,7 +6,7 @@ EAPI=6
 
 WANT_AUTOMAKE="1.11"
 
-inherit eutils flag-o-matic go-mono linux-info mono-env multilib nsplugins pax-utils autotools
+inherit eutils flag-o-matic linux-info mono-env multilib nsplugins pax-utils autotools versionator
 
 DESCRIPTION="Moonlight is an open source implementation of Silverlight"
 HOMEPAGE="http://www.go-mono.com/moonlight/"
@@ -31,6 +31,13 @@ SRC_URI="https://github.com/ethus3h/moon-1/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/mono/libgdiplus/archive/$LIBGDIPLUS.tar.gz -> libgdiplus-$LIBGDIPLUS.tar.gz
 	http://web.archive.org/web/20111225065517/http://ftp.novell.com/pub/mono/sources/gtk-sharp212/${GTKSHARP}.tar.bz2"
 
+if [[ "$(get_version_component_range 3)" != "9999" ]]
+then
+	moonlightReleasePackageVersion="$(get_version_component_range 1-2)"
+else
+	moonlightReleasePackageVersion="${PV}"
+fi
+
 RDEPEND="
 	alsa? ( >=media-libs/alsa-lib-1.0.18 )
 	curl? ( net-misc/curl )
@@ -48,8 +55,9 @@ RDEPEND="
 	>=x11-libs/cairo-1.8.4
 	>=x11-libs/gtk+-2.14:2
 	x11-libs/libXrandr
-	=dev-dotnet/libgdiplus-${GO_MONO_REL_PV}*
+	=dev-dotnet/libgdiplus-${moonlightReleasePackageVersion}*
 	"
+
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	dev-libs/expat
