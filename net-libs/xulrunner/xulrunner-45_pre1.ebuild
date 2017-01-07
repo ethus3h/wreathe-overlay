@@ -13,7 +13,7 @@ MOZ_HTTP_URI="https://archive.mozilla.org/pub/firefox/releases"
 MOZCONFIG_OPTIONAL_WIFI=1
 MOZCONFIG_OPTIONAL_JIT="enabled"
 
-inherit check-reqs flag-o-matic toolchain-funcs eutils gnome2-utils mozconfig-v6.45 pax-utils fdo-mime autotools virtualx git-r3
+inherit check-reqs flag-o-matic toolchain-funcs eutils gnome2-utils mozconfig-v6.45 pax-utils fdo-mime autotools virtualx
 
 DESCRIPTION="XULRunner"
 HOMEPAGE="https://developer.mozilla.org/en-US/docs/Archive/Mozilla/XULRunner"
@@ -24,7 +24,8 @@ SLOT="0"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 IUSE="bindist hardened +hwaccel pgo selinux +gmp-autoupdate test"
 RESTRICT="!bindist? ( bindist )"
-EGIT_REPO_URI="git://github.com/mozilla/gecko-dev.git"
+SRC_URI="https://github.com/ethus3h/xulrunner/archive/v45_pre1.tar.gz -> ${P}
+	https://archive.mozilla.org/pub/firefox/releases/45.6.0esr/source/firefox-45.6.0esr.source.tar.xz"
 
 ASM_DEPEND=">=dev-lang/yasm-1.1"
 
