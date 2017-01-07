@@ -55,7 +55,7 @@ RDEPEND="
 	>=x11-libs/cairo-1.8.4
 	>=x11-libs/gtk+-2.14:2
 	x11-libs/libXrandr
-	=dev-dotnet/libgdiplus-${moonlightReleasePackageVersion}*
+	=dev-dotnet/libgdiplus-2*
 	"
 
 DEPEND="${RDEPEND}
