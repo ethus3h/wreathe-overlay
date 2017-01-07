@@ -6,7 +6,7 @@ EAPI=6
 
 WANT_AUTOMAKE="1.11"
 
-inherit eutils flag-o-matic linux-info mono-env multilib nsplugins pax-utils autotools
+inherit eutils flag-o-matic go-mono linux-info mono-env multilib nsplugins pax-utils autotools
 
 DESCRIPTION="Moonlight is an open source implementation of Silverlight"
 HOMEPAGE="http://www.go-mono.com/moonlight/"
@@ -21,7 +21,7 @@ mesaRevision="3ed0a099c70e9d771e60e0ddf70bc0b5ba83a483"
 LICENSE="BSD-4 GPL-2 GPL-2-with-linking-exception IDPL LGPL-2 LGPL-2.1 MIT Ms-PL NPL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa +curl +debug hardened +nsplugin pulseaudio sdk test"
+IUSE="alsa +curl +debug pax_kernel +nsplugin pulseaudio sdk test xen"
 
 SRC_URI="https://github.com/ethus3h/moon-1/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/mono/mono/archive/$monoRevision.zip -> mono-git-$monoRevision.zip
@@ -48,6 +48,7 @@ RDEPEND="
 	>=x11-libs/cairo-1.8.4
 	>=x11-libs/gtk+-2.14:2
 	x11-libs/libXrandr
+	=dev-dotnet/libgdiplus-${GO_MONO_REL_PV}*
 	"
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
@@ -103,9 +104,10 @@ src_unpack() {
 src_prepare() {
 	# we need to sed in the paxctl -m in the runtime/mono-wrapper.in so it don't
 	# get killed in the build proces when MPROTEC is enable. #286280
-	if use hardened ; then
+	if use pax_kernel ; then
 		ewarn "We are disabling MPROTECT on the mono binary."
 		sed '/exec/ i\paxctl -m "$r/@mono_runtime@"' -i mono/runtime/mono-wrapper.in
+		sed '/exec/ i\paxctl -m "$r/@mono_runtime@"' -i "${WORKDIR}/mono-$monoBootstrapVersion/runtime/mono-wrapper.in"
 	fi
 
 	# >=moonlight-3 must be built using a specific mono source tree revision
@@ -116,24 +118,36 @@ src_prepare() {
 	pabsolute="$(pwd ${P})"
 	
 	# Build a bootstrap mono
-	monoBootstrapPatches=(
-		"${FILESDIR}/mono-$monoBootstrapVersion-threads-access.patch"
-		"${FILESDIR}/mono-$monoBootstrapVersion-CVE-2012-3382.patch"
-		"${FILESDIR}/mono-$monoBootstrapVersion-CVE-2012-3543.patch"
-		"${FILESDIR}/mono-$monoBootstrapVersion-CVE-2012-3543_2.patch"
-	)
 	cd "${WORKDIR}/mono-$monoBootstrapVersion"
-	epatch 
+	epatch "${FILESDIR}/mono-$monoBootstrapVersion-threads-access.patch"
+	epatch "${FILESDIR}/mono-$monoBootstrapVersion-CVE-2012-3382.patch"
+	epatch "${FILESDIR}/mono-$monoBootstrapVersion-CVE-2012-3543.patch"
+	epatch "${FILESDIR}/mono-$monoBootstrapVersion-CVE-2012-3543_2.patch"
+	strip-flags
+	append-flags -fno-strict-aliasing
+	local myconf=""
+	use ppc && myconf="${myconf} --with-sgen=no"
+	econf --disable-dependency-tracking --enable-static --disable-quiet-build --without-moonlight --with-libgdiplus=installed $(use_with xen xen_opt) --without-ikvm-native --with-jit --disable-dtrace --with-profile4 ${myconf}
+	emake "$@" || die "emake for bootstrap mono failed"
+
+	# Setup mono build environment so that it uses the bootstrap mono
+	MONO_PREFIX="${WORKDIR}/mono-$monoBootstrapVersion"
+	GNOME_PREFIX=/usr
+	export DYLD_LIBRARY_FALLBACK_PATH=$MONO_PREFIX/lib:$DYLD_LIBRARY_FALLBACK_PATH
+	export LD_LIBRARY_PATH=$MONO_PREFIX/lib:$LD_LIBRARY_PATH
+	export C_INCLUDE_PATH=$MONO_PREFIX/include:$GNOME_PREFIX/include
+	export ACLOCAL_PATH=$MONO_PREFIX/share/aclocal
+	export PKG_CONFIG_PATH=$MONO_PREFIX/lib/pkgconfig:$GNOME_PREFIX/lib/pkgconfig
+	export PATH=$MONO_PREFIX/bin:$PATH
 
 	# Configure, make and install a temporary system mono (without moonlight)
 	echo && einfo "Building temporary system mono (1st pass without moonlight)" && echo
 	cd "mono"
-	strip-flags
-	append-flags -fno-strict-aliasing
 	./autogen.sh --prefix="${pabsolute}/mono-install" \
+			--enable-static \
 			--disable-quiet-build \
 			--with-moonlight=no || die "Configure failed for mono"
-	make && make install || die "Make failed for mono"
+	make && make install || die "Make failed for temporary mono"
 
 	# Setup mono build environment so that it uses the temporary base system mono
 	MONO_PREFIX="${P}/mono-install"
