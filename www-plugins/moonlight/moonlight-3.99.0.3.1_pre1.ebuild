@@ -4,7 +4,7 @@
 
 EAPI=6
 
-WANT_AUTOMAKE="1.12"
+WANT_AUTOMAKE="1.11"
 
 inherit eutils flag-o-matic linux-info mono-env multilib nsplugins pax-utils autotools
 
