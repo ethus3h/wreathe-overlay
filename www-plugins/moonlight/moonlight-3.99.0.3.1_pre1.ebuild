@@ -96,8 +96,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}/moonlight-3.99.0.2_firefox4.diff"
-
 	# we need to sed in the paxctl -m in the runtime/mono-wrapper.in so it don't
 	# get killed in the build proces when MPROTEC is enable. #286280
 	if use hardened ; then
