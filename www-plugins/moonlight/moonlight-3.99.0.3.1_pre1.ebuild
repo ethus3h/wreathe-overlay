@@ -81,6 +81,8 @@ src_unpack() {
 	mv "${WORKDIR}/mono-basic-$monoBasicRevision" "${P}/mono-basic"
 	rm -rf "${P}/mesa"
 	mv "${WORKDIR}/mesa-$mesaRevision" "${P}/mesa"
+	mv "${WORKDIR}/libgdiplus-${LIBGDIPLUS}" "${P}/libgdiplus-${LIBGDIPLUS}"
+	mv "${WORKDIR}/gtk-sharp-${GTKSHARP}" "${P}/gtk-sharp-${GTKSHARP}"
 
 	#These next git repositories are now handled as submodules
 
@@ -115,6 +117,8 @@ src_prepare() {
 	# Configure, make and install a temporary system mono (without moonlight) #
 	echo && einfo "Building temporary system mono (1st pass without moonlight)" && echo
 	cd "mono"
+	strip-flags
+	append-flags -fno-strict-aliasing
 	./autogen.sh --prefix="${pabsolute}/mono-install" \
 			--disable-quiet-build \
 			--with-moonlight=no || die "Configure failed for mono"
@@ -131,12 +135,12 @@ src_prepare() {
 	export PATH=$MONO_PREFIX/bin:$PATH
 
 	# Install libgdiplus into the temporary system mono #
-	cd "${P}/${LIBGDIPLUS}"
+	cd "${P}/libgdiplus-${LIBGDIPLUS}"
 	./configure --prefix="${P}/mono-install"
 	make && make install || die "Make failed for libgdiplus"
 
 	# Install gtk-sharp into the temporary system mono #
-	cd "${P}/${GTKSHARP}"
+	cd "${P}/gtk-sharp-${GTKSHARP}"
 	./configure --prefix="${P}/mono-install"
 	make && make install || die "Make failed for gtk-sharp"
 
@@ -144,6 +148,8 @@ src_prepare() {
 	cd "${P}/mono"
 	make distclean
 	echo && einfo "Building mono source (2nd pass with moonlight)" && echo
+	strip-flags
+	append-flags -fno-strict-aliasing
 	./autogen.sh	--disable-quiet-build \
 			--with-moonlight=yes || die "Configure failed for mono"
 	make || die "Make failed for mono"
