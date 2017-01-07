@@ -73,8 +73,8 @@ pkg_pretend() {
 
 src_prepare() {
 	mv "${WORKDIR}/${P}" "${S}/xulrunner"
-	mv "${WORKDIR}/xulrunner-stub-git-$xulrunnerStubGitRevision/src/stub/nsXPCOMPrivate.h" "${S}/xpcom/build/"
-	mv "${WORKDIR}/xulrunner-stub-git-$xulrunnerStubGitRevision/src/stub/nsWindowsWMain.cpp" "${S}/toolkit/xre/"
+	mv "${WORKDIR}/xulrunner-stub-$xulrunnerStubGitRevision/src/stub/nsXPCOMPrivate.h" "${S}/xpcom/build/"
+	mv "${WORKDIR}/xulrunner-stub-$xulrunnerStubGitRevision/src/stub/nsWindowsWMain.cpp" "${S}/toolkit/xre/"
 
 	# Allow user to apply any additional patches without modifing ebuild
 	eapply_user
