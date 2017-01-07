@@ -24,8 +24,10 @@ SLOT="0"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 IUSE="bindist hardened +hwaccel pgo selinux +gmp-autoupdate test"
 RESTRICT="!bindist? ( bindist )"
+xulrunnerStubGitRevision="7b5f3b66b4a6a209ff667763e76a82d0b0380be2"
 SRC_URI="https://github.com/ethus3h/xulrunner/archive/v45_pre1.tar.gz -> ${P}
-	https://archive.mozilla.org/pub/firefox/releases/45.6.0esr/source/firefox-45.6.0esr.source.tar.xz"
+	https://archive.mozilla.org/pub/firefox/releases/45.6.0esr/source/firefox-45.6.0esr.source.tar.xz
+	https://github.com/ethus3h/xulrunner-stub/archive/$xulrunnerStubGitRevision.zip -> xulrunner-stub-git-$xulrunnerStubGitRevision.zip"
 
 ASM_DEPEND=">=dev-lang/yasm-1.1"
 
