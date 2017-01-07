@@ -110,14 +110,14 @@ src_prepare() {
 
 	# Configure, make and install a temporary system mono (without moonlight) #
 	echo && einfo "Building temporary system mono (1st pass without moonlight)" && echo
-	cd "${WORKDIR}/mono"
-	./autogen.sh	--prefix="${WORKDIR}/mono-install" \
+	cd "${P}/mono"
+	./autogen.sh	--prefix="${P}/mono-install" \
 			--disable-quiet-build \
 			--with-moonlight=no || die "Configure failed for mono"
 	make && make install || die "Make failed for mono"
 
 	# Setup mono build environment so that it uses the temporary base system mono #
-	MONO_PREFIX="${WORKDIR}/mono-install"
+	MONO_PREFIX="${P}/mono-install"
 	GNOME_PREFIX=/usr
 	export DYLD_LIBRARY_FALLBACK_PATH=$MONO_PREFIX/lib:$DYLD_LIBRARY_FALLBACK_PATH
 	export LD_LIBRARY_PATH=$MONO_PREFIX/lib:$LD_LIBRARY_PATH
@@ -127,17 +127,17 @@ src_prepare() {
 	export PATH=$MONO_PREFIX/bin:$PATH
 
 	# Install libgdiplus into the temporary system mono #
-	cd "${WORKDIR}/${LIBGDIPLUS}"
-	./configure --prefix="${WORKDIR}/mono-install"
+	cd "${P}/${LIBGDIPLUS}"
+	./configure --prefix="${P}/mono-install"
 	make && make install || die "Make failed for libgdiplus"
 
 	# Install gtk-sharp into the temporary system mono #
-	cd "${WORKDIR}/${GTKSHARP}"
-	./configure --prefix="${WORKDIR}/mono-install"
+	cd "${P}/${GTKSHARP}"
+	./configure --prefix="${P}/mono-install"
 	make && make install || die "Make failed for gtk-sharp"
 
 	# Configure and make the mono source tree (with moonlight) #
-	cd "${WORKDIR}/mono"
+	cd "${P}/mono"
 	make distclean
 	echo && einfo "Building mono source (2nd pass with moonlight)" && echo
 	./autogen.sh	--disable-quiet-build \
@@ -146,7 +146,7 @@ src_prepare() {
 
 	# Configure mono-basic #
 	echo && einfo "Configuring mono-basic" && echo
-	cd "${WORKDIR}/mono-basic"
+	cd "${P}/mono-basic"
 	./configure	 --with-moonlight=yes \
 			--moonlight-sdk-location="${WORKDIR}/mono/mcs/class/lib/moonlight_raw"
 }
