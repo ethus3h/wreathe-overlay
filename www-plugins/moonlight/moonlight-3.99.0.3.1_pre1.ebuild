@@ -102,7 +102,7 @@ src_prepare() {
 	# get killed in the build proces when MPROTEC is enable. #286280
 	if use hardened ; then
 		ewarn "We are disabling MPROTECT on the mono binary."
-		sed '/exec/ i\paxctl -m "$r/@mono_runtime@"' -i "${S}"/runtime/mono-wrapper.in
+		sed '/exec/ i\paxctl -m "$r/@mono_runtime@"' -i mono/runtime/mono-wrapper.in
 	fi
 
 	# >=moonlight-3 must be built using a specific mono source tree revision #
@@ -114,7 +114,7 @@ src_prepare() {
 
 	# Configure, make and install a temporary system mono (without moonlight) #
 	echo && einfo "Building temporary system mono (1st pass without moonlight)" && echo
-	cd "${P}/mono"
+	cd "mono"
 	./autogen.sh --prefix="${pabsolute}/mono-install" \
 			--disable-quiet-build \
 			--with-moonlight=no || die "Configure failed for mono"
