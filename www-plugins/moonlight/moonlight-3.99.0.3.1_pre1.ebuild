@@ -67,7 +67,7 @@ pkg_setup() {
 src_unpack() {
 	unpack ${A}
 	cd "${WORKDIR}"
-	mv mono-moon* ${P}
+	mv moon-1-${PV} ${P}
 
 	#These next git repositories are now handled as submodules
 
