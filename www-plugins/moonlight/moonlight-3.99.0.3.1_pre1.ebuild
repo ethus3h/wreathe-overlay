@@ -71,9 +71,14 @@ pkg_setup() {
 }
 
 src_unpack() {
-	unpack ${A}
-	cd "${WORKDIR}"
-	mv moon-1-${PV} ${P}
+	unpack "${A}"
+	mv "${WORKDIR}/moon-1-${PV}" "${P}"
+	rm -rf "${P}/mono"
+	mv "${WORKDIR}/mono-$monoRevision" "${P}/mono"
+	rm -rf "${P}/mono-basic"
+	mv "${WORKDIR}/mono-basic-$monoBasicRevision" "${P}/mono-basic"
+	rm -rf "${P}/mesa"
+	mv "${WORKDIR}/mesa-$mesaRevision" "${P}/mesa"
 
 	#These next git repositories are now handled as submodules
 
@@ -91,7 +96,6 @@ src_unpack() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}/moonlight-3.99.0.2_buildfixes.diff"
 	epatch "${FILESDIR}/moonlight-3.99.0.2_firefox4.diff"
 
 	# we need to sed in the paxctl -m in the runtime/mono-wrapper.in so it don't
