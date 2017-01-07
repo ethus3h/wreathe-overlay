@@ -115,6 +115,7 @@ src_prepare() {
 	cd "${P}/mono"
 	./autogen.sh	--prefix="${pabsolute}/mono-install" \
 			--disable-quiet-build \
+			--with-mcspath=/usr/bin \
 			--with-moonlight=no || die "Configure failed for mono"
 	make && make install || die "Make failed for mono"
 
