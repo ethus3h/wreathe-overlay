@@ -4,7 +4,9 @@
 
 EAPI=6
 
-inherit eutils flag-o-matic linux-info mono-env multilib nsplugins pax-utils
+WANT_AUTOMAKE="1.12"
+
+inherit eutils flag-o-matic linux-info mono-env multilib nsplugins pax-utils autotools
 
 DESCRIPTION="Moonlight is an open source implementation of Silverlight"
 HOMEPAGE="http://www.go-mono.com/moonlight/"
@@ -113,9 +115,8 @@ src_prepare() {
 	# Configure, make and install a temporary system mono (without moonlight) #
 	echo && einfo "Building temporary system mono (1st pass without moonlight)" && echo
 	cd "${P}/mono"
-	./autogen.sh	--prefix="${pabsolute}/mono-install" \
+	./autogen.sh --prefix="${pabsolute}/mono-install" \
 			--disable-quiet-build \
-			--with-mcspath=/usr/bin \
 			--with-moonlight=no || die "Configure failed for mono"
 	make && make install || die "Make failed for mono"
 
