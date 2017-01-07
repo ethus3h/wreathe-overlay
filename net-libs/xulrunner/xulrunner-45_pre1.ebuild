@@ -18,7 +18,7 @@ inherit check-reqs flag-o-matic toolchain-funcs eutils gnome2-utils mozconfig-v6
 DESCRIPTION="XULRunner"
 HOMEPAGE="https://developer.mozilla.org/en-US/docs/Archive/Mozilla/XULRunner"
 
-KEYWORDS="~alpha amd64 ~arm ~arm64 ~ia64 ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
+KEYWORDS="~amd64 ~x86"
 
 SLOT="0"
 LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
