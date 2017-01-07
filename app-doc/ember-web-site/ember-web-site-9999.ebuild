@@ -23,7 +23,7 @@ src_compile() {
 }
 
 src_install() {
-	exeinto /usr/bin/
-	doexe futuramerlin-web-toolkit-build
-	doexe futuramerlin-web-toolkit-aliases
+	mv futuramerlin-web-toolkit-output ember-web-site
+	insinto /usr/doc/
+	doins -r ember-web-site
 }
