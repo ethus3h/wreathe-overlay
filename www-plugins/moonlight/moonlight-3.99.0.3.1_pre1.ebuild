@@ -78,6 +78,7 @@ src_unpack() {
 	mv "${WORKDIR}/moon-1-${PV}" "${WORKDIR}/moon"
 	rm -rf "${P}/mono"
 	mv "${WORKDIR}/mono-$monoRevision" "${P}/mono"
+	ln -s "${P}/mono" "${WORKDIR}/mono"
 	rm -rf "${P}/mono-basic"
 	mv "${WORKDIR}/mono-basic-$monoBasicRevision" "${P}/mono-basic"
 	rm -rf "${P}/mesa"
