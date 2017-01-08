@@ -87,6 +87,7 @@ src_unpack() {
 S="${WORKDIR}/moon"
 
 src_prepare() {
+	eapply_user
 	# we need to sed in the paxctl -m in the runtime/mono-wrapper.in so it don't
 	# get killed in the build proces when MPROTEC is enable. #286280
 	if use pax_kernel ; then
