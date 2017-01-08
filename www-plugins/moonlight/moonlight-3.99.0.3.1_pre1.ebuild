@@ -13,9 +13,8 @@ HOMEPAGE="http://www.go-mono.com/moonlight/"
 
 LIBGDIPLUS="2.8.1"
 GTKSHARP="gtk-sharp-2.12.10"
-monoRevision="32b3b31f74ec411d02efba37d58433ade9fa6d98"
-monoBasicRevision="2e6038e088bd9011738c4ec49f2029c681a21cd3"
-monoBootstrapVersion="2.10.9"
+monoRevision="f41f7105c3702ba516aec356638ee40094bd8d1d"
+monoBasicRevision="4ef1fbee25a8f584442f7f4d2422670b92c6e84d"
 mesaRevision="3ed0a099c70e9d771e60e0ddf70bc0b5ba83a483"
 
 LICENSE="BSD-4 GPL-2 GPL-2-with-linking-exception IDPL LGPL-2 LGPL-2.1 MIT Ms-PL NPL-1.1"
@@ -26,7 +25,6 @@ IUSE="alsa +curl +debug pax_kernel +nsplugin pulseaudio sdk test xen"
 SRC_URI="https://github.com/ethus3h/moon-1/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/mono/mono/archive/$monoRevision.zip -> mono-git-$monoRevision.zip
 	https://github.com/mono/mono-basic/archive/$monoBasicRevision.zip -> mono-basic-git-$monoBasicRevision.zip
-	http://mono.ximian.com/monobuild/preview/sources/mono/mono-$monoBootstrapVersion.tar.bz2 -> mono-$monoBootstrapVersion.tar.bz2
 	https://github.com/mesa3d/mesa/archive/$mesaRevision.zip -> mesa-git-$mesaRevision.zip
 	https://github.com/mono/libgdiplus/archive/$LIBGDIPLUS.tar.gz -> libgdiplus-$LIBGDIPLUS.tar.gz
 	http://web.archive.org/web/20111225065517/http://ftp.novell.com/pub/mono/sources/gtk-sharp212/${GTKSHARP}.tar.bz2"
@@ -77,30 +75,16 @@ pkg_setup() {
 
 src_unpack() {
 	unpack ${A}
-	mv "${WORKDIR}/moon-1-${PV}" "${P}"
-	rm -rf "${P}/mono"
-	mv "${WORKDIR}/mono-$monoRevision" "${P}/mono"
-	rm -rf "${P}/mono-basic"
-	mv "${WORKDIR}/mono-basic-$monoBasicRevision" "${P}/mono-basic"
+	mv "${WORKDIR}/moon-1-${PV}" "${WORKDIR}/moon"
+	mv "${WORKDIR}/mono-$monoRevision" "${WORKDIR}/mono"
+	mv "${WORKDIR}/mono-basic-$monoBasicRevision" "${WORKDIR}/mono-basic"
 	rm -rf "${P}/mesa"
-	mv "${WORKDIR}/mesa-$mesaRevision" "${P}/mesa"
-	mv "${WORKDIR}/libgdiplus-${LIBGDIPLUS}" "${P}/libgdiplus-${LIBGDIPLUS}"
-	mv "${WORKDIR}/gtk-sharp-${GTKSHARP}" "${P}/gtk-sharp-${GTKSHARP}"
-
-	#These next git repositories are now handled as submodules
-
-	# Pull mono source to the right revision #
-	#git clone git://github.com/mono/mono.git mono
-	#cd mono && git reset --hard 32b3b31f && cd ..
-
-	# Pull mesa source for pixel shader support #
-	#git clone git://anongit.freedesktop.org/mesa/mesa
-	#cd mesa && git reset --hard 3ed0a099c && cd ..
-
-	# Pull mono-basic source to the right revision #
-	#git clone git://github.com/mono/mono-basic.git mono-basic
-	#cd mono-basic && git reset --hard 2e6038e
+	mv "${WORKDIR}/mesa-$mesaRevision" "${WORKDIR}/mesa"
+	mv "${WORKDIR}/libgdiplus-${LIBGDIPLUS}" "${WORKDIR}/libgdiplus"
+	mv "${WORKDIR}/gtk-sharp-${GTKSHARP}" "${WORKDIR}/gtk-sharp"
 }
+
+S="${WORKDIR}/moon"
 
 src_prepare() {
 	# we need to sed in the paxctl -m in the runtime/mono-wrapper.in so it don't
@@ -110,87 +94,11 @@ src_prepare() {
 		sed '/exec/ i\paxctl -m "$r/@mono_runtime@"' -i mono/runtime/mono-wrapper.in
 		sed '/exec/ i\paxctl -m "$r/@mono_runtime@"' -i "${WORKDIR}/mono-$monoBootstrapVersion/runtime/mono-wrapper.in"
 	fi
-
-	# >=moonlight-3 must be built using a specific mono source tree revision
-	# That same mono source tree requires itself to be built using a system mono that is of the same version
-	# To do this we create a temporary base system mono built '--with-moonlight=no', but we need a Mono 2.x version already to build this with
-	# Then use that system mono to build the mono source tree '--with-moonlight=yes'
-	
-	pabsolute="$(pwd ${P})"
-	
-	# Build a bootstrap mono
-	cd "${WORKDIR}/mono-$monoBootstrapVersion"
-	epatch "${FILESDIR}/mono-2.10.2-threads-access.patch"
-	epatch "${FILESDIR}/mono-2.10.9-CVE-2012-3382.patch"
-	epatch "${FILESDIR}/mono-2.10.9-CVE-2012-3543.patch"
-	epatch "${FILESDIR}/mono-2.10.9-CVE-2012-3543_2.patch"
-	strip-flags
-	append-flags -fno-strict-aliasing
-	local myconf=""
-	use ppc && myconf="${myconf} --with-sgen=no"
-	econf --disable-dependency-tracking --enable-static --disable-quiet-build --without-moonlight --with-libgdiplus=installed $(use_with xen xen_opt) --without-ikvm-native --with-jit --disable-dtrace --with-profile4 ${myconf}
-	emake "$@" || die "emake for bootstrap mono failed"
-
-	# Setup mono build environment so that it uses the bootstrap mono
-	MONO_PREFIX="${WORKDIR}/mono-$monoBootstrapVersion"
-	GNOME_PREFIX=/usr
-	export DYLD_LIBRARY_FALLBACK_PATH=$MONO_PREFIX/lib:$DYLD_LIBRARY_FALLBACK_PATH
-	export LD_LIBRARY_PATH=$MONO_PREFIX/lib:$LD_LIBRARY_PATH
-	export C_INCLUDE_PATH=$MONO_PREFIX/include:$GNOME_PREFIX/include
-	export ACLOCAL_PATH=$MONO_PREFIX/share/aclocal
-	export PKG_CONFIG_PATH=$MONO_PREFIX/lib/pkgconfig:$GNOME_PREFIX/lib/pkgconfig
-	export PATH=$MONO_PREFIX/bin:$PATH
-
-	# Configure, make and install a temporary system mono (without moonlight)
-	echo && einfo "Building temporary system mono (1st pass without moonlight)" && echo
-	cd "mono"
-	./autogen.sh --prefix="${pabsolute}/mono-install" \
-			--enable-static \
-			--disable-quiet-build \
-			--with-moonlight=no || die "Configure failed for mono"
-	make && make install || die "Make failed for temporary mono"
-
-	# Setup mono build environment so that it uses the temporary base system mono
-	MONO_PREFIX="${P}/mono-install"
-	GNOME_PREFIX=/usr
-	export DYLD_LIBRARY_FALLBACK_PATH=$MONO_PREFIX/lib:$DYLD_LIBRARY_FALLBACK_PATH
-	export LD_LIBRARY_PATH=$MONO_PREFIX/lib:$LD_LIBRARY_PATH
-	export C_INCLUDE_PATH=$MONO_PREFIX/include:$GNOME_PREFIX/include
-	export ACLOCAL_PATH=$MONO_PREFIX/share/aclocal
-	export PKG_CONFIG_PATH=$MONO_PREFIX/lib/pkgconfig:$GNOME_PREFIX/lib/pkgconfig
-	export PATH=$MONO_PREFIX/bin:$PATH
-
-	# Install libgdiplus into the temporary system mono #
-	cd "${P}/libgdiplus-${LIBGDIPLUS}"
-	./configure --prefix="${P}/mono-install"
-	make && make install || die "Make failed for libgdiplus"
-
-	# Install gtk-sharp into the temporary system mono #
-	cd "${P}/gtk-sharp-${GTKSHARP}"
-	./configure --prefix="${P}/mono-install"
-	make && make install || die "Make failed for gtk-sharp"
-
-	# Configure and make the mono source tree (with moonlight) #
-	cd "${P}/mono"
-	make distclean
-	echo && einfo "Building mono source (2nd pass with moonlight)" && echo
-	strip-flags
-	append-flags -fno-strict-aliasing
-	./autogen.sh	--disable-quiet-build \
-			--with-moonlight=yes || die "Configure failed for mono"
-	make || die "Make failed for mono"
-
-	# Configure mono-basic #
-	echo && einfo "Configuring mono-basic" && echo
-	cd "${P}/mono-basic"
-	./configure	 --with-moonlight=yes \
-			--moonlight-sdk-location="${WORKDIR}/mono/mcs/class/lib/moonlight_raw"
 }
 
 src_configure() {
 	echo && einfo "Building moonlight" && echo
 	./autogen.sh	--prefix=/usr \
-			--with-manual-mono=build \
 			--enable-shared \
 			--with-cairo=system \
 			--with-ffmpeg=yes \
