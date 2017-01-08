@@ -27,7 +27,6 @@ src_configure() {
 src_unpack() {
     unpack ${A}
     rpm_unpack "./OFED-${OFED_VER}-rc${OFED_RC_VER}/SRPMS/${MY_PN}-${MY_PV}-${OFED_SUFFIX}..src.rpm"
-    echo "In directory $(pwd)"
     unpack "./${P}.tar.gz"
 }
 
