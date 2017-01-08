@@ -49,11 +49,9 @@ RDEPEND="
 	=dev-dotnet/libgdiplus-2*
 	"
 
-#Newer mono can be emerged after building moonlight
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	dev-libs/expat
-	=dev-lang/mono-2.10.9-r2
 	"
 
 pkg_setup() {
