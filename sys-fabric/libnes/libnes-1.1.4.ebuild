@@ -1,4 +1,4 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
@@ -27,6 +27,7 @@ src_configure() {
 src_unpack() {
     unpack ${A}
     rpm_unpack "./OFED-${OFED_VER}-rc${OFED_RC_VER}/SRPMS/${MY_PN}-${MY_PV}-${OFED_SUFFIX}..src.rpm"
+    unpack "${P}.tar.gz"
 }
 
 src_install() {
