@@ -77,13 +77,11 @@ src_unpack() {
 	unpack ${A}
 	mv "${WORKDIR}/moon-1-${PV}" "${WORKDIR}/moon"
 	rm -rf "${WORKDIR}/moon/mono"
-	mv "${WORKDIR}/mono-$monoRevision" "${WORKDIR}/moon/mono"
-	ln -s "${WORKDIR}/moon/mono" "${WORKDIR}/mono"
+	mv "${WORKDIR}/mono-$monoRevision" "${WORKDIR}/mono"
 	rm -rf "${WORKDIR}/moon/mono-basic"
-	mv "${WORKDIR}/mono-basic-$monoBasicRevision" "${WORKDIR}/moon/mono-basic"
-	ln -s "${WORKDIR}/moon/mono-basic" "${WORKDIR}/mono-basic"
+	mv "${WORKDIR}/mono-basic-$monoBasicRevision" "${WORKDIR}/mono-basic"
 	rm -rf "${WORKDIR}/moon/mesa"
-	mv "${WORKDIR}/mesa-$mesaRevision" "${WORKDIR}/moon/mesa"
+	mv "${WORKDIR}/mesa-$mesaRevision" "${WORKDIR}/mesa"
 	mv "${WORKDIR}/libgdiplus-${LIBGDIPLUS}" "${WORKDIR}/libgdiplus"
 	mv "${WORKDIR}/gtk-sharp-${GTKSHARP}" "${WORKDIR}/gtk-sharp"
 }
