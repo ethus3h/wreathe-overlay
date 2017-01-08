@@ -75,14 +75,14 @@ pkg_setup() {
 
 src_unpack() {
 	unpack ${A}
-	mv "${WORKDIR}/moon-1-${PV}" "${WORKDIR}/moon"
-	rm -rf "${P}/mono"
-	mv "${WORKDIR}/mono-$monoRevision" "${P}/mono"
-	ln -s "${P}/mono" "${WORKDIR}/mono"
-	rm -rf "${P}/mono-basic"
-	mv "${WORKDIR}/mono-basic-$monoBasicRevision" "${P}/mono-basic"
-	rm -rf "${P}/mesa"
-	mv "${WORKDIR}/mesa-$mesaRevision" "${P}/mesa"
+	mv "${WORKDIR}/moon-1-${PV}" "/moon"
+	rm -rf "${S}/mono"
+	mv "${WORKDIR}/mono-$monoRevision" "${S}/mono"
+	ln -s "${S}/mono" "${WORKDIR}/mono"
+	rm -rf "${S}/mono-basic"
+	mv "${WORKDIR}/mono-basic-$monoBasicRevision" "${S}/mono-basic"
+	rm -rf "${S}/mesa"
+	mv "${WORKDIR}/mesa-$mesaRevision" "${S}/mesa"
 	mv "${WORKDIR}/libgdiplus-${LIBGDIPLUS}" "${WORKDIR}/libgdiplus"
 	mv "${WORKDIR}/gtk-sharp-${GTKSHARP}" "${WORKDIR}/gtk-sharp"
 }
@@ -91,7 +91,7 @@ S="${WORKDIR}/moon"
 
 src_prepare() {
 	eapply_user
-	perl -pi -e "s/\$\(shell cd \$\(MONO_PATH\) && git log \| head -1 \| awk '{print \$2}' \)/$monoRevision/g" Makefile.am
+	perl -pi -e "s/\\\$\\(shell cd \\\$\\(MONO_PATH\\) && git log \\| head -1 \\| awk '{print \\\$2}' \\)/$monoRevision/g" Makefile.am
 	# we need to sed in the paxctl -m in the runtime/mono-wrapper.in so it don't
 	# get killed in the build proces when MPROTEC is enable. #286280
 	if use pax_kernel ; then
