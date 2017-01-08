@@ -75,14 +75,14 @@ pkg_setup() {
 
 src_unpack() {
 	unpack ${A}
-	mv "${WORKDIR}/moon-1-${PV}" "/moon"
-	rm -rf "${S}/mono"
-	mv "${WORKDIR}/mono-$monoRevision" "${S}/mono"
-	ln -s "${S}/mono" "${WORKDIR}/mono"
-	rm -rf "${S}/mono-basic"
-	mv "${WORKDIR}/mono-basic-$monoBasicRevision" "${S}/mono-basic"
-	rm -rf "${S}/mesa"
-	mv "${WORKDIR}/mesa-$mesaRevision" "${S}/mesa"
+	mv "${WORKDIR}/moon-1-${PV}" "${WORKDIR}/moon"
+	rm -rf "${WORKDIR}/moon/mono"
+	mv "${WORKDIR}/mono-$monoRevision" "${WORKDIR}/moon/mono"
+	ln -s "${WORKDIR}/moon/mono" "${WORKDIR}/mono"
+	rm -rf "${WORKDIR}/moon/mono-basic"
+	mv "${WORKDIR}/mono-basic-$monoBasicRevision" "${WORKDIR}/moon/mono-basic"
+	rm -rf "${WORKDIR}/moon/mesa"
+	mv "${WORKDIR}/mesa-$mesaRevision" "${WORKDIR}/moon/mesa"
 	mv "${WORKDIR}/libgdiplus-${LIBGDIPLUS}" "${WORKDIR}/libgdiplus"
 	mv "${WORKDIR}/gtk-sharp-${GTKSHARP}" "${WORKDIR}/gtk-sharp"
 }
