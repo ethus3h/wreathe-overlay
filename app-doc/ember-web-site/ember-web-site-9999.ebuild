@@ -18,6 +18,11 @@ DEPEND="${RDEPEND}
 	app-misc/futuramerlin-web-toolkit
 	dev-vcs/git"
 
+src_configure() {
+	#Disable installation of /m.css
+	perl -pi -e 's/enableLocalInstallation/disableLocalInstallation/g' .futuramerlin-web-toolkit/.futuramerlin-web-toolkit.cfg
+}
+
 src_compile() {
 	futuramerlin-web-toolkit-build
 }
