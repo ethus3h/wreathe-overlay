@@ -87,7 +87,7 @@ RDEPEND="${CDEPEND}
 	!dev-perl/Parse-Yapp
 "
 
-REQUIRED_USE="addc? ( gnutls !system-mitkrb5 )
+REQUIRED_USE="addc? ( gnutls !system-mitkrb5 winbind )
 	ads? ( acl gnutls ldap )
 	${PYTHON_REQUIRED_USE}"
 
