@@ -145,13 +145,21 @@ multilib_src_configure() {
 		--localstatedir=/var
 		--with-modulesdir=/usr/$(get_libdir)/samba
 		--with-piddir=/run/${PN}
-		--bundled-libraries=NONE
-		--builtin-libraries=NONE
 		--disable-rpath
 		--disable-rpath-install
 		--nopyc
 		--nopyo
 	)
+	if use bundled-heimdal ; then
+		myconf+=(
+			"--builtin-libraries=heimdal"
+		)
+	else
+		myconf+=(
+			"--bundled-libraries=NONE"
+			"--builtin-libraries=NONE"
+		)
+	fi
 	if multilib_is_native_abi ; then
 		myconf+=(
 			$(use_with acl acl-support)
