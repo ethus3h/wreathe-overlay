@@ -68,8 +68,12 @@ CDEPEND="${PYTHON_DEPS}
 	gnutls? ( dev-libs/libgcrypt:0
 		>=net-libs/gnutls-1.4.0 )
 	ldap? ( net-nds/openldap[${MULTILIB_USEDEP}] )
-	system-mitkrb5? ( app-crypt/mit-krb5[${MULTILIB_USEDEP}] )
-	!system-mitkrb5? ( >=app-crypt/heimdal-1.5[-ssl,${MULTILIB_USEDEP}] )
+	system-mitkrb5? (
+		app-crypt/mit-krb5[${MULTILIB_USEDEP}]
+	)
+	!system-mitkrb5? ( !bundled-heimdal?
+		( >=app-crypt/heimdal-1.5[-ssl,${MULTILIB_USEDEP}] )
+	)
 	systemd? ( sys-apps/systemd:0= )"
 DEPEND="${CDEPEND}
 	virtual/pkgconfig"
