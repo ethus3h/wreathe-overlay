@@ -139,8 +139,7 @@ multilib_src_configure() {
 		--localstatedir=/var
 		--with-modulesdir=/usr/$(get_libdir)/samba
 		--with-piddir=/run/${PN}
-		--bundled-libraries=NONE
-		--builtin-libraries=NONE
+		--builtin-libraries=heimdal
 		--disable-rpath
 		--disable-rpath-install
 		--nopyc
