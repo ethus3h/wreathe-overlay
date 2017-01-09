@@ -89,7 +89,6 @@ REQUIRED_USE="addc? ( gnutls !system-mitkrb5 )
 S="${WORKDIR}/${MY_P}"
 
 PATCHES=(
-	"${FILESDIR}/${PN}-4.2.3-heimdal_compilefix.patch"
 	"${FILESDIR}/${PN}-4.2.7-pam.patch"
 )
 
