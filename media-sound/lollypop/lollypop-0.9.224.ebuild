@@ -46,8 +46,7 @@ RDEPEND="${DEPEND}
 src_prepare(){
 	eautoreconf
 	eapply_user
-	# Prevent access violation
-	perl -pi -e 's/chmod\ a\+x\ \$\@//g' Makefile.am
+
 }
 
 src_configure(){
@@ -59,6 +58,7 @@ src_compile(){
 }
 
 src_install(){
+	addpredict "/usr/share/${PN}/${PN}-sp"
 	emake DESTDIR="${D}" install
 	fperms +x "/usr/share/${PN}/${PN}-sp"
 }
