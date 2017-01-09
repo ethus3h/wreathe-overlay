@@ -17,6 +17,6 @@ IUSE=""
 S="${WORKDIR}"
 
 src_install() {
-	insinto "/usr/share/doc/${PN}"
+	insinto "/usr/share/doc/${PN}/p${PV}"
 	doins *
 }
