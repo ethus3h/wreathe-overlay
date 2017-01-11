@@ -30,8 +30,7 @@ src_install() {
 	doins -r usr/*
 
 	unset GLOBIGNORE
-	exeinto /usr/bin/
-	doexe usr/bin/*
+	dobin usr/bin/*
 
 	GLOBIGNORE="Wreathe/.Resources"
 	insinto /Wreathe/
