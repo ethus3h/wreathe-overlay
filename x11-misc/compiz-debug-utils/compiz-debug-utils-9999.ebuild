@@ -23,5 +23,5 @@ DEPEND="${RDEPEND}"
 src_install() {
 	GLOBIGNORE="COPYING:README.md:.git"
 	dobin *
-	dodoc COPYING README.md
+	dodoc README.md
 }

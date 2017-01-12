@@ -6,7 +6,7 @@ EAPI=6
 
 WANT_AUTOMAKE="1.11"
 
-inherit eutils flag-o-matic linux-info mono-env multilib nsplugins pax-utils autotools versionator
+inherit eutils flag-o-matic linux-info mono-env multilib nsplugins pax-utils versionator
 
 DESCRIPTION="Moonlight is an open source implementation of Silverlight"
 HOMEPAGE="http://www.go-mono.com/moonlight/"

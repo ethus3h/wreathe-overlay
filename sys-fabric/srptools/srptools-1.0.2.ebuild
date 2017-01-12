@@ -24,8 +24,8 @@ RDEPEND="${DEPEND}"
 block_other_ofed_versions
 
 src_configure() {
-    addpredict /var/lib/rpm/
-    default
+	addpredict /var/lib/rpm/
+	default
 }
 
 src_install() {
