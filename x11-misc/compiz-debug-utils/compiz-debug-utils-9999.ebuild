@@ -24,4 +24,5 @@ src_install() {
 	GLOBIGNORE="COPYING:README.md:.git"
 	dobin *
 	dodoc README.md
+	unset GLOBIGNORE
 }
