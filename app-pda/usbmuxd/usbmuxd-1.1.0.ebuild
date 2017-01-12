@@ -22,7 +22,7 @@ RDEPEND=">=app-pda/libimobiledevice-1.1.6
 DEPEND="${RDEPEND}
 	virtual/os-headers
 	virtual/pkgconfig"
-	
+
 pkg_setup() {
 	enewgroup plugdev
 	enewuser usbmux -1 -1 -1 "usb,plugdev"
