@@ -4,6 +4,7 @@
 
 EAPI=6
 
+USE_DOTNET="net45"
 inherit eutils mono-env dotnet multilib versionator gac
 
 PV_MAJOR=$(get_version_component_range 1-2)
