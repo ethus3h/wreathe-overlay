@@ -6,7 +6,9 @@ EAPI=6
 
 KMNAME="kde4-baseapps"
 
-inherit cmake-utils kde4-meta git-r3
+inherit cmake-utils kde4-meta
+
+inherit git-r3
 
 DESCRIPTION="A KDE filemanager focusing on usability"
 HOMEPAGE="https://github.com/KDE/dolphin/releases/tag/v4.7.4"
