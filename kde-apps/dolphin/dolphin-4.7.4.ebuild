@@ -33,3 +33,10 @@ PDEPEND="${DEPEND}"
 
 RESTRICT="test"
 # bug 393129
+
+src_unpack() {
+	kde4-meta_src_unpack
+	mv "${S}" "${WORKDIR}/dolphin"
+	mkdir "${WORKDIR}/dolphin-4.7.4"
+	mv "${WORKDIR}/dolphin" "${WORKDIR}/dolphin-4.7.4/"
+}
