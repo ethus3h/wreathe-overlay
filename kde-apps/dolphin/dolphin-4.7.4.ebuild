@@ -35,9 +35,3 @@ S="${WORKDIR}/wreathe-file-manager"
 
 RESTRICT="test"
 # bug 393129
-
-S="${WORKDIR}/wreathe-file-manager"
-
-src_unpack() {
-	default_src_unpack
-}
