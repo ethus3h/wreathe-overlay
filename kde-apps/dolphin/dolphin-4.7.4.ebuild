@@ -31,7 +31,5 @@ DEPEND="kde-frameworks/kdelibs:4
 RDEPEND="${DEPEND}"
 PDEPEND="${DEPEND}"
 
-S="${WORKDIR}/wreathe-file-manager"
-
 RESTRICT="test"
 # bug 393129
