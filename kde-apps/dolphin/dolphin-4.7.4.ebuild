@@ -33,5 +33,3 @@ PDEPEND="${DEPEND}"
 
 RESTRICT="test"
 # bug 393129
-
-S="${WORKDIR}/wreathe-file-manager"
