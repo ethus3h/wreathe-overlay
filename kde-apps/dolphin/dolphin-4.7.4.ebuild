@@ -31,12 +31,10 @@ DEPEND="kde-frameworks/kdelibs:4
 RDEPEND="${DEPEND}"
 PDEPEND="${DEPEND}"
 
-S="${WORKDIR}/wreathe-file-manager"
-
 RESTRICT="test"
 # bug 393129
 
-S="${WORKDIR}/kde-baseapps-4.7.4"
+S="${WORKDIR}/wreathe-file-manager"
 
 src_unpack() {
 	default_src_unpack
