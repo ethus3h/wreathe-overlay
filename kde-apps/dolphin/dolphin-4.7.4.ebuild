@@ -35,7 +35,7 @@ RESTRICT="test"
 # bug 393129
 
 src_unpack() {
-	default_src_unpack
+	git-r3_src_unpack
 	mv "${S}" "${WORKDIR}/dolphin"
 	mkdir "${S}"
 	mv "${WORKDIR}/dolphin" "${S}"
