@@ -90,6 +90,7 @@ S="${WORKDIR}/moon"
 
 src_prepare() {
 	eapply_user
+	#If mono 4 installed, then get a list of its files and adddeny them
 	perl -pi -e "s/\\\$\\(shell cd \\\$\\(MONO_PATH\\) && git log \\| head -1 \\| awk '{print \\\$2}' \\)/$monoRevision/g" Makefile.am
 	# we need to sed in the paxctl -m in the runtime/mono-wrapper.in so it don't
 	# get killed in the build proces when MPROTEC is enable. #286280
