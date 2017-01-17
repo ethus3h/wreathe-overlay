@@ -17,7 +17,9 @@ RDEPEND="app-misc/wreathe-base"
 
 src_install() {
 	insinto /Wreathe/
-	GLOBIGNORE="README.md:.git:.egup.tags"
+	GLOBIGNORE="README.md:.git:.egup.tags:Themes"
 	doins -r *
 	unset GLOBIGNORE
+	insinto /usr/share/wallpapers/
+	doins -r Themes/*
 }
