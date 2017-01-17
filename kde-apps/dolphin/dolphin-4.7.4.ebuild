@@ -38,5 +38,5 @@ KDE_BUILD_TYPE="live"
 
 src_unpack() {
 	kde4-meta_src_unpack
-	ln -s .. "${S}/dolphin"
+	ln -s . "${S}/dolphin"
 }
