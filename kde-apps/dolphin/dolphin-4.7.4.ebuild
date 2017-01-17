@@ -35,3 +35,8 @@ RESTRICT="test"
 # bug 393129
 
 KDE_BUILD_TYPE="live"
+
+src_unpack() {
+	kde4-meta_src_unpack
+	ln -s .. "${S}/dolphin"
+}
