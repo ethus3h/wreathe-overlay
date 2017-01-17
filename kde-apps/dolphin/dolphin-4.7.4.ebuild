@@ -36,7 +36,7 @@ RESTRICT="test"
 
 src_unpack() {
 	git-r3_src_unpack
-	mv "${S}" "${WORKDIR}/dolphin"
-	mkdir "${S}"
-	mv "${WORKDIR}/dolphin" "${S}"
+	#mv "${S}" "${WORKDIR}/dolphin"
+	#mkdir "${S}"
+	#mv "${WORKDIR}/dolphin" "${S}"
 }
