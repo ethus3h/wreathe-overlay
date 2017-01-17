@@ -38,5 +38,6 @@ S="${WORKDIR}/kde-baseapps-4.7.4"
 src_unpack() {
 	default_src_unpack
 	git-r3_src_unpack
+	rm -rv "${WORKDIR}/kde-baseapps-${PV}/${PN}"
 	rsync -av --checksum --progress "${WORKDIR}/${P}/" "${WORKDIR}/kde-baseapps-${PV}/${PN}"
 }
