@@ -8,9 +8,12 @@ KMNAME="kde4-baseapps"
 
 inherit cmake-utils kde4-meta
 
+inherit git-r3
+
 DESCRIPTION="A KDE filemanager focusing on usability"
 HOMEPAGE="https://github.com/KDE/dolphin/releases/tag/v4.7.4"
-SRC_URI="http://download.kde.org/Attic/4.7.4/src/kde-baseapps-4.7.4.tar.bz2"
+SRC_URI=""
+EGIT_REPO_URI="git://github.com/ethus3h/wreathe-file-manager.git"
 
 LICENSE="GPL-2"
 SLOT="4"
@@ -25,15 +28,15 @@ DEPEND="kde-frameworks/kdelibs:4
 	media-gfx/icoutils
 	app-misc/strigi
 	app-misc/wreathe-base"
-
 RDEPEND="${DEPEND}"
 PDEPEND="${DEPEND}"
 
 RESTRICT="test"
 # bug 393129
 
-S="${WORKDIR}/kde-baseapps-4.7.4"
+KDE_BUILD_TYPE="live"
 
 src_unpack() {
-	default_src_unpack
+	kde4-meta_src_unpack
+	ln -s . "${S}/dolphin"
 }
