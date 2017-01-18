@@ -15,7 +15,7 @@ SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE=""
 
-RDEPEND="<dev-lang/mono-3
+RDEPEND="dev-lang/mono
 	>=dev-dotnet/gconf-sharp-2.24.0
 	>=dev-dotnet/gtk-sharp-2.12.6
 	>=dev-dotnet/glade-sharp-2.12.6
