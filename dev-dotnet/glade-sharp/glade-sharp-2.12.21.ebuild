@@ -2,13 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=2
-
-inherit gtk-sharp-module
+EAPI=6
 
 SLOT="2"
 KEYWORDS="~amd64 ~ppc ~x86 ~x86-fbsd"
 IUSE=""
-SRC_URI="${SRC_URI/%bz2/gz}"
+
+DEPEND="dev-dotnet/gtk-sharp-${PV}"
 
 RESTRICT="test"
