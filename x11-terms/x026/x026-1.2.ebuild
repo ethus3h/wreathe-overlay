@@ -11,7 +11,6 @@ SRC_URI="mirror://sourceforge/x3270/${P}.tgz"
 LICENSE="BSD-3"
 SLOT="0"
 KEYWORDS="amd64 ~x86"
-IUSE="ssl"
 
 RDEPEND=""
 DEPEND="${RDEPEND}
