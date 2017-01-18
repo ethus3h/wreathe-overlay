@@ -8,6 +8,6 @@ SLOT="2"
 KEYWORDS="~amd64 ~ppc ~x86 ~x86-fbsd"
 IUSE=""
 
-DEPEND="dev-dotnet/gtk-sharp-${PV}"
+DEPEND="=dev-dotnet/gtk-sharp-${PV}"
 
 RESTRICT="test"
