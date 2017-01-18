@@ -9,5 +9,6 @@ inherit gtk-sharp-module
 SLOT="2"
 KEYWORDS="~amd64 ~ppc ~x86 ~x86-fbsd"
 IUSE=""
+SRC_URI="${SRC_URI/%bz2/gz}"
 
 RESTRICT="test"
