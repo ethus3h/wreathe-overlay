@@ -8,7 +8,8 @@ inherit gnome2 mono-env
 
 DESCRIPTION="GNOME Do allows you to get things done quickly"
 HOMEPAGE="http://do.davebsd.com/"
-SRC_URI="https://launchpad.net/do/trunk/${PV}/+download/${P}.tar.gz"
+SRC_URI="https://launchpad.net/do/trunk/${PV}/+download/${P}.tar.gz
+	http://http.debian.net/debian/pool/main/g/gnome-do/gnome-do_0.95.3-5.debian.tar.xz"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -33,10 +34,8 @@ DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.35
 	virtual/pkgconfig"
 
-#src_prepare() {
-#	sed -e 's: -Werror : :' \
-#		-i configure.ac || die
-#	eautoreconf
-#
-#	gnome2_src_prepare
-#}
+src_prepare() {
+	eapply "${WORKDIR}/debian/patches/*.patch"
+	eapply "${WORKDIR}/debian/patches/*.diff"
+	default
+}
