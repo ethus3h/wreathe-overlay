@@ -4,7 +4,7 @@
 
 EAPI=5
 
-inherit gnome2 mono-env
+inherit gnome2 mono-env eutils
 
 DESCRIPTION="GNOME Do allows you to get things done quickly"
 HOMEPAGE="http://do.davebsd.com/"
