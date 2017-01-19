@@ -35,7 +35,7 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 src_prepare() {
-	eapply "${WORKDIR}/debian/patches/*.patch"
-	eapply "${WORKDIR}/debian/patches/*.diff"
+	epatch "${WORKDIR}/debian/patches/*.patch"
+	epatch "${WORKDIR}/debian/patches/*.diff"
 	default
 }
