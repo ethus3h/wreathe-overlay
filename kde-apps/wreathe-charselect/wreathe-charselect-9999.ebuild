@@ -13,14 +13,5 @@ KEYWORDS=""
 IUSE=""
 EGIT_REPO_URI="git://github.com/ethus3h/wreathe-charselect.git"
 
-DEPEND="
-	$(add_frameworks_dep kconfig)
-	$(add_frameworks_dep kconfigwidgets)
-	$(add_frameworks_dep kcoreaddons)
-	$(add_frameworks_dep ki18n)
-	$(add_frameworks_dep kwidgetsaddons)
-	$(add_frameworks_dep kxmlgui)
-	$(add_qt_dep qtgui)
-	$(add_qt_dep qtwidgets)
-"
+DEPEND="kde-apps/kcharselect"
 RDEPEND="${DEPEND}"
