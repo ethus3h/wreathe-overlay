@@ -37,5 +37,6 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	EPATCH_SOURCE="${WORKDIR}/debian/patches" EPATCH_SUFFIX="patch" EPATCH_FORCE="yes" epatch
 	EPATCH_SOURCE="${WORKDIR}/debian/patches" EPATCH_SUFFIX="diff" EPATCH_FORCE="yes" epatch
+	epatch_user
 	default
 }
