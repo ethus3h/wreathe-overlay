@@ -26,6 +26,7 @@ RDEPEND="dev-lang/mono
 	>=dev-dotnet/rsvg-sharp-2.24.0
 	dev-dotnet/mono-addins[gtk]
 	dev-dotnet/notify-sharp
+	dev-dotnet/gio-sharp
 	!<gnome-extra/gnome-do-plugins-0.8.4"
 DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.35
