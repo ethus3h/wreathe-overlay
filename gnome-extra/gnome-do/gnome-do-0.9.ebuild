@@ -21,10 +21,8 @@ RDEPEND="dev-lang/mono
 	dev-dotnet/ndesk-dbus-glib
 	>=dev-dotnet/gnome-desktop-sharp-2.26.0
 	>=dev-dotnet/gnome-keyring-sharp-1.0.0
-	>=dev-dotnet/gnome-sharp-2.24.0
-	>=dev-dotnet/gnomevfs-sharp-2.24.0
+	>=dev-dotnet/gnome-sharp-2.24.2-r1
 	>=dev-dotnet/wnck-sharp-2.24.0
-	>=dev-dotnet/art-sharp-2.24.0
 	>=dev-dotnet/rsvg-sharp-2.24.0
 	dev-dotnet/mono-addins[gtk]
 	dev-dotnet/notify-sharp
