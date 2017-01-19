@@ -4,7 +4,6 @@
 
 EAPI=6
 
-KDE_HANDBOOK="forceoptional"
 KDE_AUTODEPS="false"
 inherit kde5 git-r3
 
