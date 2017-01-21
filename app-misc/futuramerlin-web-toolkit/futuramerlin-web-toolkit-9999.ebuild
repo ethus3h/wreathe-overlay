@@ -14,9 +14,3 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 RDEPEND="app-misc/wreathe-base"
-
-src_install() {
-	exeinto /usr/bin/
-	doexe futuramerlin-web-toolkit-build
-	doexe futuramerlin-web-toolkit-aliases
-}
