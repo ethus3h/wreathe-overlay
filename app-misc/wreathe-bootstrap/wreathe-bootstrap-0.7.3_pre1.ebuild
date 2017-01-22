@@ -4,8 +4,6 @@
 
 EAPI="6"
 
-inherit git-r3
-
 DESCRIPTION="Wreathe installation bootstrapping package"
 HOMEPAGE="https://futuramerlin.com/"
 SRC_URI="https://github.com/ethus3h/wreathe-bootstrap/archive/v${PV}.tar.gz -> ${P}.tar.gz"
