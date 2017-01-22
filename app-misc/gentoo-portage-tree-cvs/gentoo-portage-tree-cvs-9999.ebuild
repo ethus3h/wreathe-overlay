@@ -15,4 +15,5 @@ SLOT="0"
 KEYWORDS=""
 
 src_unpack() {
+	echo "(nothing to do)"
 }
