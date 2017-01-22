@@ -60,8 +60,9 @@ src_install() {
 
 	doman man/*
 
-	# Provide gmcs as an alias for the mcs compiler for Mono
+	# Provide symlinks to provide compatibility with not-yet-updated apps looking for Mono 2
 	dosym /usr/bin/mcs /usr/bin/gmcs
+	dosym /usr/bin/mono /usr/bin/cli
 
 	# Make php-cgi command available
 	phpfile=$(file /usr/bin/php)
