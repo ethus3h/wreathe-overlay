@@ -13,7 +13,9 @@ EGIT_REPO_URI="git://github.com/ethus3h/wreathe.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-#RDEPEND="app-misc/wreathe-overlays"
+
+RDEPEND="app-misc/wreathe-bootstrap"
+DEPEND="${RDEPEND}"
 
 src_prepare() {
 	eapply_user
