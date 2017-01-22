@@ -8,8 +8,12 @@ inherit git-r3
 
 DESCRIPTION="Ember: Repositories (doesn't install anything, but adds repos to distfiles)"
 HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="git://github.com/ethus3h/ember-repositories.git"
+EGIT_REPO_URI="git://github.com/ethus3h/ember.git"
 
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS=""
+
+src_unpack() {
+	mkdir "$S"
+}

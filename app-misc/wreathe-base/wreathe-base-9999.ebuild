@@ -13,8 +13,6 @@ EGIT_REPO_URI="git://github.com/ethus3h/wreathe.git"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
-RDEPEND=">=dev-vcs/git-2.7
-	app-misc/gentoo-portage-tree"
 #RDEPEND="app-misc/wreathe-overlays"
 
 src_prepare() {
