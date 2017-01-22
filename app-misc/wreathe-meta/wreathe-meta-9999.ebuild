@@ -11,6 +11,7 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS=""
 RDEPEND="app-misc/wreathe-base
+app-misc/wreathe-bootstrap
 app-misc/wreathe-overlays-redist
 app-misc/wreathe-backgrounds
 app-misc/wreathe-typefaces-redist

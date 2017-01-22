@@ -14,9 +14,6 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-RDEPEND="app-misc/wreathe-bootstrap"
-DEPEND="${RDEPEND}"
-
 src_prepare() {
 	eapply_user
 	rm -rv boot.disabled
