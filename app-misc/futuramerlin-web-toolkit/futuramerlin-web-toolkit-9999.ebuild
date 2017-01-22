@@ -10,7 +10,13 @@ DESCRIPTION="Futuramerlin Web Toolkit"
 HOMEPAGE="https://futuramerlin.com/"
 EGIT_REPO_URI="git://github.com/ethus3h/futuramerlin-web-toolkit.git"
 
-LICENSE="GPL-2"
+LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS=""
 RDEPEND="app-misc/wreathe-base"
+
+src_install() {
+	default
+	insinto /
+	doins support/assets/m.css
+}
