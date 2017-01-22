@@ -12,3 +12,5 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
+
+S="${WORKDIR}/${P}ce.src"
