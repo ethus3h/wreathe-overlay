@@ -15,8 +15,7 @@ SLOT="0"
 KEYWORDS=""
 RDEPEND=""
 DEPEND="${RDEPEND}
-	app-misc/futuramerlin-web-toolkit
-	dev-vcs/git"
+	app-misc/futuramerlin-web-toolkit"
 
 src_configure() {
 	#Disable installation of /m.css
