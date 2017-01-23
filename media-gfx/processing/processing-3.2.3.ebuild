@@ -16,7 +16,7 @@ IUSE=""
 
 DEPEND=">=virtual/jdk-1.5
 	dev-java/antlr
-	=dev-java/eclipse-ecj-3.4*
+	dev-java/eclipse-ecj
 	dev-java/jna"
 RDEPEND="${DEPEND}
 	x11-misc/xdg-utils"
