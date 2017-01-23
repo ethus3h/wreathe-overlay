@@ -14,7 +14,4 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
-src_unpack() {
-	echo "(nothing to do)"
-	mkdir "${S}"
-}
+S="gentoo-gitmig-20150809-draft"
