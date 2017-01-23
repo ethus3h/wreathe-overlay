@@ -15,7 +15,5 @@ SLOT="0"
 KEYWORDS=""
 
 src_install() {
-	insinto /Ember\ Library
-	doins -r *
-	doins -r .*
+	echo "(Nothing to do here.)"
 }
