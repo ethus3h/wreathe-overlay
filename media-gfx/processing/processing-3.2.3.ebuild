@@ -21,7 +21,7 @@ DEPEND=">=virtual/jdk-1.5
 RDEPEND="${DEPEND}
 	x11-misc/xdg-utils"
   
-S="${WORKDIR}/${PN}-0255-${PV}"
+S="${WORKDIR}/${PN}-${PN}-0255-${PV}"
 
 QA_EXECSTACK="usr/share/processing/libraries/serial/library/librxtxSerial.so"
 
