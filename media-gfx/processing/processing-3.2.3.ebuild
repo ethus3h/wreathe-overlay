@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI="6"
-inherit java-pkg-2
+inherit java-pkg-2 jvaa
 
 DESCRIPTION="an open source programming language and environment for people who want to program images, animation, and sound"
 HOMEPAGE="http://processing.org/"
@@ -15,46 +15,27 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND=">=virtual/jdk-1.5
+	dev-java/ant-core
 	dev-java/antlr
 	dev-java/eclipse-ecj
 	dev-java/jna"
 RDEPEND="${DEPEND}
 	x11-misc/xdg-utils"
-  
+
 S="${WORKDIR}/${PN}-${PN}-0255-${PV}"
 
 QA_EXECSTACK="usr/share/processing/libraries/serial/library/librxtxSerial.so"
 
 src_prepare() {
 	cd build/linux || die
-	mkdir work || die
+	java-pkg_jar-from --into shared/lib/ antlr
+	java-pkg_jar-from --into shared/lib/ "eclipse-$(eselect ecj show)"
+	java-pkg_jar-from --into shared/lib/ jna
+	sed -i -e '/^browser.linux/s:mozilla:xdg-open:' shared/lib/preferences.txt || die
 
-	# make.sh
-	cp -r ../shared/lib work/ || die
-	cp -r ../shared/libraries work/ || die
-	cp -r ../shared/tools work/ || die
+	ln -s "${JAVA_HOME}" shared/java || die
 
-	java-pkg_jar-from --into work/lib/ antlr
-	java-pkg_jar-from --into work/lib/ "eclipse-$(eselect ecj show)"
-	java-pkg_jar-from --into work/lib/ jna
-
-	unzip -q -d work ../shared/examples.zip || die
-	unzip -q -d work ../shared/reference.zip || die
-
-	cp -r ../../net work/libraries/ || die
-	cp -r ../../opengl work/libraries/ || die
-	cp -r ../../serial work/libraries/ || die
-	cp -r ../../video work/libraries/ || die
-	cp -r ../../pdf work/libraries/ || die
-	cp -r ../../dxf work/libraries/ || die
-
-	install -m 755 dist/processing work/processing || die
-
-	sed -i -e '/^browser.linux/s:mozilla:xdg-open:' work/lib/preferences.txt || die
-
-	ln -s "${JAVA_HOME}" work/java || die
-
-	find work \( -name .svn -o -name .DS_Store \) -print0 | xargs -0 rm -rf || die
+	find shared \( -name .svn -o -name .DS_Store \) -print0 | xargs -0 rm -rf || die
 }
 
 src_compile() {
