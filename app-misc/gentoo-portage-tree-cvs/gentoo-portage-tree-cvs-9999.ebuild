@@ -16,4 +16,5 @@ KEYWORDS=""
 
 src_unpack() {
 	echo "(nothing to do)"
+	mkdir "${S}"
 }
