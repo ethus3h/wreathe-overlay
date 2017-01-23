@@ -3,7 +3,7 @@
 # $Id$
 
 EAPI="6"
-inherit java-pkg-2 jvaa
+inherit java-pkg-2 java-ant-2
 
 DESCRIPTION="an open source programming language and environment for people who want to program images, animation, and sound"
 HOMEPAGE="http://processing.org/"
