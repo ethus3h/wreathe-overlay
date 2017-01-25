@@ -28,6 +28,8 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
+S="${WORKDIR}/${PN}-2.0.0"
+
 src_prepare() {
 	default
 	eautoconf
