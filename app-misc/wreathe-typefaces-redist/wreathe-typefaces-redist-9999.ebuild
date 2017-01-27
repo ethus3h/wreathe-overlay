@@ -16,7 +16,7 @@ KEYWORDS=""
 RDEPEND="app-misc/wreathe-base"
 
 src_install() {
-	insinto /Wreathe/Typefaces/
+	insinto /Wreathe/Typefaces/redist/
 	GLOBIGNORE="README.md:.git:.egup.tags"
 	doins -r *
 	unset GLOBIGNORE
