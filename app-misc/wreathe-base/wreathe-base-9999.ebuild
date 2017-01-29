@@ -17,7 +17,7 @@ KEYWORDS=""
 src_prepare() {
 	eapply_user
 	rm -rv boot.disabled
-	rm var/lib/portage/preserved_libs_registry
+	rm -rv var/lib/portage
 }
 
 src_install() {
