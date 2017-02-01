@@ -25,7 +25,7 @@ src_install() {
 	insinto /
 	doins -r *
 
-	fperms +x /etc/bash/bashrc.d/wreathe
+	fperms +x /etc/bash/bashrc.d/wreathe.sh
 
 	GLOBIGNORE="usr/bin"
 	insinto /usr/
