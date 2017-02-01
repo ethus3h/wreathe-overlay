@@ -24,9 +24,8 @@ src_install() {
 	GLOBIGNORE="README.md:.git:.gitattributes:.gitconfig:usr:man:Makefile:build:.egup.tags:Wreathe"
 	insinto /
 	doins -r *
-	
+
 	fperms +x /etc/bash/bashrc.d/wreathe
-	fperms +x /etc/profile.d/wreathe
 
 	GLOBIGNORE="usr/bin"
 	insinto /usr/
