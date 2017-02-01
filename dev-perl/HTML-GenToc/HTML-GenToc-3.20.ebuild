@@ -5,7 +5,7 @@
 EAPI=6
 
 MODULE_AUTHOR=RUBYKAT
-MODULE_VERSION=3.20
+MODULE_VERSION="${PV}"
 inherit perl-module
 
 DESCRIPTION="hypertoc - generate a table of contents for HTML documents"

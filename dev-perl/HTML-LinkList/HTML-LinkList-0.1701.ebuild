@@ -5,7 +5,7 @@
 EAPI=6
 
 MODULE_AUTHOR=RUBYKAT
-MODULE_VERSION=0.1701
+MODULE_VERSION="${PV}"
 inherit perl-module
 
 DESCRIPTION="HTML::LinkList - Create a 'smart' list of HTML links."
