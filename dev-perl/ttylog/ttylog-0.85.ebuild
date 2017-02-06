@@ -10,7 +10,7 @@ inherit perl-module
 
 DESCRIPTION="ttylog - Log tty sessions"
 
-SRC_URI="http://search.cpan.org/CPAN/authors/id/B/BB/BBB/${P}.tar.gz"
+SRC_URI="mirror://cpan/authors/id/B/BB/BBB/${P}.tar.gz"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"

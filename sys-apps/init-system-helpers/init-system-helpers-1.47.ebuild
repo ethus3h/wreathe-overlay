@@ -8,6 +8,6 @@ DESCRIPTION="Helper tools for all init systems"
 HOMEPAGE="https://tracker.debian.org/pkg/init-system-helpers"
 SRC_URI="http://http.debian.net/debian/pool/main/${PN::1}/${PN}/${PN}_${PV}.tar.xz"
 
-LICENSE="BSD-3"
+LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"

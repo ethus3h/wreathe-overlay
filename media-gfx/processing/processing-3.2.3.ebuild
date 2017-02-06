@@ -5,7 +5,7 @@
 EAPI="6"
 inherit java-pkg-2 java-ant-2
 
-DESCRIPTION="an open source programming language and environment for people who want to program images, animation, and sound"
+DESCRIPTION="programming language and environment for images, animation, and sound"
 HOMEPAGE="http://processing.org/"
 SRC_URI="https://github.com/${PN}/${PN}/archive/${PN}-0255-${PV}.tar.gz"
 

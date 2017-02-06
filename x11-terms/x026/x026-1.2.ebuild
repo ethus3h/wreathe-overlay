@@ -8,7 +8,7 @@ DESCRIPTION="IBM 026 Keypunch Emulator for the X Window System"
 HOMEPAGE="http://x3270.bgp.nu/x026.html"
 SRC_URI="mirror://sourceforge/x3270/${P}.tgz"
 
-LICENSE="BSD-3"
+LICENSE="BSD"
 SLOT="0"
 KEYWORDS="amd64 ~x86"
 

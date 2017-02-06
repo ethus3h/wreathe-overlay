@@ -3,5 +3,7 @@
 <pkgmetadata>
 <use>
 	<flag name="sdk">Install tools for software development using Moonlight</flag>
+	<flag name="pax_kernel">Disable MPROTECT on the Mono binary</flag>
+	<flag name="xen">Make Mono generate code that is considerably faster on xen VMs but slightly slower on for normal systems.</flag>
 </use>
 </pkgmetadata>
