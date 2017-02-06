@@ -1,3 +1,7 @@
+# Copyright 1999-2017 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Id$
+
 EAPI="6"
 
 inherit toolchain-funcs
@@ -30,7 +34,7 @@ src_install() {
 	do
 		dobin "${S}/$i"
 	done
-	
+
 	dosym /usr/bin/trn /usr/bin/strn
 
 	dodir "/usr/lib/${PN}"
