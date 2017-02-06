@@ -9,7 +9,7 @@ EAPI=6
 localName="Snap--Build-Your-Own-Blocks"
 DESCRIPTION="A visual programming language inspired by Scratch"
 HOMEPAGE="http://snap.berkeley.edu/"
-SRC_URI="https://github.com/jmoenig/${localName}/archive/${PV}.tar.gz"
+SRC_URI="https://github.com/jmoenig/${localName}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="AGPL-3+"
 SLOT="0"
