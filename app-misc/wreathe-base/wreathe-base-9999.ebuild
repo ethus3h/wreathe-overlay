@@ -69,5 +69,5 @@ src_install() {
 	dosym "$cgifile" /usr/bin/php-cgi
 
 	fperms +x /etc/git/hooks/pre-commit
-	fperms +x /etc/bash/bashrc.d/*
+	fperms +x /etc/bash/bashrc.d/wreathe.sh
 }
