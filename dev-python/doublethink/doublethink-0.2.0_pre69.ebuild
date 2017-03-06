@@ -8,7 +8,7 @@ PYTHON_COMPAT=( python{2_7,3_4,3_5} )
 
 inherit distutils-r1
 
-MY_PV="0.2.0.pre69"
+MY_PV="0.2.0.dev69"
 MY_P="${PN}-${MY_PV}"
 DESCRIPTION="RethinkDB python library. Provides connection manager and ORM framework."
 HOMEPAGE="https://github.com/internetarchive/doublethink"
