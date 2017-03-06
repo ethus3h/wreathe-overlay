@@ -21,7 +21,7 @@ RDEPEND="dev-lang/python:=
 	>=dev-python/certauth-1.1.0
 	dev-python/warctools
 	>=dev-python/kafka-python-1.0.1
-	>=dev-python/surt-0.3b4
+	>=dev-python/surt-0.3
 	>=dev-python/doublethink-0.2.0.dev69"
 
 DEPEND="${RDEPEND}"
