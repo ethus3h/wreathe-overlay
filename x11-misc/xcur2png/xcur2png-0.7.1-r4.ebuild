@@ -1,6 +1,6 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
+
 # Ebuild based on https://git.archlinux.org/svntogit/community.git/plain/trunk/PKGBUILD?h=packages/xcur2png
 
 EAPI=6

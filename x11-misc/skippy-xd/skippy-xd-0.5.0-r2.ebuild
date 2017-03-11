@@ -1,6 +1,6 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
+
 # Ebuild based on https://raw.githubusercontent.com/danil/overlays/master/x11-misc/skippy-xd/skippy-xd-0.5.0-r1.ebuild
 
 EAPI=2
