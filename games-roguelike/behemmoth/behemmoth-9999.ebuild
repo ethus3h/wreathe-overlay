@@ -14,8 +14,8 @@ EGIT_REPO_URI="git://github.com/ethus3h/BeHeMMOth.git"
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
-#Note that log4net-1.2.15 is the same as the version 2.0.5 of the NuGet package
-#Note also that currently 1.2.15 won't build on Wreathe (I think because Mono doesn't implement SubjectEncoding), so it's not depending on that version (hopefully it'll work anyway?)
+# Note that log4net-1.2.15 is the same as the version 2.0.5 of the NuGet package
+# Note also that currently 1.2.15 won't build on Wreathe (I think because Mono doesn't implement SubjectEncoding), so it's not depending on that version (hopefully it'll work anyway?)
 RDEPEND="
 	>=virtual/jdk-1.8.0
 	dev-db/phpmyadmin:=
@@ -50,13 +50,20 @@ DEPEND="${RDEPEND}"
 # VS2003 project file format?
 # =dev-dotnet/bouncycastle-1.7.0
 
-#Won't build: SubjectEncoding
+# Won't build: SubjectEncoding
 # =dev-dotnet/log4net-1.2.15
 
 pkg_preinst() {
-	#Remove the temporary install prefix from scripts where it has been copied
+	# Remove the temporary install prefix from scripts where it has been copied
 	tempdir="${D}"
 	export tempdir
 	tempdirEsc="$(perl -0777 -e 'print(quotemeta($ENV{tempdir}))')"
-	find "$tempdir" -name "behemmoth_server" -or -name "behemmoth_client" -exec perl -0777 -p -i -e "s/$tempdirEsc/\//g" "$tempdir"/{} \;
+	echo "Tempdir: $tempdir"
+	echo "TempdirEsc: $tempdirEsc"
+	(
+		cd "$tempdir"
+		find . -name "behemmoth_server" -or -name "behemmoth_client" -exec echo {} \;
+		echo "Now operating on above files:"
+		find . -name "behemmoth_server" -or -name "behemmoth_client" -exec perl -0777 -p -i -e "s/$tempdirEsc/\//g" {} \;
+	)
 }
