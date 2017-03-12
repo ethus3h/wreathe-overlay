@@ -1,7 +1,6 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-
 EAPI="6"
 
 DESCRIPTION="IBM 3270 terminal emulator for the X Window System (metapackage)"
