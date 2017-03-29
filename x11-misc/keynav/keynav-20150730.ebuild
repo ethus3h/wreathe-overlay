@@ -1,16 +1,16 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
 inherit toolchain-funcs
 
+myCommit="4ae486db6697877e84b66583a0502afc7301ba16"
 DESCRIPTION="Make pointer-driven interfaces easier and faster for users to operate"
 HOMEPAGE="http://www.semicomplete.com/projects/keynav/"
-SRC_URI="mirror://debian/pool/main/${PN:0:1}/${PN}/${PN}_0.${PV}.0.orig.tar.gz"
+SRC_URI="https://github.com/jordansissel/keynav/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
 
-LICENSE="as-is"
+LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
