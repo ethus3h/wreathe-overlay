@@ -14,7 +14,7 @@ S="${WORKDIR}/DotNetZip.Semverd-${PV}"
 
 HOMEPAGE="https://github.com/haf/DotNetZip.Semverd"
 DESCRIPTION="create, extract, or update zip files with C# (=DotNetZip+SemVer)"
-LICENSE="MS-PL" # https://github.com/haf/DotNetZip.Semverd/blob/master/LICENSE
+LICENSE="Ms-PL" # https://github.com/haf/DotNetZip.Semverd/blob/master/LICENSE
 
 IUSE="net45 +gac +nupkg developer debug doc"
 
