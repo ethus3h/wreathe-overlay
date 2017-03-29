@@ -16,6 +16,7 @@ KEYWORDS=""
 DEPEND="dev-vcs/git"
 
 src_install() {
+	# FIXME: Remove all ebuilds for non-libre software
 	insinto /usr/portage/
 	GLOBIGNORE=".git"
 	doins -r *

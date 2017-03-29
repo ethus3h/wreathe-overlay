@@ -1,7 +1,7 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="5"
+EAPI="6"
 
 inherit eutils
 
@@ -14,25 +14,21 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="audiofile gcrypt"
 
-RDEPEND="~app-emulation/libspectrum-1.1.1[gcrypt?]
-	audiofile? ( >=media-libs/audiofile-0.2.3 )"
+RDEPEND="~app-emulation/libspectrum-1.3.3[gcrypt?]
+        audiofile? ( >=media-libs/audiofile-0.2.3 )"
 DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+        virtual/pkgconfig"
 
 src_configure() {
-	econf \
-	$(use_with audiofile ) \
-	$(use_with gcrypt libgcrypt) \
-	|| die "Configure failed!"
-	epatch_user
-}
-
-src_compile() {
-	emake || die "Make failed!"
+        econf \
+        $(use_with audiofile ) \
+        $(use_with gcrypt libgcrypt) \
+        || die "Configure failed!"
+        epatch_user
 }
 
 src_install() {
-	emake install DESTDIR="${D}" || die "install failed"
-	dodoc AUTHORS ChangeLog README
-	doman man/*.1
+        emake install DESTDIR="${D}" || die "install failed"
+        dodoc AUTHORS ChangeLog README
+        doman man/*.1
 }
