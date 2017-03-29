@@ -14,7 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="audiofile gcrypt"
 
-RDEPEND="~app-emulation/libspectrum-1.3.3[gcrypt?]
+RDEPEND="~app-emulation/libspectrum-1.3.2[gcrypt?]
         audiofile? ( >=media-libs/audiofile-0.2.3 )"
 DEPEND="${RDEPEND}
         virtual/pkgconfig"
