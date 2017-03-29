@@ -16,7 +16,7 @@ IUSE="alsa ao fbcon gpm gtk joystick memlimit png sdl svga X xml"
 # This build is heavily use dependent. Fuse user interface use flags are, in
 # order of precedence: gtk, sdl, X, svga and fbcon. X version of fuse will
 # be built if no valid user interface flag is chosen.
-RDEPEND="~app-emulation/libspectrum-1.1.1
+RDEPEND="~app-emulation/libspectrum-1.3.2
 	gtk? ( x11-libs/gtk+:2
 		alsa? ( media-libs/alsa-lib )
 		!alsa? ( ao? ( media-libs/libao ) )
