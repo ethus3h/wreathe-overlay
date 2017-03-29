@@ -1,10 +1,9 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=5
 
-inherit autotools eutils git-r3 multilib
+inherit eutils git-r3 multilib
 
 DESCRIPTION="SANE backend driver for newer Epson scanners (DS, ET, PX, etc)"
 HOMEPAGE="https://github.com/utsushi/utsushi"
@@ -50,10 +49,10 @@ src_prepare() {
 	cp "${FILESDIR}"/ltmain.sh-2.4.diff "${S}"/sane/
 
 	# Ensure sane configuration is created if SANE confdir is set
-	epatch "${FILESDIR}"/${PF}-sane-makefile-fix.patch
+	epatch "${FILESDIR}/${PF}-sane-makefile-fix.patch"
 
 	# utsushi requires using this bootstrap wrapper in lieu of autotools
-	${S}/bootstrap || die
+	"${S}/bootstrap" || die
 
 	# Create SANE configuration directory (used by sane/Makefile.am to create
 	# utsushi backend config)
