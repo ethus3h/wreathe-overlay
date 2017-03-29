@@ -24,7 +24,6 @@ src_configure() {
         $(use_with audiofile ) \
         $(use_with gcrypt libgcrypt) \
         || die "Configure failed!"
-        epatch_user
 }
 
 src_install() {
