@@ -15,6 +15,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
+S="${WORKDIR}/${PN}-${myCommit}"
+
 RDEPEND="x11-libs/cairo[X]
 	x11-libs/libXinerama
 	>=x11-misc/xdotool-2.0
