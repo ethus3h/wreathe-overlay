@@ -1,231 +1,15 @@
-From 07483c566a7704ee80501af43541f16597c12fa1 Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 10:42:50 -0500
-Subject: [PATCH 01/19] Add "null" hash type to main.cpp
-
----
- src/main.cpp | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/src/main.cpp b/src/main.cpp
-index b605d2b..3621561 100644
---- a/src/main.cpp
-+++ b/src/main.cpp
-@@ -26,6 +26,7 @@
- //#include "sha3.h"
- #include "tiger.h"
- #include "whirlpool.h"
-+#include "null.h"
+diff --git a/Makefile.am b/Makefile.am
+index 3602970..22d4860 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -41,6 +41,7 @@ win64:
+ 	mv src/sha256deep.exe    src/sha256deep64.exe
+ 	mv src/tigerdeep.exe     src/tigerdeep64.exe
+ 	mv src/whirlpooldeep.exe src/whirlpooldeep64.exe
++	mv src/nulldeep.exe      src/nulldeep64.exe
+ 	mv src/hashdeep.exe     src/hashdeep64.exe
  
- using namespace std;
- 
-@@ -445,6 +446,7 @@ void algorithm_t::load_hashing_algorithms()
- #endif
-     add_algorithm(alg_tiger,     "tiger",     192, hash_init_tiger,     hash_update_tiger,     hash_final_tiger,     DEFAULT_ENABLE_TIGER);
-     add_algorithm(alg_whirlpool, "whirlpool", 512, hash_init_whirlpool, hash_update_whirlpool, hash_final_whirlpool, DEFAULT_ENABLE_WHIRLPOOL);
-+    add_algorithm(alg_null,      "null",      0,   hash_init_null,      hash_update_null,    hash_final_null,      DEFAULT_ENABLE_NULL);
- 
-     //add_algorithm(alg_sha3,
-     //		  "sha3",
-
-From 1f4ef1561f6b0a1d8391bc13531c299258d54963 Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 11:02:49 -0500
-Subject: [PATCH 02/19] Add "null" hash type to main.h
-
----
- src/main.h | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/src/main.h b/src/main.h
-index 99df49a..ec0b19a 100644
---- a/src/main.h
-+++ b/src/main.h
-@@ -62,6 +62,7 @@ typedef enum {
-   alg_sha256, 
-   alg_tiger,
-   alg_whirlpool, 
-+  alg_null, 
-   alg_sha3,
-   
-   // alg_unknown must always be last in this list. It's used
-@@ -78,6 +79,7 @@ inline std::ostream & operator << (std::ostream &os,const hashid_t &h)
-   case alg_sha256:    os << "alg_sha256" ; break ;
-   case alg_tiger:     os << "alg_tiger" ; break ;
-   case alg_whirlpool: os << "alg_whirlpool" ; break ;
-+  case alg_null:      os << "alg_null" ; break ;
-   case alg_sha3:      os << "alg_sha3" ; break ;
-   case alg_unknown:   os << "alg_unknown" ; break ;
-   }
-@@ -93,6 +95,7 @@ inline std::ostream & operator << (std::ostream &os,const hashid_t &h)
- #define DEFAULT_ENABLE_SHA256      TRUE
- #define DEFAULT_ENABLE_TIGER       FALSE
- #define DEFAULT_ENABLE_WHIRLPOOL   FALSE
-+#define DEFAULT_ENABLE_NULL   FALSE
- #define DEFAULT_ENABLE_SHA3        FALSE
- 
- class iomode {
-
-From 91746967e70fd24de3bb70c248770bc5dec1fa11 Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 11:03:21 -0500
-Subject: [PATCH 03/19] Fix whitespace
-
----
- src/main.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/src/main.h b/src/main.h
-index ec0b19a..e17567d 100644
---- a/src/main.h
-+++ b/src/main.h
-@@ -95,7 +95,7 @@ inline std::ostream & operator << (std::ostream &os,const hashid_t &h)
- #define DEFAULT_ENABLE_SHA256      TRUE
- #define DEFAULT_ENABLE_TIGER       FALSE
- #define DEFAULT_ENABLE_WHIRLPOOL   FALSE
--#define DEFAULT_ENABLE_NULL   FALSE
-+#define DEFAULT_ENABLE_NULL        FALSE
- #define DEFAULT_ENABLE_SHA3        FALSE
- 
- class iomode {
-
-From 5715106183c97c5259cff8b386fe3fe9e4f446e9 Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 11:09:39 -0500
-Subject: [PATCH 04/19] Create null.c
-
-I feel like it might not be this simple.
----
- src/null.c | 42 ++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 42 insertions(+)
- create mode 100644 src/null.c
-
-diff --git a/src/null.c b/src/null.c
-new file mode 100644
-index 0000000..783f5d0
---- /dev/null
-+++ b/src/null.c
-@@ -0,0 +1,42 @@
-+/**
-+ * The null hashing function.
-+ *
-+ * Based on whirlpool.c
-+ *
-+ * @author  Paulo S.L.M. Barreto
-+ * @author  Vincent Rijmen.
-+ * @author  ethus3h
-+ *
-+ * @version 1.0 (2016.Nov.28)
-+ *
-+ * =============================================================================
-+ *
-+ * THIS SOFTWARE IS PROVIDED BY THE AUTHORS ''AS IS'' AND ANY EXPRESS
-+ * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE
-+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-+ * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
-+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-+ *
-+ */
-+
-+/* $Id$ */
-+
-+#include "null.h"
-+
-+void hash_init_null(void * ctx)
-+{
-+}
-+
-+void hash_update_null(void * ctx, const unsigned char *buf, size_t len)
-+{
-+}
-+
-+void hash_final_null(void * ctx, unsigned char *digest)
-+{
-+}
-
-From b86fc564b68174ea05631e3f0ce64693cba9c4a6 Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 11:18:23 -0500
-Subject: [PATCH 05/19] Create null.h
-
----
- src/null.h | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
- create mode 100644 src/null.h
-
-diff --git a/src/null.h b/src/null.h
-new file mode 100644
-index 0000000..dc4328a
---- /dev/null
-+++ b/src/null.h
-@@ -0,0 +1,17 @@
-+
-+/* $Id$ */
-+
-+#ifndef __NULL_H
-+#define __NULL_H
-+
-+__BEGIN_DECLS
-+
-+#define context_null_t ""
-+
-+void hash_init_whirlpool(void * ctx);
-+void hash_update_whirlpool(void * ctx, const unsigned char *buf, size_t len);
-+void hash_final_whirlpool(void * ctx, unsigned char *digest);
-+
-+__END_DECLS
-+
-+#endif   /* __NULL_H */
-
-From f275893b3a26a1dfef1a1c17c8e66a12ae12b042 Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 11:20:04 -0500
-Subject: [PATCH 06/19] Update Makefile.am
-
----
- src/Makefile.am | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/src/Makefile.am b/src/Makefile.am
-index f1afdf2..d16554a 100644
---- a/src/Makefile.am
-+++ b/src/Makefile.am
-@@ -8,7 +8,7 @@ ALGS=md5.c md5.h sha1.c sha1.h sha256.c sha256.h whirlpool.c whirlpool.h tiger.c
- all_sources = $(ALGS) main.cpp hashlist.cpp multihash.cpp display.cpp \
- 	hash.cpp dig.cpp helpers.cpp xml.cpp xml.h files.cpp common.h main.h \
- 	utf8.h utf8/checked.h utf8/core.h utf8/unchecked.h \
--	threadpool.h threadpool.cpp winpe.cpp winpe.h
-+	threadpool.h threadpool.cpp winpe.cpp winpe.h null.c null.h 
- 
- hashdeep_SOURCES = $(all_sources)
- md5deep_SOURCES = $(all_sources)
-@@ -16,8 +16,9 @@ sha1deep_SOURCES = $(all_sources)
- sha256deep_SOURCES = $(all_sources)
- whirlpooldeep_SOURCES = $(all_sources)
- tigerdeep_SOURCES = $(all_sources)
-+nulldeep_SOURCES = $(all_sources)
- 
--bin_PROGRAMS = hashdeep md5deep sha1deep sha256deep whirlpooldeep tigerdeep
-+bin_PROGRAMS = hashdeep md5deep sha1deep sha256deep whirlpooldeep tigerdeep nulldeep
- 
- # Yes, this is gross; it would be better to make them all with hard links.
- # But this works. That didn't.
-
-From 770fce3248676d3080c12ff5fc14ecf073dfcd8c Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 11:21:39 -0500
-Subject: [PATCH 07/19] Update hashdeep.html
-
----
- doc/hashdeep.html | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
+ strip32:
 diff --git a/doc/hashdeep.html b/doc/hashdeep.html
 index 3f7d29e..e6987e7 100644
 --- a/doc/hashdeep.html
@@ -239,16 +23,27 @@ index 3f7d29e..e6987e7 100644
  <p> 
  <p> </dd>
  
-
-From dc8b3763f236a50921c9267d7a65760ef1a611f3 Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 11:22:40 -0500
-Subject: [PATCH 08/19] Update hashdeep.1
-
----
- man/hashdeep.1 | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
+diff --git a/man/Makefile.am b/man/Makefile.am
+index cef4f2b..e8e50dc 100644
+--- a/man/Makefile.am
++++ b/man/Makefile.am
+@@ -1,6 +1,6 @@
+-ALL_GOALS={md5,sha1,sha256,sha3,tiger,whirlpool,hashdeep}
++ALL_GOALS={md5,sha1,sha256,sha3,tiger,whirlpool,null,hashdeep}
+ 
+-man_MANS=md5deep.1 sha1deep.1 sha256deep.1 tigerdeep.1 whirlpooldeep.1 hashdeep.1 #sha3deep.1
++man_MANS=md5deep.1 sha1deep.1 sha256deep.1 tigerdeep.1 whirlpooldeep.1 nulldeep.1 hashdeep.1 #sha3deep.1
+ 
+ # We erase the old man pages, just in case they might be symbolic links
+ # (symbolic links were used in a previous release)
+@@ -14,6 +14,7 @@ update-manpages: md5deep.1
+ #	$(INSTALL) $< sha3deep.1
+ 	$(INSTALL) $< tigerdeep.1
+ 	$(INSTALL) $< whirlpooldeep.1
++	$(INSTALL) $< nulldeep.1
+ 
+ EXTRA_DIST=${man_MANS} 
+ 
 diff --git a/man/hashdeep.1 b/man/hashdeep.1
 index 1695166..4071bc7 100644
 --- a/man/hashdeep.1
@@ -264,17 +59,6 @@ index 1695166..4071bc7 100644
  
  
  .TP
-
-From 59c5e4b563435b5521403bb93848deb0cf3acbab Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 11:24:10 -0500
-Subject: [PATCH 09/19] Create nulldeep.1
-
----
- man/nulldeep.1 | 378 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 378 insertions(+)
- create mode 100644 man/nulldeep.1
-
 diff --git a/man/nulldeep.1 b/man/nulldeep.1
 new file mode 100644
 index 0000000..adfcf86
@@ -659,97 +443,35 @@ index 0000000..adfcf86
 +The Whirlpool specification is available at
 +.br
 +http://planeta.terra.com.br/informatica/paulobarreto/WhirlpoolPage.html
-
-From 84856b6215c1dd50be909aa78436ae0dde2338cd Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 11:25:07 -0500
-Subject: [PATCH 10/19] Update Makefile.am
-
----
- man/Makefile.am | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/man/Makefile.am b/man/Makefile.am
-index cef4f2b..e8e50dc 100644
---- a/man/Makefile.am
-+++ b/man/Makefile.am
-@@ -1,6 +1,6 @@
--ALL_GOALS={md5,sha1,sha256,sha3,tiger,whirlpool,hashdeep}
-+ALL_GOALS={md5,sha1,sha256,sha3,tiger,whirlpool,null,hashdeep}
+diff --git a/src/Makefile.am b/src/Makefile.am
+index f1afdf2..6621e54 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -8,7 +8,7 @@ ALGS=md5.c md5.h sha1.c sha1.h sha256.c sha256.h whirlpool.c whirlpool.h tiger.c
+ all_sources = $(ALGS) main.cpp hashlist.cpp multihash.cpp display.cpp \
+ 	hash.cpp dig.cpp helpers.cpp xml.cpp xml.h files.cpp common.h main.h \
+ 	utf8.h utf8/checked.h utf8/core.h utf8/unchecked.h \
+-	threadpool.h threadpool.cpp winpe.cpp winpe.h
++	threadpool.h threadpool.cpp winpe.cpp winpe.h 
  
--man_MANS=md5deep.1 sha1deep.1 sha256deep.1 tigerdeep.1 whirlpooldeep.1 hashdeep.1 #sha3deep.1
-+man_MANS=md5deep.1 sha1deep.1 sha256deep.1 tigerdeep.1 whirlpooldeep.1 nulldeep.1 hashdeep.1 #sha3deep.1
+ hashdeep_SOURCES = $(all_sources)
+ md5deep_SOURCES = $(all_sources)
+@@ -16,8 +16,9 @@ sha1deep_SOURCES = $(all_sources)
+ sha256deep_SOURCES = $(all_sources)
+ whirlpooldeep_SOURCES = $(all_sources)
+ tigerdeep_SOURCES = $(all_sources)
++nulldeep_SOURCES = $(all_sources)
  
- # We erase the old man pages, just in case they might be symbolic links
- # (symbolic links were used in a previous release)
-@@ -14,6 +14,7 @@ update-manpages: md5deep.1
- #	$(INSTALL) $< sha3deep.1
- 	$(INSTALL) $< tigerdeep.1
- 	$(INSTALL) $< whirlpooldeep.1
-+	$(INSTALL) $< nulldeep.1
+-bin_PROGRAMS = hashdeep md5deep sha1deep sha256deep whirlpooldeep tigerdeep
++bin_PROGRAMS = hashdeep md5deep sha1deep sha256deep whirlpooldeep tigerdeep nulldeep
  
- EXTRA_DIST=${man_MANS} 
- 
-
-From 3390c94b966163e57f440c3ef03b9c6cdd108923 Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 11:26:23 -0500
-Subject: [PATCH 11/19] Update Makefile.am
-
----
- Makefile.am | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/Makefile.am b/Makefile.am
-index 3602970..22d4860 100644
---- a/Makefile.am
-+++ b/Makefile.am
-@@ -41,6 +41,7 @@ win64:
- 	mv src/sha256deep.exe    src/sha256deep64.exe
- 	mv src/tigerdeep.exe     src/tigerdeep64.exe
- 	mv src/whirlpooldeep.exe src/whirlpooldeep64.exe
-+	mv src/nulldeep.exe      src/nulldeep64.exe
- 	mv src/hashdeep.exe     src/hashdeep64.exe
- 
- strip32:
-
-From 01f686b1061ba4d717da47ddd2da22185e21c3c0 Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 14:02:26 -0500
-Subject: [PATCH 12/19] Update main.cpp
-
----
- src/main.cpp | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
+ # Yes, this is gross; it would be better to make them all with hard links.
+ # But this works. That didn't.
 diff --git a/src/main.cpp b/src/main.cpp
-index 3621561..4e4b910 100644
+index b605d2b..8f06b1c 100644
 --- a/src/main.cpp
 +++ b/src/main.cpp
-@@ -446,7 +446,7 @@ void algorithm_t::load_hashing_algorithms()
- #endif
-     add_algorithm(alg_tiger,     "tiger",     192, hash_init_tiger,     hash_update_tiger,     hash_final_tiger,     DEFAULT_ENABLE_TIGER);
-     add_algorithm(alg_whirlpool, "whirlpool", 512, hash_init_whirlpool, hash_update_whirlpool, hash_final_whirlpool, DEFAULT_ENABLE_WHIRLPOOL);
--    add_algorithm(alg_null,      "null",      0,   hash_init_null,      hash_update_null,    hash_final_null,      DEFAULT_ENABLE_NULL);
-+    add_algorithm(alg_null,      "null",      0,   void hash_init_null, void hash_update_null, void hash_final_null, DEFAULT_ENABLE_NULL);
- 
-     //add_algorithm(alg_sha3,
-     //		  "sha3",
-
-From 7ae0da4bb5f8ca11dbd7a0f1fb4fe2eefb37baf1 Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 14:32:58 -0500
-Subject: [PATCH 13/19] Update main.cpp
-
----
- src/main.cpp | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
-
-diff --git a/src/main.cpp b/src/main.cpp
-index 4e4b910..36b463c 100644
---- a/src/main.cpp
-+++ b/src/main.cpp
-@@ -423,7 +423,20 @@ void cc_sha256_final(void *ctx, unsigned char *digest)
+@@ -422,7 +422,20 @@ void cc_sha256_final(void *ctx, unsigned char *digest)
  }
  #endif
  
@@ -770,165 +492,44 @@ index 4e4b910..36b463c 100644
  
  /*
   * Load the hashing algorithms array.
-@@ -446,7 +459,7 @@ void algorithm_t::load_hashing_algorithms()
+@@ -445,6 +458,7 @@ void algorithm_t::load_hashing_algorithms()
  #endif
      add_algorithm(alg_tiger,     "tiger",     192, hash_init_tiger,     hash_update_tiger,     hash_final_tiger,     DEFAULT_ENABLE_TIGER);
      add_algorithm(alg_whirlpool, "whirlpool", 512, hash_init_whirlpool, hash_update_whirlpool, hash_final_whirlpool, DEFAULT_ENABLE_WHIRLPOOL);
--    add_algorithm(alg_null,      "null",      0,   void hash_init_null, void hash_update_null, void hash_final_null, DEFAULT_ENABLE_NULL);
 +    add_algorithm(alg_null,      "null",      0,   hash_init_null,      hash_update_null,      hash_final_null,      DEFAULT_ENABLE_NULL);
  
      //add_algorithm(alg_sha3,
      //		  "sha3",
-
-From ce2d82d50b44c41a1c054d10cdd5aef9fe2f9bee Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 14:37:12 -0500
-Subject: [PATCH 14/19] Delete null.c
-
----
- src/null.c | 42 ------------------------------------------
- 1 file changed, 42 deletions(-)
- delete mode 100644 src/null.c
-
-diff --git a/src/null.c b/src/null.c
-deleted file mode 100644
-index 783f5d0..0000000
---- a/src/null.c
-+++ /dev/null
-@@ -1,42 +0,0 @@
--/**
-- * The null hashing function.
-- *
-- * Based on whirlpool.c
-- *
-- * @author  Paulo S.L.M. Barreto
-- * @author  Vincent Rijmen.
-- * @author  ethus3h
-- *
-- * @version 1.0 (2016.Nov.28)
-- *
-- * =============================================================================
-- *
-- * THIS SOFTWARE IS PROVIDED BY THE AUTHORS ''AS IS'' AND ANY EXPRESS
-- * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-- * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE
-- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-- * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-- * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
-- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-- *
-- */
--
--/* $Id$ */
--
--#include "null.h"
--
--void hash_init_null(void * ctx)
--{
--}
--
--void hash_update_null(void * ctx, const unsigned char *buf, size_t len)
--{
--}
--
--void hash_final_null(void * ctx, unsigned char *digest)
--{
--}
-
-From 53a60d107544d0d82f8f6291400d8926bbe45b7a Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 14:37:27 -0500
-Subject: [PATCH 15/19] Delete null.h
-
----
- src/null.h | 17 -----------------
- 1 file changed, 17 deletions(-)
- delete mode 100644 src/null.h
-
-diff --git a/src/null.h b/src/null.h
-deleted file mode 100644
-index dc4328a..0000000
---- a/src/null.h
-+++ /dev/null
-@@ -1,17 +0,0 @@
--
--/* $Id$ */
--
--#ifndef __NULL_H
--#define __NULL_H
--
--__BEGIN_DECLS
--
--#define context_null_t ""
--
--void hash_init_whirlpool(void * ctx);
--void hash_update_whirlpool(void * ctx, const unsigned char *buf, size_t len);
--void hash_final_whirlpool(void * ctx, unsigned char *digest);
--
--__END_DECLS
--
--#endif   /* __NULL_H */
-
-From b1af523fd1ba9f52f077c68381e1f1b73c3ed37e Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 14:37:46 -0500
-Subject: [PATCH 16/19] Update Makefile.am
-
----
- src/Makefile.am | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/src/Makefile.am b/src/Makefile.am
-index d16554a..6621e54 100644
---- a/src/Makefile.am
-+++ b/src/Makefile.am
-@@ -8,7 +8,7 @@ ALGS=md5.c md5.h sha1.c sha1.h sha256.c sha256.h whirlpool.c whirlpool.h tiger.c
- all_sources = $(ALGS) main.cpp hashlist.cpp multihash.cpp display.cpp \
- 	hash.cpp dig.cpp helpers.cpp xml.cpp xml.h files.cpp common.h main.h \
- 	utf8.h utf8/checked.h utf8/core.h utf8/unchecked.h \
--	threadpool.h threadpool.cpp winpe.cpp winpe.h null.c null.h 
-+	threadpool.h threadpool.cpp winpe.cpp winpe.h 
+diff --git a/src/main.h b/src/main.h
+index 99df49a..e17567d 100644
+--- a/src/main.h
++++ b/src/main.h
+@@ -62,6 +62,7 @@ typedef enum {
+   alg_sha256, 
+   alg_tiger,
+   alg_whirlpool, 
++  alg_null, 
+   alg_sha3,
+   
+   // alg_unknown must always be last in this list. It's used
+@@ -78,6 +79,7 @@ inline std::ostream & operator << (std::ostream &os,const hashid_t &h)
+   case alg_sha256:    os << "alg_sha256" ; break ;
+   case alg_tiger:     os << "alg_tiger" ; break ;
+   case alg_whirlpool: os << "alg_whirlpool" ; break ;
++  case alg_null:      os << "alg_null" ; break ;
+   case alg_sha3:      os << "alg_sha3" ; break ;
+   case alg_unknown:   os << "alg_unknown" ; break ;
+   }
+@@ -93,6 +95,7 @@ inline std::ostream & operator << (std::ostream &os,const hashid_t &h)
+ #define DEFAULT_ENABLE_SHA256      TRUE
+ #define DEFAULT_ENABLE_TIGER       FALSE
+ #define DEFAULT_ENABLE_WHIRLPOOL   FALSE
++#define DEFAULT_ENABLE_NULL        FALSE
+ #define DEFAULT_ENABLE_SHA3        FALSE
  
- hashdeep_SOURCES = $(all_sources)
- md5deep_SOURCES = $(all_sources)
-
-From 39e1e308984d202a3b8f8e5e939d6e67f4c673eb Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 14:38:11 -0500
-Subject: [PATCH 17/19] Update main.cpp
-
----
- src/main.cpp | 1 -
- 1 file changed, 1 deletion(-)
-
-diff --git a/src/main.cpp b/src/main.cpp
-index 36b463c..8f06b1c 100644
---- a/src/main.cpp
-+++ b/src/main.cpp
-@@ -26,7 +26,6 @@
- //#include "sha3.h"
- #include "tiger.h"
- #include "whirlpool.h"
--#include "null.h"
- 
- using namespace std;
- 
-
-From 5fb5a0694f610eaf41af79fc26c31b25caafa8da Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 14:52:17 -0500
-Subject: [PATCH 18/19] Update tests.sh
-
----
- tests/tests.sh | 48 ++++++++++++++++++++++++++----------------------
- 1 file changed, 26 insertions(+), 22 deletions(-)
-
+ class iomode {
 diff --git a/tests/tests.sh b/tests/tests.sh
-index 21320f0..7d6d12f 100755
+index 21320f0..8c76b8d 100755
 --- a/tests/tests.sh
 +++ b/tests/tests.sh
 @@ -211,36 +211,40 @@ do
@@ -994,21 +595,7 @@ index 21320f0..7d6d12f 100755
         
  
     esac
-
-From 6e24552696f41447a5f30a8fbfafaeef85e19c13 Mon Sep 17 00:00:00 2001
-From: ethus3h <kolubat@gmail.com>
-Date: Mon, 28 Nov 2016 14:54:41 -0500
-Subject: [PATCH 19/19] Update tests.sh
-
----
- tests/tests.sh | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/tests/tests.sh b/tests/tests.sh
-index 7d6d12f..8c76b8d 100755
---- a/tests/tests.sh
-+++ b/tests/tests.sh
-@@ -283,12 +283,12 @@ do
+@@ -279,12 +283,12 @@ do
       tr -d \\r < test$i.out > ref/test$i.out
       tr -d \\r < test$i.err > ref/test$i.err
  
