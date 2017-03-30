@@ -26,7 +26,7 @@ SLOT="0"
 IUSE="gtk"
 
 RDEPEND=">=media-libs/libsndfile-1.0.17
-	>=media-sound/jack-audio-connection-kit-0.100:=
+	>=media-sound/jack-audio-connection-kit-0.100
 	gtk? ( x11-libs/gtk+:2 )"
 DEPEND="${RDEPEND}
 	gtk? ( virtual/pkgconfig )"

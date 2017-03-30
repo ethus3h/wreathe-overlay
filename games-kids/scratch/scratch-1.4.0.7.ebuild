@@ -3,8 +3,6 @@
 
 EAPI=3
 
-inherit games confutils
-
 DESCRIPTION="Programming environment for creative/artistic work"
 HOMEPAGE="http://scratch.mit.edu/"
 SRC_URI="http://download.scratch.mit.edu/${P}.src.tar.gz"
@@ -13,6 +11,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="alsa oss pulseaudio v4l"
+REQUIRED_USE="?? ( alsa oss pulseaudio )"
 
 DEPEND="
 	>=x11-libs/cairo-1.8.6
@@ -25,13 +24,6 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/${P}.src"
 ABI="x86"
 
-pkg_setup() {
-	# Is the a convenience function for "zero or one"?
-	confutils_require_one alsa oss pulseaudio
-
-	games_pkg_setup
-}
-
 src_prepare() {
 	if ! use v4l; then
 		sed -i '/\/camera/d' "${S}/Makefile"
@@ -41,13 +33,14 @@ src_prepare() {
 	use pulseaudio || rm -f Plugins/vm-sound-pulse
 }
 
+datadir="/usr/share/${PN}"
+libdir="${datadir}/lib"
 src_install() {
-	local libdir="$(games_get_libdir)/${PN}"
-	local datadir="/usr/share/${PN}"
-	local icondir="/usr/share/icons/hicolor"
-	dodir "${libdir}" "${datadir}"
-	cp -r Scratch.* Plugins "${D}${libdir}"
-	cp -r Help locale Media Projects "${D}${datadir}"
+	icondir="/usr/share/icons/hicolor"
+	insinto "${libdir}"
+	doins -r Scratch.* Plugins
+	insinto "${datadir}"
+	doins -r Help locale Media Projects
 	doman src/man/*
 	dodoc ACKNOWLEDGEMENTS KNOWN-BUGS README
 	exeinto /usr/bin
@@ -81,10 +74,10 @@ install_runner() {
 #!/bin/sh
 cd
 exec \
-	"$(games_get_libdir)/${PN}/scratch_squeak_vm"	 \\
-	-plugins "$(games_get_libdir)/${PN}/Plugins" \\
+	"${libdir}/scratch_squeak_vm"	 \\
+	-plugins "${libdir}/Plugins" \\
 	-vm-sound-${squeak_sound_plugin}				  \\
-	"$(games_get_libdir)/${PN}/Scratch.image"	\\
+	"${libdir}/Scratch.image"	\\
 	"${@}"
 EOF
 	chmod go+rx "${tmpexe}"

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
-inherit eutils flag-o-matic gnome2-utils git-r3 games
+inherit eutils flag-o-matic gnome2-utils git-r3
 
 EDITION="collect_edition"
 DESCRIPTION="WC-NG client for Cube 2: Sauerbraten"
@@ -47,10 +47,6 @@ src_compile() {
 }
 
 src_install() {
-	local LIBEXECDIR="${GAMES_PREFIX}/lib"
-	local DATADIR="${GAMES_DATADIR}/${PN}"
-	local STATEDIR="${GAMES_STATEDIR}/${PN}"
-
 	if ! use dedicated ; then
 		# Install the game data
 		insinto "${DATADIR}"
@@ -59,9 +55,6 @@ src_install() {
 		# Install the client executable
 		exeinto "${LIBEXECDIR}"
 		doexe src/sauer_client
-
-		# Install the client wrapper
-		games_make_wrapper "${PN}-client" "${LIBEXECDIR}/sauer_client -q\$HOME/.${PN} -r" "${DATADIR}"
 
 		# Create menu entry
 		newicon -s 256 data/cube.png ${PN}.png
@@ -77,48 +70,11 @@ src_install() {
 	doexe src/sauer_master
 	use dedicated || use server && doexe src/sauer_server
 
-	games_make_wrapper "${PN}-server" \
-		"${LIBEXECDIR}/sauer_server -k${DATADIR} -q${STATEDIR}"
-	games_make_wrapper "${PN}-master" \
-		"${LIBEXECDIR}/sauer_master ${STATEDIR}"
-
 	# Install the server init script
-	keepdir "${GAMES_STATEDIR}/run/${PN}"
-	cp "${FILESDIR}"/${PN}.init "${T}" || die
-	sed -i \
-		-e "s:%SYSCONFDIR%:${STATEDIR}:g" \
-		-e "s:%LIBEXECDIR%:${LIBEXECDIR}:g" \
-		-e "s:%GAMES_STATEDIR%:${GAMES_STATEDIR}:g" \
-		"${T}"/${PN}.init || die
+	keepdir "${STATEDIR}/run/${PN}"
 	newinitd "${T}"/${PN}.init ${PN}
-	cp "${FILESDIR}"/${PN}.conf "${T}" || die
-	sed -i \
-		-e "s:%SYSCONFDIR%:${STATEDIR}:g" \
-		-e "s:%LIBEXECDIR%:${LIBEXECDIR}:g" \
-		-e "s:%GAMES_USER_DED%:${GAMES_USER_DED}:g" \
-		-e "s:%GAMES_GROUP%:${GAMES_GROUP}:g" \
-		"${T}"/${PN}.conf || die
 	newconfd "${T}"/${PN}.conf ${PN}
 
 	dodoc src/*.txt docs/dev/*.txt
 	dohtml -r README.html docs/*
-
-	prepgamesdirs
-}
-
-pkg_preinst() {
-	games_pkg_preinst
-	gnome2_icon_savelist
-}
-
-pkg_postinst() {
-	games_pkg_postinst
-	gnome2_icon_cache_update
-
-	elog "If you plan to use map editor feature copy all map data from ${DATADIR}"
-	elog "to corresponding folder in your HOME/.${PN}"
-}
-
-pkg_postrm() {
-	gnome2_icon_cache_update
 }

@@ -45,7 +45,7 @@ RDEPEND="
 	x11-libs/libX11[${MULTILIB_USEDEP}]
 	x11-libs/libXext
 	x11-libs/libXfixes[${MULTILIB_USEDEP}]
-	jack? ( media-sound/jack-audio-connection-kit )
+	jack? ( media-sound/jack-audio-connection-kit:= )
 	pulseaudio? ( media-sound/pulseaudio )
 	media-video/ffmpeg[vorbis?,vpx?,x264?,mp3?,theora?]
 	"
