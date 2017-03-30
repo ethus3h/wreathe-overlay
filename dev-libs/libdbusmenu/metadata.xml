@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-	<maintainer type="person">
-		<email>jpizarrocallejas@gmail.com</email>
-		<name>Jorge Pizarro Callejas</name>
-		<description>Jorgicio Gentoo Overlay</description>
-	</maintainer>
+	<use>
+		<flag name="gtk3">Build with GTK+3 (use USE=gtk to build with GTK+2)</flag>
+	</use>
 </pkgmetadata>

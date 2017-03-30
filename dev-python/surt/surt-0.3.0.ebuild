@@ -18,7 +18,7 @@ IUSE="doc test"
 
 RDEPEND="dev-lang/python:=
 	dev-python/six
-	>=dev-python/tldextract-2.0
-	test? ( dev-python/pytest dev-python/pytest-cov )"
+	>=dev-python/tldextract-2.0"
 
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	test? ( dev-python/pytest dev-python/pytest-cov )"

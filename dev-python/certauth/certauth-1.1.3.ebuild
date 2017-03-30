@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
 RDEPEND="dev-lang/python:=
-	dev-python/pyopenssl
-	test? ( dev-python/pytest dev-python/pytest-cov )"
+	dev-python/pyopenssl"
 
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	test? ( dev-python/pytest dev-python/pytest-cov )"

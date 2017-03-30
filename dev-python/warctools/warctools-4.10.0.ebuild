@@ -18,7 +18,7 @@ IUSE="doc test"
 
 RDEPEND="dev-lang/python:=
 	dev-python/setuptools
-	dev-python/unittest2
-	test? ( dev-python/nose )"
+	dev-python/unittest2"
 
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	test? ( dev-python/nose )"

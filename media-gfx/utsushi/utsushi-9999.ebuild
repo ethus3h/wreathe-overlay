@@ -11,7 +11,7 @@ EGIT_REPO_URI="https://github.com/utsushi/utsushi.git"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~x86 ~x64"
+KEYWORDS="~x86 ~amd64"
 IUSE="gtk imagemagick jpeg +network nls openmp tiff udev"
 
 # These are needed by utsushi's 'bootstrap':
