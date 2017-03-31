@@ -36,7 +36,7 @@ src_compile() {
 		--no-menuconfig \
 		--plymouth \
 		--plymouth-theme=simply_line \
-		--tempdir=./genkernel.tmp
+		--tempdir=./genkernel.tmp \
 		all || die "Genkernel reported a failure status."
 }
 
