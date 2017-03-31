@@ -13,6 +13,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 DEPEND="dev-vcs/git"
 
+S="${WORKDIR}/gentoo-${myCommit}"
+
 src_install() {
 	# FIXME: Remove all ebuilds for non-libre software
 	insinto /usr/portage/
