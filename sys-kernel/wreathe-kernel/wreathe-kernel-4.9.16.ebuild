@@ -29,7 +29,7 @@ pkg_postinst() {
 src_compile() {
 	kernel-2_src_compile
 	genkernel \
-		--cachedir=./genkernel.cache
+		--cachedir=./genkernel.cache \
 		--kernel-config="${DISTDIR}/wreathe-kernel.config" \
 		--kerneldir=. \
 		--logfile=./genkernel.log \
