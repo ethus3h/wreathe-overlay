@@ -4,7 +4,7 @@
 EAPI=6
 
 DESCRIPTION="Platformer computer game"
-HOMEPAGE="http://flex.apache.org/"
+HOMEPAGE="https://futuramerlin.com/"
 
 SRC_URI=""
 

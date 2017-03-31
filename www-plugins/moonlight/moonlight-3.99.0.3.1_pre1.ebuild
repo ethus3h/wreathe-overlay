@@ -26,7 +26,7 @@ SRC_URI="https://github.com/ethus3h/moon-1/archive/v${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/mono/mono-basic/archive/$monoBasicRevision.zip -> mono-basic-git-$monoBasicRevision.zip
 	https://github.com/mesa3d/mesa/archive/$mesaRevision.zip -> mesa-git-$mesaRevision.zip
 	https://github.com/mono/libgdiplus/archive/$LIBGDIPLUS.tar.gz -> libgdiplus-$LIBGDIPLUS.tar.gz
-	http://web.archive.org/web/20111225065517/http://ftp.novell.com/pub/mono/sources/gtk-sharp212/${GTKSHARP}.tar.bz2"
+	https://web.archive.org/web/20111225065517/http://ftp.novell.com/pub/mono/sources/gtk-sharp212/${GTKSHARP}.tar.bz2"
 
 RDEPEND="
 	alsa? ( >=media-libs/alsa-lib-1.0.18 )
@@ -67,7 +67,7 @@ pkg_setup() {
 		else
 			ewarn "Was unable to determine your kernel .config"
 			ewarn "Please note that if CONFIG_SYSVIPC is not set in your kernel .config, mono compilation will hang."
-			ewarn "See http://bugs.gentoo.org/261869 for more info."
+			ewarn "See https://bugs.gentoo.org/261869 for more info."
 		fi
 	fi
 }

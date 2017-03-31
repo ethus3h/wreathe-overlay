@@ -5,14 +5,15 @@ EAPI=5
 
 inherit eutils git-r3 multilib
 
+myCommit="fc3b31ef2a8330df4abd0a2b863ec690d84aa692"
 DESCRIPTION="SANE backend driver for newer Epson scanners (DS, ET, PX, etc)"
 HOMEPAGE="https://github.com/utsushi/utsushi"
-EGIT_REPO_URI="https://github.com/utsushi/utsushi.git"
+SRC_URI="https://github.com/utsushi/utsushi/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE="gtk imagemagick jpeg +network nls openmp tiff udev"
+IUSE="gtk imagemagick jpeg nls openmp tiff udev"
 
 # These are needed by utsushi's 'bootstrap':
 #   dev-libs/gnulib
@@ -41,7 +42,6 @@ DEPEND="
 
 RDEPEND="
 	${DEPEND}
-	network?     ( media-gfx/epson-ds-plugins )
 "
 
 src_prepare() {

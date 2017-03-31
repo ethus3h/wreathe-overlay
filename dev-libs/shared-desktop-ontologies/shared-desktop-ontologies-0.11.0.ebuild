@@ -11,7 +11,7 @@ inherit cmake-utils ${SCM_ECLASS}
 unset SCM_ECLASS
 
 DESCRIPTION="Shared OSCAF desktop ontologies"
-HOMEPAGE="http://sourceforge.net/projects/oscaf"
+HOMEPAGE="https://sourceforge.net/projects/oscaf"
 if [[ ${PV} != *9999 ]]; then
 	SRC_URI="mirror://sourceforge/oscaf/${PN}/${P}.tar.bz2"
 	KEYWORDS="amd64 ~arm ppc ppc64 x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"

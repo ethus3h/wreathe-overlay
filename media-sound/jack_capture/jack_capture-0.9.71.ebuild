@@ -16,7 +16,7 @@ case "${PV}" in
 		SRC_URI="http://www.notam02.no/arkiv/src/${P}.tar.gz"
 		;;
 esac
-inherit base eutils toolchain-funcs ${VCS_ECLASS}
+inherit eutils toolchain-funcs ${VCS_ECLASS}
 
 DESCRIPTION="JACK Recording utility"
 HOMEPAGE="https://github.com/kmatheussen/jack_capture http://www.notam02.no/arkiv/src"
@@ -47,5 +47,5 @@ src_install()
 {
 	dobin jack_capture
 	use gtk && dobin jack_capture_gui2
-	base_src_install_docs
+	einstalldocs
 }
