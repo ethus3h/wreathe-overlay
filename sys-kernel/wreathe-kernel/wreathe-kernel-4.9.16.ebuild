@@ -28,7 +28,14 @@ pkg_postinst() {
 
 src_compile() {
 	kernel-2_src_compile
-	genkernel --no-menuconfig --kernel-config="${WORKDIR}/wreathe-kernel.config" --kerneldir=. --plymouth --plymouth-theme=simply_line all
+	genkernel \
+		--kernel-config="${WORKDIR}/wreathe-kernel.config" \
+		--kerneldir=. \
+		--logfile=./genkernel.log \
+		--no-menuconfig \
+		--plymouth \
+		--plymouth-theme=simply_line \
+		all
 }
 
 pkg_postrm() {
