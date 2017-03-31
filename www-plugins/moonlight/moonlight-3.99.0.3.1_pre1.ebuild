@@ -8,7 +8,7 @@ WANT_AUTOMAKE="1.11"
 inherit eutils flag-o-matic linux-info mono-env multilib nsplugins pax-utils versionator
 
 DESCRIPTION="Moonlight is an open source implementation of Silverlight"
-HOMEPAGE="http://www.go-mono.com/moonlight/"
+HOMEPAGE="https://www.go-mono.com/moonlight/"
 
 LIBGDIPLUS="2.8.1"
 GTKSHARP="gtk-sharp-2.12.10"
@@ -61,7 +61,7 @@ pkg_setup() {
 				einfo "CONFIG_SYSVIPC is set, looking good."
 			else
 				eerror "If CONFIG_SYSVIPC is not set in your kernel .config, mono compilation will hang."
-				eerror "See http://bugs.gentoo.org/261869 for more info."
+				eerror "See https://bugs.gentoo.org/261869 for more info."
 				die "Please set CONFIG_SYSVIPC in your kernel .config"
 			fi
 		else

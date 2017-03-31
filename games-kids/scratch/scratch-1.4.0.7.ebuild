@@ -1,7 +1,7 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=3
+EAPI=6
 
 DESCRIPTION="Programming environment for creative/artistic work"
 HOMEPAGE="http://scratch.mit.edu/"
