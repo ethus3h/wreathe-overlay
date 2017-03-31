@@ -29,13 +29,13 @@ pkg_postinst() {
 src_compile() {
 	kernel-2_src_compile
 	genkernel \
-		--kernel-config="${WORKDIR}/wreathe-kernel.config" \
+		--kernel-config="${DISTDIR}/wreathe-kernel.config" \
 		--kerneldir=. \
 		--logfile=./genkernel.log \
 		--no-menuconfig \
 		--plymouth \
 		--plymouth-theme=simply_line \
-		all || exit 1
+		all || die "Genkernel reported a failure status."
 }
 
 pkg_postrm() {
