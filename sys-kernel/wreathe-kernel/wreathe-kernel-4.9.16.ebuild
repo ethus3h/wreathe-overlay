@@ -18,7 +18,7 @@ DESCRIPTION="Full sources including the Gentoo patchset for the ${KV_MAJOR}.${KV
 SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}"
 
 DEPEND="${DEPEND}
-	sys-kernel/genkernel"
+	sys-kernel/genkernel-next"
 
 pkg_postinst() {
 	kernel-2_pkg_postinst
@@ -28,7 +28,7 @@ pkg_postinst() {
 
 src_compile() {
 	kernel-2_src_compile
-	genkernel
+	genkernel --no-menuconfig --kernel-config="${FILESDIR}/wreathe-kernel.config" --plymouth --plymouth-theme=simply_line all
 }
 
 pkg_postrm() {
