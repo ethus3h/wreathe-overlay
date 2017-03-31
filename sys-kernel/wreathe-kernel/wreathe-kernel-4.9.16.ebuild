@@ -35,7 +35,7 @@ src_compile() {
 		--no-menuconfig \
 		--plymouth \
 		--plymouth-theme=simply_line \
-		all
+		all || exit 1
 }
 
 pkg_postrm() {
