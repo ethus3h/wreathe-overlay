@@ -3,8 +3,6 @@
 
 EAPI="6"
 
-inherit git-r3
-
 myCommit="eebf7055e42fe7a248836e471ee11d264c73e42a"
 DESCRIPTION="Official Gentoo ebuild repository"
 HOMEPAGE="https://gentoo.org/"
