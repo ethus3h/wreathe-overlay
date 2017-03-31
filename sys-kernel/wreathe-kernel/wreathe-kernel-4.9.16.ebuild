@@ -15,7 +15,7 @@ HOMEPAGE="https://dev.gentoo.org/~mpagano/genpatches"
 IUSE="experimental"
 
 DESCRIPTION="Full sources including the Gentoo patchset for the ${KV_MAJOR}.${KV_MINOR} kernel tree"
-SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}"
+SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} https://web.archive.org/web/20170331071516/https://raw.githubusercontent.com/ethus3h/wreathe-overlay/b256aa724cedc3aba34686807d1322073f916d7a/sys-kernel/wreathe-kernel/files/wreathe-kernel.config"
 
 DEPEND="${DEPEND}
 	sys-kernel/genkernel-next"
@@ -28,7 +28,7 @@ pkg_postinst() {
 
 src_compile() {
 	kernel-2_src_compile
-	genkernel --no-menuconfig --kernel-config="${FILESDIR}/wreathe-kernel.config" --plymouth --plymouth-theme=simply_line all
+	genkernel --no-menuconfig --kernel-config="${WORKDIR}/wreathe-kernel.config" --plymouth --plymouth-theme=simply_line all
 }
 
 pkg_postrm() {
