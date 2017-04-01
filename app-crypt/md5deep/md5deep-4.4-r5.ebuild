@@ -21,6 +21,6 @@ DOCS="AUTHORS ChangeLog FILEFORMAT NEWS README TODO"
 
 src_prepare() {
 	eapply_user
-	epatch "${WORKDIR}/${PN}-null.patch"
+	eapply "${WORKDIR}/${PN}-null.patch"
 	eautoreconf
 }
