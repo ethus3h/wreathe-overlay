@@ -50,7 +50,7 @@ src_prepare() {
 	cp "${FILESDIR}"/ltmain.sh-2.4.diff "${S}"/sane/
 
 	# Ensure sane configuration is created if SANE confdir is set
-	epatch "${FILESDIR}/${PF}-sane-makefile-fix.patch"
+	epatch "${FILESDIR}/${PN}-9999-sane-makefile-fix.patch"
 
 	# utsushi requires using this bootstrap wrapper in lieu of autotools
 	"${S}/bootstrap" || die
