@@ -64,7 +64,7 @@ src_unpack() {
 			bin/*
 	)
 	rm -rfv jd-browser/bin/* jd-browser/libs/*
-	mv appwork-utils jdownloader/AppWorkUtils
+	mv appwork-utils jdownloader/build/AppWorkUtils
 }
 
 src_compile() {
