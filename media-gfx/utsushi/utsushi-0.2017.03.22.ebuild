@@ -3,7 +3,7 @@
 
 EAPI=5
 
-inherit eutils git-r3 multilib
+inherit eutils multilib
 
 myCommit="fc3b31ef2a8330df4abd0a2b863ec690d84aa692"
 DESCRIPTION="SANE backend driver for newer Epson scanners (DS, ET, PX, etc)"
@@ -14,6 +14,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 IUSE="gtk imagemagick jpeg nls openmp tiff udev"
+S="${WORKDIR}/${PN}-${myCommit}"
 
 # These are needed by utsushi's 'bootstrap':
 #   dev-libs/gnulib
