@@ -34,6 +34,7 @@ src_unpack() {
 	subversion_fetch "${ESVN_REPO_URI_AW_UTILS}" appwork-utils
 	subversion_fetch "${ESVN_REPO_URI_JD_BROWSER}" jd-browser
 	# subversion_fetch "${ESVN_REPO_URI_AW_UPDCLIENT}" appwork-updclient
+	cd "${S}"
 	# Remove precompiled files to force using system libraries
 	(
 		cd appwork-utils
@@ -63,7 +64,7 @@ src_unpack() {
 			bin/*
 	)
 	rm -rfv jd-browser/bin/* jd-browser/libs/*
-	mv "${S}"/appwork-utils jdownloader/AppWorkUtils
+	mv appwork-utils jdownloader/AppWorkUtils
 }
 
 src_compile() {
