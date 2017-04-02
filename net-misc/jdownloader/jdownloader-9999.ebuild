@@ -1,7 +1,7 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="4"
+EAPI="6"
 
 inherit java-pkg-2 java-ant-2 subversion
 
@@ -27,14 +27,40 @@ DEPEND="dev-java/ant
 RDEPEND=">=virtual/jre-1.5"
 
 EANT_BUILD_XML="build/newBuild/build.xml"
-EANT_BUILD_TARGET="pack_linux"
+EANT_BUILD_TARGET="compile"
 
 src_unpack() {
 	subversion_fetch "${ESVN_REPO_URI}" jdownloader
 	subversion_fetch "${ESVN_REPO_URI_AW_UTILS}" appwork-utils
 	mv "${S}"/appworkutils/utils jdownloader/AppWorkUtils
-	#subversion_fetch "${ESVN_REPO_URI_AW_UPDCLIENT}" appwork-updclient
-	#subversion_fetch "${ESVN_REPO_URI_JD_BROWSER}" jd-browser
+	subversion_fetch "${ESVN_REPO_URI_AW_UPDCLIENT}" appwork-updclient
+	subversion_fetch "${ESVN_REPO_URI_JD_BROWSER}" jd-browser
+	# Remove precompiled files to force using system libraries
+	(
+		cd appwork-utils
+		rm -rfv \
+			libs \
+			ant/*.jar \
+			dev_libs \
+			dist/*
+	)
+	(
+		cd jdownloader
+		rm -rfv \
+			ressourcen/tools \
+			ressourcen/libs \
+			ressourcen/code-ressourcen \
+			ressourcen/nsis \
+			ressourcen/browserintegration/chrome/*.crx \
+			ressourcen/security \
+			ressourcen/libs_ext \
+			dev \
+			tools/rtmpdump \
+			tools/*.jar \
+			tools/*.exe \
+			tools/Elevate/bin \
+			build/*.jar
+	)
 }
 
 src_compile() {
