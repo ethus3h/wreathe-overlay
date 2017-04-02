@@ -39,27 +39,27 @@ src_unpack() {
 	(
 		cd appwork-utils
 		rm -rfv \
-			libs \
+			libs/* \
 			ant/*.jar \
-			dev_libs \
+			dev_libs/* \
 			dist/* \
 			bin/*
 	)
 	(
 		cd jdownloader
 		rm -rfv \
-			ressourcen/tools \
-			ressourcen/libs \
-			ressourcen/code-ressourcen \
-			ressourcen/nsis \
+			ressourcen/tools/* \
+			ressourcen/libs/* \
+			ressourcen/code-ressourcen/* \
+			ressourcen/nsis/* \
 			ressourcen/browserintegration/chrome/*.crx \
-			ressourcen/security \
-			ressourcen/libs_ext \
-			dev \
-			tools/rtmpdump \
+			ressourcen/security/* \
+			ressourcen/libs_ext/* \
+			dev/* \
+			tools/rtmpdump/* \
 			tools/*.jar \
 			tools/*.exe \
-			tools/Elevate/bin \
+			tools/Elevate/bin/* \
 			build/*.jar \
 			bin/*
 	)
