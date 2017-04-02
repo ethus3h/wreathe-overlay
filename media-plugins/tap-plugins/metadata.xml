@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<maintainer type="project">
-	<description>Primary maintainer</description>
-	<email>bar-overlay@noreply.github.com</email>
-	<name>Gentoo Bar Overlay</name>
-</maintainer>
 <longdescription lang="en">
 TAP-plugins is short for Tom's Audio Processing plugins. It is a bunch of
 and run on any recent (that is, not seriously outdated) GNU/Linux system.
