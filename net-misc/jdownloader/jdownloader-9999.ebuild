@@ -26,7 +26,7 @@ DEPEND="dev-java/ant
 	>=virtual/jdk-1.5"
 RDEPEND=">=virtual/jre-1.5"
 
-EANT_BUILD_XML="build/build.xml"
+EANT_BUILD_XML="build/newBuild/build.xml"
 EANT_BUILD_TARGET="pack_linux"
 
 src_unpack() {
