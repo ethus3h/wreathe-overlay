@@ -14,6 +14,7 @@ ESVN_REPO_URI_JD="svn://svn.jdownloader.org/jdownloader/trunk"
 ESVN_REPO_URI_AW_UTILS="svn://svn.appwork.org/utils"
 ESVN_REPO_URI_AW_UPDCLIENT="svn://svn.appwork.org/updclient"
 ESVN_REPO_URI_JD_BROWSER="svn://svn.jdownloader.org/jdownloader/browser"
+ESVN_REPO_URI_MYJD_CLIENT="svn://svn.jdownloader.org/jdownloader/MyJDownloaderClient"
 
 ESVN_REPO_URI="${ESVN_REPO_URI_JD}"
 
