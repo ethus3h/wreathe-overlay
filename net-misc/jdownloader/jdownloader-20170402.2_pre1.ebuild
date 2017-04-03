@@ -22,6 +22,7 @@ EANT_BUILD_XML="build/newBuild/build.xml"
 EANT_BUILD_TARGET="withoutsign"
 
 src_prepare() {
+	default
 	rsync -av overlay/* .
 }
 
