@@ -10,7 +10,8 @@ SRC_URI="https://github.com/rianhunter/${PN}/archive/${myCommit}.zip -> ${P}-${m
 	https://github.com/ethus3h/xvisbell/commit/f856eb76420f550c3cda7b2e77f3fe07ac824c72.diff -> ${P}-0000-f856eb76420f550c3cda7b2e77f3fe07ac824c72.diff
 	https://github.com/ethus3h/xvisbell/commit/e146f10b43667e5df9025cac53e8dc4b52161230.diff -> ${P}-0001-e146f10b43667e5df9025cac53e8dc4b52161230.diff
 	https://github.com/ethus3h/xvisbell/commit/2235b6fcbfb7cdcdd914e731d2fcf8cb117e32de.diff -> ${P}-0002-2235b6fcbfb7cdcdd914e731d2fcf8cb117e32de.diff
-	https://github.com/ethus3h/xvisbell/commit/4f8e1bf682a7d292f516bba121a82a654ec579b5.diff -> ${P}-0003-4f8e1bf682a7d292f516bba121a82a654ec579b5.diff"
+	https://github.com/ethus3h/xvisbell/commit/4f8e1bf682a7d292f516bba121a82a654ec579b5.diff -> ${P}-0003-4f8e1bf682a7d292f516bba121a82a654ec579b5.diff
+	https://github.com/ethus3h/xvisbell/commit/50d48bcf521e8a2b7509277cfcd044eae85666dc.diff -> ${P}-0004-50d48bcf521e8a2b7509277cfcd044eae85666dc.diff"
 
 LICENSE="GPL-3"
 SLOT="0"
