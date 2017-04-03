@@ -19,7 +19,7 @@ S="${WORKDIR}"
 
 src_prepare() {
 	for file in "${P}"-*; do
-		mv "$file" "${file#$P}"
+		mv "$file" "${file#$P-}"
 	done
 }
 

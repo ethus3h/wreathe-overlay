@@ -6,12 +6,12 @@ EAPI=6
 DESCRIPTION="The Unicode Standard: Character Database"
 HOMEPAGE="http://www.unicode.org/"
 SRC_URI="
-	http://www.unicode.org/Public/9.0.0/ReadMe.txt
-	http://www.unicode.org/Public/9.0.0/ucd/UCD.zip
-	http://www.unicode.org/Public/9.0.0/ucd/Unihan.zip
-	http://www.unicode.org/Public/9.0.0/ucdxml/ucdxml.readme.txt
-	http://www.unicode.org/Public/9.0.0/ucdxml/ucd.all.flat.zip
-	http://www.unicode.org/Public/9.0.0/ucdxml/ucd.all.grouped.zip
+	http://www.unicode.org/Public/${PV}/ReadMe.txt -> ${P}-ReadMe.txt
+	http://www.unicode.org/Public/${PV}/${PN}/UCD.zip -> ${P}-UCD.zip
+	http://www.unicode.org/Public/${PV}/${PN}/Unihan.zip -> ${P}-Unihan.zip
+	http://www.unicode.org/Public/${PV}/${PN}xml/${PN}xml.readme.txt -> ${P}-${PN}xml.readme.txt
+	http://www.unicode.org/Public/${PV}/${PN}xml/${PN}.all.flat.zip -> ${P}-${PN}.all.flat.zip
+	http://www.unicode.org/Public/${PV}/${PN}xml/${PN}.all.grouped.zip -> ${P}-${PN}.all.grouped.zip
 	"
 
 LICENSE="freedist"
@@ -23,7 +23,7 @@ S="${WORKDIR}"
 
 src_prepare() {
 	for file in "${P}"-*; do
-		mv "$file" "${file#$P}"
+		mv "$file" "${file#$P-}"
 	done
 }
 
