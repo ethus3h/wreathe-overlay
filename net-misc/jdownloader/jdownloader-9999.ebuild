@@ -13,7 +13,6 @@ HOMEPAGE="http://jdownloader.org"
 ESVN_REPO_URI_AW_UPDCLIENT="svn://svn.appwork.org/updclient"
 ESVN_REPO_URI_AW_UTILS="svn://svn.appwork.org/utils"
 ESVN_REPO_URI_JD_BROWSER="svn://svn.jdownloader.org/jdownloader/browser"
-ESVN_REPO_URI_JD_UPDATER="svn://svn.jdownloader.org/jdownloader/updater"
 ESVN_REPO_URI_JD="svn://svn.jdownloader.org/jdownloader/trunk"
 ESVN_REPO_URI_JDJSAPI="svn://svn.jdownloader.org/jdownloader/jdjsapi"
 ESVN_REPO_URI_MYJD_CLIENT="svn://svn.jdownloader.org/jdownloader/MyJDownloaderClient"
@@ -36,7 +35,6 @@ src_unpack() {
 	# subversion_fetch "${ESVN_REPO_URI_AW_UPDCLIENT}" appwork-updclient
 	subversion_fetch "${ESVN_REPO_URI_AW_UTILS}" appwork-utils
 	subversion_fetch "${ESVN_REPO_URI_JD_BROWSER}" jd-browser
-	subversion_fetch "${ESVN_REPO_URI_JD_UPDATER}" updater
 	subversion_fetch "${ESVN_REPO_URI_JDJSAPI}" jdjsapi
 	subversion_fetch "${ESVN_REPO_URI_MYJD_CLIENT}" MyJDownloaderClient
 	subversion_fetch "${ESVN_REPO_URI}" jdownloader
