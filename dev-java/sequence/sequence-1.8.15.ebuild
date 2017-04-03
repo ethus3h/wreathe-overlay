@@ -10,7 +10,7 @@ HOMEPAGE="http://svnkit.com/"
 SRC_URI="http://www.svnkit.com/org.tmatesoft.svn_${PV}.src.zip"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-LICENSE="sequence"
+LICENSE="Apache-1.1"
 IUSE="test"
 
 DEPEND=">=virtual/jdk-1.4
