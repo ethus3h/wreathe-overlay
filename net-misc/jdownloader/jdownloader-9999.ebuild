@@ -21,7 +21,7 @@ ESVN_REPO_URI="${ESVN_REPO_URI_JD}"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 IUSE=""
 
 src_unpack() {
