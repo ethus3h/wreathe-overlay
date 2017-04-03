@@ -14,9 +14,16 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="dev-java/ant
-	>=virtual/jdk-1.5"
-RDEPEND=">=virtual/jre-1.5"
+RDEPEND="dev-java/ant
+	>=virtual/jdk-1.5
+	dev-java/svnkit
+	dev-java/svgsalamander
+	dev-java/miglayout
+	dev-java/jackson
+	dev-java/jackson-databind
+	dev-java/jackson-annotations"
+DEPEND="${RDEPEND}
+	>=virtual/jre-1.5"
 
 EANT_BUILD_XML="build/newBuild/build.xml"
 EANT_BUILD_TARGET="withoutsign"
