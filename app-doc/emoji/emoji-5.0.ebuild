@@ -26,8 +26,6 @@ src_unpack() {
 	for file in "${P}"-*; do
 		cp "$file" "${WORKDIR}"/"${file#$P-}"
 	done
-	cd "${WORKDIR}" || die
-	unpack *
 }
 
 src_install() {
