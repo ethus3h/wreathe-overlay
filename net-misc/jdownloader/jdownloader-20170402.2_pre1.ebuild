@@ -7,7 +7,7 @@ inherit java-pkg-2 java-ant-2
 
 DESCRIPTION="Platform Independent Tool to Download Files from One-Click-Hosting Sites"
 HOMEPAGE="http://jdownloader.org"
-SRC_URI="https://github.com/ethus3h/jdownloader/archive/v20170402.tar.gz"
+SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
