@@ -3,7 +3,7 @@
 
 EAPI="6"
 
-inherit java-pkg-2 java-ant-2 subversion
+inherit java-pkg-2 java-ant-2
 
 DESCRIPTION="Platform Independent Tool to Download Files from One-Click-Hosting Sites"
 HOMEPAGE="http://jdownloader.org"
@@ -23,6 +23,7 @@ LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
+SRC_URI=""
 
 DEPEND="dev-java/ant
 	>=virtual/jdk-1.5"

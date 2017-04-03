@@ -24,13 +24,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-DEPEND="dev-java/ant
-	>=virtual/jdk-1.5"
-RDEPEND=">=virtual/jre-1.5"
-
-EANT_BUILD_XML="build/newBuild/build.xml"
-EANT_BUILD_TARGET="compile"
-
 src_unpack() {
 	subversion_fetch "${ESVN_REPO_URI_AW_UPDCLIENT}" appwork-updclient
 	subversion_fetch "${ESVN_REPO_URI_AW_UTILS}" appwork-utils
