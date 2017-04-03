@@ -6,7 +6,7 @@ EAPI=6
 myCommit="10674328e5f058ceff8fcad5398e9d2c489a647a"
 DESCRIPTION="Visual Bell for X11"
 HOMEPAGE="https://github.com/rianhunter/xvisbell"
-SRC_URI="https://github.com/rianhunter/xvisbell/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
+SRC_URI="https://github.com/rianhunter/${PN}/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
 
 LICENSE="GPL-3"
 SLOT="0"
