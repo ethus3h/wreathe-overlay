@@ -21,10 +21,6 @@ RDEPEND=">=virtual/jre-1.5"
 EANT_BUILD_XML="build/newBuild/build.xml"
 EANT_BUILD_TARGET="withoutsign"
 
-src_prepare() {
-	rsync -av overlay/* .
-}
-
 src_compile() {
 	#cd "${S}/appwork-utils"
 	#java-pkg-2_src_compile
