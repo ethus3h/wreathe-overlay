@@ -25,12 +25,13 @@ DEPEND="app-doc/emoji:4.0
 
 S="${WORKDIR}"
 
-src_prepare() {
+src_unpack() {
 	cd "${DISTDIR}" || die
 	for file in "${P}"-*; do
 		cp "$file" "${WORKDIR}"/"${file#$P-}"
 	done
-	default
+	cd "${WORKDIR}" || die
+	unpack *
 }
 
 src_install() {
