@@ -21,7 +21,7 @@ KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86
 IUSE=""
 
 DEPEND="app-doc/emoji:4.0
-	ucd:${PV}"
+	app-doc/ucd:${PV}"
 
 S="${WORKDIR}"
 
