@@ -7,23 +7,12 @@ inherit java-pkg-2 java-ant-2
 
 DESCRIPTION="Platform Independent Tool to Download Files from One-Click-Hosting Sites"
 HOMEPAGE="http://jdownloader.org"
-
-# Workaround for single-valued ESVN_REPO_URI
-# (s. src_unpack())
-ESVN_REPO_URI_AW_UPDCLIENT="svn://svn.jdownloader.org/updclient"
-ESVN_REPO_URI_AW_UTILS="svn://svn.appwork.org/utils"
-ESVN_REPO_URI_JD_BROWSER="svn://svn.jdownloader.org/jdownloader/browser"
-ESVN_REPO_URI_JD="svn://svn.jdownloader.org/jdownloader/trunk"
-ESVN_REPO_URI_JDJSAPI="svn://svn.jdownloader.org/jdownloader/jdjsapi"
-ESVN_REPO_URI_MYJD_CLIENT="svn://svn.jdownloader.org/jdownloader/MyJDownloaderClient"
-
-ESVN_REPO_URI="${ESVN_REPO_URI_JD}"
+SRC_URI="https://github.com/ethus3h/jdownloader/archive/v20170402.tar.gz"
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
-SRC_URI=""
 
 DEPEND="dev-java/ant
 	>=virtual/jdk-1.5"
@@ -31,47 +20,6 @@ RDEPEND=">=virtual/jre-1.5"
 
 EANT_BUILD_XML="build/newBuild/build.xml"
 EANT_BUILD_TARGET="compile"
-
-src_unpack() {
-	subversion_fetch "${ESVN_REPO_URI_AW_UPDCLIENT}" appwork-updclient
-	subversion_fetch "${ESVN_REPO_URI_AW_UTILS}" appwork-utils
-	subversion_fetch "${ESVN_REPO_URI_JD_BROWSER}" jd-browser
-	subversion_fetch "${ESVN_REPO_URI_JDJSAPI}" jdjsapi
-	subversion_fetch "${ESVN_REPO_URI_MYJD_CLIENT}" MyJDownloaderClient
-	subversion_fetch "${ESVN_REPO_URI}" jdownloader
-	cd "${S}"
-	# Remove precompiled files to force using system libraries
-	(
-		cd appwork-utils
-		rm -rfv \
-			libs/* \
-			ant/*.jar \
-			dev_libs/* \
-			dist/* \
-			bin/*
-	)
-	(
-		cd jdownloader
-		rm -rfv \
-			ressourcen/tools/* \
-			ressourcen/libs/* \
-			ressourcen/code-ressourcen/* \
-			ressourcen/nsis/* \
-			ressourcen/browserintegration/chrome/*.crx \
-			ressourcen/security/* \
-			ressourcen/libs_ext/* \
-			dev/* \
-			tools/rtmpdump/* \
-			tools/*.jar \
-			tools/*.exe \
-			tools/Elevate/bin/* \
-			build/*.jar \
-			bin/*
-	)
-	rm -rfv jd-browser/bin/* jd-browser/libs/* MyJDownloaderClient/libs/* jdjsapi/deprecated/build/tools/*.jar jdjsapi/deprecated/example/captchapush/publish-mobile/* jdjsapi/deprecated/example/captchapush/build/tools/*.jar jdjsapi/deprecated/example/captchapush/build/tools/*exe
-	mv appwork-utils jdownloader/build/AppWorkUtils
-	mv MyJDownloaderClient jdownloader/build/MyJDownloaderClient
-}
 
 src_compile() {
 	#cd "${S}/appwork-utils"
