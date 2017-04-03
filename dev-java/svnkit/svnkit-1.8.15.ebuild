@@ -14,7 +14,7 @@ SLOT="0"
 LICENSE="tmate"
 IUSE=""
 
-DEPEND=">=dev-util/subversion-1.5[java]
+DEPEND=">=dev-vcs/subversion-1.5[java]
 	dev-java/trilead-ssh2
 	dev-java/sequence:1.2
 	dev-java/jna
