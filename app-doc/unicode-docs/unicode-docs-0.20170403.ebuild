@@ -6,10 +6,13 @@ EAPI=6
 DESCRIPTION="The Unicode Standard: Docments"
 
 # This packages the contents of:
-# 	http://www.unicode.org/reports/
-# 	http://www.unicode.org/notes/
-# 	http://www.unicode.org/history/
-# 	http://ftp.unicode.org/Public/ (minus code charts)
+#	http://www.unicode.org/reports/
+#	http://www.unicode.org/notes/
+#	http://www.unicode.org/history/
+#	http://ftp.unicode.org/Public/ (minus:
+#		CodeCharts.pdf
+#		
+#		)
 
 HOMEPAGE="http://www.unicode.org/"
 SRC_URI="
