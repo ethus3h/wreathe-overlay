@@ -6,13 +6,13 @@ EAPI=6
 DESCRIPTION="The Unicode Standard"
 HOMEPAGE="http://www.unicode.org/"
 SRC_URI="
-	http://www.unicode.org/versions/Unicode${PV}/
+	http://www.unicode.org/versions/Unicode${PV}/ -> ${P}-index.htm
 	http://www.unicode.org/versions/Unicode${PV}/UnicodeStandard-9.0.pdf
-	http://www.unicode.org/Public/${PV}/charts/CodeCharts.pdf
+	http://www.unicode.org/Public/${PV}/charts/CodeCharts.pdf -> ${P}-CodeCharts.pdf
 	http://www.unicode.org/versions/IICoreRSIndex.pdf
-	http://www.unicode.org/Public/8.0.0/charts/RSIndex.pdf
-	http://www.unicode.org/versions/components-${PV}.html
-	http://web.archive.org/web/20170403091500/http://www.unicode.org/glossary/
+	http://www.unicode.org/Public/8.0.0/charts/RSIndex.pdf -> ${P}-RSIndex.pdf
+	http://www.unicode.org/versions/components-${PV}.html -> ${P}-components-${PV}.html
+	http://web.archive.org/web/20170403091500/http://www.unicode.org/glossary/ -> ${P}-glossary.htm
 	"
 
 LICENSE="freedist"
@@ -21,7 +21,7 @@ KEYWORDS="~alpha ~amd64 ~arm ~hppa ~ia64 ~mips ~ppc ~ppc64 ~s390 ~sh ~sparc ~x86
 IUSE=""
 
 DEPEND="app-doc/emoji:4.0
-	unidata:${PV}"
+	ucd:${PV}"
 
 S="${WORKDIR}"
 
