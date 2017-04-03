@@ -25,7 +25,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 src_unpack() {
-	subversion_fetch "${ESVN_REPO_URI_AW_UPDCLIENT}" appwork-updclient
+	# subversion_fetch "${ESVN_REPO_URI_AW_UPDCLIENT}" appwork-updclient
 	subversion_fetch "${ESVN_REPO_URI_AW_UTILS}" appwork-utils
 	subversion_fetch "${ESVN_REPO_URI_JD_BROWSER}" jd-browser
 	subversion_fetch "${ESVN_REPO_URI_JDJSAPI}" jdjsapi
