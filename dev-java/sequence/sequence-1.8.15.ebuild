@@ -1,14 +1,15 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
+EAPI="6"
 JAVA_PKG_IUSE="doc source"
 inherit eutils versionator java-pkg-2 java-ant-2
 
 DESCRIPTION="Helper library for SVNKit"
 HOMEPAGE="http://svnkit.com/"
 SRC_URI="http://www.svnkit.com/org.tmatesoft.svn_${PV}.src.zip"
-KEYWORDS="~amd64"
-SLOT="1.2"
+KEYWORDS="~amd64 ~x86"
+SLOT="0"
 LICENSE="sequence"
 IUSE="test"
 
