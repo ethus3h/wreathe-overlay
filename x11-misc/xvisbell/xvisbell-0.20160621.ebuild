@@ -14,6 +14,7 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="x11-libs/libX11"
 DEPEND="${RDEPEND}"
+S="${WORKDIR}/${PN}-${myCommit}"
 
 src_install() {
 	dobin xvisbell
