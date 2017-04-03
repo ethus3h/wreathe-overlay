@@ -70,9 +70,15 @@ src_unpack() {
 	rm -rfv jd-browser/bin/* jd-browser/libs/* MyJDownloaderClient/libs/* jdjsapi/deprecated/build/tools/*.jar jdjsapi/deprecated/example/captchapush/publish-mobile/* jdjsapi/deprecated/example/captchapush/build/tools/*.jar jdjsapi/deprecated/example/captchapush/build/tools/*exe
 	mv appwork-utils jdownloader/build/AppWorkUtils
 	mv MyJDownloaderClient jdownloader/build/MyJDownloaderClient
-	# This ebuild just downloads and arranges the source files from SVN for packaging.
 }
 
 src_compile() {
-	exit 1
+	#cd "${S}/appwork-utils"
+	#java-pkg-2_src_compile
+	#cd "${S}/appwork-updclient"
+	#java-pkg-2_src_compile
+	#cd "${S}/jd-browser"
+	#java-pkg-2_src_compile
+	cd "${S}/jdownloader"
+	java-pkg-2_src_compile
 }
