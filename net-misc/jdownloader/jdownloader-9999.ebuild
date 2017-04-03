@@ -65,8 +65,9 @@ src_unpack() {
 			build/*.jar \
 			bin/*
 	)
-	rm -rfv jd-browser/bin/* jd-browser/libs/*
+	rm -rfv jd-browser/bin/* jd-browser/libs/* MyJDownloaderClient/libs/*
 	mv appwork-utils jdownloader/build/AppWorkUtils
+	mv MyJDownloaderClient jdownloader/build/MyJDownloaderClient
 }
 
 src_compile() {
