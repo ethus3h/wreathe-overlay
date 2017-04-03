@@ -28,7 +28,7 @@ S="${WORKDIR}"
 src_prepare() {
 	cd "${DISTDIR}" || die
 	for file in "${P}"-*; do
-		mv "$file" "${WORKDIR}"/"${file#$P-}"
+		cp "$file" "${WORKDIR}"/"${file#$P-}"
 	done
 	default
 }
