@@ -27,8 +27,9 @@ EANT_DOC_TARGET="build-doc"
 
 src_unpack() {
 	unpack ${A}
+}
 
-	cd "${S}" || die
+src_prepare() {
 	epatch "${FILESDIR}/${P}-build.xml.patch"
 
 	rm -r contrib/* || die

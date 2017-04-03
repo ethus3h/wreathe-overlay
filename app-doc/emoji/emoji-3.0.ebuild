@@ -20,9 +20,11 @@ IUSE=""
 S="${WORKDIR}"
 
 src_prepare() {
+	cd "${FILESDIR}" || die
 	for file in "${P}"-*; do
 		mv "$file" "${file#$P-}"
 	done
+	default
 }
 
 src_install() {

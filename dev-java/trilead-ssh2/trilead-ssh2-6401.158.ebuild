@@ -28,8 +28,8 @@ src_prepare() {
 	find . -name "*.jar" -delete
 	# ganymed does not provide its own build files so we took the ones from here:
 	# http://debian-eclipse.wfrag.org/tracpy/browser/ganymed-ssh2/trunk
-	cp ${FILESDIR}/${P}-debian-build.xml ${S}/build.xml || die "Cannot copy build.xml"
-	cp ${FILESDIR}/${P}-debian-build.properties ${S}/build.properties || die "Cannot copy build.properties"
+	cp "${FILESDIR}/${P}"-debian-build.xml "${S}"/build.xml || die "Cannot copy build.xml"
+	cp "${FILESDIR}/${P}"-debian-build.properties "${S}"/build.properties || die "Cannot copy build.properties"
 }
 
 src_install() {
