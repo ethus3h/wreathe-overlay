@@ -61,6 +61,10 @@ src_unpack() {
 			bin/*
 	)
 	rm -rfv jd-browser/bin/* jd-browser/libs/* MyJDownloaderClient/libs/* jdjsapi/deprecated/build/tools/*.jar jdjsapi/deprecated/example/captchapush/publish-mobile/* jdjsapi/deprecated/example/captchapush/build/tools/*.jar jdjsapi/deprecated/example/captchapush/build/tools/*exe
+	(
+		cd jdownloader/build/newBuild
+		ln -s ../../ressourcen .
+	)
 	mv appwork-utils jdownloader/build/AppWorkUtils
 	mv MyJDownloaderClient jdownloader/build/MyJDownloaderClient
 	mv jd-browser jdownloader/build/JDBrowser
