@@ -15,5 +15,5 @@ IUSE=""
 
 src_install() {
 	insinto "/usr/share/unicode/docs"
-	doins *
+	doins -r *
 }
