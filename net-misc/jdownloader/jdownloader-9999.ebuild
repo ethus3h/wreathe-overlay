@@ -63,6 +63,7 @@ src_unpack() {
 	rm -rfv jd-browser/bin/* jd-browser/libs/* MyJDownloaderClient/libs/* jdjsapi/deprecated/build/tools/*.jar jdjsapi/deprecated/example/captchapush/publish-mobile/* jdjsapi/deprecated/example/captchapush/build/tools/*.jar jdjsapi/deprecated/example/captchapush/build/tools/*exe
 	mv appwork-utils jdownloader/build/AppWorkUtils
 	mv MyJDownloaderClient jdownloader/build/MyJDownloaderClient
+	find . -type d -empty -exec touch {}/.keep \;
 	# This ebuild just downloads and arranges the source files from SVN for packaging.
 }
 
