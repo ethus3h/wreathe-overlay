@@ -20,7 +20,7 @@ S="${WORKDIR}/${PN}-${myCommit}"
 
 src_prepare() {
 	default
-	eapply "${DISTDIR}/${P}-*.diff"
+	eapply "${DISTDIR}/${P}"-*.diff
 }
 
 src_install() {
