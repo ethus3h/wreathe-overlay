@@ -21,6 +21,10 @@ SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} https://raw.githubuserconte
 DEPEND="${DEPEND}
 	sys-kernel/genkernel-next"
 
+pkg_pretend() {
+	mountpoint -q /boot || die
+}
+
 pkg_postinst() {
 	kernel-2_pkg_postinst
 	einfo "For more info on this patchset, and how to report problems, see:"
@@ -30,15 +34,22 @@ pkg_postinst() {
 src_compile() {
 	kernel-2_src_compile
 	genkernel \
+		--bootdir="${WORKDIR}/boot" \
 		--cachedir=./genkernel.cache \
 		--kernel-config="${DISTDIR}/${P}-${wreatheCommit}.config" \
 		--kerneldir=. \
 		--logfile=./genkernel.log \
 		--no-menuconfig \
+		--no-mountboot \
 		--plymouth \
 		--plymouth-theme=simply_line \
 		--tempdir=./genkernel.tmp \
 		all || die "Genkernel reported a failure status."
+}
+
+src_install() {
+	default
+	cp "${WORKDIR}/boot" "${DESTDIR}"
 }
 
 pkg_postrm() {
