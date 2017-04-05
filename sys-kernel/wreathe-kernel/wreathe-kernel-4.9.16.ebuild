@@ -33,6 +33,7 @@ pkg_postinst() {
 
 src_compile() {
 	kernel-2_src_compile
+	mkdir "${WORKDIR}/boot"
 	genkernel \
 		--bootdir="${WORKDIR}/boot" \
 		--cachedir=./genkernel.cache \
