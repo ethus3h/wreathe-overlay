@@ -19,7 +19,8 @@ DESCRIPTION="Full sources including the Gentoo patchset for the ${KV_MAJOR}.${KV
 SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} https://raw.githubusercontent.com/ethus3h/wreathe/${wreatheCommit}/etc/kernels/wreathe-kernel.config -> ${P}-${wreatheCommit}.config"
 
 DEPEND="${DEPEND}
-	sys-kernel/genkernel-next"
+	sys-kernel/genkernel-next
+	sys-apps/busybox"
 
 pkg_pretend() {
 	mountpoint -q /boot || die
@@ -43,6 +44,7 @@ src_compile() {
 		--module-prefix="${WORKDIR}" \
 		--no-menuconfig \
 		--no-mountboot \
+		--no-save-config \
 		--plymouth \
 		--plymouth-theme=simply_line \
 		--tempdir=./genkernel.tmp \
