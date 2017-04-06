@@ -16,7 +16,7 @@ IUSE="experimental"
 
 wreatheCommit="1f1dd291903f41c33a1d518c489b6d7a03e505f6"
 DESCRIPTION="Full sources including the Gentoo patchset for the ${KV_MAJOR}.${KV_MINOR} kernel tree"
-SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} https://raw.githubusercontent.com/ethus3h/wreathe/1f1dd291903f41c33a1d518c489b6d7a03e505f6/etc/kernels/wreathe-kernel.config -> ${P}-${wreatheCommit}.config"
+SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI} https://raw.githubusercontent.com/ethus3h/wreathe/${wreatheCommit}/etc/kernels/wreathe-kernel.config -> ${P}-${wreatheCommit}.config"
 
 DEPEND="${DEPEND}
 	sys-kernel/genkernel-next"
