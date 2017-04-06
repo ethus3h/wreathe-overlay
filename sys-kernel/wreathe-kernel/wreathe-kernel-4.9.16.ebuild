@@ -37,17 +37,17 @@ src_compile() {
 	mkdir "${WORKDIR}/boot"
 	genkernel \
 		--bootdir="${WORKDIR}/boot" \
-		--cachedir=./genkernel.cache \
+		--cachedir="${WORKDIR}/genkernel.cache" \
 		--kernel-config="${DISTDIR}/${P}-${wreatheCommit}.config" \
-		--kerneldir=. \
-		--logfile=./genkernel.log \
+		--kerneldir="${S}" \
+		--logfile="${WORKDIR}/genkernel.log" \
 		--module-prefix="${WORKDIR}" \
 		--no-menuconfig \
 		--no-mountboot \
 		--no-save-config \
 		--plymouth \
 		--plymouth-theme=simply_line \
-		--tempdir=./genkernel.tmp \
+		--tempdir="${WORKDIR}/genkernel.tmp" \
 		all || die "Genkernel reported a failure status."
 }
 
