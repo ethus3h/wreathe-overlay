@@ -40,6 +40,7 @@ src_compile() {
 		--kernel-config="${DISTDIR}/${P}-${wreatheCommit}.config" \
 		--kerneldir=. \
 		--logfile=./genkernel.log \
+		--module-prefix="${WORKDIR}" \
 		--no-menuconfig \
 		--no-mountboot \
 		--plymouth \
