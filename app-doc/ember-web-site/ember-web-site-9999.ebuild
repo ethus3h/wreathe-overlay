@@ -18,10 +18,8 @@ DEPEND="${RDEPEND}
 	app-misc/futuramerlin-web-toolkit"
 
 src_configure() {
-	#Disable installation of /m.css
-	ewarn "Trying to disable local installation"
+	#Disable local installation
 	perl -pi -e 's/enableLocalInstallation/disableLocalInstallation/g' .futuramerlin-web-toolkit/.futuramerlin-web-toolkit.cfg || die
-	ewarn "$(sed '3q;d' .futuramerlin-web-toolkit/.futuramerlin-web-toolkit.cfg)"
 }
 
 src_compile() {
