@@ -11,6 +11,7 @@ EGIT_REPO_URI="git://github.com/ethus3h/ember-web-site.git"
 
 LICENSE="GPL-2"
 SLOT="0"
+IUSE="local-install"
 KEYWORDS=""
 RDEPEND=""
 DEPEND="${RDEPEND}
@@ -18,7 +19,7 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	#Disable installation of /m.css
-	perl -pi -e 's/enableLocalInstallation/disableLocalInstallation/g' .futuramerlin-web-toolkit/.futuramerlin-web-toolkit.cfg
+	perl -pi -e 's/enableLocalInstallation/disableLocalInstallation/g' .futuramerlin-web-toolkit/.futuramerlin-web-toolkit.cfg || die
 }
 
 src_compile() {
@@ -29,4 +30,6 @@ src_install() {
 	mv futuramerlin-web-toolkit-output ember-web-site
 	insinto /usr/doc/
 	doins -r ember-web-site
+	insinto /
+	doins 
 }
