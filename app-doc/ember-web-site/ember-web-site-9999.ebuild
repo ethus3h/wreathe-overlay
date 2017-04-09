@@ -19,7 +19,7 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	#Disable local installation
-	perl -pi -e 's/localInstallation,true/localInstallation,true/g' .futuramerlin-web-toolkit/.futuramerlin-web-toolkit.cfg || die
+	perl -pi -e 's/localInstallation,true/localInstallation,false/g' .futuramerlin-web-toolkit/.futuramerlin-web-toolkit.cfg || die
 }
 
 src_compile() {
