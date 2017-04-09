@@ -28,7 +28,7 @@ src_compile() {
 
 src_install() {
 	mv futuramerlin-web-toolkit-output ember-web-site || die
-	insinto /usr/doc/
+	insinto /usr/share/doc/
 	doins -r ember-web-site
 	insinto /
 	if use local-install; then
