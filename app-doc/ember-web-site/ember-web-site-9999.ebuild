@@ -19,7 +19,9 @@ DEPEND="${RDEPEND}
 
 src_configure() {
 	#Disable installation of /m.css
+	ewarn "Trying to disable llocal installation"
 	perl -pi -e 's/enableLocalInstallation/disableLocalInstallation/g' .futuramerlin-web-toolkit/.futuramerlin-web-toolkit.cfg || die
+	ewarn "$(sed '3q;d' .futuramerlin-web-toolkit/.futuramerlin-web-toolkit.cfg)"
 }
 
 src_compile() {
@@ -31,5 +33,8 @@ src_install() {
 	insinto /usr/doc/
 	doins -r ember-web-site
 	insinto /
-	doins 
+	if use local-install; then
+		doins ember-web-site/m.css
+		doins -r ember-web-site/f
+	fi
 }
