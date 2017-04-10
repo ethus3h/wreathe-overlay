@@ -23,7 +23,7 @@ src_configure() {
 }
 
 src_compile() {
-	futuramerlin-web-toolkit-build
+	futuramerlin-web-toolkit-build || die
 }
 
 src_install() {
