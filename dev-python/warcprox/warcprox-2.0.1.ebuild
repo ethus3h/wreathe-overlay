@@ -16,12 +16,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
-RDEPEND="dev-lang/python:=
-	>=dev-python/certauth-1.1.0
-	dev-python/warctools
-	>=dev-python/kafka-python-1.0.1
-	>=dev-python/surt-0.3
-	dev-python/rethinkstuff
-	>=dev-python/doublethink-0.2.0_pre69"
+RDEPEND="dev-python/certauth[${PYTHON_USEDEP}]
+	dev-python/warctools[${PYTHON_USEDEP}]
+	dev-python/kafka-python[${PYTHON_USEDEP}]
+	dev-python/surt[${PYTHON_USEDEP}]
+	dev-python/rethinkstuff[${PYTHON_USEDEP}]
+	dev-python/doublethink[${PYTHON_USEDEP}]"
 
 DEPEND="${RDEPEND}"

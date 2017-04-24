@@ -16,8 +16,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
-RDEPEND="dev-lang/python:=
-	>=dev-python/requests-1.0.0
-	dev-python/six"
+RDEPEND="dev-python/requests[${PYTHON_USEDEP}]
+	dev-python/six[${PYTHON_USEDEP}]"
 
 DEPEND="${RDEPEND}"

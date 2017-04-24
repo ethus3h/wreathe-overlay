@@ -16,10 +16,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
-RDEPEND="dev-lang/python:=
-	dev-python/setuptools
-	dev-python/idna
-	>=dev-python/requests-2.1.0
-	>=dev-python/requests-file-1.4"
+RDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+	dev-python/idna[${PYTHON_USEDEP}]
+	dev-python/requests[${PYTHON_USEDEP}]
+	dev-python/requests-file[${PYTHON_USEDEP}]"
 
 DEPEND="${RDEPEND}"

@@ -16,9 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
-RDEPEND="dev-lang/python:=
-	dev-python/six
-	>=dev-python/tldextract-2.0"
+RDEPEND="dev-python/six[${PYTHON_USEDEP}]
+	dev-python/tldextract[${PYTHON_USEDEP}]"
 
 DEPEND="${RDEPEND}
-	test? ( dev-python/pytest dev-python/pytest-cov )"
+	test? ( dev-python/pytest[${PYTHON_USEDEP}] dev-python/pytest-cov[${PYTHON_USEDEP}] )"

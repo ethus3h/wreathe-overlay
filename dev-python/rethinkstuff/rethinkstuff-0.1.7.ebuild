@@ -16,7 +16,6 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
-RDEPEND="dev-lang/python:=
-	dev-python/python-rethinkdb"
+RDEPEND="dev-python/python-rethinkdb[${PYTHON_USEDEP}]"
 
 DEPEND="${RDEPEND}"

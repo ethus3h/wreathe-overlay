@@ -16,9 +16,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
-RDEPEND="dev-lang/python:=
-	dev-python/setuptools
-	dev-python/unittest2"
+RDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]
+	dev-python/unittest2[${PYTHON_USEDEP}]"
 
 DEPEND="${RDEPEND}
-	test? ( dev-python/nose )"
+	test? ( dev-python/nose[${PYTHON_USEDEP}] )"
