@@ -20,3 +20,4 @@ DEPEND="dev-python/PyQt4[${PYTHON_USEDEP}]
 	media-libs/liblo
 "
 RDEPEND="${DEPEND}"
+S="${WORKDIR}/${P^}"
