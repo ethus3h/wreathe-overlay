@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="6"
-JAVA_PKG_IUSE="examples source"
+JAVA_PKG_IUSE="source"
 WANT_ANT_TASKS="ant-nodeps"
 
 inherit java-pkg-2 java-ant-2
@@ -34,9 +34,5 @@ src_prepare() {
 
 src_install() {
 	java-pkg_dojar "build/lib/${EANT_BUILD_TARGET}"
-
-	dodoc HISTORY.txt README.txt || die
-	dohtml faq/FAQ.html || die
-	use examples && java-pkg_doexamples examples
 	use source && java-pkg_dosrc src
 }
