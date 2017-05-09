@@ -5,26 +5,18 @@ EAPI=5
 
 PYTHON_COMPAT=( python{3_4,3_5} )
 
-inherit git-2 python-r1
+inherit python-r1
 
 DESCRIPTION="Audio plugin host and sampler"
 HOMEPAGE="https://github.com/falkTX/Carla"
-EGIT_REPO_URI="git://github.com/falkTX/Carla.git"
+SRC_URI="https://github.com/falkTX/Carla/archive/1.9.7.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 DEPEND="dev-python/PyQt4[${PYTHON_USEDEP}]
 	media-libs/liblo
 "
 RDEPEND="${DEPEND}"
-
-src_compile() {
-	emake
-}
-
-src_install() {
-	emake PREFIX="/usr" DESTDIR="${D}" install
-}
