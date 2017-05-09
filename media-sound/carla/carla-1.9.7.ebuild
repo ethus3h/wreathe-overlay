@@ -9,7 +9,7 @@ inherit python-r1
 
 DESCRIPTION="Audio plugin host and sampler"
 HOMEPAGE="https://github.com/falkTX/Carla"
-SRC_URI="https://github.com/falkTX/Carla/archive/1.9.7.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/falkTX/${PN^}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2 LGPL-2"
 SLOT="0"
