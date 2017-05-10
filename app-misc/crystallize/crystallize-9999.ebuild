@@ -13,6 +13,7 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 RDEPEND="app-misc/wreathe-base
+	app-misc/ember-shared
 	dev-python/internetarchive
 	sys-fs/zfs
 	sys-apps/pv

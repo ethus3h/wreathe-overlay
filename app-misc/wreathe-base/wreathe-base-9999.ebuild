@@ -13,6 +13,8 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS=""
 
+RDEPEND="app-misc/ember-shared"
+
 src_prepare() {
 	eapply_user
 	rm -rv var/lib/portage
