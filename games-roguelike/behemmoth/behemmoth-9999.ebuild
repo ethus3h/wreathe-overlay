@@ -30,7 +30,8 @@ RDEPEND="
 	www-plugins/lightspark
 	www-servers/apache
 	"
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	app-misc/ember-shared"
 #	dev-misc/flex-sdk-4.9.1
 #	dev-misc/air-sdk-15
 
