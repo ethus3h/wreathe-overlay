@@ -24,4 +24,7 @@ FONT_SUFFIX="ttf vtp.gz"
 src_unpack() {
 	default
 	unpack ./*.zip
+	mv fonts-dzongkha-0.3/* .
+	mv 'Dzongkha Fonts'/* .
+	mv 'Druk Corners Font'/* .
 }
