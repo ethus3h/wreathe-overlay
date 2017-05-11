@@ -3,7 +3,7 @@
 
 EAPI="6"
 
-myCommit="c0db8d2c779da6eac3982d039285db0931b886dd"
+myCommit="97afdf6db50c7466858dc4f80581fd38bcd46df8"
 DESCRIPTION="Official Gentoo ebuild repository"
 HOMEPAGE="https://gentoo.org/"
 SRC_URI="https://gitweb.gentoo.org/repo/gentoo.git/snapshot/gentoo-${myCommit}.tar.bz2 -> ${P}-${myCommit}.tar.bz2"
