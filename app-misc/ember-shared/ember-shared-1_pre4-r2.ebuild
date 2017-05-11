@@ -13,6 +13,7 @@ KEYWORDS="~amd64 ~x68"
 RDEPEND="dev-python/internetarchive"
 
 src_install() {
+	exeinto /usr/bin
 	GLOBIGNORE="README.md:LICENSE.md:.codeclimate.yml:.git:.egup.tags"
 	doexe *
 	unset GLOBIGNORE
