@@ -15,6 +15,7 @@ KEYWORDS=""
 RDEPEND="app-misc/wreathe-base
 	app-misc/ember-shared
 	dev-python/internetarchive
+	dev-python/fusepy
 	sys-fs/zfs
 	sys-apps/pv
 	dev-vcs/git
