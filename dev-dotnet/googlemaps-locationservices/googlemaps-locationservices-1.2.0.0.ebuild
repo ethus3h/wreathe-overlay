@@ -23,7 +23,7 @@ RDEPEND="dev-dotnet/nuget
 
 DEPEND="${RDEPEND}"
 
-S="${WORKDIR}/${myPackageName}"
+S="${WORKDIR}/${myPackageName}-${PV}"
 
 src_prepare() {
 	default
