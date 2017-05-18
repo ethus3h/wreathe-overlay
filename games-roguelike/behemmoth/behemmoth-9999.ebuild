@@ -53,7 +53,8 @@ DEPEND="${RDEPEND}
 # Won't build: SubjectEncoding
 # =dev-dotnet/log4net-1.2.15
 
-pkg_preinst() {
+src_install() {
+	default
 	# Remove the temporary install prefix from scripts where it has been copied
 	tempdir="${D}"
 	export tempdir
@@ -64,6 +65,6 @@ pkg_preinst() {
 		cd "$tempdir"
 		find . -name "behemmoth_server" -or -name "behemmoth_client" -exec echo {} \;
 		echo "Now operating on above files:"
-		find . -name "behemmoth_server" -or -name "behemmoth_client" -exec perl -0777 -p -i -e "s/$tempdirEsc/\//g" {} \;
+		find . -name "behemmoth_server" -or -name "behemmoth_client" -exec perl -0777 -p -i -e "s/$tempdirEsc/\//g" {} \; || die
 	)
 }
