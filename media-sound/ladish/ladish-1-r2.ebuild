@@ -14,7 +14,7 @@ case "${PV}" in
 		EGIT_PROJECT="${PN}.git"
 		;;
 	(*)
-		KEYWORDS="~amd64 ~ppc ~x86"
+		KEYWORDS="~amd64 ~x86"
 		VCS_ECLASS=vcs-snapshot
 		SRC_URI="https://github.com/LADI/archive/${P}.tar.gz"
 		;;

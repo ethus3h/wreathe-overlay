@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="app-laptop/tp_smapi
 	>=x11-libs/gtk+-2.2:2
-	kde-apps/kdesu
+	kde-frameworks/kdesu
 	>=gnome-base/libgnomeui-2.4
 	>=sys-devel/gettext-0.11"
 DEPEND="${RDEPEND}

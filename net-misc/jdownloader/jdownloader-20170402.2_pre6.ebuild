@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE=""
 
 RDEPEND="dev-java/ant
-	>=virtual/jdk-1.5
+	>=virtual/jdk-1.5:*
 	dev-java/svnkit
 	dev-java/svgsalamander
 	dev-java/miglayout

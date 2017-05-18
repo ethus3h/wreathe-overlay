@@ -12,7 +12,7 @@ SRC_URI="https://github.com/qnub/onboard-emoji/archive/${myCommit}.zip -> ${P}-$
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x68"
+KEYWORDS="~amd64 ~x86"
 RDEPEND="dev-lang/python:2.7
 	app-accessibility/onboard"
 

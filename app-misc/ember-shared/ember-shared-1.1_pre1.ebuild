@@ -9,7 +9,7 @@ SRC_URI="https://github.com/ethus3h/ember-shared/archive/v${PV}.tar.gz -> ${P}.t
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x68"
+KEYWORDS="~amd64 ~x86"
 RDEPEND="dev-python/internetarchive"
 
 src_install() {
