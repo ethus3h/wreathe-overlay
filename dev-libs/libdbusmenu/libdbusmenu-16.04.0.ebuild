@@ -7,22 +7,25 @@ VALA_MIN_API_VERSION=0.16
 VALA_USE_DEPEND=vapigen
 PYTHON_COMPAT=( python2_7 )
 
-inherit eutils flag-o-matic multilib-minimal python-single-r1 vala
+inherit eutils flag-o-matic multilib-minimal python-single-r1 vala xdg-utils
 
 DESCRIPTION="Library to pass menu structure across DBus"
 HOMEPAGE="https://launchpad.net/dbusmenu"
-SRC_URI="https://launchpad.net/${PN}/${PV%.*}/${PV}/+download/${P}.tar.gz"
+SRC_URI="https://launchpad.net/${PN/lib}/${PV%.*}/${PV}/+download/${P}.tar.gz"
 
 LICENSE="LGPL-2.1 LGPL-3"
 SLOT="0"
 KEYWORDS="alpha amd64 ~arm hppa ~mips ppc ppc64 sparc x86"
 IUSE="debug gtk gtk3 +introspection"
 
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
 RDEPEND="
 	>=dev-libs/dbus-glib-0.100[${MULTILIB_USEDEP}]
 	>=dev-libs/json-glib-0.13.4[${MULTILIB_USEDEP}]
 	>=dev-libs/glib-2.32[${MULTILIB_USEDEP}]
 	dev-libs/libxml2[${MULTILIB_USEDEP}]
+	${PYTHON_DEPS}
 	gtk? ( x11-libs/gtk+:2[introspection?,${MULTILIB_USEDEP}] )
 	gtk3? ( >=x11-libs/gtk+-3.2:3[introspection?,${MULTILIB_USEDEP}] )
 	introspection? ( >=dev-libs/gobject-introspection-1 )
@@ -34,6 +37,11 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig[${MULTILIB_USEDEP}]
 	introspection? ( $(vala_depend) )"
 
+pkg_setup() {
+	xdg_environment_reset
+	python-single-r1_pkg_setup
+}
+
 src_prepare() {
 	if use introspection; then
 		vala_src_prepare
@@ -41,7 +49,9 @@ src_prepare() {
 	fi
 	python_fix_shebang tools
 
-	default
+	# remove reliance on custom Ubuntu hacks in old GTK+2
+	epatch "${FILESDIR}/${P}-gtk2-signal-fix.patch"
+	epatch_user
 }
 
 multilib_src_configure() {
