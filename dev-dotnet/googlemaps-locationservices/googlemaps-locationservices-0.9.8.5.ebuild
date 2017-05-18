@@ -25,13 +25,7 @@ DEPEND="${RDEPEND}"
 
 src_prepare() {
 	default
-	(
-		cd .nuget
-		rm NuGet.exe
-		ln -s "$(which nuget)" NuGet.exe
-		ln -s NuGet.exe nuget.exe
-		ln -s NuGet.targets nuget.targets
-	)
+	rm -r .nuget
 	sed -i -e 's#<BuildPackage>true</BuildPackage>#<BuildPackage>false</BuildPackage>#g' GoogleMaps.LocationServices/GoogleMaps.LocationServices.csproj
 }
 
