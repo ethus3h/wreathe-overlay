@@ -61,6 +61,6 @@ src_install() {
 		export D
 		find . -name "behemmoth_server" -or -name "behemmoth_client" -exec echo {} \;
 		echo "Now operating on above files:"
-		find . -exec bash -c 'source ember_bash_setup || exit 1; ereplace "${D}" "" "$0"' {} \; || die
+		find . -name "behemmoth_server" -or -name "behemmoth_client" -exec bash -c 'source ember_bash_setup || exit 1; ereplace "${D}" "" "$0"' {} \; || die
 	)
 }
