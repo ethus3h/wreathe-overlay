@@ -7,12 +7,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 USE_DOTNET="net45"
 
-inherit gac dotnet git-r3
+inherit gac dotnet
 
 DESCRIPTION="Library for Google Maps geolocation and reverse geolocation"
 HOMEPAGE="https://github.com/sethwebster/GoogleMaps.LocationServices"
-EGIT_REPO_URI="git://github.com/sethwebster/GoogleMaps.LocationServices.git"
-EGIT_COMMIT="e01489c9b4083665e0764014d8fcd6eb270851ca"
+SRC_URI="https://github.com/sethwebster/GoogleMaps.LocationServices/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -26,7 +25,8 @@ DEPEND="${RDEPEND}"
 src_prepare() {
 	default
 	rm -r .nuget
-	sed -i -e 's#<BuildPackage>true</BuildPackage>#<BuildPackage>false</BuildPackage>#g' GoogleMaps.LocationServices/GoogleMaps.LocationServices.csproj
+	sed -i -e 's#<BuildPackage>true</BuildPackage>#<BuildPackage>false</BuildPackage>#g' GoogleMaps.LocationServices/GoogleMaps.LocationServices.csproj || die
+	sed -i -e 's#<Import Project="\$\(SolutionDir\)\\\.nuget\\nuget\.targets" />##g' GoogleMaps.LocationServices/GoogleMaps.LocationServices.csproj || die
 }
 
 src_compile() {
