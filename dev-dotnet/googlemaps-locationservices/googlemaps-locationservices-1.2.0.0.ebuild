@@ -9,9 +9,10 @@ USE_DOTNET="net45"
 
 inherit gac dotnet
 
+myPackageName="GoogleMaps.LocationServices"
 DESCRIPTION="Library for Google Maps geolocation and reverse geolocation"
 HOMEPAGE="https://github.com/sethwebster/GoogleMaps.LocationServices"
-SRC_URI="https://github.com/sethwebster/GoogleMaps.LocationServices/archive/${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/sethwebster/${myPackageName}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
@@ -21,6 +22,8 @@ RDEPEND="dev-dotnet/nuget
 	dev-lang/mono"
 
 DEPEND="${RDEPEND}"
+
+S="${WORKDIR}/${myPackageName}"
 
 src_prepare() {
 	default
