@@ -29,6 +29,7 @@ S="${WORKDIR}/${myPackageName}-${myCommit}"
 src_prepare() {
 	default
 	rm -r nuget
+	rm Portable.Text.Encoding/Portable.Text.Encoding.WindowsUniversal81.csproj
 	# All this build file patching is needed because of https://github.com/gentoo/dotnet/issues/176 (PCLs aren't shipped because there aren't source ebuilds for them). Once that's fixed, 
 	(
 		source ember_bash_setup || exit 1
