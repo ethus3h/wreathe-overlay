@@ -28,6 +28,7 @@ S="${WORKDIR}/${myPackageName}-${myCommit}"
 src_prepare() {
 	default
 	rm -r nuget
+	sed -i -e 's#<Import Project="$(MSBuildExtensionsPath32)\\Microsoft\\Portable\\$(TargetFrameworkVersion)\\Microsoft.Portable.CSharp.targets" />##g' Portable.Text.Encoding/Portable.Text.Encoding.csproj || die
 }
 
 src_compile() {
