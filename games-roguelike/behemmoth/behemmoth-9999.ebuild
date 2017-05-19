@@ -4,7 +4,6 @@
 EAPI="6"
 
 inherit git-r3
-#java-pkg-2 java-pkg-simple
 
 DESCRIPTION="BeHeMMOth bullet hell MMO game"
 HOMEPAGE="https://futuramerlin.com/"
@@ -32,10 +31,12 @@ DEPEND="${RDEPEND}
 #	dev-misc/flex-sdk-4.9.1
 #	dev-misc/air-sdk-15
 
-# =dev-dotnet/mailkit-0.97.0.0
+# MailKit and MimeKit depend on PCL reference assemblies. TODO: Once they're fully buildable as/using libre software, re-add them as deps and uncomment the code that uses them.
+# dev-dotnet/mailkit
+# dev-dotnet/mimekit
+
 # =dev-dotnet/markermetro-unity-ionic-zlib-2.0.0.6
 # =dev-dotnet/metroframework-1.3.0.0.1.3.0.0
-# =dev-dotnet/mimekit-0.96.0.0
 # =dev-dotnet/mysql-data-6.9.6
 # =dev-dotnet/nettopologysuite-1.13.0
 # =dev-dotnet/newtonsoft-json-9.0.1
