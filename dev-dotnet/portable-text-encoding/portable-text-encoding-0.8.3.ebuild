@@ -20,7 +20,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-lang/mono
-	dev-dotnet/referenceassemblies-pcl"
+	"
 
 DEPEND="${RDEPEND}
 	app-misc/ember-shared"
