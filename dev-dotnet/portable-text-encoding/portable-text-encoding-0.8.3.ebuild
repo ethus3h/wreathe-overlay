@@ -30,10 +30,11 @@ src_prepare() {
 	default
 	rm -r nuget
 	rm Portable.Text.Encoding/Portable.Text.Encoding.WindowsUniversal81.csproj
-	# All this build file patching is needed because of https://github.com/gentoo/dotnet/issues/176 (PCLs aren't shipped because there aren't source ebuilds for them). Once that's fixed, 
+	# All this build file patching is needed because of http://futuramerlin.com/issue-tracker/view.php?id=620. Once that's fixed, ember-shared can be removed as a dependency of this.
 	(
-		source ember_bash_setup || exit 1
 		set -x
+		trap 'die "A fatal error was reported on ${BASH_SOURCE[0]} line ${LINENO}."' ERR
+		source ember_bash_setup || exit 1
 		ereplace 'Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Text.Encoding.WindowsUniversal81", "Portable.Text.Encoding\Portable.Text.Encoding.WindowsUniversal81.csproj", "{B76A64F9-B00E-4243-AE89-5D024CA3B436}"'$'\r\n'"EndProject" "" Portable.Text.Encoding.sln
 	) || die
 }
