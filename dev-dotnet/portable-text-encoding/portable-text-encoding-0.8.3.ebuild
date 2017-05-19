@@ -38,6 +38,7 @@ src_prepare() {
 		trap 'die "A fatal error was reported on ${BASH_SOURCE[0]} line ${LINENO}."' ERR
 		source ember_bash_setup || exit 1
 		ereplace 'Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Text.Encoding.WindowsUniversal81", "Portable.Text.Encoding\Portable.Text.Encoding.WindowsUniversal81.csproj", "{B76A64F9-B00E-4243-AE89-5D024CA3B436}"'$'\r\n'"EndProject" "" Portable.Text.Encoding.sln
+		cat Portable.Text.Encoding.sln
 	) || die
 }
 
