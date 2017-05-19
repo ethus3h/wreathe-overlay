@@ -21,15 +21,20 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-lang/mono"
 
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	app-misc/ember-shared"
 
 S="${WORKDIR}/${myPackageName}-${myCommit}"
 
 src_prepare() {
 	default
 	rm -r nuget
+	# All this build file patching is needed because of https://github.com/gentoo/dotnet/issues/176 (PCLs aren't shipped because there aren't source ebuilds for them)
 	sed -i -e 's#<Import Project="$(MSBuildExtensionsPath32)\\Microsoft\\Portable\\$(TargetFrameworkVersion)\\Microsoft.Portable.CSharp.targets" />##g' Portable.Text.Encoding/Portable.Text.Encoding.csproj || die
-	sed -i -e 's#<Import Project="$(MSBuildExtensionsPath32)\\Microsoft\\Portable\\$(TargetFrameworkVersion)\\Microsoft.Portable.CSharp.targets" />##g' Portable.Text.Encoding/Portable.Text.Encoding.WindowsUniversal81.csproj || die
+	(
+		source ember_bash_setup || exit 1
+		ereplace 'Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Text.Encoding.WindowsUniversal81", "Portable.Text.Encoding\Portable.Text.Encoding.WindowsUniversal81.csproj", "{B76A64F9-B00E-4243-AE89-5D024CA3B436}"'$'\n'"EndProject"
+	) || die
 }
 
 src_compile() {
