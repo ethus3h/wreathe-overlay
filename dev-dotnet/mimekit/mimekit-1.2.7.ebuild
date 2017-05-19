@@ -7,29 +7,29 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 USE_DOTNET="net45"
 
-inherit gac dotnet git-r3
+inherit gac dotnet
 
 DESCRIPTION=".NET MIME creator/parser lib: S/MIME/PGP/DKIM/TNEF/Unix mbox"
-HOMEPAGE="http://www.mimekit.net/"
-EGIT_REPO_URI="git://github.com/jstedfast/MimeKit.git"
-EGIT_COMMIT="1f5f5f844cab1c243fe95e746c776ee1ac57b01c"
+HOMEPAGE="https://github.com/jstedfast/Portable.Text.Encoding"
+SRC_URI="https://github.com/jstedfast/MimeKit/archive/1.2.7.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="dev-dotnet/nuget
-	dev-dotnet/bouncycastle
+RDEPEND="dev-dotnet/bouncycastle
+	dev-dotnet/portable-text-encoding
 	dev-lang/mono"
 
 DEPEND="${RDEPEND}"
 
 src_prepare() {
 	default
+	rm -r .nuget nuget submodules
 }
 
 src_compile() {
-	exbuild_strong MailKit.Net40.sln
+	exbuild_strong MailKit.Net45.sln
 }
 
 src_install() {
