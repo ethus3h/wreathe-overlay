@@ -33,7 +33,7 @@ src_prepare() {
 	sed -i -e 's#<Import Project="$(MSBuildExtensionsPath32)\\Microsoft\\Portable\\$(TargetFrameworkVersion)\\Microsoft.Portable.CSharp.targets" />##g' Portable.Text.Encoding/Portable.Text.Encoding.csproj || die
 	(
 		source ember_bash_setup || exit 1
-		ereplace 'Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Text.Encoding.WindowsUniversal81", "Portable.Text.Encoding\Portable.Text.Encoding.WindowsUniversal81.csproj", "{B76A64F9-B00E-4243-AE89-5D024CA3B436}"'$'\n'"EndProject"
+		ereplace 'Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Text.Encoding.WindowsUniversal81", "Portable.Text.Encoding\Portable.Text.Encoding.WindowsUniversal81.csproj", "{B76A64F9-B00E-4243-AE89-5D024CA3B436}"'$'\n'"EndProject" "" Portable.Text.Encoding.sln
 	) || die
 }
 
