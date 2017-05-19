@@ -29,7 +29,7 @@ S="${WORKDIR}/${myPackageName}-${myCommit}"
 src_prepare() {
 	default
 	rm -r nuget
-	# All this build file patching is needed because of https://github.com/gentoo/dotnet/issues/176 (PCLs aren't shipped because there aren't source ebuilds for them)
+	# All this build file patching is needed because of https://github.com/gentoo/dotnet/issues/176 (PCLs aren't shipped because there aren't source ebuilds for them). Once that's fixed, 
 	(
 		source ember_bash_setup || exit 1
 		set -x
