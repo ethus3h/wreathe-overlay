@@ -32,6 +32,8 @@ src_prepare() {
 	rm Portable.Text.Encoding/Portable.Text.Encoding.WindowsUniversal81.csproj
 	# All this build file patching is needed because of http://futuramerlin.com/issue-tracker/view.php?id=620. Once that's fixed, ember-shared can be removed as a dependency of this.
 	(
+		pwd
+		ls
 		set -x
 		trap 'die "A fatal error was reported on ${BASH_SOURCE[0]} line ${LINENO}."' ERR
 		source ember_bash_setup || exit 1
