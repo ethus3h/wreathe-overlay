@@ -19,7 +19,8 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="dev-lang/mono"
+RDEPEND="dev-lang/mono
+	dev-dotnet/referenceassemblies-pcl"
 
 DEPEND="${RDEPEND}
 	app-misc/ember-shared"
@@ -29,18 +30,6 @@ S="${WORKDIR}/${myPackageName}-${myCommit}"
 src_prepare() {
 	default
 	rm -r nuget
-	rm Portable.Text.Encoding/Portable.Text.Encoding.WindowsUniversal81.csproj
-	# All this build file patching is needed because of http://futuramerlin.com/issue-tracker/view.php?id=620. Once that's fixed, ember-shared can be removed as a dependency of this.
-	(
-		pwd
-		ls
-		set -x
-		trap 'die "A fatal error was reported on ${BASH_SOURCE[0]} line ${LINENO}."' ERR
-		source ember_bash_setup || exit 1
-		ereplace 'Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portable.Text.Encoding.WindowsUniversal81", "Portable.Text.Encoding\Portable.Text.Encoding.WindowsUniversal81.csproj", "{B76A64F9-B00E-4243-AE89-5D024CA3B436}"' "" Portable.Text.Encoding.sln
-		#$'\r\n'"EndProject"
-		cat Portable.Text.Encoding.sln
-	) || die
 }
 
 src_compile() {
