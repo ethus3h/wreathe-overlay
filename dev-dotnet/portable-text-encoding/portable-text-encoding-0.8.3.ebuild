@@ -23,7 +23,7 @@ RDEPEND="dev-lang/mono"
 
 DEPEND="${RDEPEND}"
 
-S="${WORKDIR}/${myPackageName}-${PV}"
+S="${WORKDIR}/${myPackageName}-${myCommit}"
 
 src_prepare() {
 	default
