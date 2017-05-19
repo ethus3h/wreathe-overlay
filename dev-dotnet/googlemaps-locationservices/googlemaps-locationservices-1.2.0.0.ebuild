@@ -29,7 +29,7 @@ src_prepare() {
 	default
 	rm -r .nuget
 	sed -i -e 's#<BuildPackage>true</BuildPackage>#<BuildPackage>false</BuildPackage>#g' GoogleMaps.LocationServices/GoogleMaps.LocationServices.csproj || die
-	sed -i -e 's#<Import Project="\$\(SolutionDir\)\\\.nuget\\nuget\.targets" />##g' GoogleMaps.LocationServices/GoogleMaps.LocationServices.csproj || die
+sed -i -e 's#<Import Project="$(SolutionDir)\\.nuget\\nuget.targets" />##g' GoogleMaps.LocationServices.csproj || die
 }
 
 src_compile() {
