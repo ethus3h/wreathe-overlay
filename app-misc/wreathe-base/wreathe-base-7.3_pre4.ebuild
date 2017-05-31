@@ -22,7 +22,7 @@ SLOT="0"
 RDEPEND="app-misc/ember-shared"
 
 src_prepare() {
-	if [[ "${PV}" == "9999" ]]; then
+	if [[ "${PV}" != "9999" ]]; then
 		rm -rv "${S}/build/onscreen-keyboard/onboard-emoji"
 		mv "${WORKDIR}/onboard-emoji-$onboardEmojiRevision" "${S}/build/onscreen-keyboard/onboard-emoji"
 	fi
