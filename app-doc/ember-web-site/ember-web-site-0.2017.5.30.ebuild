@@ -5,7 +5,7 @@ EAPI="6"
 
 DESCRIPTION="Ember Web site"
 HOMEPAGE="https://futuramerlin.com/"
-SRC_URI="https://github.com/ethus3h/ember-web-site/archive/v${PV}.tar.gz"
+SRC_URI="https://github.com/ethus3h/ember-web-site/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
