@@ -18,7 +18,7 @@ DEPEND=">=virtual/jdk-1.4
 
 RDEPEND=">=virtual/jre-1.4"
 
-S="${WORKDIR}/svnkit-src-${PV}.4949/contrib/sequence"
+S="${WORKDIR}/svnkit-${PV}"
 
 EANT_BUILD_TARGET="jar"
 EANT_DOC_TARGET="javadoc"
