@@ -7,9 +7,10 @@ KMNAME="kde4-baseapps"
 
 inherit cmake-utils kde4-meta
 
+baseappsVersion="4.7.4"
 DESCRIPTION="A KDE filemanager focusing on usability"
-HOMEPAGE="https://github.com/KDE/dolphin/releases/tag/v4.7.4"
-SRC_URI="mirror://kde/Attic/4.7.4/src/kde-baseapps-4.7.4.tar.bz2
+HOMEPAGE="https://github.com/ethus3h/wreathe-file-manager"
+SRC_URI="mirror://kde/Attic/${baseappsVersion}/src/kde-baseapps-${baseappsVersion}.tar.bz2
 	https://github.com/ethus3h/wreathe-file-manager/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
@@ -32,10 +33,10 @@ PDEPEND="${DEPEND}"
 RESTRICT="test"
 # bug 393129
 
-S="${WORKDIR}/kde-baseapps-4.7.4"
+S="${WORKDIR}/kde-baseapps-${baseappsVersion}"
 
 src_unpack() {
 	default_src_unpack
-	rm -rv "${WORKDIR}/kde-baseapps-4.7.4/${PN}"
-	rsync -av --checksum --progress "${WORKDIR}/${P}/" "${WORKDIR}/kde-baseapps-${PV}/${PN}"
+	rm -rv "${WORKDIR}/kde-baseapps-${baseappsVersion}/${PN}"
+	rsync -av --checksum --progress "${WORKDIR}/${P}/" "${WORKDIR}/kde-baseapps-${baseappsVersion}/${PN}"
 }
