@@ -5,7 +5,7 @@ EAPI="6"
 
 DESCRIPTION="Office resources for Wreathe"
 HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="git://github.com/ethus3h/wreathe-office-resources.git"
+SRC_URI="https://github.com/ethus3h/wreathe-office-resources/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"

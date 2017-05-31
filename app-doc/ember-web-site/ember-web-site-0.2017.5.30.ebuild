@@ -3,11 +3,9 @@
 
 EAPI="6"
 
-inherit git-r3
-
 DESCRIPTION="Ember Web site"
 HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="git://github.com/ethus3h/ember-web-site.git"
+SRC_URI="https://github.com/ethus3h/ember-web-site/archive/v${PV}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
