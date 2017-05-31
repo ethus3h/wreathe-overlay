@@ -3,11 +3,9 @@
 
 EAPI="6"
 
-inherit git-r3
-
 DESCRIPTION="Backgrounds for Wreathe"
 HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="git://github.com/ethus3h/wreathe-backgrounds.git"
+SRC_URI="https://github.com/ethus3h/wreathe-backgrounds/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"

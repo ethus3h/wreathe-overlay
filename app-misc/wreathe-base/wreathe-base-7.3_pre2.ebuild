@@ -12,15 +12,16 @@ SRC_URI="https://github.com/ethus3h/wreathe/archive/v${PV}.tar.gz -> ${P}.tar.gz
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-#RDEPEND="app-misc/wreathe-overlays"
 
 S="${WORKDIR}/wreathe-${PV}"
+
+RDEPEND="app-misc/ember-shared"
 
 src_prepare() {
 	rm -rv "${S}/build/onscreen-keyboard/onboard-emoji"
 	mv "${WORKDIR}/onboard-emoji-$onboardEmojiRevision" "${S}/build/onscreen-keyboard/onboard-emoji"
 	eapply_user
-	rm -rv boot.disabled
+	rm -rv var/lib/portage
 }
 
 src_install() {
@@ -28,13 +29,14 @@ src_install() {
 	insinto /
 	doins -r *
 
+	fperms +x /etc/bash/bashrc.d/wreathe.sh
+
 	GLOBIGNORE="usr/bin"
 	insinto /usr/
 	doins -r usr/*
 
 	unset GLOBIGNORE
-	exeinto /usr/bin/
-	doexe usr/bin/*
+	dobin usr/bin/*
 
 	GLOBIGNORE="Wreathe/.Resources"
 	insinto /Wreathe/
@@ -62,11 +64,15 @@ src_install() {
 
 	doman man/*
 
-	# Provide gmcs as an alias for the mcs compiler for Mono
+	# Provide symlinks to provide compatibility with not-yet-updated apps looking for Mono 2
 	dosym /usr/bin/mcs /usr/bin/gmcs
+	dosym /usr/bin/mono /usr/bin/cli
 
 	# Make php-cgi command available
 	phpfile=$(file /usr/bin/php)
 	cgifile="$(echo -n "$phpfile" | perl -p -e 's/\/usr\/bin\/php: symbolic link to \/(.+)\/php([\d\.]+)\/bin\/php/\/$1\/php$2\/bin\/php-cgi/g')"
 	dosym "$cgifile" /usr/bin/php-cgi
+
+	fperms +x /etc/git/hooks/pre-commit
+	fperms +x /etc/bash/bashrc.d/wreathe.sh
 }
