@@ -33,7 +33,7 @@ src_prepare() {
 src_install() {
 	GLOBIGNORE="README.md:.git:.gitattributes:.gitconfig:usr:man:Makefile:build:.egup.tags:Wreathe"
 	insinto /
-	doins -r *
+	doins -r ./*
 
 	fperms +x /etc/bash/bashrc.d/wreathe.sh
 
