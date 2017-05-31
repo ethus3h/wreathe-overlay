@@ -7,7 +7,7 @@ DESCRIPTION="Futuramerlin Web Toolkit"
 HOMEPAGE="https://futuramerlin.com/"
 SRC_URI="https://github.com/ethus3h/futuramerlin-web-toolkit/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="AGPL-3"
+LICENSE="AGPL-3 GPL-2"
 SLOT="0"
 KEYWORDS=""
 RDEPEND="app-misc/wreathe-base"
