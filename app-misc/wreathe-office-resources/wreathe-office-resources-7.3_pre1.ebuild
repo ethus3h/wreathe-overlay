@@ -3,8 +3,6 @@
 
 EAPI="6"
 
-inherit git-r3
-
 DESCRIPTION="Office resources for Wreathe"
 HOMEPAGE="https://futuramerlin.com/"
 EGIT_REPO_URI="git://github.com/ethus3h/wreathe-office-resources.git"
