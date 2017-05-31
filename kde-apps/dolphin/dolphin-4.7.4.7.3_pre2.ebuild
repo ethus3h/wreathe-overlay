@@ -9,7 +9,7 @@ inherit cmake-utils kde4-meta
 
 baseappsVersion="4.7.4"
 DESCRIPTION="A KDE filemanager focusing on usability"
-HOMEPAGE="https://github.com/ethus3h/wreathe-file-manager"
+HOMEPAGE="https://futuramerlin.com/"
 SRC_URI="mirror://kde/Attic/${baseappsVersion}/src/kde-baseapps-${baseappsVersion}.tar.bz2
 	https://github.com/ethus3h/wreathe-file-manager/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
