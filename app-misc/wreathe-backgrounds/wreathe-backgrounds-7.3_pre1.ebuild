@@ -9,7 +9,7 @@ SRC_URI="https://github.com/ethus3h/wreathe-backgrounds/archive/v${PV}.tar.gz ->
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 RDEPEND="app-misc/wreathe-base"
 
 src_install() {

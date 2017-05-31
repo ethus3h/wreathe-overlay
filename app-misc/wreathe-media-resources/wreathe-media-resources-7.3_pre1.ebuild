@@ -11,7 +11,7 @@ SRC_URI="https://github.com/ethus3h/wreathe-media-resources/archive/v${PV}.tar.g
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 
 src_install() {
 	insinto /

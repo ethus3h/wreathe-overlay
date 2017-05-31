@@ -9,7 +9,7 @@ SRC_URI="https://github.com/ethus3h/wreathe-office-resources/archive/v${PV}.tar.
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64 ~x86"
 RDEPEND="app-misc/wreathe-base"
 
 src_install() {
