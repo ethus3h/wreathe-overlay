@@ -4,26 +4,40 @@
 
 EAPI="6"
 
-inherit autotools eutils
+
+if [[ "${PV}" == "9999" ]]; then
+	inherit autotools eutils git-r3
+	EGIT_REPO_URI="git://github.com/ethus3h/${PN}.git"
+	KEYWORDS=""
+	RDEPEND="
+		gnome-base/librsvg
+		virtual/jpeg:0
+		>=x11-libs/compiz-bcop-${PV}
+		>=x11-plugins/compiz-plugins-experimental-${PV}
+		>=x11-wm/compiz-${PV}
+	"
+else
+	inherit autotools eutils
+	SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+	RDEPEND="
+		gnome-base/librsvg
+		virtual/jpeg:0
+		>=x11-libs/compiz-bcop-0.7.3
+		<x11-libs/compiz-bcop-0.9
+		>=x11-plugins/compiz-plugins-experimental-0.8
+		<x11-plugins/compiz-plugins-experimental-0.9
+		>=x11-wm/compiz-0.8
+		<x11-wm/compiz-0.9
+	"
+fi
 
 DESCRIPTION="Compiz Fusion Window Decorator Community Plugins"
 HOMEPAGE="http://futuramerlin.com/"
-SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-
-RDEPEND="
-	gnome-base/librsvg
-	virtual/jpeg:0
-	>=x11-libs/compiz-bcop-0.7.3
-	<x11-libs/compiz-bcop-0.9
-	>=x11-plugins/compiz-plugins-experimental-0.8
-	<x11-plugins/compiz-plugins-experimental-0.9
-	>=x11-wm/compiz-0.8
-	<x11-wm/compiz-0.9
-"
 
 DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.35
