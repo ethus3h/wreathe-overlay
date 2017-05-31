@@ -3,15 +3,19 @@
 
 EAPI="6"
 
-inherit git-r3
-
+if [[ "${PV}" == "9999" ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="git://github.com/ethus3h/crystallize.git"
+	KEYWORDS=""
+else
+	SRC_URI="https://github.com/ethus3h/crystallize/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
 DESCRIPTION="Crystallize"
 HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="git://github.com/ethus3h/crystallize.git"
 
 LICENSE="AGPL-3 BSD-2"
 SLOT="0"
-KEYWORDS=""
 RDEPEND="app-misc/wreathe-base
 	app-misc/ember-shared
 	dev-python/internetarchive
