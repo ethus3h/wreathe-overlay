@@ -5,7 +5,7 @@ EAPI="6"
 
 DESCRIPTION="Crystallize"
 HOMEPAGE="https://futuramerlin.com/"
-SRC_URI="git://github.com/ethus3h/crystallize.git"
+SRC_URI="https://github.com/ethus3h/crystallize/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="AGPL-3 BSD-2"
 SLOT="0"
