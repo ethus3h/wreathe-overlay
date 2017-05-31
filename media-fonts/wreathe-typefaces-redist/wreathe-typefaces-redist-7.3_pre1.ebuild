@@ -3,19 +3,17 @@
 
 EAPI="6"
 
-inherit git-r3
-
-DESCRIPTION="Wreathe typeface family"
+DESCRIPTION="Redistributed typefaces package for Wreathe"
 HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="git://github.com/ethus3h/wreathe-typeface-family.git"
+SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="freedist GPL-2 GPL-3 OFL OFL-1.1" #FIXME: non-libre stuff should be replaced and removed
 SLOT="0"
 KEYWORDS=""
 RDEPEND="app-misc/wreathe-base"
 
 src_install() {
-	insinto /Wreathe/Typefaces/
+	insinto /Wreathe/Typefaces/redist/
 	GLOBIGNORE="README.md:.git:.egup.tags"
 	doins -r *
 	unset GLOBIGNORE
