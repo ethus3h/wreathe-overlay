@@ -9,7 +9,7 @@ DESCRIPTION="Office resources for Wreathe"
 HOMEPAGE="https://futuramerlin.com/"
 EGIT_REPO_URI="git://github.com/ethus3h/wreathe-office-resources.git"
 
-LICENSE="GPL-2"
+LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS=""
 RDEPEND="app-misc/wreathe-base"

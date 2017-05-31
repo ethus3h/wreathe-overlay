@@ -8,7 +8,7 @@ HOMEPAGE="https://futuramerlin.com/"
 
 LICENSE="AGPL-3"
 SLOT="0"
-KEYWORDS=""
+KEYWORDS="~amd64"
 RDEPEND="app-misc/wreathe-base
 app-misc/wreathe-bootstrap
 app-misc/wreathe-overlays-redist
