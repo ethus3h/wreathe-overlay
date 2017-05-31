@@ -3,11 +3,9 @@
 
 EAPI="6"
 
-inherit git-r3
-
 DESCRIPTION="Futuramerlin Web Toolkit"
 HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="git://github.com/ethus3h/futuramerlin-web-toolkit.git"
+SRC_URI="https://github.com/ethus3h/futuramerlin-web-toolkit/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"

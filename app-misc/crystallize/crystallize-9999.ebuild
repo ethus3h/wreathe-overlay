@@ -3,13 +3,15 @@
 
 EAPI="6"
 
+inherit git-r3
+
 DESCRIPTION="Crystallize"
 HOMEPAGE="https://futuramerlin.com/"
-SRC_URI="https://github.com/ethus3h/crystallize/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+EGIT_REPO_URI="git://github.com/ethus3h/crystallize.git"
 
 LICENSE="AGPL-3 BSD-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS=""
 RDEPEND="app-misc/wreathe-base
 	app-misc/ember-shared
 	dev-python/internetarchive
