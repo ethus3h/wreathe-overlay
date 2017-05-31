@@ -3,17 +3,14 @@
 
 EAPI="6"
 
-inherit git-r3
-
 DESCRIPTION="Extra snowflake textures for Compiz"
 HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="git://github.com/ethus3h/compiz-extra-snowflake-textures.git"
+SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-2"
+LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 -*"
-# FIXME: x11-plugins/compiz-plugins-experimental provided by wreathe-base
-RDEPEND="app-misc/wreathe-base"
+RDEPEND="x11-plugins/compiz-plugins-experimental"
 
 src_install() {
 	insinto /usr/share/compiz/snow/
