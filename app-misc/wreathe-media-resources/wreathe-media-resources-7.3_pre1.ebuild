@@ -3,8 +3,6 @@
 
 EAPI="6"
 
-inherit git-r3
-
 DESCRIPTION="Media resources for Wreathe"
 HOMEPAGE="https://futuramerlin.com/"
 SRC_URI="https://github.com/ethus3h/wreathe-media-resources/archive/v${PV}.tar.gz -> ${P}.tar.gz"
