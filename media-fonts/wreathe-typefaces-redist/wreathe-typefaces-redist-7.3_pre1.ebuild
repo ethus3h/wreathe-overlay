@@ -9,7 +9,7 @@ SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="freedist GPL-2 GPL-3 OFL OFL-1.1" #FIXME: non-libre stuff should be replaced and removed
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 RDEPEND="app-misc/wreathe-base"
 
 src_install() {

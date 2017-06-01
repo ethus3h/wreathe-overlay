@@ -9,7 +9,7 @@ if [[ "${PV}" == "9999" ]]; then
 	KEYWORDS=""
 else
 	SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="~amd64"
 fi
 
 DESCRIPTION="A collection of tools for working with files and filesystems"
