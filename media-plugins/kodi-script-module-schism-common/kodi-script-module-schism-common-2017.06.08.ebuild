@@ -25,5 +25,5 @@ S="${WORKDIR}/${addonName}-${PV}"
 
 src_install() {
 	insinto "/usr/share/kodi/addons/${addonName}"
-	doins *
+	doins -r *
 }

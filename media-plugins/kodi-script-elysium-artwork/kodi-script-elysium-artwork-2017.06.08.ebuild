@@ -21,9 +21,9 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${addonName}-${PV}"
+S="${WORKDIR}/${addonName}"
 
 src_install() {
 	insinto "/usr/share/kodi/addons/${addonName}"
-	doins *
+	doins -r *
 }
