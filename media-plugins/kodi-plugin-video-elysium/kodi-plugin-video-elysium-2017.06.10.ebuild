@@ -8,7 +8,7 @@ addonName="${addonName//-/.}"
 
 DESCRIPTION="Elysium Common Libraries"
 HOMEPAGE="https://github.com/OpenELEQ/repository.elysium"
-SRC_URI="https://github.com/OpenELEQ/repository.elysium/blob/master/${addonName}/${addonName}-${PV}.zip?raw=true"
+SRC_URI="https://github.com/OpenELEQ/repository.elysium/blob/master/${addonName}/${addonName}-${PV}.zip?raw=true -> ${addonName}-${PV}.zip"
 
 LICENSE="GPL-2"
 SLOT="0"
