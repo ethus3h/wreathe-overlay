@@ -33,7 +33,7 @@ src_install() {
 		echo "--- a/xbmc/system/addon-manifest.xml    2017-06-24 18:56:32.000000000 -0400" >> "$patchFile"
 		echo "+++ b/xbmc/system/addon-manifest.xml    2017-06-24 19:00:04.000000000 -0400" >> "$patchFile"
 		echo "@@ -1,1 +1,2 @@" >> "$patchFile"
-		echo "<addons>" >> "$patchFile"
+		echo " <addons>" >> "$patchFile"
 		echo "+  <addon>${addonName}</addon>" >> "$patchFile"
 		insinto "/etc/portage/patches/media-tv/kodi/"
 		doins "$patchFile"
