@@ -3,7 +3,7 @@
 
 EAPI="6"
 
-myCommit="d0e7919872923295cd8659a4bdfe6799d44aad64"
+myCommit="3e279c58bee61b557823357a52b23c101902807d"
 DESCRIPTION="Official Gentoo ebuild repository"
 HOMEPAGE="https://gentoo.org/"
 SRC_URI="https://gitweb.gentoo.org/repo/gentoo.git/snapshot/gentoo-${myCommit}.tar.bz2 -> ${P}-${myCommit}.tar.bz2"
@@ -11,7 +11,6 @@ SRC_URI="https://gitweb.gentoo.org/repo/gentoo.git/snapshot/gentoo-${myCommit}.t
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-DEPEND="dev-vcs/git"
 
 S="${WORKDIR}/gentoo-${myCommit}"
 
