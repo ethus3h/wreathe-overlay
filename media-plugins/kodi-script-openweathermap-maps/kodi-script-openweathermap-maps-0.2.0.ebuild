@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/kodi-/}"
 addonName="${addonName//-/.}"
 
-DESCRIPTION="script.module.six"
+DESCRIPTION="Kodi add-on: script.openweathermap.maps"
 HOMEPAGE="https://kodi.tv/"
 SRC_URI="http://mirrors.kodi.tv/addons/krypton/${addonName}/${addonName}-${PV}.zip"
 

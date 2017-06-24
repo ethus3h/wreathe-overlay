@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/kodi-/}"
 addonName="${addonName//-/.}"
 
-DESCRIPTION="script.module.futures"
+DESCRIPTION="Kodi add-on: script.module.beautifulsoup"
 HOMEPAGE="https://kodi.tv/"
 SRC_URI="http://mirrors.kodi.tv/addons/krypton/${addonName}/${addonName}-${PV}.zip"
 

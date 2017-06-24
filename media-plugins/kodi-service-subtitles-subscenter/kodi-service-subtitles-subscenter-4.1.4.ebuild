@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/kodi-/}"
 addonName="${addonName//-/.}"
 
-DESCRIPTION="Search and Download subtitles from subscenter.org"
+DESCRIPTION="Kodi add-on: service.subtitles.subscenter"
 HOMEPAGE="https://kodi.tv/"
 SRC_URI="http://mirrors.kodi.tv/addons/krypton/${addonName}/${addonName}-${PV}.zip"
 

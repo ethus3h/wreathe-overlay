@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/kodi-/}"
 addonName="${addonName//-/.}"
 
-DESCRIPTION="script.module.requests"
+DESCRIPTION="Kodi add-on: script.module.simplejson"
 HOMEPAGE="https://kodi.tv/"
 SRC_URI="http://mirrors.kodi.tv/addons/krypton/${addonName}/${addonName}-${PV}.zip"
 

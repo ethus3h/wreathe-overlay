@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/kodi-/}"
 addonName="${addonName//-/.}"
 
-DESCRIPTION="Confluence skin by Jezz_X"
+DESCRIPTION="Kodi add-on: skin.confluence"
 HOMEPAGE="https://kodi.tv/"
 SRC_URI="http://mirrors.kodi.tv/addons/krypton/${addonName}/${addonName}-${PV}.zip"
 

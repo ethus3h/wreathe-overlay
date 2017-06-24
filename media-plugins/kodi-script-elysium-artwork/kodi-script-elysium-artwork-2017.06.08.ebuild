@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/kodi-/}"
 addonName="${addonName//-/.}"
 
-DESCRIPTION="Elysium Artwork"
+DESCRIPTION="Kodi add-on: script.elysium.artwork"
 HOMEPAGE="https://github.com/OpenELEQ/repository.elysium"
 SRC_URI="https://github.com/OpenELEQ/repository.elysium/blob/master/${addonName}/${addonName}-${PV}.zip?raw=true -> ${addonName}-${PV}.zip"
 
