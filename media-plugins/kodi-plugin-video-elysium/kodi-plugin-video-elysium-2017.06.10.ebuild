@@ -28,4 +28,5 @@ S="${WORKDIR}/${addonName}-${PV}"
 src_prepare() {
 	#disable automatic updates
 	#perl -p -i -e 's/\t\t<import addon="repository\.exodus" version="[\d\.]+" \/>//g' "${S}"/addon.xml
+	true
 }
