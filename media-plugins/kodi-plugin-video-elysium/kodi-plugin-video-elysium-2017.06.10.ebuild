@@ -30,3 +30,8 @@ src_prepare() {
 	#perl -p -i -e 's/\t\t<import addon="repository\.exodus" version="[\d\.]+" \/>//g' "${S}"/addon.xml
 	true
 }
+
+src_install() {
+	insinto "/usr/share/kodi/addons/${addonName}"
+	doins *
+}
