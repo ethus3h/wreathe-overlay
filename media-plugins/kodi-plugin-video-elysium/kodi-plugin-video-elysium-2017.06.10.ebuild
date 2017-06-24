@@ -26,6 +26,7 @@ RDEPEND="${DEPEND}"
 S="${WORKDIR}/${addonName}"
 
 src_prepare() {
+	default
 	#disable automatic updates
 	#perl -p -i -e 's/\t\t<import addon="repository\.exodus" version="[\d\.]+" \/>//g' "${S}"/addon.xml
 	true
