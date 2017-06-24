@@ -7,7 +7,7 @@ addonName="${PN/kodi-/}"
 addonName="${addonName//-/.}"
 
 DESCRIPTION="Confluence skin by Jezz_X"
-HOMEPAGE="https://kodi.tv/addon/skins/confluence"
+HOMEPAGE="https://kodi.tv/"
 SRC_URI="http://mirrors.kodi.tv/addons/krypton/${addonName}/${addonName}-${PV}.zip"
 
 LICENSE="GPL-2"
