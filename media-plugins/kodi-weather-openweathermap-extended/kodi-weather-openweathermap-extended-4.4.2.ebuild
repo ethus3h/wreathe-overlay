@@ -17,6 +17,7 @@ IUSE=""
 
 DEPEND="
 	media-tv/kodi
+	>=media-plugins/kodi-script-openweathermap-maps-0.02.0
 	"
 
 RDEPEND="${DEPEND}"

@@ -17,8 +17,8 @@ IUSE=""
 
 DEPEND="
 	media-tv/kodi
-	media-plugins/kodi-script-module-simplejson
-	media-plugins/kodi-script-module-t0mm0-common
+	>=media-plugins/kodi-script-module-simplejson-3.3.0
+	>=media-plugins/kodi-script-module-t0mm0-common-2.0.0
 	"
 
 RDEPEND="${DEPEND}"

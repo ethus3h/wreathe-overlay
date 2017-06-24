@@ -18,11 +18,11 @@ IUSE=""
 DEPEND="
 	media-tv/kodi
 	media-plugins/kodi-script-elysium-artwork
-	media-plugins/kodi-script-module-schism-common
 	media-plugins/kodi-script-module-urlresolver
 	media-plugins/kodi-script-module-metahandler
 	media-plugins/kodi-script-module-requests
 	media-plugins/kodi-script-module-beautifulsoup
+	media-plugins/kodi-script-module-schism-common
 	media-plugins/kodi-script-module-futures
 	"
 

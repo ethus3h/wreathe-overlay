@@ -17,6 +17,9 @@ IUSE=""
 
 DEPEND="
 	media-tv/kodi
+	>=media-plugins/kodi-script-module-simplejson-3.3.0
+	>=media-plugins/kodi-script-module-addon-common-2.0.0
+	>=media-plugins/kodi-script-module-myconnpy-1.1.6
 	"
 
 RDEPEND="${DEPEND}"

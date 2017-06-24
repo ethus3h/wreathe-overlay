@@ -17,6 +17,8 @@ IUSE=""
 
 DEPEND="
 	media-tv/kodi
+	>=media-plugins/kodi-script-common-plugin-cache-2.5.5
+	>=media-plugins/kodi-script-module-requests-2.4.3
 	"
 
 RDEPEND="${DEPEND}"
