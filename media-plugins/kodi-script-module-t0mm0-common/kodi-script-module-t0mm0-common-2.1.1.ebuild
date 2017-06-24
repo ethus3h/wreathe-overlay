@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/kodi-/}"
 addonName="${addonName//-/.}"
 
-DESCRIPTION="script.module.urlresolver"
+DESCRIPTION="script.module.futures"
 HOMEPAGE="https://kodi.tv/"
 SRC_URI="http://mirrors.kodi.tv/addons/krypton/${addonName}/${addonName}-${PV}.zip"
 
@@ -17,8 +17,6 @@ IUSE=""
 
 DEPEND="
 	media-tv/kodi
-	media-plugins/kodi-script-module-simplejson
-	media-plugins/kodi-script-module-t0mm0-common
 	"
 
 RDEPEND="${DEPEND}"
