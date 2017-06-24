@@ -6,9 +6,9 @@ EAPI=6
 addonName="${PN/kodi-/}"
 addonName="${addonName//-/.}"
 
-DESCRIPTION="Elysium Common Libraries"
-HOMEPAGE="https://github.com/OpenELEQ/repository.elysium"
-SRC_URI="https://github.com/OpenELEQ/repository.elysium/blob/master/${addonName}/${addonName}-${PV}.zip?raw=true -> ${addonName}-${PV}.zip"
+DESCRIPTION="script.module.metahandler"
+HOMEPAGE="https://kodi.tv/"
+SRC_URI="http://mirrors.kodi.tv/addons/krypton/${addonName}/${addonName}-${PV}.zip"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -17,9 +17,6 @@ IUSE=""
 
 DEPEND="
 	media-tv/kodi
-	media-plugins/kodi-script-module-six
-	media-plugins/kodi-script-module-metahandler
-	media-plugins/kodi-script-module-beautifulsoup
 	"
 
 RDEPEND="${DEPEND}"
