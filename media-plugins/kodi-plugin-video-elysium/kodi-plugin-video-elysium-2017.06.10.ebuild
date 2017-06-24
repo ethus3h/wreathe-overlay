@@ -23,7 +23,7 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${addonName}-${PV}"
+S="${WORKDIR}/${addonName}"
 
 src_prepare() {
 	#disable automatic updates
