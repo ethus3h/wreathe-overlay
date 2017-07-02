@@ -6,16 +6,13 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: In the DOM Inspector,quickly navigate to the any elements"
-HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/element-inspector/"
+DESCRIPTION="Mozilla extension: Adds toolbar button and context menus for invoking the DOM Inspector"
+HOMEPAGE="http://www.projectit.com/"
 
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="MPL-1.1"
-IUSE=""
-SRC_URI="https://addons.mozilla.org/firefox/downloads/file/616433/${addonName}-${PN}-fx.xpi -> ${P}.zip"
-
-DEPEND="x11-plugins/moz-ext-dom-inspector-plus-dm"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/file/318146/${addonName}-${PN}-sm+tb+fx.xpi -> ${P}.zip"
 
 S="${WORKDIR}"
 

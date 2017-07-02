@@ -33,4 +33,6 @@ src_install() {
 	fi
 	insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
 	doins -r ./
+	insinto "/usr/$(get_libdir)/thunderbird/extensions/$destDirName"
+	doins -r ./
 }
