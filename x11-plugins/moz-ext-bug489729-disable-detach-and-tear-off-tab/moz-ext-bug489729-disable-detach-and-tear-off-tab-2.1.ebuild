@@ -22,6 +22,11 @@ src_install() {
 	destDirName="$(cat install.rdf | grep "em:id=\"" | head -n 1)"
 	destDirName="${destDirName#*\"}"
 	destDirName="${destDirName%%\"*}"
+	if [[ -z "$destDirName" ]]; then
+		destDirName="$(cat install.rdf | grep "<em:id>" | head -n 1)"
+		destDirName="${destDirName#*>}"
+		destDirName="${destDirName%%<*}"
+	fi
 	insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
 	doins -r ./
 }
