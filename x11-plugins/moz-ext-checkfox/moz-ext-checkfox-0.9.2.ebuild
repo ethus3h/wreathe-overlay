@@ -11,7 +11,7 @@ HOMEPAGE="http://pragcraft.wordpress.com/checkfox/"
 
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-LICENSE="MIT"
+LICENSE="BSD-2"
 IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/123394/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
