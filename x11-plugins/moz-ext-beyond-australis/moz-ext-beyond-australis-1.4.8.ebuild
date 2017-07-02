@@ -11,7 +11,7 @@ HOMEPAGE="http://fasezero.com/"
 
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-LICENSE="MIT"
+LICENSE="MPL-2.0"
 IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/579644/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 

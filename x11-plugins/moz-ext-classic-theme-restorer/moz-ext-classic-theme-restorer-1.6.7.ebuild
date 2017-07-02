@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/Aris-t2/ClassicThemeRestorer"
 
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-LICENSE="MIT"
+LICENSE="BSD-2"
 IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/666292/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
