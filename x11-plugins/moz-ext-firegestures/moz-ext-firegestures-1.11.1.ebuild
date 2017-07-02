@@ -12,7 +12,6 @@ HOMEPAGE="http://www.xuldev.org/firegestures/"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="MPL-1.1"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/662818/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
 S="${WORKDIR}"

@@ -12,7 +12,6 @@ HOMEPAGE="https://www.cwesson.net/projects/LinkAlert/"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/538764/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
 S="${WORKDIR}"

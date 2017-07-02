@@ -12,7 +12,6 @@ HOMEPAGE="http://www.s3blog.org/s3menu-wizard.html"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="MPL-2.0"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/621144/${addonName}-${PN}-fx+sm+tb.xpi -> ${P}.zip"
 
 S="${WORKDIR}"

@@ -12,7 +12,6 @@ HOMEPAGE="https://github.com/Woundorf/foxreplace"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="GPL-2"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/608744/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
 S="${WORKDIR}"

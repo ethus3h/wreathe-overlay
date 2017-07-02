@@ -12,7 +12,6 @@ HOMEPAGE="http://www.cs.toronto.edu/~jdd/httplogout"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="freedist" # FIXME
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/186112/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
 S="${WORKDIR}"

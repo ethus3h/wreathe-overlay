@@ -12,7 +12,6 @@ HOMEPAGE="http://www.chrisfinke.com/addons/feedbar/"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="GPL-2"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/253008/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
 S="${WORKDIR}"

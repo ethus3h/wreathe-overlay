@@ -12,7 +12,6 @@ HOMEPAGE="https://github.com/mkiol/GNotifier"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/661151/${addonName}-${PN}-fx+sm+tb-linux.xpi -> ${P}.zip"
 
 S="${WORKDIR}"

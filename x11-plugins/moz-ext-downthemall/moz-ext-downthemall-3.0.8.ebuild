@@ -12,7 +12,6 @@ HOMEPAGE="http://www.downthemall.net/"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="GPL-2"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/511888/${addonName}-${PN}-fx+sm.xpi -> ${P}.zip"
 
 S="${WORKDIR}"

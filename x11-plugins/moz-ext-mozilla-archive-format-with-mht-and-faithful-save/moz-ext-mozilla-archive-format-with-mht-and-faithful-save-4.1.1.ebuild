@@ -12,7 +12,6 @@ HOMEPAGE="http://maf.mozdev.org/"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="MPL-1.1"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/662213/${addonName}-${PN}-fx+sm.xpi -> ${P}.zip"
 
 S="${WORKDIR}"

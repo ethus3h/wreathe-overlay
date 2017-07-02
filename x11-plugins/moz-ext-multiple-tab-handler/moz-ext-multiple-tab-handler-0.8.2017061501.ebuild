@@ -12,7 +12,6 @@ HOMEPAGE="http://piro.sakura.ne.jp/xul/_multipletab.html.en"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="MPL-1.1 GPL-2 LGPL-2.1"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/665530/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
 S="${WORKDIR}"

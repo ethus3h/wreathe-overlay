@@ -12,7 +12,6 @@ HOMEPAGE="https://groups.google.com/forum/#!forum/ddawson-addonssupport"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/544451/${addonName}-${PN}-fx+sm+tb.xpi -> ${P}.zip"
 
 S="${WORKDIR}"

@@ -12,7 +12,6 @@ HOMEPAGE="http://www.greasespot.net/"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="MIT"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/637042/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
 S="${WORKDIR}"

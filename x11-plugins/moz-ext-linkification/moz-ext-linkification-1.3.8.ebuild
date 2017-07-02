@@ -12,7 +12,6 @@ HOMEPAGE="http://yellow5.us/firefox/linkification/"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="GPL-2"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/80197/${addonName}-${PN}-fx+mz+sm.xpi -> ${P}.zip"
 
 S="${WORKDIR}"

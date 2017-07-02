@@ -12,7 +12,6 @@ HOMEPAGE="http://dmextension.mozdev.org/"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="MPL-1.1"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/630007/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
 S="${WORKDIR}"

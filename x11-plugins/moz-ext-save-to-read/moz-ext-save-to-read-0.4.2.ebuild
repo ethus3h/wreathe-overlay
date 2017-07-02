@@ -12,7 +12,6 @@ HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/save-to-read/"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="GPL-3"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/207410/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
 S="${WORKDIR}"

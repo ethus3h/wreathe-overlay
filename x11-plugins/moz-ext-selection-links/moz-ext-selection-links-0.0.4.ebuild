@@ -6,13 +6,13 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: warns on suspicious mix of characters from different scripts"
-HOMEPAGE="http://lingvo.org/idnd"
+DESCRIPTION="Mozilla extension: Fetches all links inside selection for opening or downloading"
+HOMEPAGE="http://code.google.com/p/selectionlinks/"
 
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-LICENSE="freedist" # FIXME
-SRC_URI="https://addons.mozilla.org/firefox/downloads/file/146786/${addonName}-${PN}-fx.xpi -> ${P}.zip"
+LICENSE="MPL-1.1"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/file/79739/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
 S="${WORKDIR}"
 

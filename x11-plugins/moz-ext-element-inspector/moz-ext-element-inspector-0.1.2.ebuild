@@ -12,7 +12,6 @@ HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/element-inspector/"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="MPL-1.1"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/616433/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
 DEPEND="x11-plugins/moz-ext-dom-inspector-plus-dm"

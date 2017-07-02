@@ -12,7 +12,6 @@ HOMEPAGE="https://github.com/yannleretaille/firefox-addon-webrtcindicatorremover
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="MIT"
-IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/458572/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
 S="${WORKDIR}"
