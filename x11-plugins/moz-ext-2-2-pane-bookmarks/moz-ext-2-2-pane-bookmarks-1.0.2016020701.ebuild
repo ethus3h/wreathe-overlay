@@ -3,14 +3,17 @@
 
 EAPI=6
 
+addonName="${PN/moz-ext-/}"
+addonName="${addonName//-/_}"
+
 DESCRIPTION="Mozilla extension: shows the Bookmarks sidebar panel with 2 pane style like Opera."
-HOMEPAGE="http://www.enigmail.net/"
+HOMEPAGE="http://piro.sakura.ne.jp/xul/_bookmarks2pane.html.en"
 
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="MPL-1.1 GPL-2 LGPL-2.1"
 IUSE=""
-SRC_URI="https://addons.mozilla.org/firefox/downloads/file/395991/2_2_pane_bookmarks-${PV}-fx.xpi -> ${P}.zip"
+SRC_URI="https://addons.mozilla.org/firefox/downloads/file/395991/${addonName}-${PV}-fx.xpi -> ${P}.zip"
 
 S="${WORKDIR}"
 
