@@ -12,6 +12,8 @@ LICENSE="MPL-1.1 GPL-2 LGPL-2.1"
 IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/395991/2_2_pane_bookmarks-${PV}-fx.xpi -> ${P}.zip"
 
+S="${WORKDIR}"
+
 src_install() {
 	insinto "/usr/$(get_libdir)/firefox/browser/extensions/${PN}"
 	doins -r ./
