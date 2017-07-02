@@ -13,7 +13,7 @@ HOMEPAGE="https://github.com/mozilla/shumway"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="Apache-2.0"
-SRC_URI="https://github.com/mozilla/${PN}/raw/${myCommit}/extension/firefox/${PN}.xpi -> ${P}.zip"
+SRC_URI="https://github.com/mozilla/${addonName}/raw/${myCommit}/extension/firefox/${addonName}.xpi -> ${P}.zip"
 
 S="${WORKDIR}"
 
