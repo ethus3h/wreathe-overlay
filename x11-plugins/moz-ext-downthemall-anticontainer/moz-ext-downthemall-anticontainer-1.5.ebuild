@@ -15,6 +15,9 @@ LICENSE="GPL-2"
 IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/424871/${addonName}-${PN}-sm+fx.xpi -> ${P}.zip"
 
+DEPEND="x11-plugins/moz-ext-downthemall"
+RDEPEND="${DEPEND}"
+
 S="${WORKDIR}"
 
 src_install() {
