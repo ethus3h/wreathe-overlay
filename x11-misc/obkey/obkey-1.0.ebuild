@@ -12,7 +12,6 @@ SRC_URI="http://obkey.googlecode.com/files/${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND=""
 RDEPEND="${DEPEND}

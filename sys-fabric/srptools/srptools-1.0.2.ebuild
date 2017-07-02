@@ -13,7 +13,6 @@ inherit openib
 DESCRIPTION="Tools for discovering and connecting to SRP CSI targets on InfiniBand fabrics"
 
 KEYWORDS="~amd64 ~x86 ~amd64-linux"
-IUSE=""
 
 DEPEND="
 	sys-fabric/libibverbs:${SLOT}

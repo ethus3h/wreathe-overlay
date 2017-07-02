@@ -11,7 +11,6 @@ SRC_URI="mirror://sourceforge/extremetuxracer/etr-${PV/_/}.tar.xz"
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="amd64 x86"
-IUSE=""
 
 RDEPEND="virtual/opengl
 	virtual/glu

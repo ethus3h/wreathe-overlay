@@ -13,7 +13,6 @@ SRC_URI="http://http.debian.net/debian/pool/main/t/${PN}/${PN}_6401+svn158.orig.
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 LICENSE="BSD MIT"
-IUSE=""
 
 DEPEND=">=virtual/jdk-1.4"
 RDEPEND=">=virtual/jre-1.4"

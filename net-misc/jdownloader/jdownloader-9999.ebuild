@@ -22,7 +22,6 @@ ESVN_REPO_URI="${ESVN_REPO_URI_JD}"
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS=""
-IUSE=""
 
 src_unpack() {
 	# subversion_fetch "${ESVN_REPO_URI_AW_UPDCLIENT}" appwork-updclient

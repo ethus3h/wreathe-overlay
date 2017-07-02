@@ -19,6 +19,5 @@ fi
 
 LICENSE="|| ( BSD CC-BY-SA-3.0 )"
 SLOT="0"
-IUSE=""
 
 DOCS=(AUTHORS ChangeLog README)

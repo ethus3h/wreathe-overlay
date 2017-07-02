@@ -13,7 +13,6 @@ SRC_URI="https://github.com/jordansissel/keynav/archive/${myCommit}.zip -> ${P}-
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 S="${WORKDIR}/${PN}-${myCommit}"
 

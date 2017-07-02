@@ -9,7 +9,6 @@ HOMEPAGE="https://github.com/Pulse-Eight/platform"
 LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~arm ~amd64 ~x86"
-IUSE=""
 
 DEPEND="|| ( dev-libs/libplatform dev-libs/libp8-platform )"
 RDEPEND="${DEPEND}"

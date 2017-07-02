@@ -13,7 +13,6 @@ SRC_URI="https://launchpad.net/do/trunk/${PV}/+download/${P}.tar.gz
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE=""
 
 RDEPEND="dev-lang/mono
 	>=dev-dotnet/gtk-sharp-2.12.21

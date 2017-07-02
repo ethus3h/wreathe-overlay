@@ -12,7 +12,6 @@ SRC_URI="https://web.archive.org/web/20150930132437/http://cli-apps.org/CONTENT/
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 RDEPEND="media-libs/libpng:=
 	x11-libs/libXcursor"

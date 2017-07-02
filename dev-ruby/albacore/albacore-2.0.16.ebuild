@@ -16,7 +16,6 @@ HOMEPAGE="http://www.albacorebuild.net/"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 ruby_add_bdepend ">=dev-ruby/nokogiri-1.5
 	<dev-ruby/nokogiri-2"

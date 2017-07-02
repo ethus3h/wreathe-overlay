@@ -11,7 +11,6 @@ SRC_URI="https://launchpad.net/${PN}/$(get_version_component_range 1-2)/${PV}/+d
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 RDEPEND="
 	app-accessibility/at-spi2-core

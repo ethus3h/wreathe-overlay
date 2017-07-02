@@ -11,7 +11,6 @@ SRC_URI="http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/
 LICENSE="OFL-1.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 RESTRICT="test"
 

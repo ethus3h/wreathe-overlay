@@ -8,7 +8,6 @@ inherit virtuoso
 DESCRIPTION="ODBC driver for OpenLink Virtuoso Open-Source Edition"
 
 KEYWORDS="~amd64 ~arm ~ppc ppc64 ~x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux"
-IUSE=""
 
 RDEPEND="
 	>=dev-libs/openssl-0.9.7i:0

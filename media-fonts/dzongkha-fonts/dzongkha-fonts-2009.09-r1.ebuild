@@ -13,7 +13,6 @@ SRC_URI="http://www.dit.gov.bt/sites/default/files/dzongkhafonts.zip -> ${P}.zip
 LICENSE="OFL"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
 
 DEPEND="app-arch/unzip"
 

@@ -15,7 +15,6 @@ SRC_URI="https://github.com/richardgv/${PN}/archive/${MY_REV}.zip -> ${P}.zip"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE=""
 
 RDEPEND="media-libs/imlib2[X]
 	x11-libs/libXext

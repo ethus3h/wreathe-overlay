@@ -12,7 +12,6 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 LICENSE="tmate"
-IUSE=""
 
 DEPEND=">=dev-vcs/subversion-1.5[java]
 	dev-java/trilead-ssh2

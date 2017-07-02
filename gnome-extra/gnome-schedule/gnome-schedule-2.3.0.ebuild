@@ -11,7 +11,6 @@ SRC_URI="mirror://sourceforge/${PN}/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
-IUSE=""
 
 RDEPEND=">=x11-libs/gtk+-2.6:=
 	>=gnome-base/gconf-2
