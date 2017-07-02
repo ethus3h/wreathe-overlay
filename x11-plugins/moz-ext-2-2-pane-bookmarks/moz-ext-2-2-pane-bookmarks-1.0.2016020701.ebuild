@@ -18,6 +18,9 @@ SRC_URI="https://addons.mozilla.org/firefox/downloads/file/395991/${addonName}-$
 S="${WORKDIR}"
 
 src_install() {
-	insinto "/usr/$(get_libdir)/firefox/browser/extensions/${PN}"
+	destDirName="$(cat install.rdf | grep "em:id=\"")"
+	destDirName="${destDirName#*\"}"
+	destDirName="${destDirName%*\"}"
+	insinto "/usr/$(get_libdir)/firefox/browser/extensions/${destDirName}"
 	doins -r ./
 }
