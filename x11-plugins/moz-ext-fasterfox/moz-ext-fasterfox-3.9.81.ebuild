@@ -7,13 +7,14 @@ addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
 DESCRIPTION="Mozilla extension: Gives performance & network tweaks for Firefox"
-HOMEPAGE="http://pragcraft.wordpress.com/checkfox/"
+HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/rsccmanfasterfox/"
 
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
-LICENSE="BSD-2"
+LICENSE="MPL-1.1 GPL-2 LGPL-2.1 GPL-3"
 IUSE=""
-SRC_URI="https://addons.mozilla.org/firefox/downloads/file/239283/${addonName}-${PN}-fx.xpi -> ${P}.zip"
+# There are newer versions, but the licensing is screwed up on them, and they don't appear to be critical updates anyway.
+SRC_URI="https://addons.mozilla.org/firefox/downloads/file/157259/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
 S="${WORKDIR}"
 
