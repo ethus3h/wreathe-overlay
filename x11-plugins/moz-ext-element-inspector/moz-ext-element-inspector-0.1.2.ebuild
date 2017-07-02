@@ -15,6 +15,8 @@ LICENSE="MPL-1.1"
 IUSE=""
 SRC_URI="https://addons.mozilla.org/firefox/downloads/file/616433/${addonName}-${PN}-fx.xpi -> ${P}.zip"
 
+DEPEND="x11-plugins/moz-ext-dom-inspector-plus-dm"
+
 S="${WORKDIR}"
 
 src_install() {
