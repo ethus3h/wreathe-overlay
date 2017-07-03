@@ -18,6 +18,7 @@ S="${WORKDIR}"
 
 src_install() {
 	if [[ -e "install.rdf" ]]; then
+		perl -lne 's/\r/\n/g; print' install.rdf > install.rdf.temp
 		destDirName="$(cat install.rdf | grep "em:id=\"" | head -n 1)"
 		destDirName="${destDirName#*\"}"
 		destDirName="${destDirName%%\"*}"
@@ -36,6 +37,7 @@ src_install() {
 		destDirName="${destDirName#* \"}"
 		destDirName="${destDirName%%\",*}"
 	fi
+	rm install.rdf.temp
 	insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
 	doins -r ./
 }
