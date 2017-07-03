@@ -17,6 +17,19 @@ SRC_URI="https://addons.mozilla.org/firefox/downloads/file/672156/${addonName}-$
 S="${WORKDIR}"
 
 src_install() {
-\tif \[\[ -e "install\.rdf" \]\]; then\n\tdestDirName="$(cat install\.rdf | grep "em:id=\"" | head -n 1)"\n\tdestDirName="${destDirName#*\"}"\n\tdestDirName="${destDirName%%\"*}"\n\tif \[\[ -z "$destDirName" \]\]; then\n\t\tdestDirName="$(cat install\.rdf | grep "<em:id>" | head -n 1)"\n\t\tdestDirName="${destDirName#*>}"\n\t\tdestDirName="${destDirName%%<*}"\n\tfi\n\tif \[\[ -z "$destDirName" \]\]; then\n\t\tdestDirName="$(cat install\.rdf | grep "<id>" | head -n 1)"\n\t\tdestDirName="${destDirName#*>}"\n\t\tdestDirName="${destDirName%%<*}"\n\tfi\nelse\n\tdestDirName="$(cat install\.rdf | grep "\"id:\"" | head -n 1)"\n\tdestDirName="${destDirName#* \"}"\n\tdestDirName="${destDirName%%\",*}"\n\tfi\n	insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
+	destDirName="$(cat install.rdf | grep "em:id=\"" | head -n 1)"
+	destDirName="${destDirName#*\"}"
+	destDirName="${destDirName%%\"*}"
+	if [[ -z "$destDirName" ]]; then
+		destDirName="$(cat install.rdf | grep "<em:id>" | head -n 1)"
+		destDirName="${destDirName#*>}"
+		destDirName="${destDirName%%<*}"
+	fi
+	if [[ -z "$destDirName" ]]; then
+		destDirName="$(cat install.rdf | grep "<id>" | head -n 1)"
+		destDirName="${destDirName#*>}"
+		destDirName="${destDirName%%<*}"
+	fi
+	insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
 	doins -r ./
 }
