@@ -17,25 +17,6 @@ SRC_URI="https://addons.mozilla.org/firefox/downloads/file/581411/${addonName}-$
 S="${WORKDIR}"
 
 src_install() {
-	if \[\[ -e "install\.rdf" \]\]; then
-	destDirName="$(cat install\.rdf | grep "em:id=\"" | head -n 1)"
-	destDirName="${destDirName#*\"}"
-	destDirName="${destDirName%%\"*}"
-	if \[\[ -z "$destDirName" \]\]; then
-		destDirName="$(cat install\.rdf | grep "<em:id>" | head -n 1)"
-		destDirName="${destDirName#*>}"
-		destDirName="${destDirName%%<*}"
-	fi
-	if \[\[ -z "$destDirName" \]\]; then
-		destDirName="$(cat install\.rdf | grep "<id>" | head -n 1)"
-		destDirName="${destDirName#*>}"
-		destDirName="${destDirName%%<*}"
-	fi
-else
-	destDirName="$(cat install\.rdf | grep "\"id:\"" | head -n 1)"
-	destDirName="${destDirName#* \"}"
-	destDirName="${destDirName%%\",*}"
-	fi
-	insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
+20170702200724584804970_2d303430300a2a19880b2b144005adb5a067335685b3	insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
 	doins -r ./
 }
