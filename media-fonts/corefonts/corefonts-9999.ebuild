@@ -3,7 +3,7 @@
 
 EAPI=6
 
-DESCRIPTION="Microsoft's TrueType core fonts — fake package"
+DESCRIPTION="Microsoft's TrueType core fonts: fake package"
 HOMEPAGE="http://corefonts.sourceforge.net/"
 
 LICENSE="AGPL-3"

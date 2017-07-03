@@ -18,10 +18,10 @@ IUSE="doc test"
 
 RDEPEND="dev-python/requests[${PYTHON_USEDEP}]
 	dev-python/jsonpatch
-  dev-python/docopt
-  dev-python/clint
-  dev-python/six
-  dev-python/schema
-  dev-python/backports-csv"
+	dev-python/docopt
+	dev-python/clint
+	dev-python/six
+	dev-python/schema
+	dev-python/backports-csv"
 
 DEPEND="${RDEPEND}"
