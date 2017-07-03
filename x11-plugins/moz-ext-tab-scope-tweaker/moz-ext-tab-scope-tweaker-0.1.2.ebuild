@@ -35,7 +35,7 @@ src_install() {
 			destDirName="${destDirName%%<*}"
 		fi
 	else
-		destDirName="$(cat install.rdf | grep "\"id:\"" | head -n 1)"
+		destDirName="$(cat manifest.json | grep "\"id:\"" | head -n 1)"
 		destDirName="${destDirName#* \"}"
 		destDirName="${destDirName%%\",*}"
 	fi
