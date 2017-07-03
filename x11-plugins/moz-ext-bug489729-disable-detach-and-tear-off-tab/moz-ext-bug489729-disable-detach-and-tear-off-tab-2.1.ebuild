@@ -18,19 +18,6 @@ SRC_URI="https://github.com/ethus3h/personal/raw/9b66cccc4f148ea0db640ab15417cf0
 S="${WORKDIR}"
 
 src_install() {
-	destDirName="$(cat install.rdf | grep "em:id=\"" | head -n 1)"
-	destDirName="${destDirName#*\"}"
-	destDirName="${destDirName%%\"*}"
-	if [[ -z "$destDirName" ]]; then
-		destDirName="$(cat install.rdf | grep "<em:id>" | head -n 1)"
-		destDirName="${destDirName#*>}"
-		destDirName="${destDirName%%<*}"
-	fi
-	if [[ -z "$destDirName" ]]; then
-		destDirName="$(cat install.rdf | grep "<id>" | head -n 1)"
-		destDirName="${destDirName#*>}"
-		destDirName="${destDirName%%<*}"
-	fi
-	insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
+\tif \[\[ -e "install\.rdf" \]\]; then\n\tdestDirName="$(cat install\.rdf | grep "em:id=\"" | head -n 1)"\n\tdestDirName="${destDirName#*\"}"\n\tdestDirName="${destDirName%%\"*}"\n\tif \[\[ -z "$destDirName" \]\]; then\n\t\tdestDirName="$(cat install\.rdf | grep "<em:id>" | head -n 1)"\n\t\tdestDirName="${destDirName#*>}"\n\t\tdestDirName="${destDirName%%<*}"\n\tfi\n\tif \[\[ -z "$destDirName" \]\]; then\n\t\tdestDirName="$(cat install\.rdf | grep "<id>" | head -n 1)"\n\t\tdestDirName="${destDirName#*>}"\n\t\tdestDirName="${destDirName%%<*}"\n\tfi\nelse\n\tdestDirName="$(cat install\.rdf | grep "\"id:\"" | head -n 1)"\n\tdestDirName="${destDirName#* \"}"\n\tdestDirName="${destDirName%%\",*}"\n\tfi\n	insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
 	doins -r ./
 }
