@@ -20,16 +20,16 @@ S="${WORKDIR}"
 
 src_install() {
 	if [[ -e "install.rdf" ]]; then
-		destDirName="$(cat install.rdf | grep "em:id=\"" | head -n 1)"
+		destDirName="$(cat install.rdf | sed 's/\r/\n/' | grep "em:id=\"" | head -n 1)"
 		destDirName="${destDirName#*\"}"
 		destDirName="${destDirName%%\"*}"
 		if [[ -z "$destDirName" ]]; then
-			destDirName="$(cat install.rdf | grep "<em:id>" | head -n 1)"
+			destDirName="$(cat install.rdf | sed 's/\r/\n/' | grep "<em:id>" | head -n 1)"
 			destDirName="${destDirName#*>}"
 			destDirName="${destDirName%%<*}"
 		fi
 		if [[ -z "$destDirName" ]]; then
-			destDirName="$(cat install.rdf | grep "<id>" | head -n 1)"
+			destDirName="$(cat install.rdf | sed 's/\r/\n/' | grep "<id>" | head -n 1)"
 			destDirName="${destDirName#*>}"
 			destDirName="${destDirName%%<*}"
 		fi
