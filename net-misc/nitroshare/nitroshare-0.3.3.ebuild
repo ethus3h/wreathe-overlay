@@ -1,6 +1,5 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 EAPI=6
 
@@ -15,11 +14,8 @@ if [[ ${PV} == *9999* ]];then
 	EGIT_REPO_URI="https://github.com/${PN}/${PN}-desktop"
 	KEYWORDS=""
 else
-	inherit versionator
-	MY_BR=$(get_version_component_range 1-2)
-	SRC_URI="https://launchpad.net/nitroshare/${MY_BR}/${PV}/+download/${P}.tar.gz"
-	KEYWORDS="x86 amd64"
-	RESTRICT="mirror"
+	SRC_URI="https://github.com/${PN}/${PN}-desktop/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~x86 ~amd64"
 fi
 
 LICENSE="MIT"
@@ -27,6 +23,7 @@ SLOT="0"
 IUSE="appindicator"
 
 DEPEND="
+  dev-qt/qhttpengine
 	>=dev-qt/qtcore-5.1:5
 	>=dev-qt/qtsvg-5.1:5
 	>=dev-qt/qtnetwork-5.1:5
