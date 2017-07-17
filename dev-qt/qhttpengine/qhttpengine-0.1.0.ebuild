@@ -35,6 +35,7 @@ src_configure() {
 		-DBUILD_EXAMPLES="$(usex examples)"
 		-DBUILD_TESTS="$(usex test)"
 	)
+	default
 }
 
 src_install() {
