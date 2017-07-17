@@ -20,7 +20,7 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="doc"
+IUSE="doc examples test"
 
 DEPEND="
 	>=dev-qt/qtcore-5.4:5
@@ -29,13 +29,12 @@ DEPEND="
 
 RDEPEND="${DEPEND}"
 
-src_compile() {
-	default
-	if use doc; then
-		pushd doc > /dev/null || die "doc/ does not exist"
-		emake html
-		popd > /dev/null
-	fi
+src_configure() {
+	local mycmakeargs=(
+		$(cmake-utils_use doc BUILD_DOC)
+		$(cmake-utils_use examples BUILD_EXAMPLES)
+		$(cmake-utils_use test BUILD_TESTS)
+	)
 }
 
 src_install() {
