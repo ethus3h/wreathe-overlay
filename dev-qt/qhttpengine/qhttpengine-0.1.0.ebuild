@@ -11,10 +11,10 @@ DESCRIPTION="Simple set of classes for developing HTTP server applications in Qt
 HOMEPAGE="https://github.com/nitroshare/qhttpengine"
 if [[ ${PV} == *9999* ]];then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/${PN}/${PN}"
+	EGIT_REPO_URI="https://github.com/nitroshare/${PN}"
 	KEYWORDS=""
 else
-  SRC_URI="https://github.com/${PN}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+  SRC_URI="https://github.com/nitroshare/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~x86 ~amd64"
 fi
 
