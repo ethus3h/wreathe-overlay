@@ -40,8 +40,4 @@ src_configure() {
 
 src_install() {
 	default
-	if use doc; then
-		insinto /usr/share/doc/${PF}
-		dohtml -r doc/doxygen/html/*
-	fi
 }
