@@ -35,7 +35,7 @@ src_configure() {
 		-DBUILD_EXAMPLES="$(usex examples)"
 		-DBUILD_TESTS="$(usex test)"
 	)
-	default
+	cmake-utils_src_configure
 }
 
 src_install() {
