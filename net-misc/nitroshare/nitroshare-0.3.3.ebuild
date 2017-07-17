@@ -21,6 +21,7 @@ fi
 LICENSE="MIT"
 SLOT="0"
 IUSE="appindicator"
+S="${WORKDIR}/${PN}-desktop-${PV}"
 
 DEPEND="
   dev-qt/qhttpengine
