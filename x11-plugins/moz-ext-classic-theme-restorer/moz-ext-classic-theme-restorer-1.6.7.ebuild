@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: Squared tabs, appmenu, add-on bar, small button view and many more 'old' features"
+DESCRIPTION="Mozilla extension: Squared tabs, appmenu, small button view, etc."
 HOMEPAGE="https://github.com/Aris-t2/ClassicThemeRestorer"
 
 KEYWORDS="~amd64 ~x86"

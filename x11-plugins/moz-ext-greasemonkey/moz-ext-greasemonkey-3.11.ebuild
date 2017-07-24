@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: Customize the way a web page displays or behaves using JavaScript"
+DESCRIPTION="Mozilla extension: Customize web pages using JavaScript"
 HOMEPAGE="http://www.greasespot.net/"
 
 KEYWORDS="~amd64 ~x86"

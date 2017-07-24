@@ -14,7 +14,7 @@ if [[ ${PV} == *9999* ]];then
 	EGIT_REPO_URI="https://github.com/nitroshare/${PN}"
 	KEYWORDS=""
 else
-  SRC_URI="https://github.com/nitroshare/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/nitroshare/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~x86 ~amd64"
 fi
 
@@ -22,12 +22,12 @@ LICENSE="MIT"
 SLOT="0"
 IUSE="doc examples test"
 
-DEPEND="
+RDEPEND="
 	>=dev-qt/qtcore-5.4:5
-	>=dev-qt/qtnetwork-5.4:5
-	doc? ( app-doc/doxygen )"
+	>=dev-qt/qtnetwork-5.4:5"
 
-RDEPEND="${DEPEND}"
+DEPEND="${RDEPEND}
+	doc? ( app-doc/doxygen )"
 
 src_configure() {
 	local mycmakeargs=(

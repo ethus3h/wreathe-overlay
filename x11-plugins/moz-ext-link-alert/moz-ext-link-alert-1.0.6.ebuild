@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: icon in the tooltip or next to the cursor indicating the target of a link"
+DESCRIPTION="Mozilla extension: icon indicating the target of a link"
 HOMEPAGE="https://www.cwesson.net/projects/LinkAlert/"
 
 KEYWORDS="~amd64 ~x86"

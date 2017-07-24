@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: Remove, move, rename, and restyle menus and menu items; edit shortcuts"
+DESCRIPTION="Mozilla extension: Edit menus and menu items; edit shortcuts"
 HOMEPAGE="http://www.s3blog.org/s3menu-wizard.html"
 
 KEYWORDS="~amd64 ~x86"

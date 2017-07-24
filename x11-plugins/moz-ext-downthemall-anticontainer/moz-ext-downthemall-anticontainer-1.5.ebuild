@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: Make the resources behind container pages easily downloadable by DownThemAll!"
+DESCRIPTION="Mozilla extension: DownThemAll container page resources"
 HOMEPAGE="https://github.com/downthemall/anticontainer"
 
 KEYWORDS="~amd64 ~x86"

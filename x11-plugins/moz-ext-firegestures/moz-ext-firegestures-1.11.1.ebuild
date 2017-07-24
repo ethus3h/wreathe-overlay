@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: enables to execute various commands and user scripts with gestures"
+DESCRIPTION="Mozilla extension: execute various commands with gestures"
 HOMEPAGE="http://www.xuldev.org/firegestures/"
 
 KEYWORDS="~amd64 ~x86"

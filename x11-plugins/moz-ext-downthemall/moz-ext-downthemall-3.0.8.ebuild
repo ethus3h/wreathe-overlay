@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: The first and only download manager/accelerator built inside Firefox!"
+DESCRIPTION="Mozilla extension: Download manager/accelerator built inside Firefox"
 HOMEPAGE="http://www.downthemall.net/"
 
 KEYWORDS="~amd64 ~x86"

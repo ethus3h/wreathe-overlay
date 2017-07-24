@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: Lets you capture an image of a web page, select the part you want and save it."
+DESCRIPTION="Mozilla extension: Lets you capture an image of a web page"
 HOMEPAGE="https://www.caisc.co.in/"
 
 KEYWORDS="~amd64 ~x86"

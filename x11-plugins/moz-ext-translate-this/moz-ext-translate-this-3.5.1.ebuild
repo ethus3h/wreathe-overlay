@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: Translate the whole entire page or just a selection using Google Translate."
+DESCRIPTION="Mozilla extension: Translate Web content using Google Translate"
 HOMEPAGE="https://github.com/BoringCode/TranslateThis"
 
 KEYWORDS="~amd64 ~x86"

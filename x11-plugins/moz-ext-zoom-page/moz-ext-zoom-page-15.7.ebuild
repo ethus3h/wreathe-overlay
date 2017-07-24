@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: Full featured zoom manager with independent page and image zoom modes"
+DESCRIPTION="Mozilla extension: More detailed zoom configuration"
 HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/zoom-page/"
 
 KEYWORDS="~amd64 ~x86"

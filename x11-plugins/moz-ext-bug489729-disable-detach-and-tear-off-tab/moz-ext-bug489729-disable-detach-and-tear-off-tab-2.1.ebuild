@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: Fix that clicking a tab once and then moving mouse opens window."
+DESCRIPTION="Mozilla extension: Fix clicking a tab once and then moving mouse opens window"
 HOMEPAGE="http://space.geocities.yahoo.co.jp/gl/alice0775"
 
 KEYWORDS="~amd64 ~x86"

@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: restores support for Gopher servers, plus CSO/ph searches, finger, whois and more!"
+DESCRIPTION="Mozilla extension: Gopher servers, CSO/ph searches, finger, whois, etc."
 HOMEPAGE="http://gopher.floodgap.com/overbite/"
 
 KEYWORDS="~amd64 ~x86"

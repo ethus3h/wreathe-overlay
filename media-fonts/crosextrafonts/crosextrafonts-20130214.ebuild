@@ -6,6 +6,7 @@ EAPI="6"
 inherit font
 
 DESCRIPTION="Caladea font for Chrom*OS by Huerta Tipografia"
+HOMEPAGE="https://directory.fsf.org/wiki/Crosextrafonts"
 SRC_URI="http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/${P}.tar.gz"
 
 LICENSE="OFL-1.1"

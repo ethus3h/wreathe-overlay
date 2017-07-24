@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: adds a menu and a toolbar button to switch the user agent of a browser"
+DESCRIPTION="Mozilla extension: Switch the user agent of the browser"
 HOMEPAGE="http://chrispederick.com/work/user-agent-switcher/"
 
 KEYWORDS="~amd64 ~x86"

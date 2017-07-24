@@ -20,18 +20,18 @@ fi
 
 LICENSE="MIT"
 SLOT="0"
-IUSE="appindicator"
+IUSE="ayatana"
 S="${WORKDIR}/${PN}-desktop-${PV}"
 
 DEPEND="
-  dev-qt/qhttpengine
+	dev-qt/qhttpengine
 	>=dev-qt/qtcore-5.1:5
 	>=dev-qt/qtsvg-5.1:5
 	>=dev-qt/qtnetwork-5.1:5
 	x11-libs/libnotify"
 
 RDEPEND="${DEPEND}
-	appindicator? (
+	ayatana? (
 		x11-libs/gtk+:2
 		dev-libs/libappindicator:2
 	)"

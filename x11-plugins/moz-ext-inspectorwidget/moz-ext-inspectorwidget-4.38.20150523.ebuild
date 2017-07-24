@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: Adds toolbar button and context menus for invoking the DOM Inspector"
+DESCRIPTION="Mozilla extension: Adds UI for invoking the DOM Inspector"
 HOMEPAGE="http://www.projectit.com/"
 
 KEYWORDS="~amd64 ~x86"

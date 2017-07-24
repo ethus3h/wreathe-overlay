@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: Enable HTTPS encryption automatically on sites that are known to support it"
+DESCRIPTION="Mozilla extension: Enable HTTPS encryption automatically"
 HOMEPAGE="https://www.eff.org/https-everywhere"
 
 KEYWORDS="~amd64 ~x86"

@@ -35,7 +35,7 @@ COMMON_DEPEND="
 	x11-libs/libdrm:=
 	x11-libs/pango:=[X]
 	jack? (
-		media-sound/jack-audio-connection-kit
+		media-sound/jack-audio-connection-kit:*
 		media-libs/soxr
 	)
 	pulseaudio? ( media-sound/pulseaudio )

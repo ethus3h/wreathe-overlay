@@ -6,7 +6,7 @@ EAPI=6
 addonName="${PN/moz-ext-/}"
 addonName="${addonName//-/_}"
 
-DESCRIPTION="Mozilla extension: Download manager can open in a tab or sidebar, and optional display changes"
+DESCRIPTION="Mozilla extension: Download manager in a tab or sidebar"
 HOMEPAGE="http://dmextension.mozdev.org/"
 
 KEYWORDS="~amd64 ~x86"

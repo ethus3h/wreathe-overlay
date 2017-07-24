@@ -17,7 +17,7 @@ DEPEND=">=dev-vcs/subversion-1.5[java]
 	dev-java/trilead-ssh2
 	=dev-java/sequence-${PV}
 	dev-java/jna:*
-	>=virtual/jdk-1.4"
+	>=virtual/jdk-1.4:*"
 RDEPEND="${DEPEND}
 	>=virtual/jre-1.4"
 
