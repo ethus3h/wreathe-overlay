@@ -26,10 +26,14 @@ src_configure() {
 
 src_install() {
 	default
-
+	
 	rm -f "${ED}"/usr/share/sounds/sf2/README-bank
 	newinitd "${FILESDIR}"/sfxload.initd sfxload
 	newconfd "${FILESDIR}"/sfxload.confd sfxload
+
+	insinto "/usr/include/${PN}"
+	doins -r awelib
+	doins -r include
 }
 
 pkg_postinst() {
