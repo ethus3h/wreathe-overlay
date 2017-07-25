@@ -28,7 +28,7 @@ src_prepare() {
 		source ember_bash_setup &> /dev/null
 		ereplace "@version@" "${PV}" build.properties
 		ereplace "@jdk@" "$JAVA_HOME" build.properties
-		ereplace "@awesfx@" "/usr/bin" build.properties
+		ereplace "@awesfx@" "/usr/include/awesfx" build.properties
 	)
 	default
 }
