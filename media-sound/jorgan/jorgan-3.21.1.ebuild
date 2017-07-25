@@ -30,6 +30,7 @@ src_prepare() {
 		ereplace "@jdk@" "$JAVA_HOME" build.properties
 		ereplace "@awesfx@" "/usr/bin" build.properties
 	)
+	default
 }
 
 src_compile() {
