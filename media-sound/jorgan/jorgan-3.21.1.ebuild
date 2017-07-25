@@ -14,10 +14,10 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-java/ant
-	>=virtual/jdk-1.7:*
+	>=virtual/jdk-1.6:*
 	media-sound/awesfx"
 DEPEND="${RDEPEND}
-	>=virtual/jre-1.7"
+	>=virtual/jre-1.6"
 
 EANT_BUILD_XML="build.xml"
 EANT_BUILD_TARGET="all"
