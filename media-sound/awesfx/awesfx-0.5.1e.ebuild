@@ -32,6 +32,7 @@ src_install() {
 	newconfd "${FILESDIR}"/sfxload.confd sfxload
 
 	insinto "/usr/include/${PN}"
+	rm awelib/*.o
 	doins -r awelib
 	doins -r include
 }
