@@ -42,11 +42,7 @@ src_install() {
 	(
 		set -x
 		cd jorgan-package/src || die
-		(
-			# shellcheck disable=SC1091
-			source ember_bash_setup &> /dev/null
-			ereplace $'\r' "" debian/install
-		)
+		sed -i 's/\r//g' debian/install
 		IFS=$'\n'
 		while read -r line; do
 			item="$(awk '{print $1;}' <<< "$line" )"
