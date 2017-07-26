@@ -9,7 +9,7 @@ DESCRIPTION="Java-based MIDI-Processor"
 HOMEPAGE="https://github.com/ethus3h/jorgan"
 SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="GPL-3"
+LICENSE="GPL-3 LGPL-2.1"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
@@ -35,4 +35,24 @@ src_prepare() {
 
 src_compile() {
 	java-pkg-2_src_compile
+}
+
+src_install() {
+	(
+		cd jorgan-package/src
+		while read -r line; do
+			item="$(awk '{print $1;}')"
+			dest="$(awk '{print $2;}')"
+			insinto "$dest"
+			if [[ "$item" == *\* ]]; then
+				doins "${item::-1}"*
+			else
+				doins "$item"
+			fi
+		done <debian/install
+	)
+}
+
+pkg_config() {
+	jorgan-package/src/debian/input/postinst
 }
