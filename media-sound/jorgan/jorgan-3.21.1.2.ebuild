@@ -15,7 +15,8 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-java/ant
 	>=virtual/jdk-1.6:*
-	media-sound/awesfx"
+	media-sound/awesfx
+	app-misc/ember-shared"
 DEPEND="${RDEPEND}
 	>=virtual/jre-1.6"
 
@@ -40,7 +41,12 @@ src_compile() {
 src_install() {
 	(
 		set -x
-		cd jorgan-package/src
+		cd jorgan-package/src || die
+		(
+			# shellcheck disable=SC1091
+			source ember_bash_setup &> /dev/null
+			ereplace $'\r' "" debian/install
+		)
 		IFS=$'\n'
 		while read -r line; do
 			item="$(awk '{print $1;}' <<< "$line" )"
