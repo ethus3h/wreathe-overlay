@@ -40,6 +40,8 @@ src_compile() {
 
 src_install() {
 	(
+		# shellcheck disable=SC1091
+		source ember_bash_setup &> /dev/null
 		set -x
 		cd jorgan-package/src || die
 		sed -i 's/\r//g' debian/install
