@@ -43,6 +43,7 @@ src_install() {
 		# shellcheck disable=SC1091
 		source ember_bash_setup &> /dev/null
 		set -x
+		trap 'die "A fatal error was reported on ${BASH_SOURCE[0]} line ${LINENO}."' ERR
 		cd jorgan-package/src || die
 		sed -i 's/\r//g' debian/install
 		IFS=$'\n'
