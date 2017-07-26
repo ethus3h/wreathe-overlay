@@ -40,9 +40,10 @@ src_compile() {
 src_install() {
 	(
 		cd jorgan-package/src
+		IFS=$'\n'
 		while read -r line; do
-			item="$(awk '{print $1;}')"
-			dest="$(awk '{print $2;}')"
+			item="$(awk '{print $1;}' <<< "$line" )"
+			dest="$(awk '{print $2;}' <<< "$line")"
 			insinto "$dest"
 			if [[ "$item" == *\* ]]; then
 				doins "${item::-1}"*

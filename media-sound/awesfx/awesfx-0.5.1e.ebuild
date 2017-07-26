@@ -33,6 +33,9 @@ src_install() {
 
 	insinto "/usr/include/${PN}"
 	rm awelib/*.o
+	rm awelib/*.a
+	rm awelib/Makefile*
+	rm include/Makefile*
 	doins -r awelib
 	doins -r include
 }
