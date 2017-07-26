@@ -52,9 +52,12 @@ src_install() {
 			dest="$(awk '{print $2;}' <<< "$line" )"
 			insinto "$dest"
 			if [[ "$item" == *\* ]]; then
-				doins "${item::-1}"*
+				files=("${item::-1}"*)
+				for file in "${files[@]}"; do
+					doins -r "$file"
+				done
 			else
-				doins "$item"
+				doins -r "$item"
 			fi
 		done <debian/install
 	)
