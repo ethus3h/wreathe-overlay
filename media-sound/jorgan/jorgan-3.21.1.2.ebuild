@@ -58,6 +58,7 @@ src_install() {
 			fi
 		done <debian/install
 	)
+	fperms +x /usr/bin/jorgan
 }
 
 pkg_config() {
