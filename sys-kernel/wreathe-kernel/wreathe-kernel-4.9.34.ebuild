@@ -33,10 +33,9 @@ pkg_postinst() {
 
 src_compile() {
 	kernel-2_src_compile
-	mkdir "${WORKDIR}/boot"
 	cp -r "${S}" "${WORKDIR}/kernel-src-dir"
 	(
-		mkdir "${WORKDIR}/kernel-build-dir"
+		mkdir -p "${WORKDIR}/kernel-build-dir/boot"
 		mkdir "${WORKDIR}/kernel-tmp-dir"
 		cd "${WORKDIR}/kernel-build-dir"
 		genkernel \
