@@ -34,28 +34,39 @@ pkg_postinst() {
 src_compile() {
 	kernel-2_src_compile
 	mkdir "${WORKDIR}/boot"
-	cd "${WORKDIR}" || die
-	rsync -a --checksum --no-i-r "${S}/" "${WORKDIR}/kernel-build-dir"
-	genkernel \
-		--bootdir="${WORKDIR}/boot" \
-		--cachedir="${WORKDIR}/genkernel.cache" \
-		--kernel-config="${DISTDIR}/${P}-${wreatheCommit}.config" \
-		--kerneldir="${S}" \
-		--logfile="${WORKDIR}/genkernel.log" \
-		--module-prefix="${WORKDIR}" \
-		--no-menuconfig \
-		--no-mountboot \
-		--no-save-config \
-		--plymouth \
-		--plymouth-theme=simply_line \
-		--tempdir="${WORKDIR}/genkernel.tmp" \
-		all || die "Genkernel reported a failure status."
+	cp -r "${S}" "${WORKDIR}/kernel-src-dir"
+	(
+		mkdir "${WORKDIR}/kernel-build-dir"
+		mkdir "${WORKDIR}/kernel-tmp-dir"
+		cd "${WORKDIR}/kernel-build-dir"
+		genkernel \
+			--bootdir="${WORKDIR}/kernel-build-dir/boot" \
+			--cachedir="${WORKDIR}/kernel-tmp-dir/genkernel.cache" \
+			--kernel-config="${FILESDIR}/wreathe.config" \
+			--kerneldir="${WORKDIR}/kernel-src-dir" \
+			--logfile="${WORKDIR}/kernel-tmp-dir/genkernel.log" \
+			--module-prefix="${WORKDIR}/kernel-build-dir" \
+			--no-menuconfig \
+			--no-mountboot \
+			--no-save-config \
+			--plymouth \
+			--plymouth-theme=simply_line \
+			--tempdir="${WORKDIR}/kernel-tmp-dir/genkernel.tmp" \
+			all || die "Genkernel reported a failure status."
+	)
 }
 
 src_install() {
-	default
 	insinto /
-	cp "${WORKDIR}/boot" "${DESTDIR}"
+	(
+		shopt -s dotglob
+		doins -r "${WORKDIR}/kernel-build-dir"/*
+		shopt -u dotglob
+	)
+	rm -r "${WORKDIR}/kernel-build-dir"
+	rm -r "${WORKDIR}/kernel-src-dir"
+	rm -r "${WORKDIR}/kernel-tmp-dir"
+	default
 }
 
 pkg_postinst() {
