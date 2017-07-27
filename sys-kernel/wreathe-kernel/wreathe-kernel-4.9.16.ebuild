@@ -23,7 +23,7 @@ DEPEND="${DEPEND}
 	sys-apps/busybox"
 
 pkg_pretend() {
-	mountpoint -q /boot || die
+	mountpoint -q /boot || die "/boot needs to be mounted to use the automated kernel ebuild."
 }
 
 pkg_postinst() {
