@@ -65,7 +65,7 @@ src_install() {
 	rm -r "${WORKDIR}/kernel-build-dir"
 	rm -r "${WORKDIR}/kernel-src-dir"
 	rm -r "${WORKDIR}/kernel-tmp-dir"
-	default
+	kernel-2_src_install
 }
 
 pkg_postinst() {
