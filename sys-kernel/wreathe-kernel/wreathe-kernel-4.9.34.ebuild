@@ -20,7 +20,7 @@ SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}"
 DEPEND="${DEPEND}
 	sys-kernel/genkernel-next
 	sys-apps/busybox
-	firmware? ( sys-kernel/linux-firmware )
+	firmware? ( sys-kernel/linux-firmware app-portage/gentoolkit )
 	!firmware? ( !sys-kernel/linux-firmware )"
 
 pkg_pretend() {
