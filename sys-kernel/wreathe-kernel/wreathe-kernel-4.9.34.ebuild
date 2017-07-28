@@ -59,7 +59,10 @@ src_compile() {
 
 src_install() {
 	if use firmware; then
-		externalFirmware="$(equery f linux-firmware | tail -n +1 | sed '/ -> /d')"
+		(
+			IFS=$'\n' read -r -a externalFirmware <<< "$(equery f linux-firmware | tail -n +1 | sed '/ -> /d')"
+			
+		)
 	fi
 	insinto /
 	(
