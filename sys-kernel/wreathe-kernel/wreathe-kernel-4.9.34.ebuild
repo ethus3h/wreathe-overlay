@@ -39,7 +39,7 @@ src_compile() {
 	(
 		mkdir -p "${WORKDIR}/kernel-build-dir/boot"
 		mkdir "${WORKDIR}/kernel-tmp-dir"
-		cd "${WORKDIR}/kernel-build-dir"
+		cd "${WORKDIR}/kernel-build-dir" || die
 		genkernel \
 			--bootdir="${WORKDIR}/kernel-build-dir/boot" \
 			--cachedir="${WORKDIR}/kernel-tmp-dir/genkernel.cache" \
