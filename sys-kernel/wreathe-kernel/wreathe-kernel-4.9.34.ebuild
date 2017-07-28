@@ -12,14 +12,16 @@ detect_arch
 
 KEYWORDS="alpha amd64 ~arm ~arm64 hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86"
 HOMEPAGE="https://dev.gentoo.org/~mpagano/genpatches"
-IUSE="experimental"
+IUSE="experimental firmware"
 
 DESCRIPTION="Built sources including the Gentoo patchset for the ${KV_MAJOR}.${KV_MINOR} kernel tree"
 SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}"
 
 DEPEND="${DEPEND}
 	sys-kernel/genkernel-next
-	sys-apps/busybox"
+	sys-apps/busybox
+	firmware? ( sys-kernel/linux-firmware )
+	!firmware? ( !sys-kernel/linux-firmware )"
 
 pkg_pretend() {
 	mountpoint -q /boot || die "/boot needs to be mounted to use the automated kernel ebuild."
@@ -56,6 +58,9 @@ src_compile() {
 }
 
 src_install() {
+	if use firmware; then
+		externalFirmware="$(equery f linux-firmware | tail -n +1 | sed '/ -> /d')"
+	fi
 	insinto /
 	(
 		shopt -s dotglob
