@@ -91,19 +91,21 @@ pkg_postinst() {
 	einfo "For more info on this patchset, and how to report problems, see:"
 	einfo "${HOMEPAGE}"
 	# Send notification about kernel update to users
-	getent passwd | while IFS=: read -r name password uid gid gecos home shell; do
-		top="${home#/}"
-		top="${top%%/*}"
-		case $top in
-			|bin|dev|etc|lib*|no*|proc|sbin|usr|var)
-				# probably not a human, so don't bother notfiying
-				true
-				;;
-			*)
-				DISPLAY=:0 sudo -u "$name" bash -c 'DISPLAY=:0 notify-send "A kernel update has been installed. A system administrator can reboot the computer to use the new kernel."'
-		esac
-		echo "$name's home directory is $home"
-	done
+	(
+		getent passwd | while IFS=: read -r name password uid gid gecos home shell; do
+			top="${home#/}"
+			top="${top%%/*}"
+			case $top in
+				|bin|dev|etc|lib*|no*|proc|sbin|usr|var)
+					# probably not a human, so don't bother notfiying
+					true
+					;;
+				*)
+					DISPLAY=:0 sudo -u "$name" bash -c 'DISPLAY=:0 notify-send "A kernel update has been installed. A system administrator can reboot the computer to use the new kernel."'
+			esac
+			echo "$name's home directory is $home"
+		done
+	)
 }
 
 pkg_postrm() {
