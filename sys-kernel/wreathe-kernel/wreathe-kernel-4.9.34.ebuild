@@ -60,6 +60,11 @@ src_compile() {
 src_install() {
 	if use firmware; then
 		(
+			containsElement () {
+				local e
+				for e in "${@:2}"; do [[ "$e" == "$1" ]] && return 0; done
+				return 1
+			}
 			readarray externalFirmware <<< "$(equery -Cq f linux-firmware)"
 			
 		)
