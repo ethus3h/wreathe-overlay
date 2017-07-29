@@ -60,16 +60,17 @@ src_compile() {
 src_install() {
 	if use firmware; then
 		(
+			cd "${WORKDIR}/kernel-build-dir"
 			contains() {
 				local e
 				for e in "${@:2}"; do [[ "$e" == "$1" ]] && return 0; done
 				return 1
 			}
 			readarray externalFirmware <<< "$(equery -Cq f linux-firmware)"
-			array=()
+			newFirmware=()
 			while IFS=  read -r -d $'\0'; do
 				array+=("$REPLY")
-			done < <(find . -name ${input} -print0)
+			done < <(find ./lib/firmware -print0)
 			if [[ contains ]]
 		)
 	fi
