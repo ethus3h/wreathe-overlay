@@ -71,6 +71,7 @@ src_install() {
 			done < <(find ./lib/firmware -print0)
 			# Remove newlines from array
 			externalFirmware="${externalFirmware[@]::-1}"
+
 			for file in "${newFirmware[@]}"; do
 				if contains "$(tail -c +2 <<< "$file")" "${externalFirmware[@]}"; then
 					rm -v "$file"
