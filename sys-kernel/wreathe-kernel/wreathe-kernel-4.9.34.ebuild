@@ -19,6 +19,7 @@ SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}"
 
 DEPEND="${DEPEND}
 	sys-kernel/genkernel-next
+	sys-boot/grub:2
 	sys-apps/busybox
 	firmware? ( sys-kernel/linux-firmware app-portage/gentoolkit )
 	!firmware? ( !sys-kernel/linux-firmware )"
@@ -84,6 +85,9 @@ src_install() {
 	rm -r "${WORKDIR}/kernel-src-dir"
 	rm -r "${WORKDIR}/kernel-tmp-dir"
 	kernel-2_src_install
+	grub-mkconfig -o "${WORKDIR}"/boot/grub/grub.cfg
+	insinto /boot/grub/
+	doins "${WORKDIR}"/boot/grub/grub.cfg
 }
 
 pkg_postinst() {
