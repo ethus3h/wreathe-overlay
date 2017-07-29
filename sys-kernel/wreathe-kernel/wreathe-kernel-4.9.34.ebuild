@@ -69,10 +69,8 @@ src_install() {
 			while IFS=  read -r -d $'\0'; do
 				newFirmware+=("$REPLY")
 			done < <(find ./lib/firmware -print0)
-			for i in "${#externalFirmware[@]}"; do
-				temp="${externalFirmware[i]}"
-				externalFirmware[i]="${temp::-1}"
-			done
+			# Remove newlines from array
+			externalFirmware="${externalFirmware[@]::-1}"
 			for file in "${newFirmware[@]}"; do
 				if contains "$(tail -c +2 <<< "$file")" "${externalFirmware[@]}"; then
 					rm -v "$file"
