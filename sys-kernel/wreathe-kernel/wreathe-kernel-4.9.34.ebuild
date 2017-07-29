@@ -57,6 +57,7 @@ pkg_preinst() {
 src_install() {
 	if use firmware; then
 		(
+			set -x
 			cd "${WORKDIR}/kernel-build-dir" || die
 			contains() {
 				local e
