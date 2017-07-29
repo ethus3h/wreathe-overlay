@@ -92,7 +92,8 @@ pkg_postinst() {
 	einfo "${HOMEPAGE}"
 	# Send notification about kernel update to users
 	getent passwd | while IFS=: read -r name password uid gid gecos home shell; do
-		top=${home#/}; top=${top%%/*}
+		top="${home#/}"
+		top="${top%%/*}"
 		case $top in
 			|bin|dev|etc|lib*|no*|proc|sbin|usr|var)
 				true
