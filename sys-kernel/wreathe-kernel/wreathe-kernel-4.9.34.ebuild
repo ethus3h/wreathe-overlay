@@ -96,6 +96,7 @@ pkg_postinst() {
 		top="${top%%/*}"
 		case $top in
 			|bin|dev|etc|lib*|no*|proc|sbin|usr|var)
+				# probably not a human, so don't bother notfiying
 				true
 				;;
 			*)
