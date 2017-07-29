@@ -95,6 +95,7 @@ pkg_postinst() {
 	kernel-2_pkg_postinst
 	einfo "For more info on this patchset, and how to report problems, see:"
 	einfo "${HOMEPAGE}"
+	grub-mkconfig -o /boot/grub/grub.cfg && elog "Updated /boot/grub/grub.cfg"
 	# Send notification about kernel update to users
 	(
 		getent passwd | while IFS=: read -r name password uid gid gecos home shell; do
@@ -115,8 +116,4 @@ pkg_postinst() {
 
 pkg_postrm() {
 	kernel-2_pkg_postrm
-}
-
-pkg_config() {
-	grub-mkconfig -o /boot/grub/grub.cfg && elog "Updated /boot/grub/grub.cfg"
 }
