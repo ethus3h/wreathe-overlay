@@ -57,6 +57,10 @@ src_compile() {
 	)
 }
 
+pkg_preinst() {
+	
+}
+
 src_install() {
 	if use firmware; then
 		(
@@ -98,4 +102,8 @@ pkg_postinst() {
 
 pkg_postrm() {
 	kernel-2_pkg_postrm
+}
+
+pkg_config() {
+	
 }
