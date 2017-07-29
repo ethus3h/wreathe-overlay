@@ -23,16 +23,6 @@ DEPEND="${DEPEND}
 	firmware? ( sys-kernel/linux-firmware app-portage/gentoolkit )
 	!firmware? ( !sys-kernel/linux-firmware )"
 
-pkg_pretend() {
-	mountpoint -q /boot || die "/boot needs to be mounted to use the automated kernel ebuild."
-}
-
-pkg_postinst() {
-	kernel-2_pkg_postinst
-	einfo "For more info on this patchset, and how to report problems, see:"
-	einfo "${HOMEPAGE}"
-}
-
 src_compile() {
 	kernel-2_src_compile
 	cp -r "${S}" "${WORKDIR}/kernel-src-dir"
@@ -58,7 +48,9 @@ src_compile() {
 }
 
 pkg_preinst() {
-	
+	if ! mountpoint -q /boot; then
+		mount /boot || die "Could not mount /boot!"
+	fi
 }
 
 src_install() {
