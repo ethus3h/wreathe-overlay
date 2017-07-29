@@ -90,6 +90,10 @@ pkg_postinst() {
 	kernel-2_pkg_postinst
 	einfo "For more info on this patchset, and how to report problems, see:"
 	einfo "${HOMEPAGE}"
+	# Send notification about kernel update to users
+	getent passwd | while IFS=: read -r name password uid gid gecos home shell; do
+		echo "$name's home directory is $home"
+	done
 }
 
 pkg_postrm() {
