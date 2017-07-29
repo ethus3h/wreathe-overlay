@@ -60,7 +60,7 @@ src_compile() {
 src_install() {
 	if use firmware; then
 		(
-			IFS=$'\n' read -r -a externalFirmware <<< "$(equery f linux-firmware | tail -n +1 | sed '/ -> /d')"
+			readarray externalFirmware <<< "$(equery f linux-firmware | tail -n +1 | sed '/ -> /d')"
 			
 		)
 	fi
