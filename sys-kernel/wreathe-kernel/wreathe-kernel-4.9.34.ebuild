@@ -57,7 +57,6 @@ pkg_preinst() {
 src_install() {
 	if use firmware; then
 		(
-			set -x
 			cd "${WORKDIR}/kernel-build-dir" || die
 			contains() {
 				local e
@@ -72,7 +71,7 @@ src_install() {
 			done < <(find ./lib/firmware -print0)
 			for file in "${newFirmware[@]}"; do
 				if contains "$(tail -c +2 <<< "$file")" "${externalFirmware[@]}"; then
-					rm "$file"
+					rm -v "$file"
 				fi
 			done
 		)
