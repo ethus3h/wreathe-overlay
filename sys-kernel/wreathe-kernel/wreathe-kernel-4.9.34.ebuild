@@ -67,10 +67,11 @@ src_install() {
 			readarray externalFirmware <<< "$(equery -Cq f linux-firmware)"
 			newFirmware=()
 			while IFS=  read -r -d $'\0'; do
-				newFirmware+=("${REPLY::-1}")
+				newFirmware+=("$REPLY")
 			done < <(find ./lib/firmware -print0)
 			for file in "${newFirmware[@]}"; do
-				if contains "$(tail -c +2 <<< "$file")" "${externalFirmware[@]}"; then
+				temp="${externalFirmware[@]}"
+				if contains "$(tail -c +2 <<< "$file")" "${temp::-1}"; then
 					rm -v "$file"
 				fi
 			done
