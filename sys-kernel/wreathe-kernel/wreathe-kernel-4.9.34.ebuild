@@ -57,7 +57,6 @@ pkg_preinst() {
 src_install() {
 	if use firmware; then
 		(
-			set -x
 			cd "${WORKDIR}/kernel-build-dir" || die
 			contains() {
 				local e
@@ -110,7 +109,6 @@ pkg_postinst() {
 					DISPLAY=:0 sudo -u "$name" bash -c 'DISPLAY=:0 notify-send "Kernel update installed" "A kernel update has been installed. A system administrator can reboot the computer to use the new kernel."'
 					;;
 			esac
-			echo "$name's home directory is $home"
 		done
 	)
 }
@@ -120,5 +118,5 @@ pkg_postrm() {
 }
 
 pkg_config() {
-	grub-mkconfig -o /boot/grub/grub.cfg
+	grub-mkconfig -o /boot/grub/grub.cfg && elog "Updated /boot/grub/grub.cfg"
 }
