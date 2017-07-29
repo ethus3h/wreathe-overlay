@@ -89,6 +89,7 @@ src_install() {
 	rm -r "${WORKDIR}/kernel-src-dir"
 	rm -r "${WORKDIR}/kernel-tmp-dir"
 	kernel-2_src_install
+	dosym "/usr/src/linux-${PV}-wreathe" "/usr/src/linux"
 }
 
 pkg_postinst() {
