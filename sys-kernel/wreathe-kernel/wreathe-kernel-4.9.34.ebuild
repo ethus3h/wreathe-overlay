@@ -66,7 +66,10 @@ src_install() {
 				return 1
 			}
 			readarray externalFirmware <<< "$(equery -Cq f linux-firmware)"
-			for file in "${WORKDIR}/kernel-build-dir"/
+			array=()
+			while IFS=  read -r -d $'\0'; do
+				array+=("$REPLY")
+			done < <(find . -name ${input} -print0)
 			if [[ contains ]]
 		)
 	fi
