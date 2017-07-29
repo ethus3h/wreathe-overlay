@@ -96,13 +96,13 @@ pkg_postinst() {
 			top="${home#/}"
 			top="${top%%/*}"
 			case $top in
-			|bin|dev|etc|lib*|no*|proc|sbin|usr|var)
-				# probably not a human, so don't bother notfiying
-				true
-				;;
-			*)
-				DISPLAY=:0 sudo -u "$name" bash -c 'DISPLAY=:0 notify-send "A kernel update has been installed. A system administrator can reboot the computer to use the new kernel."'
-				;;
+				bin|dev|etc|lib*|no*|proc|sbin|usr|var)
+					# probably not a human, so don't bother notfiying
+					true
+					;;
+				*)
+					DISPLAY=:0 sudo -u "$name" bash -c 'DISPLAY=:0 notify-send "A kernel update has been installed. A system administrator can reboot the computer to use the new kernel."'
+					;;
 			esac
 			echo "$name's home directory is $home"
 		done
