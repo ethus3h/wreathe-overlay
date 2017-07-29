@@ -85,9 +85,6 @@ src_install() {
 	rm -r "${WORKDIR}/kernel-src-dir"
 	rm -r "${WORKDIR}/kernel-tmp-dir"
 	kernel-2_src_install
-	grub-mkconfig -o "${WORKDIR}"/boot/grub/grub.cfg
-	insinto /boot/grub/
-	doins "${WORKDIR}"/boot/grub/grub.cfg
 }
 
 pkg_postinst() {
