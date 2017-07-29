@@ -97,5 +97,5 @@ pkg_postrm() {
 }
 
 pkg_config() {
-	
+	grub-mkconfig -o /boot/grub/grub.cfg
 }
