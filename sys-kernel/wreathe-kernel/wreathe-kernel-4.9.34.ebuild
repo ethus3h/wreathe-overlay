@@ -101,7 +101,7 @@ pkg_postinst() {
 					true
 					;;
 				*)
-					DISPLAY=:0 sudo -u "$name" bash -c 'DISPLAY=:0 notify-send "A kernel update has been installed. A system administrator can reboot the computer to use the new kernel."'
+					DISPLAY=:0 sudo -u "$name" bash -c 'DISPLAY=:0 notify-send "Kernel update installed" "A kernel update has been installed. A system administrator can reboot the computer to use the new kernel."'
 					;;
 			esac
 			echo "$name's home directory is $home"
