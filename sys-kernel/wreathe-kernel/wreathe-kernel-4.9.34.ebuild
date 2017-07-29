@@ -89,10 +89,11 @@ src_install() {
 	rm -r "${WORKDIR}/kernel-src-dir"
 	rm -r "${WORKDIR}/kernel-tmp-dir"
 	kernel-2_src_install
-	dosym "/usr/src/linux-${PV}-wreathe" "/usr/src/linux"
+	# dosym "/usr/src/linux-${PV}-wreathe" "/usr/src/linux"
 }
 
 pkg_postinst() {
+	eselect kernel set "linux-${PV}-wreathe"
 	kernel-2_pkg_postinst
 	einfo "For more info on this patchset, and how to report problems, see:"
 	einfo "${HOMEPAGE}"
