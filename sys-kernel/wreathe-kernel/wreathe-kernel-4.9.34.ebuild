@@ -60,7 +60,7 @@ src_compile() {
 src_install() {
 	if use firmware; then
 		(
-			cd "${WORKDIR}/kernel-build-dir"
+			cd "${WORKDIR}/kernel-build-dir" || die
 			contains() {
 				local e
 				for e in "${@:2}"; do [[ "$e" == "$1" ]] && return 0; done
@@ -69,9 +69,13 @@ src_install() {
 			readarray externalFirmware <<< "$(equery -Cq f linux-firmware)"
 			newFirmware=()
 			while IFS=  read -r -d $'\0'; do
-				array+=("$REPLY")
+				newFirmware+=("$REPLY")
 			done < <(find ./lib/firmware -print0)
-			if [[ contains ]]
+			for file in "${newFirmware[@]}"; do
+				if contains "$(tail -c +2 <<< "$file")" "${externalFirmware[@]}"; then
+					rm "$file"
+				fi
+			done
 		)
 	fi
 	insinto /
