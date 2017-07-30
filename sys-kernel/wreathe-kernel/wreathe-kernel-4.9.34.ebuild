@@ -77,6 +77,7 @@ src_install() {
 				readarray externalFirmware <<< "$(equery -Cq f linux-firmware)"
 				for i in "${!externalFirmware[@]}"; do
 					temp="${externalFirmware[$i]}"
+					# %? removes the last character
 					externalFirmware[$i]="${temp%?}"
 				done
 				newFirmware=()
