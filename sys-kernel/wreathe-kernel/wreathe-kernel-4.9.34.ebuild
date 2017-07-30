@@ -99,11 +99,12 @@ src_install() {
 		rm -r "${WORKDIR}/kernel-tmp-dir"
 	fi
 	kernel-2_src_install
-	# dosym "/usr/src/linux-${PV}-wreathe" "/usr/src/linux"
 }
 
 pkg_postinst() {
-	eselect kernel set "linux-${PV}-wreathe"
+	if use compile; then
+		eselect kernel set "linux-${PV}-wreathe"
+	fi
 	kernel-2_pkg_postinst
 	emerge @module-rebuild
 	einfo "For more info on this patchset, and how to report problems, see:"
