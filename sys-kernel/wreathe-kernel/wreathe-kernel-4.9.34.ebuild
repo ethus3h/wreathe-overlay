@@ -111,6 +111,7 @@ pkg_postinst() {
 		eselect kernel set "linux-${PV}-wreathe"
 		einfo "For more info on this patchset, and how to report problems, see:"
 		einfo "${HOMEPAGE}"
+		dosym /boot/grub/grub.cfg /boot/grub/grub.conf
 	fi
 }
 
