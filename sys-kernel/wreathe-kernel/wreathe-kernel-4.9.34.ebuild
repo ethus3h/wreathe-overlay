@@ -57,6 +57,7 @@ src_compile() {
 pkg_preinst() {
 	if use compile; then
 		if ! mountpoint -q /boot; then
+			[[ -d /boot ]] || mkdir /boot
 			mount /boot || die "Could not mount /boot!"
 		fi
 	fi
@@ -83,7 +84,7 @@ src_install() {
 				done < <(find ./lib/firmware -print0)
 				for file in "${newFirmware[@]}"; do
 					if contains "$(tail -c +2 <<< "$file")" "${externalFirmware[@]}"; then
-						rm -v "$file"
+						rm "$file" &> /dev/null
 					fi
 				done
 			)
@@ -110,6 +111,7 @@ pkg_postinst() {
 		einfo "For more info on this patchset, and how to report problems, see:"
 		einfo "${HOMEPAGE}"
 		grub-mkconfig -o /boot/grub/grub.cfg && elog "Updated /boot/grub/grub.cfg"
+		dosym /boot/grub/grub.cfg /boot/grub/grub.conf
 		# Send notification about kernel update to users
 		(
 			getent passwd | while IFS=: read -r name password uid gid gecos home shell; do
