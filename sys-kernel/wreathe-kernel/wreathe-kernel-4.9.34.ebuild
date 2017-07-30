@@ -106,6 +106,11 @@ src_install() {
 		rm -r "${WORKDIR}/kernel-tmp-dir"
 		rm -r "${WORKDIR}/kernel-src-dir"
 		(
+			# FIXME: Doesn't work
+			# Makefile:539: arch/amd64/Makefile: No such file or directory
+			# make: *** No rule to make target 'arch/amd64/Makefile'.  Stop.
+			# Makefile:628: arch/amd64/Makefile: No such file or directory
+			# make: *** No rule to make target 'arch/amd64/Makefile'.  Stop.
 			cd "${WORKDIR}/kernel-modsrc-dir" || die
 			make oldconfig
 			make modules_prepare
