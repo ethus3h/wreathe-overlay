@@ -20,6 +20,7 @@ SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}"
 DEPEND="${DEPEND}
 	compile? (
 		app-admin/eselect
+		app-misc/wreathe-base
 		sys-apps/portage
 		sys-apps/busybox
 		sys-boot/grub:2
