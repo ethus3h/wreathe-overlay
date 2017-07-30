@@ -102,30 +102,30 @@ src_install() {
 }
 
 pkg_postinst() {
+	kernel-2_pkg_postinst
 	if use compile; then
 		eselect kernel set "linux-${PV}-wreathe"
+		emerge @module-rebuild
+		einfo "For more info on this patchset, and how to report problems, see:"
+		einfo "${HOMEPAGE}"
+		grub-mkconfig -o /boot/grub/grub.cfg && elog "Updated /boot/grub/grub.cfg"
+		# Send notification about kernel update to users
+		(
+			getent passwd | while IFS=: read -r name password uid gid gecos home shell; do
+				top="${home#/}"
+				top="${top%%/*}"
+				case $top in
+					bin|dev|etc|lib*|no*|proc|sbin|usr|var)
+						# probably not a human, so don't bother notfiying
+						true
+						;;
+					*)
+						DISPLAY=:0 sudo -u "$name" bash -c 'DISPLAY=:0 notify-send "Kernel update installed" "A kernel update has been installed. A system administrator can reboot the computer to use the new kernel."'
+						;;
+				esac
+			done
+		)
 	fi
-	kernel-2_pkg_postinst
-	emerge @module-rebuild
-	einfo "For more info on this patchset, and how to report problems, see:"
-	einfo "${HOMEPAGE}"
-	grub-mkconfig -o /boot/grub/grub.cfg && elog "Updated /boot/grub/grub.cfg"
-	# Send notification about kernel update to users
-	(
-		getent passwd | while IFS=: read -r name password uid gid gecos home shell; do
-			top="${home#/}"
-			top="${top%%/*}"
-			case $top in
-				bin|dev|etc|lib*|no*|proc|sbin|usr|var)
-					# probably not a human, so don't bother notfiying
-					true
-					;;
-				*)
-					DISPLAY=:0 sudo -u "$name" bash -c 'DISPLAY=:0 notify-send "Kernel update installed" "A kernel update has been installed. A system administrator can reboot the computer to use the new kernel."'
-					;;
-			esac
-		done
-	)
 }
 
 pkg_postrm() {
