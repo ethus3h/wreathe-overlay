@@ -91,9 +91,9 @@ src_install() {
 				done
 			)
 		fi
-		insinto /
 		rm "${WORKDIR}/kernel-build-dir/lib/modules/4.9.34-wreathe-Wreathe/build"
 		rm "${WORKDIR}/kernel-build-dir/lib/modules/4.9.34-wreathe-Wreathe/source"
+		insinto /
 		(
 			shopt -s dotglob
 			doins -r "${WORKDIR}/kernel-build-dir"/*
