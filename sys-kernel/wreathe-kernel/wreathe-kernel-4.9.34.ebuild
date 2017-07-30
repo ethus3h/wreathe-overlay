@@ -104,13 +104,13 @@ src_install() {
 		rm -r "${WORKDIR}/kernel-build-dir"
 		rm -r "${WORKDIR}/kernel-src-dir"
 		rm -r "${WORKDIR}/kernel-tmp-dir"
+		(
+			cd "${ED}/usr/src/linux-${PV}-wreathe" || die
+			make oldconfig
+			make modules_prepare
+		)
 	fi
 	kernel-2_src_install
-	if use compile; then
-		cd "${ED}/usr/src/linux-${PV}-wreathe" || die
-		make oldconfig
-		make modules_prepare
-	fi
 }
 
 pkg_postinst() {
