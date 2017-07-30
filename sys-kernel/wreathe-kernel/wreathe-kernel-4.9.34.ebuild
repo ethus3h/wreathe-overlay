@@ -105,6 +105,7 @@ src_install() {
 		rm -r "${WORKDIR}/kernel-tmp-dir"
 		(
 			cd "${S}" || die
+			# FIXME: this doesn't work
 			make oldconfig
 			make modules_prepare
 		)
