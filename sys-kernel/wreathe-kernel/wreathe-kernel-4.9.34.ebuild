@@ -12,84 +12,92 @@ detect_arch
 
 KEYWORDS="alpha amd64 ~arm ~arm64 hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86"
 HOMEPAGE="https://dev.gentoo.org/~mpagano/genpatches"
-IUSE="experimental firmware"
+IUSE="compile experimental firmware"
 
 DESCRIPTION="Built sources including the Gentoo patchset for the ${KV_MAJOR}.${KV_MINOR} kernel tree"
 SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}"
 
 DEPEND="${DEPEND}
-	sys-kernel/genkernel-next
-	sys-boot/grub:2
-	app-admin/eselect
-	sys-apps/portage
-	sys-apps/busybox
-	firmware? ( sys-kernel/linux-firmware app-portage/gentoolkit )
-	!firmware? ( !sys-kernel/linux-firmware )"
+	compile? (
+		sys-kernel/genkernel-next
+		sys-boot/grub:2
+		app-admin/eselect
+		sys-apps/portage
+		sys-apps/busybox
+		firmware? ( sys-kernel/linux-firmware app-portage/gentoolkit )
+		!firmware? ( !sys-kernel/linux-firmware )
+	)"
 
 src_compile() {
 	kernel-2_src_compile
-	cp -r "${S}" "${WORKDIR}/kernel-src-dir"
-	(
-		mkdir -p "${WORKDIR}/kernel-build-dir/boot"
-		mkdir "${WORKDIR}/kernel-tmp-dir"
-		cd "${WORKDIR}/kernel-build-dir" || die
-		genkernel \
-			--bootdir="${WORKDIR}/kernel-build-dir/boot" \
-			--cachedir="${WORKDIR}/kernel-tmp-dir/genkernel.cache" \
-			--kernel-config="${FILESDIR}/wreathe.config" \
-			--kerneldir="${WORKDIR}/kernel-src-dir" \
-			--logfile="${WORKDIR}/kernel-tmp-dir/genkernel.log" \
-			--module-prefix="${WORKDIR}/kernel-build-dir" \
-			--no-menuconfig \
-			--no-mountboot \
-			--no-save-config \
-			--plymouth \
-			--plymouth-theme=simply_line \
-			--tempdir="${WORKDIR}/kernel-tmp-dir/genkernel.tmp" \
-			all || die "Genkernel reported a failure status."
-	)
+	if use compile; then
+		cp -r "${S}" "${WORKDIR}/kernel-src-dir"
+		(
+			mkdir -p "${WORKDIR}/kernel-build-dir/boot"
+			mkdir "${WORKDIR}/kernel-tmp-dir"
+			cd "${WORKDIR}/kernel-build-dir" || die
+			genkernel \
+				--bootdir="${WORKDIR}/kernel-build-dir/boot" \
+				--cachedir="${WORKDIR}/kernel-tmp-dir/genkernel.cache" \
+				--kernel-config="${FILESDIR}/wreathe.config" \
+				--kerneldir="${WORKDIR}/kernel-src-dir" \
+				--logfile="${WORKDIR}/kernel-tmp-dir/genkernel.log" \
+				--module-prefix="${WORKDIR}/kernel-build-dir" \
+				--no-menuconfig \
+				--no-mountboot \
+				--no-save-config \
+				--plymouth \
+				--plymouth-theme=simply_line \
+				--tempdir="${WORKDIR}/kernel-tmp-dir/genkernel.tmp" \
+				all || die "Genkernel reported a failure status."
+		)
+	fi
 }
 
 pkg_preinst() {
-	if ! mountpoint -q /boot; then
-		mount /boot || die "Could not mount /boot!"
+	if use compile; then
+		if ! mountpoint -q /boot; then
+			mount /boot || die "Could not mount /boot!"
+		fi
 	fi
 }
 
 src_install() {
-	if use firmware; then
+	if use compile; then
+		if use firmware; then
+			(
+				cd "${WORKDIR}/kernel-build-dir" || die
+				contains() {
+					local e
+					for e in "${@:2}"; do [[ "$e" == "$1" ]] && return 0; done
+					return 1
+				}
+				readarray externalFirmware <<< "$(equery -Cq f linux-firmware)"
+				for i in "${!externalFirmware[@]}"; do
+					temp="${externalFirmware[$i]}"
+					externalFirmware[$i]="${temp%?}"
+				done
+				newFirmware=()
+				while IFS=  read -r -d $'\0'; do
+					newFirmware+=("$REPLY")
+				done < <(find ./lib/firmware -print0)
+				for file in "${newFirmware[@]}"; do
+					if contains "$(tail -c +2 <<< "$file")" "${externalFirmware[@]}"; then
+						rm -v "$file"
+					fi
+				done
+			)
+		fi
+		insinto /
 		(
-			cd "${WORKDIR}/kernel-build-dir" || die
-			contains() {
-				local e
-				for e in "${@:2}"; do [[ "$e" == "$1" ]] && return 0; done
-				return 1
-			}
-			readarray externalFirmware <<< "$(equery -Cq f linux-firmware)"
-			for i in "${!externalFirmware[@]}"; do
-				temp="${externalFirmware[$i]}"
-				externalFirmware[$i]="${temp%?}"
-			done
-			newFirmware=()
-			while IFS=  read -r -d $'\0'; do
-				newFirmware+=("$REPLY")
-			done < <(find ./lib/firmware -print0)
-			for file in "${newFirmware[@]}"; do
-				if contains "$(tail -c +2 <<< "$file")" "${externalFirmware[@]}"; then
-					rm -v "$file"
-				fi
-			done
+			shopt -s dotglob
+			doins -r "${WORKDIR}/kernel-build-dir"/*
+			shopt -u dotglob
 		)
+		rm -r "${WORKDIR}/kernel-build-dir"
+		rm -r "${WORKDIR}/kernel-src-dir"
+		rm -r "${WORKDIR}/kernel-tmp-dir"
 	fi
-	insinto /
-	(
-		shopt -s dotglob
-		doins -r "${WORKDIR}/kernel-build-dir"/*
-		shopt -u dotglob
-	)
-	rm -r "${WORKDIR}/kernel-build-dir"
-	rm -r "${WORKDIR}/kernel-src-dir"
-	rm -r "${WORKDIR}/kernel-tmp-dir"
 	kernel-2_src_install
 	# dosym "/usr/src/linux-${PV}-wreathe" "/usr/src/linux"
 }
