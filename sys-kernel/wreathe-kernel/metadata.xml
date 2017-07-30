@@ -3,5 +3,7 @@
 <pkgmetadata>
   <use>
     <flag name="experimental">Apply experimental patches; for more information, see "https://wiki.gentoo.org/wiki/Project:Kernel/Experimental".</flag>
+    <flag name="compile">Compile kernel as well as installing source</flag>
+    <flag name="grub">Configure grub</flag>
   </use>
 </pkgmetadata>
