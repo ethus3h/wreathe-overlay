@@ -100,6 +100,7 @@ src_install() {
 			shopt -u dotglob
 		)
 		cp "${WORKDIR}/kernel-src-dir/.config" "${S}/.config"
+		cp "${WORKDIR}/kernel-src-dir"/*.symvers "${S}"
 		rm -r "${WORKDIR}/kernel-build-dir"
 		rm -r "${WORKDIR}/kernel-src-dir"
 		rm -r "${WORKDIR}/kernel-tmp-dir"
