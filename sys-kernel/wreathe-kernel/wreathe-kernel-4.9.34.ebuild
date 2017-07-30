@@ -20,6 +20,8 @@ SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}"
 DEPEND="${DEPEND}
 	sys-kernel/genkernel-next
 	sys-boot/grub:2
+	app-admin/eselect
+	sys-apps/portage
 	sys-apps/busybox
 	firmware? ( sys-kernel/linux-firmware app-portage/gentoolkit )
 	!firmware? ( !sys-kernel/linux-firmware )"
@@ -95,6 +97,7 @@ src_install() {
 pkg_postinst() {
 	eselect kernel set "linux-${PV}-wreathe"
 	kernel-2_pkg_postinst
+	emerge @module-rebuild
 	einfo "For more info on this patchset, and how to report problems, see:"
 	einfo "${HOMEPAGE}"
 	grub-mkconfig -o /boot/grub/grub.cfg && elog "Updated /boot/grub/grub.cfg"
