@@ -94,6 +94,7 @@ src_install() {
 			doins -r "${WORKDIR}/kernel-build-dir"/*
 			shopt -u dotglob
 		)
+		cp "${FILESDIR}/wreathe.config" "${S}/.config"
 		rm -r "${WORKDIR}/kernel-build-dir"
 		rm -r "${WORKDIR}/kernel-src-dir"
 		rm -r "${WORKDIR}/kernel-tmp-dir"
