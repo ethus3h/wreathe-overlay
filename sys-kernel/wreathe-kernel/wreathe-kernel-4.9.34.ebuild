@@ -104,6 +104,11 @@ src_install() {
 		rm -r "${WORKDIR}/kernel-tmp-dir"
 	fi
 	kernel-2_src_install
+	if use compile; then
+		cd "${DESTDIR}/usr/src/linux-${PV}-wreathe" || die
+		make oldconfig
+		make modules_prepare
+	fi
 }
 
 pkg_postinst() {
