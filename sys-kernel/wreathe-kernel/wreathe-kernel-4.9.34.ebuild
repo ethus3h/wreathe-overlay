@@ -19,12 +19,12 @@ SRC_URI="${KERNEL_URI} ${GENPATCHES_URI} ${ARCH_URI}"
 
 DEPEND="${DEPEND}
 	compile? (
-		sys-kernel/genkernel-next
-		sys-boot/grub:2
 		app-admin/eselect
 		sys-apps/portage
 		sys-apps/busybox
-		firmware? ( sys-kernel/linux-firmware app-portage/gentoolkit )
+		sys-boot/grub:2
+		sys-kernel/genkernel-next
+		firmware? ( app-portage/gentoolkit sys-kernel/linux-firmware )
 		!firmware? ( !sys-kernel/linux-firmware )
 	)"
 
