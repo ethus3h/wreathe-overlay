@@ -102,6 +102,7 @@ src_install() {
 		)
 		cp "${WORKDIR}/kernel-src-dir/.config" "${S}/.config"
 		cp "${WORKDIR}/kernel-src-dir"/*.symvers "${S}"
+		cp "${WORKDIR}/kernel-src-dir/System.map" "${S}/System.map"
 		rm -r "${WORKDIR}/kernel-build-dir"
 		rm -r "${WORKDIR}/kernel-tmp-dir"
 		rm -r "${WORKDIR}/kernel-src-dir"
@@ -117,7 +118,6 @@ src_install() {
 		)
 	fi
 	kernel-2_src_install
-	# rsync -a --ignore-existing "${WORKDIR}/kernel-modsrc-dir/" "${ED}/usr/src/linux-${PV}-wreathe"
 	insinto "/usr/src/linux-${PV}-wreathe"
 	(
 		shopt -s dotglob
