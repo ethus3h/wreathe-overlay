@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<use>	
+		<flag name="qt3">Support for qt3 library(<pkg>dev-qt/qt</pkg>:3)</flag>
+		<flag name="tqt">Support for tqt library(<pkg>dev-qt/tqt</pkg>:3) a trinity fork of qt3</flag>
+	</use>
+</pkgmetadata>
