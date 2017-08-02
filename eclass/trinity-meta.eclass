@@ -74,7 +74,6 @@ trinity-meta_src_unpack() {
 # A function to extract the source for a split KDE ebuild.
 # Also see KMMODULE, KMEXTRACT
 trinity-meta_src_extract() {
-	set -x
 	debug-print-function ${FUNCNAME} "$@"
 
 	trinity-meta_create_extractlists
@@ -121,7 +120,6 @@ trinity-meta_src_extract() {
 		# Make sure $S points to right place
 		[[ "${WORKDIR}/${topdir}" != "${S}" ]] && S="${WORKDIR}/${topdir}"
 	fi
-	set +x
 }
 
 # @FUNCTION: trinity-meta_rsync_copy 
