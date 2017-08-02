@@ -144,7 +144,7 @@ elif [[ "${BUILD_TYPE}" == release ]]; then
 		TRINITY_TARBALL="${full_mod_name}.tar.xz" ;;
 	*) 
 		mod_ver="R${mod_ver}"
-		full_mod_name="${mod_name}-R${mod_ver}"
+		full_mod_name="${mod_name}-${mod_ver}"
 		TRINITY_TARBALL="${full_mod_name}.tar.xz"
 	esac
 	
