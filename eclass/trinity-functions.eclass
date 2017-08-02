@@ -44,7 +44,7 @@ set-trinityver() {
 		9999 )
 			export TRINITY_VER="$(get_major_version "$TRINITY_LIVEVER" )" ;;
 		* )
-			export TRINITY_VER="R$(get_major_version "$ETRINITY_VER" )" ;;
+			export TRINITY_VER="$(get_major_version "$ETRINITY_VER" )" ;;
 	esac
 
 	export TDEDIR="/usr/trinity/${TRINITY_VER}"
