@@ -96,6 +96,9 @@ trinity-meta_src_extract() {
 			*.xz)
 				tarparams=" --xz"
 				;;
+			*.bz2)
+				tarparams=" --bzip2"
+				;;
 		esac
 
 		# Full path to source tarball
