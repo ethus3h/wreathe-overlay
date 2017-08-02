@@ -9,5 +9,6 @@ inherit trinity-meta
 DESCRIPTION="KFoulEggs is an adaptation of the well-known (at least in Japan) PuyoPuyo game"
 KEYWORDS="~amd64"
 IUSE+=""
-DEPEND=">=trinity-base/libtdegames-${PV}:${SLOT}"
+DEPEND=">=trinity-base/libtdegames-${PV}:${SLOT}
+	>=trinity-base/libksirtet-${PV}:${SLOT}"
 RDEPEND="${DEPEND}"
