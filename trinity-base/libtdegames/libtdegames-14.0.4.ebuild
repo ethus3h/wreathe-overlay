@@ -7,5 +7,5 @@ TRINITY_MODULE_NAME="tdegames"
 inherit trinity-meta
 
 DESCRIPTION="Base library common to many Trinity games"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE+=""

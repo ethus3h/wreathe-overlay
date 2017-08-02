@@ -9,9 +9,7 @@
 inherit trinity-functions cmake-utils base
 
 # FIXME we don't need to write to both 
-addwrite "/usr/qt/3/etc/settings"
 addpredict "/usr/qt/3/etc/settings"
-addwrite "/usr/tqt3/etc/settings"
 addpredict "/usr/tqt3/etc/settings"
 
 # ban EAPI 0, 1 and 2

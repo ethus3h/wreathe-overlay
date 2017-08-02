@@ -7,7 +7,7 @@ TRINITY_MODULE_NAME="tdegames"
 inherit trinity-meta
 
 DESCRIPTION="KFoulEggs is an adaptation of the well-known (at least in Japan) PuyoPuyo game"
-KEYWORDS=""
+KEYWORDS="~amd64"
 IUSE+=""
 DEPEND=">=trinity-base/libtdegames-${PV}:${SLOT}"
 RDEPEND="${DEPEND}"
