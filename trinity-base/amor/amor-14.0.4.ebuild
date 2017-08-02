@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI="5"
-TRINITY_MODULE_NAME="tdegames"
+TRINITY_MODULE_NAME="tdetoys"
 
 inherit trinity-meta
 
