@@ -11,11 +11,11 @@ HOMEPAGE="http://trinitydesktop.org/"
 
 # IMMTQT_P="tqt-x11-immodule-unified-tqt3.3.8-20070321-gentoo"
 
-#SRC_URI="ftp://ftp.trolltech.com/tqt/source/tqt-x11-${SRCTYPE}-${PV}.tar.gz
+SRC_URI="http://tde-mirror.yosemite.net/trinity/releases/${TRINITY_VER}/dependencies/tqt3-${TRINITY_VER}.tar.bz2"
 #	immtqt? ( mirror://gentoo/${IMMTQT_P}.diff.bz2 )
 #	immtqt-bc? ( mirror://gentoo/${IMMTQT_P}.diff.bz2 )"
-EGIT_REPO_URI="http://scm.trinitydesktop.org/scm/git/tqt3"
-EGIT_PROJECT="trinity/tqt3"
+#EGIT_REPO_URI="http://scm.trinitydesktop.org/scm/git/tqt3"
+#EGIT_PROJECT="trinity/tqt3"
 LICENSE="|| ( QPL-1.0 GPL-2 GPL-3 )"
 
 SLOT="3"
