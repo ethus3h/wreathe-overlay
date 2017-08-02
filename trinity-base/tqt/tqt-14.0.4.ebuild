@@ -19,7 +19,7 @@ SRC_URI="http://www.mirrorservice.org/sites/trinitydesktop.org/trinity/releases/
 LICENSE="|| ( QPL-1.0 GPL-2 GPL-3 )"
 
 SLOT="3"
-KEYWORDS=
+KEYWORDS="~amd64"
 IUSE="cups debug doc examples firebird ipv6 mysql nas nis opengl postgres sqlite xinerama"
 # no odbc, immtqt and immtqt-bc support anymore.
 # TODO: optional support for xrender and xrandr
