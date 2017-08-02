@@ -21,6 +21,8 @@ DEPEND="qt3? ( >=dev-qt/qt-3.9999:3 )
 	!!x11-libs/tqtinterface"
 RDEPEND="${DEPEND}"
 
+S="${WORKDIR}/dependencies/${PN}"
+
 pkg_setup() {
 	use qt3 && export QTDIR="/usr/qt/3"
 	use tqt && export QTDIR="/usr/tqt3"
