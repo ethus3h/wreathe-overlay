@@ -11,7 +11,7 @@ HOMEPAGE="http://trinitydesktop.org/"
 
 # IMMTQT_P="tqt-x11-immodule-unified-tqt3.3.8-20070321-gentoo"
 
-SRC_URI="http://www.mirrorservice.org/sites/trinitydesktop.org/trinity/releases/${TRINITY_VER}/dependencies/tqt3-${TRINITY_VER}.tar.bz2"
+SRC_URI="http://www.mirrorservice.org/sites/trinitydesktop.org/trinity/releases/R${PV}/dependencies/tqt3-R${PV}.tar.bz2"
 #	immtqt? ( mirror://gentoo/${IMMTQT_P}.diff.bz2 )
 #	immtqt-bc? ( mirror://gentoo/${IMMTQT_P}.diff.bz2 )"
 #EGIT_REPO_URI="http://scm.trinitydesktop.org/scm/git/tqt3"
