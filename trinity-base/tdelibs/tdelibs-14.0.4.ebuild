@@ -55,6 +55,7 @@ RDEPEND+=" ${MY_DEPEND}
 	upower? ( sys-power/upower )
 	udisks? ( sys-fs/udisks:2 )
 	old_udisks? ( sys-fs/udisks:0 )"
+S="${WORKDIR}/${PN}"
 
 src_configure() {
 	mycmakeargs=(
