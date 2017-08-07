@@ -7,9 +7,7 @@ addonPv="2017.07.20a"
 kodi_repo="elysium"
 inherit kodi-plugin
 
-DESCRIPTION="Kodi add-on: plugin.video.elysium"
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	media-plugins/kodi-script-elysium-artwork

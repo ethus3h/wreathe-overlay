@@ -13,6 +13,8 @@ if [[ -z "$addonPv" ]]; then
 	addonPv="${PV}"
 fi
 
+DESCRIPTION="Kodi add-on: ${addonName}"
+KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 DEPEND+=" media-tv/kodi"
