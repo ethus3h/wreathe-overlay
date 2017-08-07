@@ -6,6 +6,11 @@
 addonName="${PN/kodi-/}"
 addonName="${addonName//-/.}"
 
+HOMEPAGE="https://kodi.tv/"
+SLOT="0"
+
+DEPEND+=" media-tv/kodi"
+
 S="${WORKDIR}/${addonName}"
 
 kodi-plugin_src_install() {
