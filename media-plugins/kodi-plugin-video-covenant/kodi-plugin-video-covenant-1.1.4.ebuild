@@ -3,12 +3,10 @@
 
 EAPI=6
 
-addonName="${PN/kodi-/}"
-addonName="${addonName//-/.}"
+inherit colossus
 
-DESCRIPTION="Kodi add-on: plugin.video.elysium"
-HOMEPAGE="https://github.com/OpenELEQ/repository.elysium"
-SRC_URI="https://github.com/OpenELEQ/repository.elysium/blob/master/${addonName}/${addonName}-${PV}.zip?raw=true -> ${addonName}-${PV}.zip"
+DESCRIPTION="Kodi add-on: plugin.video.covenant"
+HOMEPAGE="https://github.com/Colossal1/repository.colossus"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -28,14 +26,3 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${addonName}"
-
-src_prepare() {
-	default
-	#disable automatic updates
-	#perl -p -i -e 's/\t\t<import addon="repository\.exodus" version="[\d\.]+" \/>//g' "${S}"/addon.xml
-}
-
-src_install() {
-	insinto "/usr/share/kodi/addons/${addonName}"
-	doins -r *
-}
