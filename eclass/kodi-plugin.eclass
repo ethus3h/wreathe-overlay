@@ -1,7 +1,9 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-# Original Author: ethus3h
+# @ECLASS: kodi-plugin.eclass
+# @MAINTAINER: kolubat@gmail.com
+# @BLURB: generic ebuild for Kodi plugins
 
 kodi_version_codename="krypton"
 colossus_commit="6b49b1d0569910ba4a3fe05e03c08dc56a4ec852"
@@ -14,7 +16,6 @@ if [[ -z "$addonPv" ]]; then
 fi
 
 DESCRIPTION="Kodi add-on: ${addonName}"
-KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 DEPEND+=" media-tv/kodi"

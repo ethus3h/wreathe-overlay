@@ -6,6 +6,7 @@ EAPI=6
 inherit kodi-plugin
 
 LICENSE="GPL-2"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	>=media-plugins/kodi-script-module-simplejson-3.3.0

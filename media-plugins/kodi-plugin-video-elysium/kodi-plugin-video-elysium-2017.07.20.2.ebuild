@@ -8,6 +8,7 @@ kodi_repo="elysium"
 inherit kodi-plugin
 
 LICENSE="GPL-2"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	media-plugins/kodi-script-elysium-artwork
