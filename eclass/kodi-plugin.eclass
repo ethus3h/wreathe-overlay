@@ -9,7 +9,7 @@ kodi_version_codename="krypton"
 colossus_commit="6b49b1d0569910ba4a3fe05e03c08dc56a4ec852"
 colossuscommon_commit="48b411cd97944123439e6570938ab29a70a9c065"
 elysium_commit="3b672f287c71bca25a5ad98d99ac722344768bf8"
-kodinerds_commit="3b672f287c71bca25a5ad98d99ac722344768bf8"
+kodinerds_commit="c2ac5727dca70638f6271c0b4930e1ab106b8d03"
 
 addonName="${PN/kodi-/}"
 addonName="${addonName//-/.}"
