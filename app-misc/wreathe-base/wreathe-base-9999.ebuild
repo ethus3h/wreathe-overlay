@@ -31,6 +31,7 @@ src_prepare() {
 }
 
 src_install() {
+	rm -r .git .gitmodules build
 	GLOBIGNORE="README.md:.git:.gitattributes:.gitconfig:usr:man:Makefile:build:.egup.tags:Wreathe"
 	insinto /
 	doins -r ./*
