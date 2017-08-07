@@ -3,8 +3,7 @@
 
 EAPI=6
 
-addonName="${PN/kodi-/}"
-addonName="${addonName//-/.}"
+inherit kodi-plugin
 
 DESCRIPTION="Kodi add-on: script.openweathermap.maps"
 HOMEPAGE="https://kodi.tv/"
@@ -21,8 +20,3 @@ DEPEND="
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${addonName}"
-
-src_install() {
-	insinto "/usr/share/kodi/addons/${addonName}"
-	doins -r *
-}

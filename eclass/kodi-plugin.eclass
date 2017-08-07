@@ -6,6 +6,8 @@
 addonName="${PN/kodi-/}"
 addonName="${addonName//-/.}"
 
+S="${WORKDIR}/${addonName}"
+
 kodi-plugin_src_install() {
 	insinto "/usr/share/kodi/addons/${addonName}"
 	doins -r *

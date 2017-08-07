@@ -3,26 +3,21 @@
 
 EAPI=6
 
-inherit colossus
+inherit kodi-repository-colossus
 
 DESCRIPTION="Kodi add-on: plugin.video.covenant"
 HOMEPAGE="https://github.com/Colossal1/repository.colossus"
 
-LICENSE="GPL-2"
+LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	media-tv/kodi
-	media-plugins/kodi-script-elysium-artwork
-	media-plugins/kodi-script-module-urlresolver
-	media-plugins/kodi-script-module-metahandler
-	media-plugins/kodi-script-module-requests
-	media-plugins/kodi-script-module-beautifulsoup
-	media-plugins/kodi-script-module-schism-common
-	media-plugins/kodi-script-module-futures
+	>=media-plugins/kodi-script-covenant-artwork-1.0.0
+	>=media-plugins/kodi-script-covenant-metadata-1.0.0
+	>=media-plugins/kodi-script-module-urlresolver-3.0.0
+	>=media-plugins/kodi-script-module-metahandler-1.0.0
 	"
 
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${addonName}"
