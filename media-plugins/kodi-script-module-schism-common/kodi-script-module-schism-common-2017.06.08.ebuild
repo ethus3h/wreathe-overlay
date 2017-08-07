@@ -3,15 +3,10 @@
 
 EAPI=6
 
-addonName="${PN/kodi-/}"
-addonName="${addonName//-/.}"
-
-DESCRIPTION="Kodi add-on: script.module.schism.common"
-HOMEPAGE="https://github.com/OpenELEQ/repository.elysium"
-SRC_URI="https://github.com/OpenELEQ/repository.elysium/blob/master/${addonName}/${addonName}-${PV}.zip?raw=true -> ${addonName}-${PV}.zip"
+kodi_repo="elysium"
+inherit kodi-plugin
 
 LICENSE="GPL-2"
-SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="
@@ -22,10 +17,3 @@ DEPEND="
 	"
 
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${addonName}"
-
-src_install() {
-	insinto "/usr/share/kodi/addons/${addonName}"
-	doins -r *
-}
