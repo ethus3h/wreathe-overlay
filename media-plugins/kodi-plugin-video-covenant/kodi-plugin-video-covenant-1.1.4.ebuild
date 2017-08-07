@@ -3,7 +3,8 @@
 
 EAPI=6
 
-inherit kodi-repository-colossus
+kodi_repo="colossus"
+inherit kodi-plugin
 
 DESCRIPTION="Kodi add-on: plugin.video.covenant"
 LICENSE="GPL-3"
