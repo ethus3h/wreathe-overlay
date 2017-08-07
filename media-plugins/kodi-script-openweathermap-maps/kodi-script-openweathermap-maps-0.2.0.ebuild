@@ -5,11 +5,6 @@ EAPI=6
 
 inherit kodi-plugin
 
-DESCRIPTION="Kodi add-on: script.openweathermap.maps"
-
 LICENSE="GPL-2"
-KEYWORDS="~amd64 ~x86"
 
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${addonName}"
