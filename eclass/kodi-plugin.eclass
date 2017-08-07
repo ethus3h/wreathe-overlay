@@ -7,7 +7,9 @@
 
 kodi_version_codename="krypton"
 colossus_commit="6b49b1d0569910ba4a3fe05e03c08dc56a4ec852"
+colossuscommon_commit="48b411cd97944123439e6570938ab29a70a9c065"
 elysium_commit="3b672f287c71bca25a5ad98d99ac722344768bf8"
+kodinerds_commit="3b672f287c71bca25a5ad98d99ac722344768bf8"
 
 addonName="${PN/kodi-/}"
 addonName="${addonName//-/.}"
@@ -28,9 +30,17 @@ if [[ -n "$kodi_repo" ]]; then
 		HOMEPAGE="https://github.com/Colossal1/repository.colossus"
 		SRC_URI="https://github.com/Colossal1/repository.colossus/blob/${colossus_commit}/${addonName}/${addonName}-${addonPv}.zip?raw=true -> ${addonName}-${PV}.zip"
 		;;
+	colossuscommon)
+		HOMEPAGE="https://github.com/Colossal1/repository.colossus.common"
+		SRC_URI="https://github.com/Colossal1/repository.colossus.common/blob/${colossuscommon_commit}/${addonName}/${addonName}-${addonPv}.zip?raw=true -> ${addonName}-${PV}.zip"
+		;;
 	elysium)
 		HOMEPAGE="https://github.com/OpenELEQ/repository.elysium"
 		SRC_URI="https://github.com/OpenELEQ/repository.elysium/blob/${elysium_commit}/${addonName}/${addonName}-${addonPv}.zip?raw=true -> ${addonName}-${PV}.zip"
+		;;
+	kodinerds)
+		HOMEPAGE="https://github.com/kodinerds/repo"
+		SRC_URI="https://github.com/kodinerds/repo/blob/${kodinerds_commit}/${addonName}/${addonName}-${addonPv}.zip?raw=true -> ${addonName}-${PV}.zip"
 		;;
 	*)
 		echo "Unknown repository."
