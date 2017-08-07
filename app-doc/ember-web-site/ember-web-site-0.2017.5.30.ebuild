@@ -10,7 +10,7 @@ SRC_URI="https://github.com/ethus3h/ember-web-site/archive/v${PV}.tar.gz -> ${P}
 LICENSE="GPL-2"
 SLOT="0"
 IUSE="local-install"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 RDEPEND=""
 DEPEND="${RDEPEND}
 	app-misc/futuramerlin-web-toolkit"

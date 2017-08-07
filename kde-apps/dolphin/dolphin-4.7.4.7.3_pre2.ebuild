@@ -15,7 +15,7 @@ SRC_URI="mirror://kde/Attic/${baseappsVersion}/src/kde-baseapps-${baseappsVersio
 
 LICENSE="GPL-2"
 SLOT="4"
-KEYWORDS="~amd64 -*"
+KEYWORDS="~amd64"
 IUSE="debug semantic-desktop thumbnail"
 
 DEPEND="kde-frameworks/kdelibs:4

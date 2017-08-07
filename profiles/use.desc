@@ -1,8 +1,10 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-gac - register library assemblies in the gac (where ebuild requests that)
-pkg-config - install .pc file
-nupkg - build binary package for local repository
+arts - Adds support for aRts: the Trinity sound daemon
 developer - create .mdb files
+gac - register library assemblies in the gac (where ebuild requests that)
 net45 - .NET 4.5 Framework
+nupkg - build binary package for local repository
+pkg-config - install .pc file
+xrandr - Add support for xrandr

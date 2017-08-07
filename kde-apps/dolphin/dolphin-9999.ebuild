@@ -9,7 +9,7 @@ HOMEPAGE="https://github.com/KDE/dolphin"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 
 DEPEND="
 	kde-apps/dolphin:4
