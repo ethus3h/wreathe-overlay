@@ -3,7 +3,7 @@
 
 EAPI=6
 
-addonPv="2017.07.20a"
+#addonPv="2017.07.20a"
 kodi_repo="elysium"
 inherit kodi-plugin
 
