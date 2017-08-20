@@ -4,7 +4,7 @@
 EAPI="6"
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras experimental"
-K_GENPATCHES_VER="35"
+K_GENPATCHES_VER="6"
 
 inherit kernel-2
 detect_version
@@ -130,10 +130,10 @@ pkg_postinst() {
 	kernel-2_pkg_postinst
 	if use compile; then
 		eselect kernel set "linux-${PV}-wreathe"
-		einfo "For more info on this patchset, and how to report problems, see:"
-		einfo "${HOMEPAGE}"
 		dosym /boot/grub/grub.cfg /boot/grub/grub.conf
 	fi
+	einfo "For more info on this patchset, and how to report problems, see:"
+	einfo "${HOMEPAGE}"
 }
 
 pkg_postrm() {
