@@ -35,7 +35,7 @@ for app in "${mozApps[@]}"; do
 		use thunderbird && DEPEND+=" www-client/thunderbird"
 		;;
 	*)
-		echo "(Not installing for unknown Mozilla app $app)"
+		true
 		;;
 	esac
 done
@@ -67,7 +67,22 @@ moz-ext_src_install() {
 		destDirName="${destDirName#*: \"}"
 		destDirName="${destDirName%%\",*}"
 	fi
-	insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
+	for app in "${mozApps[@]}"; do
+		case $app in
+		fx)
+			insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
+			;;
+		sm)
+			insinto "/usr/$(get_libdir)/seamonkey/browser/extensions/$destDirName"
+			;;
+		tb)
+			insinto "/usr/$(get_libdir)/thunderbird/extensions/$destDirName"
+			;;
+		*)
+			echo "(Not installing for unknown Mozilla app $app)"
+			;;
+		esac
+	done
 	doins -r ./
 }
 
