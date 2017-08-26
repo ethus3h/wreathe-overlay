@@ -3,8 +3,10 @@
 
 EAPI=6
 
-addonName="${PN/moz-ext-/}"
-addonName="${addonName//-/_}"
+mozApps=(fx sm tb)
+mozId=621144
+
+inherit moz-ext
 
 DESCRIPTION="Mozilla extension: Edit menus and menu items; edit shortcuts"
 HOMEPAGE="http://www.s3blog.org/s3menu-wizard.html"
