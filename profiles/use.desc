@@ -3,11 +3,11 @@
 
 arts - Adds support for aRts: the Trinity sound daemon
 developer - create .mdb files
-firefox - have Mozilla addons depend on Firefox
+firefox - Install Mozilla addon for Firefox
 gac - register library assemblies in the gac (where ebuild requests that)
 net45 - .NET 4.5 Framework
 nupkg - build binary package for local repository
 pkg-config - install .pc file
-seamonkey - have Mozilla addons depend on SeaMonkey
-thunderbird - have Mozilla addons depend on Thunderbird
+seamonkey - Install Mozilla addon for SeaMonkey
+thunderbird - Install Mozilla addon for Thunderbird
 xrandr - Add support for xrandr

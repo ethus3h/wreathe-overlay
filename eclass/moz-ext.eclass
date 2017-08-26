@@ -23,12 +23,12 @@ for app in "${mozApps[@]}"; do
 		use firefox && DEPEND+=" www-client/firefox"
 		;;
 	sm)
-		IUSE+=" firefox"
-		use firefox && DEPEND+=" www-client/firefox"
+		IUSE+=" seamonkey"
+		use seamonkey && DEPEND+=" www-client/seamonkey"
 		;;
 	tb)
-		IUSE+=" firefox"
-		use firefox && DEPEND+=" www-client/firefox"
+		IUSE+=" thunderbird"
+		use thunderbird && DEPEND+=" www-client/thunderbird"
 		;;
 	*)
 		echo "(Not installing for unknown Mozilla app $app)"
