@@ -8,6 +8,7 @@ mozId=630007
 
 inherit moz-ext
 
+DESCRIPTION="Mozilla extension: Download manager in a tab or sidebar"
 HOMEPAGE="http://dmextension.mozdev.org/"
 
 KEYWORDS="~amd64 ~x86"

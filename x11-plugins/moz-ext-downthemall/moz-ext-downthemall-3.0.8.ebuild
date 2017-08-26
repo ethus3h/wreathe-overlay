@@ -8,6 +8,7 @@ mozId=511888
 
 inherit moz-ext
 
+DESCRIPTION="Mozilla extension: Download manager/accelerator built inside Firefox"
 HOMEPAGE="http://www.downthemall.net/"
 
 KEYWORDS="~amd64 ~x86"

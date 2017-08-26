@@ -9,6 +9,7 @@ mozId=157259
 
 inherit moz-ext
 
+DESCRIPTION="Mozilla extension: Gives performance & network tweaks for Firefox"
 HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/rsccmanfasterfox/"
 
 KEYWORDS="~amd64 ~x86"

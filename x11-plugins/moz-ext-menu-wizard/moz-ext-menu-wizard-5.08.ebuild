@@ -8,6 +8,7 @@ mozId=621144
 
 inherit moz-ext
 
+DESCRIPTION="Mozilla extension: Edit menus and menu items; edit shortcuts"
 HOMEPAGE="http://www.s3blog.org/s3menu-wizard.html"
 
 KEYWORDS="~amd64 ~x86"

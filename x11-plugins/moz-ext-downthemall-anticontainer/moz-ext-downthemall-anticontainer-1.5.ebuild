@@ -8,6 +8,7 @@ mozId=424871
 
 inherit moz-ext
 
+DESCRIPTION="Mozilla extension: DownThemAll container page resources"
 HOMEPAGE="https://github.com/downthemall/anticontainer"
 
 KEYWORDS="~amd64 ~x86"

@@ -8,6 +8,7 @@ mozId=616433
 
 inherit moz-ext
 
+DESCRIPTION="Mozilla extension: In the DOM Inspector, quickly navigate to elements"
 HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/element-inspector/"
 
 KEYWORDS="~amd64 ~x86"

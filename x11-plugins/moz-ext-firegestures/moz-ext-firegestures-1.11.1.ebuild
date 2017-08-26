@@ -8,6 +8,7 @@ mozId=662818
 
 inherit moz-ext
 
+DESCRIPTION="Mozilla extension: execute various commands with gestures"
 HOMEPAGE="http://www.xuldev.org/firegestures/"
 
 KEYWORDS="~amd64 ~x86"

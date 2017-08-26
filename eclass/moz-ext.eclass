@@ -14,7 +14,6 @@ if [[ -z "$addonPv" ]]; then
 	addonPv="${PV}"
 fi
 
-DESCRIPTION="Mozilla extension: ${mozName}"
 SLOT="0"
 
 REQUIRED_USE+=$'\n|| ( '

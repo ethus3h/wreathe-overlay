@@ -8,6 +8,7 @@ mozId=253008
 
 inherit moz-ext
 
+DESCRIPTION="Mozilla extension: displays the items from your Live Bookmarks in the sidebar."
 HOMEPAGE="http://www.chrisfinke.com/addons/feedbar/"
 
 KEYWORDS="~amd64 ~x86"
