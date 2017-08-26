@@ -22,17 +22,17 @@ for app in "${mozApps[@]}"; do
 	fx)
 		IUSE+=" firefox"
 		REQUIRED_USE+=" firefox"
-		use firefox && DEPEND+=" www-client/firefox"
+		DEPEND+=" firefox? ( www-client/firefox )"
 		;;
 	sm)
 		IUSE+=" seamonkey"
 		REQUIRED_USE+=" seamonkey"
-		use seamonkey && DEPEND+=" www-client/seamonkey"
+		DEPEND+=" seamonkey? ( www-client/seamonkey )"
 		;;
 	tb)
 		IUSE+=" thunderbird"
 		REQUIRED_USE+=" thunderbird"
-		use thunderbird && DEPEND+=" www-client/thunderbird"
+		DEPEND+=" thunderbird? ( www-client/thunderbird )"
 		;;
 	*)
 		true
