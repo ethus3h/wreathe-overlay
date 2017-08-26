@@ -5,6 +5,7 @@ EAPI=6
 
 mozApps=(fn fx sm tb)
 mozId=523545
+mozName="dom-inspector-dm"
 
 inherit moz-ext
 

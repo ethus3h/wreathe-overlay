@@ -5,14 +5,16 @@
 # @MAINTAINER: kolubat@gmail.com
 # @BLURB: generic ebuild for Mozilla plugins
 
-addonName="${PN/moz-ext-/}"
-addonName="${addonName//-/_}"
+if [[ -z "$mozName" ]]; then
+	mozName="${PN/moz-ext-/}"
+	mozName="${mozName//-/_}"
+fi
 
 if [[ -z "$addonPv" ]]; then
 	addonPv="${PV}"
 fi
 
-DESCRIPTION="Mozilla extension: ${addonName}"
+DESCRIPTION="Mozilla extension: ${mozName}"
 SLOT="0"
 
 REQUIRED_USE+=$'\n|| ( '
@@ -42,7 +44,7 @@ done
 REQUIRED_USE+=' )'
 
 if [[ -n "$mozId" ]]; then
-	SRC_URI="https://addons.mozilla.org/firefox/downloads/file/$mozId/${addonName}-${addonPv}-$appString.xpi -> ${P}.zip"
+	SRC_URI="https://addons.mozilla.org/firefox/downloads/file/$mozId/${mozName}-${addonPv}-$appString.xpi -> ${P}.zip"
 fi
 
 S="${WORKDIR}"
