@@ -3,13 +3,13 @@
 
 EAPI=6
 
-mozApps=(fx)
-mozId=535938
+mozApps=(an fx sm tb)
+mozId=685614
 
 inherit moz-ext
 
-DESCRIPTION="Mozilla extension: Displays tabs in tiled layouts in Firefox"
-HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/tile-tabs/"
+DESCRIPTION="Mozilla extension: An efficient blocker. Easy on CPU and memory."
+HOMEPAGE="https://github.com/gorhill/uBlock#ublock-origin"
 
 KEYWORDS="~amd64 ~x86"
 LICENSE="GPL-3"

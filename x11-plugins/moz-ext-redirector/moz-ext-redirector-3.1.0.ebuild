@@ -8,6 +8,7 @@ mozId=478859
 
 inherit moz-ext
 
+DESCRIPTION="Automatically redirects to user-defined urls on certain pages"
 HOMEPAGE="http://einaregilsson.com/redirector/"
 
 KEYWORDS="~amd64 ~x86"
