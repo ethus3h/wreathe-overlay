@@ -16,6 +16,7 @@ DESCRIPTION="Mozilla extension: ${addonName}"
 SLOT="0"
 
 for app in "${mozApps[@]}"; do
+	appString="$appString+$app"
 	case $app in
 	fx)
 		IUSE+=" firefox"
@@ -27,41 +28,34 @@ for app in "${mozApps[@]}"; do
 	esac
 done
 
-DEPEND+=" media-tv/kodi"
-
-S="${WORKDIR}/${addonName}"
-
-if [[ -n "$kodi_repo" ]]; then
-	case $kodi_repo in
-	colossus)
-		HOMEPAGE="https://github.com/Colossal1/repository.colossus"
-		SRC_URI="https://github.com/Colossal1/repository.colossus/blob/${colossus_commit}/${addonName}/${addonName}-${addonPv}.zip?raw=true -> ${addonName}-${PV}.zip"
-		;;
-	colossuscommon)
-		HOMEPAGE="https://github.com/Colossal1/repository.colossus.common"
-		SRC_URI="https://github.com/Colossal1/repository.colossus.common/blob/${colossuscommon_commit}/${addonName}/${addonName}-${addonPv}.zip?raw=true -> ${addonName}-${PV}.zip"
-		;;
-	elysium)
-		HOMEPAGE="https://github.com/OpenELEQ/repository.elysium"
-		SRC_URI="https://github.com/OpenELEQ/repository.elysium/blob/${elysium_commit}/${addonName}/${addonName}-${addonPv}.zip?raw=true -> ${addonName}-${PV}.zip"
-		;;
-	kodinerds)
-		HOMEPAGE="https://github.com/kodinerds/repo"
-		SRC_URI="https://github.com/kodinerds/repo/blob/${kodinerds_commit}/${addonName}/${addonName}-${addonPv}.zip?raw=true -> ${addonName}-${PV}.zip"
-		;;
-	*)
-		echo "Unknown repository."
-		exit 1
-		;;
-	esac
-else
-	HOMEPAGE="https://kodi.tv/"
-	SRC_URI="http://mirrors.kodi.tv/addons/${kodi_version_codename}/${addonName}/${addonName}-${PV}.zip"
+if [[ -n "$mozId" ]]; then
+	SRC_URI="https://addons.mozilla.org/firefox/downloads/file/$mozId/${addonName}-${addonPv}-$appString.xpi -> ${P}.zip"
 fi
 
-kodi-plugin_src_install() {
-	insinto "/usr/share/kodi/addons/${addonName}"
-	doins -r ./*
+S="${WORKDIR}"
+
+moz-ext_src_install() {
+	if [[ -e "install.rdf" ]]; then
+		destDirName="$(cat install.rdf | sed 's/\r/\n/g' | grep "em:id=\"" | grep -v "ec8030f7-c20a-464f-9b0e-13a3a9e97384" | head -n 1)"
+		destDirName="${destDirName#*\"}"
+		destDirName="${destDirName%%\"*}"
+		if [[ -z "$destDirName" ]]; then
+			destDirName="$(cat install.rdf | sed 's/\r/\n/g' | grep "<em:id>" | grep -v "ec8030f7-c20a-464f-9b0e-13a3a9e97384" | head -n 1)"
+			destDirName="${destDirName#*>}"
+			destDirName="${destDirName%%<*}"
+		fi
+		if [[ -z "$destDirName" ]]; then
+			destDirName="$(cat install.rdf | sed 's/\r/\n/g' | grep "<id>" | grep -v "ec8030f7-c20a-464f-9b0e-13a3a9e97384" | head -n 1)"
+			destDirName="${destDirName#*>}"
+			destDirName="${destDirName%%<*}"
+		fi
+	else
+		destDirName="$(cat manifest.json | grep "\"id\":" | grep -v "ec8030f7-c20a-464f-9b0e-13a3a9e97384" | head -n 1)"
+		destDirName="${destDirName#*: \"}"
+		destDirName="${destDirName%%\",*}"
+	fi
+	insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
+	doins -r ./
 }
 
 EXPORT_FUNCTIONS src_install
