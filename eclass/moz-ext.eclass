@@ -7,8 +7,8 @@
 
 if [[ -z "$mozName" ]]; then
 	mozName="${PN/moz-ext-/}"
-	mozName="${mozName//-/_}"
 fi
+mozName="${mozName//-/_}"
 
 if [[ -z "$addonPv" ]]; then
 	addonPv="${PV}"

@@ -5,6 +5,7 @@ EAPI=6
 
 mozApps=(sm tb fx)
 mozId=488078
+mozName="copy-plain-text-2"
 
 inherit moz-ext
 
