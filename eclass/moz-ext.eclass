@@ -15,19 +15,23 @@ fi
 DESCRIPTION="Mozilla extension: ${addonName}"
 SLOT="0"
 
+REQUIRED_USE+=$'\n|| ( '
 for app in "${mozApps[@]}"; do
 	appString="$appString+$app"
 	case $app in
 	fx)
 		IUSE+=" firefox"
+		REQUIRED_USE+=" firefox"
 		use firefox && DEPEND+=" www-client/firefox"
 		;;
 	sm)
 		IUSE+=" seamonkey"
+		REQUIRED_USE+=" seamonkey"
 		use seamonkey && DEPEND+=" www-client/seamonkey"
 		;;
 	tb)
 		IUSE+=" thunderbird"
+		REQUIRED_USE+=" thunderbird"
 		use thunderbird && DEPEND+=" www-client/thunderbird"
 		;;
 	*)
@@ -35,6 +39,7 @@ for app in "${mozApps[@]}"; do
 		;;
 	esac
 done
+REQUIRED_USE+=' )'
 
 if [[ -n "$mozId" ]]; then
 	SRC_URI="https://addons.mozilla.org/firefox/downloads/file/$mozId/${addonName}-${addonPv}-$appString.xpi -> ${P}.zip"
