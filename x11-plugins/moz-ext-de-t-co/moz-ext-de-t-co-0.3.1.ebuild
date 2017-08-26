@@ -8,6 +8,7 @@ mozId=501570
 
 inherit moz-ext
 
+DESCRIPTION="Mozilla extension: This turns all t.co links into their expanded forms."
 HOMEPAGE="https://github.com/johnpbloch/De-T-Co"
 
 KEYWORDS="~amd64 ~x86"

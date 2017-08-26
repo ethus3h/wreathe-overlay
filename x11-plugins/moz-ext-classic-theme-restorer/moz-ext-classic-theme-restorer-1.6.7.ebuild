@@ -8,6 +8,7 @@ mozId=666292
 
 inherit moz-ext
 
+DESCRIPTION="Mozilla extension: Squared tabs, appmenu, small button view, etc."
 HOMEPAGE="https://github.com/Aris-t2/ClassicThemeRestorer"
 
 KEYWORDS="~amd64 ~x86"

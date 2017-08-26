@@ -8,6 +8,7 @@ mozId=458572
 
 inherit moz-ext
 
+DESCRIPTION="Mozilla extension: Removes the floating overlay when using webcam or microphone"
 HOMEPAGE="https://github.com/yannleretaille/firefox-addon-webrtcindicatorremover"
 
 KEYWORDS="~amd64 ~x86"

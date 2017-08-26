@@ -8,6 +8,7 @@ mozId=340322
 
 inherit moz-ext
 
+DESCRIPTION="Mozilla extension: Lets you capture an image of a web page"
 HOMEPAGE="https://www.caisc.co.in/"
 
 KEYWORDS="~amd64 ~x86"

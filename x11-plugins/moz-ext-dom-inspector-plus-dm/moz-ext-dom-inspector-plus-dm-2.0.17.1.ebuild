@@ -8,6 +8,7 @@ mozId=523545
 
 inherit moz-ext
 
+DESCRIPTION="Mozilla extension: Improved DOM Inspector!"
 HOMEPAGE="https://addons.mozilla.org/en-GB/firefox/addon/dom-inspector-dm/versions/"
 
 KEYWORDS="~amd64 ~x86"

@@ -8,6 +8,7 @@ mozId=123394
 
 inherit moz-ext
 
+DESCRIPTION="Mozilla extension: This enables quick check/uncheck of checkboxes..."
 HOMEPAGE="http://pragcraft.wordpress.com/checkfox/"
 
 KEYWORDS="~amd64 ~x86"

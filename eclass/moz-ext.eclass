@@ -36,6 +36,11 @@ for app in "${mozApps[@]}"; do
 		REQUIRED_USE+=" thunderbird"
 		DEPEND+=" thunderbird? ( www-client/thunderbird )"
 		;;
+	tb-linux)
+		IUSE+=" thunderbird"
+		REQUIRED_USE+=" thunderbird"
+		DEPEND+=" thunderbird? ( www-client/thunderbird )"
+		;;
 	*)
 		true
 		;;
@@ -78,6 +83,9 @@ moz-ext_src_install() {
 			insinto "/usr/$(get_libdir)/seamonkey/browser/extensions/$destDirName"
 			;;
 		tb)
+			insinto "/usr/$(get_libdir)/thunderbird/extensions/$destDirName"
+			;;
+		tb-linux)
 			insinto "/usr/$(get_libdir)/thunderbird/extensions/$destDirName"
 			;;
 		*)

@@ -8,6 +8,7 @@ mozId=579644
 
 inherit moz-ext
 
+DESCRIPTION="Mozilla extension: Make Australis feel awesome to use!"
 HOMEPAGE="http://fasezero.com/"
 
 KEYWORDS="~amd64 ~x86"
