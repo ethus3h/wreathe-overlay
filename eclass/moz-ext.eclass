@@ -73,6 +73,7 @@ moz-ext_src_install() {
 			destDirName="$(cat manifest.json | grep "\"id\":" | grep -v "ec8030f7-c20a-464f-9b0e-13a3a9e97384" | head -n 1)"
 			destDirName="${destDirName#*: \"}"
 			destDirName="${destDirName%%\",*}"
+			destDirName="${destDirName%%\"*}"
 		fi
 	fi
 	for app in "${mozApps[@]}"; do
