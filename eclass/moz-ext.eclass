@@ -79,23 +79,34 @@ moz-ext_src_install() {
 	for app in "${mozApps[@]}"; do
 		case $app in
 		fx)
-			insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
+			if use firefox; then
+				insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
+				doins -r ./
+			fi
 			;;
 		sm)
-			insinto "/usr/$(get_libdir)/seamonkey/browser/extensions/$destDirName"
+			if use seamonkey; then
+				insinto "/usr/$(get_libdir)/seamonkey/browser/extensions/$destDirName"
+				doins -r ./
+			fi
 			;;
 		tb)
-			insinto "/usr/$(get_libdir)/thunderbird/extensions/$destDirName"
+			if use thunderbird; then
+				insinto "/usr/$(get_libdir)/thunderbird/extensions/$destDirName"
+				doins -r ./
+			fi
 			;;
 		tb-linux)
-			insinto "/usr/$(get_libdir)/thunderbird/extensions/$destDirName"
+			if use thunderbird; then
+				insinto "/usr/$(get_libdir)/thunderbird/extensions/$destDirName"
+				doins -r ./
+			fi
 			;;
 		*)
 			echo "(Not installing for unknown Mozilla app $app)"
 			;;
 		esac
 	done
-	doins -r ./
 }
 
 EXPORT_FUNCTIONS src_install
