@@ -7,7 +7,7 @@ inherit git-r3
 
 DESCRIPTION="Opensnap brings the Aero Snap feature to Openbox."
 HOMEPAGE="https://github.com/lawl/opensnap"
-EGIT_REPO_URI="git://github.com/lawl/opensnap.git"
+EGIT_REPO_URI="https://github.com/lawl/opensnap.git"
 
 LICENSE="GPL-2"
 SLOT="0"

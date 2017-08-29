@@ -9,7 +9,7 @@ inherit kde5 git-r3
 DESCRIPTION="Wreathe character selection utility"
 HOMEPAGE="http://futuramerlin.com/"
 KEYWORDS=""
-EGIT_REPO_URI="git://github.com/ethus3h/wreathe-charselect.git"
+EGIT_REPO_URI="https://github.com/ethus3h/wreathe-charselect.git"
 
 DEPEND="kde-apps/kcharselect"
 RDEPEND="${DEPEND}"

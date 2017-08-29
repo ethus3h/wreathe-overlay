@@ -7,7 +7,7 @@ inherit git-r3
 
 DESCRIPTION="Retrieves your activation data (activation_bytes) from Audible servers"
 HOMEPAGE="https://github.com/inAudible-NG/audible-activator"
-EGIT_REPO_URI="git://github.com/inAudible-NG/audible-activator.git"
+EGIT_REPO_URI="https://github.com/inAudible-NG/audible-activator.git"
 
 LICENSE="GPL-3"
 SLOT="0"

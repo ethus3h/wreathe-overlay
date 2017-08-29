@@ -7,7 +7,7 @@ inherit git-r3
 
 DESCRIPTION="BeHeMMOth bullet hell MMO game"
 HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="git://github.com/ethus3h/BeHeMMOth.git"
+EGIT_REPO_URI="https://github.com/ethus3h/BeHeMMOth.git"
 
 LICENSE="AGPL-3"
 SLOT="0"

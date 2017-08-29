@@ -7,7 +7,7 @@ inherit git-r3
 
 DESCRIPTION="ILSpy command line decompiler for Mono"
 HOMEPAGE="https://github.com/aerror2/ILSpy-For-MacOSX"
-EGIT_REPO_URI="git://github.com/aerror2/ILSpy-For-MacOSX.git"
+EGIT_REPO_URI="https://github.com/aerror2/ILSpy-For-MacOSX.git"
 
 LICENSE="MIT"
 SLOT="0"

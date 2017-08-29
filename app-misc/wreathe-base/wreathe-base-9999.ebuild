@@ -5,7 +5,7 @@ EAPI="6"
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="git://github.com/ethus3h/${PN}.git"
+	EGIT_REPO_URI="https://github.com/ethus3h/${PN}.git"
 	KEYWORDS=""
 else
 	onboardEmojiRevision="47314d5aff654d8e315552fb106cf82508915747"

@@ -12,7 +12,7 @@ DESCRIPTION="Jackdmp jack implemention for multi-processor machine"
 HOMEPAGE="http://jackaudio.org/"
 
 if [[ "${PV}" = "2.9999" ]]; then
-	EGIT_REPO_URI="git://github.com/jackaudio/jack2.git"
+	EGIT_REPO_URI="https://github.com/jackaudio/jack2.git"
 	KEYWORDS=""
 else
 	SRC_URI="https://github.com/jackaudio/jack2/archive/v1.9.10.tar.gz -> jack2-${PV}.tar.gz"

@@ -7,7 +7,7 @@ inherit eutils git-r3
 
 DESCRIPTION="Flash SWF decompiler and editor"
 HOMEPAGE="https://www.free-decompiler.com/"
-EGIT_REPO_URI="git://github.com/jindrapetrik/jpexs-decompiler.git"
+EGIT_REPO_URI="https://github.com/jindrapetrik/jpexs-decompiler.git"
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS=""
