@@ -14,8 +14,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 S="${WORKDIR}/${PN}-${myCommit}"
-
+set -x
 src_install() {
     set -x
+    ls
+    pwd
+    make DESTDIR="${D}" install
     emake DESTDIR="${D}" install
 }
