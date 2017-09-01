@@ -3,7 +3,6 @@
 
 EAPI="6"
 
-inherit git-r3
 myCommit="47314d5aff654d8e315552fb106cf82508915747"
 
 DESCRIPTION="Emoji OnBoard keyboard layout"

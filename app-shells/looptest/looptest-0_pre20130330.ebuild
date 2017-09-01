@@ -3,7 +3,6 @@
 
 EAPI="6"
 
-inherit git-r3
 myCommit="ee6db251ad05f773e09234386008abdc49671125"
 
 DESCRIPTION="Loop iteration tester for use in osh(1) and sh6(1) scripting"

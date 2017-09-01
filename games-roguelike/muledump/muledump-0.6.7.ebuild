@@ -3,13 +3,10 @@
 
 EAPI="6"
 
-inherit git-r3
-#java-pkg-2 java-pkg-simple
-
 DESCRIPTION="List contents of RotMG-protocol bullet hell MMO accounts"
-HOMEPAGE="https://github.com/atomizer/${PN}"
+HOMEPAGE="https://github.com/atomizer/muledump"
 SRC_URI="https://github.com/atomizer/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 -*"
+KEYWORDS="~amd64"
