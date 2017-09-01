@@ -8,7 +8,7 @@ inherit git-r3
 myCommit="47314d5aff654d8e315552fb106cf82508915747"
 DESCRIPTION="Emoji OnBoard keyboard layout"
 HOMEPAGE="https://github.com/qnub/onboard-emoji"
-SRC_URI="https://github.com/qnub/onboard-emoji/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
+SRC_URI="https://github.com/qnub/${PN}/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
 
 LICENSE="GPL-3"
 SLOT="0"

@@ -6,17 +6,9 @@ EAPI="6"
 myCommit="99cd37a672fef82753817c3f48ac4146396791b7"
 
 DESCRIPTION="CMap Resources"
-HOMEPAGE="https://futuramerlin.com/"
-SRC_URI="https://github.com/qnub/onboard-emoji/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
+HOMEPAGE="https://github.com/adobe-type-tools/cmap-resources"
+SRC_URI="https://github.com/adobe-type-tools/${PN}/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
 
-LICENSE="AGPL-3"
+LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-RDEPEND="dev-python/internetarchive"
-
-src_install() {
-	exeinto /usr/bin
-	GLOBIGNORE="README.md:LICENSE.md:.codeclimate.yml:.git:.egup.tags"
-	doexe *
-	unset GLOBIGNORE
-}
