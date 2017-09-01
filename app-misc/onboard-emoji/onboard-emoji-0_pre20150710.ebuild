@@ -4,8 +4,8 @@
 EAPI="6"
 
 inherit git-r3
-
 myCommit="47314d5aff654d8e315552fb106cf82508915747"
+
 DESCRIPTION="Emoji OnBoard keyboard layout"
 HOMEPAGE="https://github.com/qnub/onboard-emoji"
 SRC_URI="https://github.com/qnub/${PN}/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
@@ -19,6 +19,7 @@ RDEPEND="dev-lang/python:2.7
 src_compile() {
 	./gen_layout.py
 }
+
 src_install() {
 	insinto /usr/share/onboard/layouts/
 	doins -r layout/*

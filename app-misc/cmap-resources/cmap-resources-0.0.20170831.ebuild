@@ -3,6 +3,7 @@
 
 EAPI="6"
 
+inherit git-r3
 myCommit="99cd37a672fef82753817c3f48ac4146396791b7"
 
 DESCRIPTION="CMap Resources"
