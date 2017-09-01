@@ -7,7 +7,7 @@ myCommit="99cd37a672fef82753817c3f48ac4146396791b7"
 
 DESCRIPTION="CMap Resources"
 HOMEPAGE="https://futuramerlin.com/"
-SRC_URI="https://github.com/ethus3h/ember-shared/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="https://github.com/qnub/onboard-emoji/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
 
 LICENSE="AGPL-3"
 SLOT="0"
