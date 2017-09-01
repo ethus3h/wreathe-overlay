@@ -18,7 +18,9 @@ S="${WORKDIR}/${PN}-${myCommit}"
 src_prepare() {
     set -x
     default
-    ls
-    pwd
     emake DESTDIR="${D}" install
+}
+
+src_install() {
+    true
 }
