@@ -14,12 +14,11 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 S="${WORKDIR}/${PN}-${myCommit}"
-set -x
+
 src_prepare() {
-    echo "OOOOOOOOOOO" &>2
     set -x
+    default
     ls
     pwd
-    make DESTDIR="${D}" install
     emake DESTDIR="${D}" install
 }
