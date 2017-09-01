@@ -18,6 +18,7 @@ S="${WORKDIR}/${PN}-${myCommit}"
 src_prepare() {
     set -x
     default
+    # Access violation if I use the default src_install, even though it seems to do exactly this
     emake DESTDIR="${D}" install
 }
 
