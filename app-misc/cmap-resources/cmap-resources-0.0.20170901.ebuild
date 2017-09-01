@@ -16,5 +16,6 @@ KEYWORDS="~amd64 ~x86"
 S="${WORKDIR}/${PN}-${myCommit}"
 
 src_install() {
+    set -x
     emake DESTDIR="${D}" install
 }
