@@ -21,6 +21,10 @@ src_prepare() {
     emake DESTDIR="${D}" install
 }
 
+src_compile() {
+    true
+}
+
 src_install() {
     true
 }
