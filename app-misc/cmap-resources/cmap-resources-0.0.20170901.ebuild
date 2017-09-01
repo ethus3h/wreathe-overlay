@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~x86"
 
 S="${WORKDIR}/${PN}-${myCommit}"
 set -x
-src_install() {
+src_prepare() {
     echo "OOOOOOOOOOO" &>2
     set -x
     ls
