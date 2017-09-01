@@ -16,5 +16,6 @@ KEYWORDS="~amd64 ~x86"
 S="${WORKDIR}/${PN}-${myCommit}"
 
 src_compile() {
+    # Access violations (probably) occur otherwise (like in cmap-resources)
     true
 }
