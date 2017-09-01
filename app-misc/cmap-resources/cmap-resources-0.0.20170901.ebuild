@@ -3,7 +3,7 @@
 
 EAPI=6
 
-myCommit="99cd37a672fef82753817c3f48ac4146396791b7"
+myCommit="0c9b0a360ecdda96a2a71872d495e009a42aa699"
 
 DESCRIPTION="CMap Resources"
 HOMEPAGE="https://github.com/adobe-type-tools/cmap-resources"
