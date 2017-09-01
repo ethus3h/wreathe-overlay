@@ -14,18 +14,3 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 S="${WORKDIR}/${PN}-${myCommit}"
-
-src_prepare() {
-    set -x
-    default
-    # Access violation if I use the default src_install, even though it seems to do exactly this
-    emake DESTDIR="${D}" install
-}
-
-src_compile() {
-    true
-}
-
-src_install() {
-    true
-}
