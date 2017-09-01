@@ -16,6 +16,7 @@ KEYWORDS="~amd64 ~x86"
 S="${WORKDIR}/${PN}-${myCommit}"
 set -x
 src_install() {
+    echo "OOOOOOOOOOO" &>2
     set -x
     ls
     pwd
