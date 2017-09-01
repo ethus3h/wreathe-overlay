@@ -14,3 +14,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
 S="${WORKDIR}/${PN}-${myCommit}"
+
+src_compile() {
+    true
+}
