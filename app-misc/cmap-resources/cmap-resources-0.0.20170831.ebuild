@@ -12,3 +12,5 @@ SRC_URI="https://github.com/adobe-type-tools/${PN}/archive/${myCommit}.zip -> ${
 LICENSE="BSD"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+
+S="${WORKDIR}/${PN}-${myCommit}"

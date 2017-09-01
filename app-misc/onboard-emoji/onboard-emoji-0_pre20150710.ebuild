@@ -15,6 +15,8 @@ KEYWORDS="~amd64 ~x86"
 RDEPEND="dev-lang/python:2.7
 	app-accessibility/onboard"
 
+S="${WORKDIR}/${PN}-${myCommit}"
+
 src_compile() {
 	./gen_layout.py
 }

@@ -12,3 +12,5 @@ SRC_URI="https://github.com/JNeitzel/${PN}/archive/${myCommit}.zip -> ${P}-${myC
 LICENSE="BSD BSD-2 BSD-4"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
+
+S="${WORKDIR}/${PN}-${myCommit}"
