@@ -1,7 +1,7 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI=6
 
 myCommit="a290a166bd138022885798abc5f6daa65b2c579b"
 DESCRIPTION="Official Gentoo ebuild repository"
