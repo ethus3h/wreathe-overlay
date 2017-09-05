@@ -3,11 +3,11 @@
 
 EAPI=6
 
-myCommit="14831de6380b45489d514b34cd2ea921f37baff0"
+myCommit="79fcbc802221fef13cf4e5e2ce94de0ef4ec7c01"
 
 DESCRIPTION="FUSE bindings for bash"
 HOMEPAGE="https://github.com/zevweiss/booze"
-SRC_URI="https://github.com/zevweiss/${PN}/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
+SRC_URI="https://github.com/ethus3h/${PN}/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
 
 LICENSE="GPL-2"
 SLOT="0"
