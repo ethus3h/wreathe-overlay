@@ -21,6 +21,7 @@ RDEPEND="app-misc/wreathe-base
 	app-misc/ember-shared
 	dev-python/internetarchive
 	dev-python/fusepy
+	dev-libs/booze
 	sys-fs/zfs
 	sys-apps/pv
 	dev-vcs/git
@@ -28,6 +29,7 @@ RDEPEND="app-misc/wreathe-base
 	net-misc/curl
 	net-misc/wget
 	dev-python/awscli"
+DEPEND="${RDEPEND}"
 
 pkg_preinst() {
 	#Remove the temporary install prefix from scripts where it has been copied
@@ -53,7 +55,7 @@ src_install() {
 	else
 		dodoc ${DOCS}
 	fi
-	if [ ! -e /Ember\ Library ]; then
+	if [[ ! -e /Ember\ Library ]]; then
 		dodir /Ember\ Library/Futuramerlin\ Projects/Data/Crystal\ Index/
 	fi
 }
