@@ -21,7 +21,6 @@ RDEPEND="app-misc/wreathe-base
 	app-misc/ember-shared
 	dev-python/internetarchive
 	dev-python/fusepy
-	dev-libs/booze
 	sys-fs/zfs
 	sys-apps/pv
 	dev-vcs/git
