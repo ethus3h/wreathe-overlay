@@ -11,6 +11,11 @@ LICENSE="BSD" # "any combination GPL, LGPL, MPL or BSD licenses"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
+src_unpack() {
+    mkdir -p "${S}"
+    mv "${DISTDIR}" "${S}"
+}
+
 src_compile() {
     cc rdwrmem.c
 }
