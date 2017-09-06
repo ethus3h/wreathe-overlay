@@ -3,7 +3,7 @@
 
 EAPI=6
 
-myCommit="7ab75a123571c092f51088e17b542b404a61d08f"
+myCommit="148cb999f91cec4ca3cdbf1fcc6deee5bce31fb1"
 
 DESCRIPTION="FUSE bindings for bash"
 HOMEPAGE="https://github.com/zevweiss/booze"
