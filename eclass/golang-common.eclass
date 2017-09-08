@@ -38,7 +38,7 @@ case "${EAPI:-0}" in
 esac
 DEPEND+=" ${GO_DEPEND}"
 
-RESTRICT+=" mirror strip"
+RESTRICT+=" strip"
 
 QA_FLAGS_IGNORED="usr/bin/.*
 	usr/sbin/.*"
