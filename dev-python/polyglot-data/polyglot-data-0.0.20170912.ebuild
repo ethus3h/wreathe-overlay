@@ -11,7 +11,7 @@ DESCRIPTION="Natural language pipeline"
 HOMEPAGE="https://pypi.python.org/pypi/polyglot"
 SRC_URI="http://polyglot.cs.stonybrook.edu/~polyglot/index.json
 	http://polyglot.cs.stonybrook.edu/~polyglot/sgns2/pam/pam.sgns.model.tar.bz2"
-# 23GB
+# 23GB. TODO: Generate this list, but with version-number renames, dynamically from index.json
 	# http://polyglot.cs.stonybrook.edu/~polyglot/sgns2/it/it.sgns.model.tar.bz2
 	# http://polyglot.cs.stonybrook.edu/~polyglot/sgns2/hsb/hsb.sgns.model.tar.bz2
 	# http://polyglot.cs.stonybrook.edu/~polyglot/sgns2/sah/sah.sgns.model.tar.bz2
