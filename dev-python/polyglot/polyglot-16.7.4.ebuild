@@ -22,7 +22,7 @@ RDEPEND="dev-libs/icu
 	dev-python/pycld2[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
 	dev-python/futures[${PYTHON_USEDEP}]
-	dev-python/morfessor[${PYTHON_USEDEP}]
+	dev-python/Morfessor[${PYTHON_USEDEP}]
 	dev-python/numpy[${PYTHON_USEDEP}]"
 
 DEPEND="${RDEPEND}"
