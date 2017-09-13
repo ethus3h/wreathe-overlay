@@ -10,8 +10,7 @@ SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="AGPL-3 GPL-2"
 SLOT="0"
 KEYWORDS="~amd64"
-RDEPEND="app-misc/wreathe-base
-	app-text/html2text"
+RDEPEND="app-misc/wreathe-base"
 
 pkg_preinst() {
 	#Remove the temporary install prefix from scripts where it has been copied
