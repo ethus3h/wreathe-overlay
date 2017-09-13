@@ -1088,15 +1088,7 @@ SRC_URI="http://polyglot.cs.stonybrook.edu/~polyglot/index.json
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc test"
 
-RDEPEND="dev-libs/icu
-	dev-python/wheel[${PYTHON_USEDEP}]
-	dev-python/pyicu[${PYTHON_USEDEP}]
-	dev-python/pycld2[${PYTHON_USEDEP}]
-	dev-python/six[${PYTHON_USEDEP}]
-	dev-python/futures[${PYTHON_USEDEP}]
-	dev-python/Morfessor[${PYTHON_USEDEP}]
-	dev-python/numpy[${PYTHON_USEDEP}]"
+RDEPEND="dev-python/polyglot"
 
 DEPEND="${RDEPEND}"
