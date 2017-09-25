@@ -6,7 +6,7 @@
 # @BLURB: generic ebuild for Kodi plugins
 
 kodi_version_codename="krypton"
-colossus_commit="e85c5ba963c32021cc844556d367823b6a6360a2"
+colossus_commit="c46e6ad5769bd55fd594909cc7af1962245f7c21"
 colossuscommon_commit="c9116626cc842d5d1f6494f29cf4c8677c24cce1"
 elysium_commit="715b5b3266b91f626b535b6673023d74ce2cb6e2"
 kodinerds_commit="c2ac5727dca70638f6271c0b4930e1ab106b8d03"
