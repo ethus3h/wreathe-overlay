@@ -3,11 +3,11 @@
 
 EAPI=6
 
-inherit git-r3
-
+myCommit="82ff5a0da54aa6da27232b55eb93e5f4b5de22f2"
 DESCRIPTION="Opensnap brings the Aero Snap feature to Openbox."
 HOMEPAGE="https://github.com/lawl/opensnap"
-EGIT_REPO_URI="https://github.com/lawl/opensnap.git"
+
+SRC_URI="https://github.com/lawl/${PN}/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
 
 LICENSE="GPL-2"
 SLOT="0"
