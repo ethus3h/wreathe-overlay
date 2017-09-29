@@ -3,7 +3,7 @@
 
 EAPI=6
 
-myCommit="a7eb485cc719230b345c9e2fba57a42faafb0ef2"
+myCommit="855a4a822bf6287b444e9a497ac1b03780808170"
 myPn="run_scaled"
 DESCRIPTION="Run an X application scaled via xpra."
 HOMEPAGE="https://github.com/kaueraal/run_scaled"
