@@ -3,7 +3,7 @@
 
 EAPI=6
 
-myCommit="a7eb485cc719230b345c9e2fba57a42faafb0ef2"
+myCommit="82ff5a0da54aa6da27232b55eb93e5f4b5de22f2"
 DESCRIPTION="A hack to disable gtk3 client-side decorations"
 HOMEPAGE="https://github.com/PCMan/gtk3-nocsd"
 

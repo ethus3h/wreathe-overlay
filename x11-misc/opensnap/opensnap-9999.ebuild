@@ -3,7 +3,7 @@
 
 EAPI=6
 
-myCommit="82ff5a0da54aa6da27232b55eb93e5f4b5de22f2"
+myCommit="b5a0a61d35abe26c46b1f890a94bd58bb17871bb"
 DESCRIPTION="Opensnap brings the Aero Snap feature to Openbox."
 HOMEPAGE="https://github.com/lawl/opensnap"
 
