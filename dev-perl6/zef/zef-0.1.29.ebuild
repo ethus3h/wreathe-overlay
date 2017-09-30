@@ -19,5 +19,5 @@ src_compile() {
 }
 
 src_install() {
-	false
+	die
 }
