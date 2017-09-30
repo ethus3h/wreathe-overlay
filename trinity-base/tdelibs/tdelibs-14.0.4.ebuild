@@ -92,6 +92,11 @@ src_configure() {
 	trinity-base_src_configure
 }
 
+src_compile() {
+	addpredict /root/.trinity
+	default
+}
+
 src_install() {
 	trinity-base_src_install
 
