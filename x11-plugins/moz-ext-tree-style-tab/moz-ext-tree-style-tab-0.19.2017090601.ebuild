@@ -3,8 +3,8 @@
 
 EAPI=6
 
-mozApps=(an fx-linux)
-mozId=733678
+mozApps=(fx)
+mozId=717095
 
 inherit moz-ext
 
