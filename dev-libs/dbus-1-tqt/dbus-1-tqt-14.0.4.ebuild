@@ -18,6 +18,8 @@ DEPEND="sys-apps/dbus
 	dev-qt/tqtinterface"
 RDEPEND="$DEPEND"
 
+S="${WORKDIR}/dependencies/${PN}"
+
 src_configure() {
 	cmake-utils_src_configure
 }
