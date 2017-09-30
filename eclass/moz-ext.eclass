@@ -25,6 +25,11 @@ for app in "${mozApps[@]}"; do
 		REQUIRED_USE+=" firefox"
 		DEPEND+=" firefox? ( www-client/firefox )"
 		;;
+	fx-linux)
+		IUSE+=" firefox"
+		REQUIRED_USE+=" firefox"
+		DEPEND+=" firefox? ( www-client/firefox )"
+		;;
 	sm)
 		IUSE+=" seamonkey"
 		REQUIRED_USE+=" seamonkey"
@@ -79,6 +84,12 @@ moz-ext_src_install() {
 	for app in "${mozApps[@]}"; do
 		case $app in
 		fx)
+			if use firefox; then
+				insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
+				doins -r ./
+			fi
+			;;
+		fx-linux)
 			if use firefox; then
 				insinto "/usr/$(get_libdir)/firefox/browser/extensions/$destDirName"
 				doins -r ./
