@@ -13,7 +13,7 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS=""
 RDEPEND="app-misc/wreathe-meta
-	dev-lang/perl6"
+	virtual/perl6"
 DEPEND="${RDEPEND}"
 
 src_install() {

@@ -11,7 +11,7 @@ LICENSE="BSD"
 KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
-RDEPEND="dev-lang/perl6"
+RDEPEND="virtual/perl6"
 DEPEND="${RDEPEND}"
 
 src_compile() {
