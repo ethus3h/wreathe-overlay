@@ -38,12 +38,12 @@ for app in "${mozApps[@]}"; do
 	tb)
 		IUSE+=" thunderbird"
 		REQUIRED_USE+=" thunderbird"
-		DEPEND+=" thunderbird? ( www-client/thunderbird )"
+		DEPEND+=" thunderbird? ( mail-client/thunderbird )"
 		;;
 	tb-linux)
 		IUSE+=" thunderbird"
 		REQUIRED_USE+=" thunderbird"
-		DEPEND+=" thunderbird? ( www-client/thunderbird )"
+		DEPEND+=" thunderbird? ( mail-client/thunderbird )"
 		;;
 	*)
 		true

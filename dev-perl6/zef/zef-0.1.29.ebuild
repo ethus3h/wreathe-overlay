@@ -15,5 +15,9 @@ RDEPEND="virtual/perl6"
 DEPEND="${RDEPEND}"
 
 src_compile() {
-	perl6 -Ilib bin/zef install .
+	perl6 -Ilib bin/zef install --force-test .
+}
+
+src_install() {
+	false
 }
