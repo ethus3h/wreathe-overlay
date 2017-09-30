@@ -28,6 +28,8 @@ DEPEND="dev-qt/tqtinterface
 	jack? ( >=media-sound/jack-audio-connection-kit-0.90 )"
 RDEPEND="${RDEPEND}"
 
+S="${WORKDIR}/dependencies/${PN}"
+
 src_configure() {
 	mycmakeargs=(
 		-DAUDIOFILE=ON
