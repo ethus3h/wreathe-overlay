@@ -5,7 +5,6 @@ EAPI=5
 
 inherit eutils flag-o-matic toolchain-funcs
 
-#SRCTYPE="free"
 DESCRIPTION="The Trinitie's Qt toolkit fork."
 HOMEPAGE="http://trinitydesktop.org/"
 
@@ -14,8 +13,7 @@ HOMEPAGE="http://trinitydesktop.org/"
 SRC_URI="http://www.mirrorservice.org/sites/trinitydesktop.org/trinity/releases/R${PV}/dependencies/tqt3-R${PV}.tar.bz2"
 #	immtqt? ( mirror://gentoo/${IMMTQT_P}.diff.bz2 )
 #	immtqt-bc? ( mirror://gentoo/${IMMTQT_P}.diff.bz2 )"
-#EGIT_REPO_URI="http://scm.trinitydesktop.org/scm/git/tqt3"
-#EGIT_PROJECT="trinity/tqt3"
+
 LICENSE="|| ( QPL-1.0 GPL-2 GPL-3 )"
 
 SLOT="3"
@@ -52,8 +50,6 @@ DEPEND="${RDEPEND}
 #	immtqt? ( x11-proto/xineramaproto )
 #	immtqt-bc? ( x11-proto/xineramaproto )"
 #PDEPEND="odbc? ( ~dev-db/tqt-unixODBC-$PV )"
-
-#S="${WORKDIR}/tqt-x11-${SRCTYPE}-${PV}"
 
 TQTBASE="/usr/tqt3"
 
