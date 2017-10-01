@@ -18,3 +18,8 @@ src_compile() {
 	mkdir -p "$D/usr/share/perl6/site"
 	perl6 -Ilib bin/zef --force-test --to="$D/usr/share/perl6/site" install .
 }
+
+src_install() {
+	insinto "/usr/share/perl6/"
+	doins -r "$D/usr/share/perl6/site"
+}
