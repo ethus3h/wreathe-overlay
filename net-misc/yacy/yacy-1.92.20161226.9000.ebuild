@@ -17,7 +17,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="systemd +openrc"
 
-DEPEND=">=virtual/jdk-1.7"
+DEPEND=">=virtual/jdk-1.7:*"
 RDEPEND="${DEPEND}"
 
 S="${WORKDIR}/${PN}"
