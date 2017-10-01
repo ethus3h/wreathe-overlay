@@ -3,7 +3,7 @@
 
 EAPI=5
 
-inherit eutils git-2 flag-o-matic toolchain-funcs
+inherit eutils flag-o-matic toolchain-funcs
 
 SRCTYPE="free"
 DESCRIPTION="The Trinitie's Qt toolkit fork."
