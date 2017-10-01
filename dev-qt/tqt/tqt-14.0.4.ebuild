@@ -5,6 +5,7 @@ EAPI=5
 
 inherit eutils flag-o-matic toolchain-funcs
 
+myPn="tqt3"
 DESCRIPTION="The Trinitie's Qt toolkit fork."
 HOMEPAGE="http://trinitydesktop.org/"
 
@@ -46,6 +47,8 @@ DEPEND="${RDEPEND}
 	x11-proto/inputproto
 	x11-proto/xextproto
 	xinerama? ( x11-proto/xineramaproto )"
+
+S="${WORKDIR}/dependencies/${myPn}"
 
 #	immtqt? ( x11-proto/xineramaproto )
 #	immtqt-bc? ( x11-proto/xineramaproto )"
