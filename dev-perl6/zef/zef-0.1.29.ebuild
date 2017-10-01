@@ -21,6 +21,8 @@ src_compile() {
 }
 
 src_install() {
+	insinto "/usr/share/perl6/"
+	doins -r "../usr/share/perl6/site"
 	for filename in ../usr/share/perl6/site/bin/*; do
 		[[ -e "$filename" ]] || continue
 		linkname="$(basename "$filename")"
@@ -28,6 +30,4 @@ src_install() {
 		fperms +x "/usr/share/perl6/site/bin/$linkname"
 		fperms +x "/usr/bin/$linkname"
 	done
-	insinto "/usr/share/perl6/"
-	doins -r "../usr/share/perl6/site"
 }
