@@ -28,6 +28,5 @@ src_install() {
 		linkname="$(basename "$filename")"
 		dosym "${EPREFIX}/usr/share/perl6/site/bin/$linkname" "${EPREFIX}/usr/bin/$linkname"
 		fperms +x "/usr/share/perl6/site/bin/$linkname"
-		#fperms +x "/usr/bin/$linkname"
 	done
 }
