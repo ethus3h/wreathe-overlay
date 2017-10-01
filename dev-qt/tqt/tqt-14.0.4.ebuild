@@ -5,7 +5,7 @@ EAPI=5
 
 inherit eutils flag-o-matic toolchain-funcs
 
-SRCTYPE="free"
+#SRCTYPE="free"
 DESCRIPTION="The Trinitie's Qt toolkit fork."
 HOMEPAGE="http://trinitydesktop.org/"
 
