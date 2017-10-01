@@ -18,10 +18,10 @@ src_compile() {
 	mkdir -p "../usr/share/perl6/site"
 	perl6 -Ilib bin/zef --force-test --to="../usr/share/perl6/site" install .
 	rm "../usr/share/perl6/site/version"
-	chmod +x ../usr/share/perl6/site/bin/*
 }
 
 src_install() {
+	fperms +x ../usr/share/perl6/site/bin/*
 	for filename in ../usr/share/perl6/site/bin/*; do
 		[[ -e "$filename" ]] || continue
 		linkname="$(basename "$filename")"
