@@ -21,10 +21,10 @@ src_compile() {
 }
 
 src_install() {
-	set -x
 	for filename in ../usr/share/perl6/site/bin/*; do
 		[[ -e "$filename" ]] || continue
-		dosym "${EPREFIX}/usr/share/perl6/site/bin/$filename" "${EPREFIX}/usr/bin/$filename"
+		linkname="$(basename "$filename")"
+		dosym "${EPREFIX}/usr/share/perl6/site/bin/$linkname" "${EPREFIX}/usr/bin/$linkname"
 	done
 	insinto "/usr/share/perl6/"
 	doins -r "../usr/share/perl6/site"
