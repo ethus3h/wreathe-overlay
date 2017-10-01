@@ -12,14 +12,14 @@ KEYWORDS="~amd64 ~x86"
 SLOT="0"
 
 src_unpack() {
-    mkdir -p "${S}"
-    mv "${DISTDIR}" "${S}"
+	mkdir -p "${S}"
+	mv "${DISTDIR}" "${S}"
 }
 
 src_compile() {
-    cc rdwrmem.c
+	cc rdwrmem.c
 }
 
 src_install() {
-    doins rdwrmem.c
+	doins rdwrmem.c
 }

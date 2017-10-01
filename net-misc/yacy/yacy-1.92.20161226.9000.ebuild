@@ -33,18 +33,18 @@ src_install() {
 	# remove win-only stuff
 	find "${S}" -name "*.bat" -exec rm '{}' \; || die
 	# remove init-scripts
-	rm ${S}/*.sh || die
+	rm "${S}"/*.sh || die
 	# remove sources
 	rm -r "${S}/source" || die
-	rm ${S}/build.properties ${S}/build.xml
+	rm "${S}"/build.properties "${S}"/build.xml
 
 	dodoc AUTHORS NOTICE && rm AUTHORS NOTICE COPYRIGHT gpl.txt
 
 	yacy_home="${EROOT}usr/share/${PN}"
-	dodir ${yacy_home}
+	dodir "${yacy_home}"
 	cp -r ${S}/* ${D}${yacy_home} || die
 
-	rm -r ${D}${yacy_home}/lib/*License
+	rm -r "${D}${yacy_home}"/lib/*License
 
 	dodir /var/log/yacy || die
 	chown yacy:yacy "${D}/var/log/yacy" || die
