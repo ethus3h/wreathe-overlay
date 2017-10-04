@@ -26,19 +26,7 @@ RDEPEND="media-libs/fontconfig-ultimate
 	media-fonts/koruri
 	media-fonts/liberation-fonts
 	media-fonts/lklug
-	media-fonts/lohit-assamese
-	media-fonts/lohit-bengali
-	media-fonts/lohit-devanagari
-	media-fonts/lohit-gujarati
-	media-fonts/lohit-gurmukhi
-	media-fonts/lohit-kannada
-	media-fonts/lohit-malayalam
-	media-fonts/lohit-marathi
-	media-fonts/lohit-nepali
-	media-fonts/lohit-odia
-	media-fonts/lohit-tamil
-	media-fonts/lohit-tamil-classical
-	media-fonts/lohit-telugu
+	media-fonts/lohit-fonts
 	media-fonts/mplus-fonts
 	media-fonts/nanum
 	media-fonts/noto
