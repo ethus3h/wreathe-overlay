@@ -30,6 +30,11 @@ RDEPEND="app-misc/wreathe-base
 	dev-python/awscli"
 DEPEND="${RDEPEND}"
 
+src_prepare() {
+    cp "${FILESDIR}"/crystallize-update "${S}"/scripts/
+    default
+}
+
 pkg_preinst() {
 	#Remove the temporary install prefix from scripts where it has been copied
 	tempdir="${D}"
