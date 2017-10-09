@@ -8,7 +8,8 @@ myCommit="335dbece103e2cbf6c7cf819ab6672c2956b17b3"
 inherit qmake-utils
 
 DESCRIPTION="Additional style plugins for Qt5 (gtk2, cleanlook, plastic, motif)"
-HOMEPAGE="https://github.com/qt/${PN}/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
+HOMEPAGE="https://code.qt.io/cgit/qt/qtstyleplugins.git/"
+SRC_URI="https://github.com/qt/${PN}/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
 
 LICENSE="LGPL-2"
 SLOT="5"
