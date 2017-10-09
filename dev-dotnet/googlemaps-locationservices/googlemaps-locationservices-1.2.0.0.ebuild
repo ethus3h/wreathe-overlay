@@ -18,8 +18,7 @@ LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="dev-dotnet/nuget
-	dev-lang/mono"
+RDEPEND="dev-lang/mono"
 
 DEPEND="${RDEPEND}"
 
