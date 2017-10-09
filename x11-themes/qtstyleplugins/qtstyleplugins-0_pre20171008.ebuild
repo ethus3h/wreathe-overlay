@@ -3,16 +3,16 @@
 
 EAPI=6
 
-inherit qmake-utils git-r3
+myCommit="335dbece103e2cbf6c7cf819ab6672c2956b17b3"
+
+inherit qmake-utils
 
 DESCRIPTION="Additional style plugins for Qt5 (gtk2, cleanlook, plastic, motif)"
-HOMEPAGE="https://code.qt.io/cgit/qt/qtstyleplugins.git/"
-EGIT_REPO_URI="https://code.qt.io/qt/qtstyleplugins.git"
-EGIT_COMMIT="335dbece103e2cbf6c7cf819ab6672c2956b17b3"
+HOMEPAGE="https://github.com/qt/${PN}/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
 
 LICENSE="LGPL-2"
 SLOT="5"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="~amd64 ~x86"
 
 DEPEND="
 	x11-libs/gtk+:2
