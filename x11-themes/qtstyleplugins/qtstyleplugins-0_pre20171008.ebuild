@@ -22,6 +22,8 @@ DEPEND="
 	x11-libs/libX11"
 RDEPEND="${DEPEND}"
 
+S="${WORKDIR}/${PN}-${myCommit}"
+
 src_configure() {
 	eqmake5
 }
