@@ -17,11 +17,11 @@ KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
 RDEPEND="dev-python/requests[${PYTHON_USEDEP}]
-	dev-python/jsonpatch
-	dev-python/docopt
-	dev-python/clint
-	dev-python/six
-	dev-python/schema
-	dev-python/backports-csv"
+	dev-python/jsonpatch[${PYTHON_USEDEP}]
+	dev-python/docopt[${PYTHON_USEDEP}]
+	dev-python/clint[${PYTHON_USEDEP}]
+	dev-python/six[${PYTHON_USEDEP}]
+	dev-python/schema[${PYTHON_USEDEP}]
+	dev-python/backports-csv[${PYTHON_USEDEP}]"
 
 DEPEND="${RDEPEND}"
