@@ -1,0 +1,100 @@
+diff --git a/app/main.cpp b/app/main.cpp
+index b06c43b..0cf128f 100644
+--- a/app/main.cpp
++++ b/app/main.cpp
+@@ -81,7 +81,12 @@ int main(int argc, char *argv[])
+     importPathList.prepend(QCoreApplication::applicationDirPath() + "/../../../qmltermwidget");
+     engine.setImportPathList(importPathList);
+ 
+-    engine.load(QUrl("qrc:/main.qml"));
++    engine.load(QUrl(QStringLiteral ("qrc:/main.qml")));
++
++    if (engine.rootObjects().isEmpty()) {
++        qDebug() << "Cannot load QML interface";
++        return EXIT_FAILURE;
++    }
+ 
+     // Quit the application when the engine closes.
+     QObject::connect((QObject*) &engine, SIGNAL(quit()), (QObject*) &app, SLOT(quit()));
+diff --git a/app/qml/ApplicationSettings.qml b/app/qml/ApplicationSettings.qml
+index 2c645f6..d0f8beb 100644
+--- a/app/qml/ApplicationSettings.qml
++++ b/app/qml/ApplicationSettings.qml
+@@ -33,6 +33,11 @@ QtObject{
+ 
+     // GENERAL SETTINGS ///////////////////////////////////////////////////////
+ 
++    property int x: 100
++    property int y: 100
++    property int width: 1024
++    property int height: 768
++
+     property bool fullscreen: false
+     property bool showMenubar: true
+ 
+@@ -211,6 +216,10 @@ QtObject{
+     function composeSettingsString(){
+         var settings = {
+             fps: fps,
++            x: x,
++            y: y,
++            width: width,
++            height: height,
+             windowScaling: windowScaling,
+             showTerminalSize: showTerminalSize,
+             fontScaling: fontScaling,
+@@ -291,6 +300,11 @@ QtObject{
+         fps = settings.fps !== undefined ? settings.fps: fps
+         windowScaling = settings.windowScaling !== undefined ? settings.windowScaling : windowScaling
+ 
++        x = settings.x !== undefined ? settings.x : x
++        y = settings.y !== undefined ? settings.y : y
++        width = settings.width !== undefined ? settings.width : width
++        height = settings.height !== undefined ? settings.height : height
++
+         fontNames = settings.fontNames !== undefined ? settings.fontNames : fontNames
+         fontScaling = settings.fontScaling !== undefined ? settings.fontScaling : fontScaling
+ 
+diff --git a/app/qml/main.qml b/app/qml/main.qml
+index 7a201a1..ed0801c 100644
+--- a/app/qml/main.qml
++++ b/app/qml/main.qml
+@@ -28,10 +28,29 @@ ApplicationWindow{
+ 
+     width: 1024
+     height: 768
++
++    // Save window properties automatically
++    onXChanged: appSettings.x = x
++    onYChanged: appSettings.y = y
++    onWidthChanged: appSettings.width = width
++    onHeightChanged: appSettings.height = height
++
++    // Load saved window geometry and show the window
++    Component.onCompleted: {        
++        appSettings.handleFontChanged();
++
++        x = appSettings.x
++        y = appSettings.y
++        width = appSettings.width
++        height = appSettings.height
++
++        visible = true
++    }
++
+     minimumWidth: 320
+     minimumHeight: 240
+ 
+-    visible: true
++    visible: false
+ 
+     property bool fullscreen: appSettings.fullscreen
+     onFullscreenChanged: visibility = (fullscreen ? Window.FullScreen : Window.Windowed)
+@@ -140,7 +159,6 @@ ApplicationWindow{
+             terminalSize: terminalContainer.terminalSize
+         }
+     }
+-    Component.onCompleted: appSettings.handleFontChanged();
+     onClosing: {
+         // OSX Since we are currently supporting only one window
+         // quit the application when it is closed.
