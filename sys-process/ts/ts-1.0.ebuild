@@ -28,8 +28,10 @@ src_compile() {
 
 src_install() {
 	exeinto /usr/bin
-	doexe ts
-	doman ts.1
+	mv ts tsp
+	doexe tsp
+	mv ts.1 tsp.1
+	doman tsp.1
 	dodoc Changelog OBJECTIVES PORTABILITY PROTOCOL README TRICKS
 }
 
