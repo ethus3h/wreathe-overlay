@@ -1,19 +1,16 @@
-# Copyright 1999-2008 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
+
+EAPI=6
 
 inherit toolchain-funcs
 
 DESCRIPTION="TaskSpooler is a comfortable way of running batch jobs"
 HOMEPAGE="http://vicerveza.homeunix.net/~viric/soft/ts/"
 SRC_URI="http://vicerveza.homeunix.net/~viric/soft/ts/${P}.tar.gz"
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE=""
-
-DEPEND=""
-RDEPEND=""
 
 src_unpack() {
 	unpack ${A}
