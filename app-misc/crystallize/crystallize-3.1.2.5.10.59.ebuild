@@ -27,6 +27,7 @@ RDEPEND="app-misc/wreathe-base
 	app-crypt/md5deep
 	net-misc/curl
 	net-misc/wget
+	sys-fs/ncdu
 	dev-python/awscli"
 DEPEND="${RDEPEND}"
 
