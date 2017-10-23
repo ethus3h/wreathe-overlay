@@ -39,6 +39,7 @@ pkg_setup() {
 
 src_install() {
 	dodir "/usr/share"
+	mkdir -p "${D}/usr/share/${PN}"
 	cp -R "${S}/"* "${D}/usr/share/${PN}" || die "Install failed"
 	fowners -R pyload:pyload "${D}/usr/share/${PN}"
 	fperms -R go-rwx "${D}/usr/share/${PN}"
