@@ -38,13 +38,13 @@ pkg_setup() {
 }
 
 src_install() {
-	dodir "/usr/share"
-	mkdir -p "${D}/usr/share/${PN}"
-	cp -R "${S}/"* "${D}/usr/share/${PN}" || die "Install failed"
-	fowners -R pyload:pyload "${D}/usr/share/${PN}"
-	fperms -R go-rwx "${D}/usr/share/${PN}"
-	make_wrapper pyload "${D}/usr/share/${PN}/pyLoadCore.py"
-	make_wrapper pyloadCli "${D}/usr/share/${PN}/pyLoadCli.py"
+	dodir "/usr/share/${PN}"
+	insinto "/usr/share/${PN}"
+	doins -r *
+	fowners -R pyload:pyload "/usr/share/${PN}"
+	fperms -R go-rwx "/usr/share/${PN}"
+	make_wrapper pyload "/usr/share/${PN}/pyLoadCore.py"
+	make_wrapper pyloadCli "/usr/share/${PN}/pyLoadCli.py"
 	if use qt4 ; then
 		make_wrapper pyloadGui "${D}/usr/share/${PN}/pyLoadGui.py"
 		doicon icons/logo.png || die "doicon failed"
