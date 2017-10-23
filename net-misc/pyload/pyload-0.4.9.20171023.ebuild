@@ -17,43 +17,38 @@ KEYWORDS="~x86 ~amd64"
 
 IUSE="crypt +curl +captcha javascript qt4 ssl webinterface"
 RDEPEND=">=dev-lang/python-2.5[sqlite]
-        crypt? ( dev-python/pycrypto )
-        curl? ( dev-python/pycurl )
-        captcha? ( app-text/tesseract
-                   dev-python/pillow
-                   javascript? ( dev-lang/spidermonkey ) )
-        javascript? ( net-misc/pyload[captcha] )
-        qt4? ( dev-python/PyQt4 )
-        ssl? ( dev-python/pyopenssl )
-        webinterface? ( dev-python/bottle )"
+	crypt? ( dev-python/pycrypto )
+	curl? ( dev-python/pycurl )
+	captcha? ( app-text/tesseract
+		dev-python/pillow
+		javascript? ( dev-lang/spidermonkey ) )
+	javascript? ( net-misc/pyload[captcha] )
+	qt4? ( dev-python/PyQt4 )
+	ssl? ( dev-python/pyopenssl )
+	webinterface? ( dev-python/bottle )"
 
 S="${WORKDIR}/${PN}-${myCommit}"
 
 PYLOAD_DIR="/var/lib/${PN}"
 
 pkg_setup() {
-    enewgroup pyload
-    # home directory is required .
-    enewuser pyload -1 -1 "${PYLOAD_DIR}" pyload
+	enewgroup pyload
+	# home directory is required
+	enewuser pyload -1 -1 "${PYLOAD_DIR}" pyload
 }
-
-
-#src_unpack() {
-#        unpack ${A}
-#}
 
 src_install() {
 	dodir "/usr/share"
-        rm "${WORKDIR}/${P}/module/lib/bottle.py"
-        cp -R "${WORKDIR}/${P}" "${D}/usr/share" || die "Install failed"
+	rm "${WORKDIR}/${P}/module/lib/bottle.py"
+	cp -R "${WORKDIR}/${P}" "${D}/usr/share" || die "Install failed"
 	mv "${D}/usr/share/${P}" "${D}/usr/share/${PN}" || die "Install failed"
 	fowners -R pyload:pyload "/usr/share/${PN}"
-        fperms -R go-rwx "/usr/share/${PN}"
-        make_wrapper pyload /usr/share/${PN}/pyLoadCore.py
-        make_wrapper pyloadCli /usr/share/${PN}/pyLoadCli.py
-        if use qt4 ; then
-                make_wrapper pyloadGui /usr/share/${PN}/pyLoadGui.py
-                doicon icons/logo.png || die "doicon failed"
-                make_desktop_entry pyLoadGui PyLoad
-        fi
+	fperms -R go-rwx "/usr/share/${PN}"
+	make_wrapper pyload /usr/share/${PN}/pyLoadCore.py
+	make_wrapper pyloadCli /usr/share/${PN}/pyLoadCli.py
+	if use qt4 ; then
+		make_wrapper pyloadGui /usr/share/${PN}/pyLoadGui.py
+		doicon icons/logo.png || die "doicon failed"
+		make_desktop_entry pyLoadGui PyLoad
+	fi
 }
