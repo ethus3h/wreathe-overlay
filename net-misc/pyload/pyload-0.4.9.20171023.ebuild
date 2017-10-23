@@ -39,8 +39,7 @@ pkg_setup() {
 
 src_install() {
 	dodir "/usr/share"
-	rm "${WORKDIR}/${P}/module/lib/bottle.py"
-	cp -R "${WORKDIR}/${P}" "${D}/usr/share" || die "Install failed"
+	cp -R "${S}" "${D}/usr/share" || die "Install failed"
 	mv "${D}/usr/share/${P}" "${D}/usr/share/${PN}" || die "Install failed"
 	fowners -R pyload:pyload "/usr/share/${PN}"
 	fperms -R go-rwx "/usr/share/${PN}"
