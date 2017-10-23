@@ -1,15 +1,15 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
 EAPI="6"
 
-inherit eutils user git-r3
+inherit eutils user
 
-DESCRIPTION="Download manager for many One-Click-Hoster, container formats like DLC, video sites or just plain http/ftp links."
+myCommit="ea099613e81b08a693b1f601eb5b38b753bd575e"
+
+DESCRIPTION="Download manager for OCH, containers, video sites, http/ftp"
 HOMEPAGE="http://www.pyload.org/"
-EGIT_REPO_URI="https://github.com/pyload/pyload.git"
-EGIT_COMMIT="ea099613e81b08a693b1f601eb5b38b753bd575e"
+SRC_URI="https://github.com/pyload/${PN}/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -26,6 +26,8 @@ RDEPEND=">=dev-lang/python-2.5[sqlite]
         qt4? ( dev-python/PyQt4 )
         ssl? ( dev-python/pyopenssl )
         webinterface? ( dev-python/bottle )"
+
+S="${WORKDIR}/${PN}-${myCommit}"
 
 PYLOAD_DIR="/var/lib/${PN}"
 
