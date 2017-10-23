@@ -9,7 +9,7 @@ myCommit="ea099613e81b08a693b1f601eb5b38b753bd575e"
 
 DESCRIPTION="Download manager for OCH, containers, video sites, http/ftp"
 HOMEPAGE="http://www.pyload.org/"
-SRC_URI="https://github.com/pyload/${PN}/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
+SRC_URI="https://github.com/${PN}/${PN}/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -39,7 +39,7 @@ pkg_setup() {
 
 src_install() {
 	dodir "/usr/share"
-	cp -R "${S}/*" "${D}/usr/share/${PN}" || die "Install failed"
+	cp -R "${S}/"* "${D}/usr/share/${PN}" || die "Install failed"
 	fowners -R pyload:pyload "${D}/usr/share/${PN}"
 	fperms -R go-rwx "${D}/usr/share/${PN}"
 	make_wrapper pyload "${D}/usr/share/${PN}/pyLoadCore.py"
