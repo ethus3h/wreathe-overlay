@@ -60,7 +60,8 @@ pkg_setup() {
 src_install() {
 	dodir "/usr/share/${PN}"
 	insinto "/usr/share/${PN}"
-	find . -print0 > .temp
+	find . -print0 > ../.temp
+	mv ../.temp ./.temp
 	doins -r ./*
 	make_wrapper pyload "/usr/share/${PN}/pyLoadCore.py"
 	make_wrapper pyloadCli "/usr/share/${PN}/pyLoadCli.py"
