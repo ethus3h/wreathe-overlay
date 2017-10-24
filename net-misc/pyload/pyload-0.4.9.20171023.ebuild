@@ -72,5 +72,5 @@ src_install() {
 	fi
 	UNIT_DIR="$(systemd_get_systemunitdir)"
 	systemd_newunit "${FILESDIR}/pyload.service" 'pyload.service'
-	fperms -v +rx "/usr/share/${PN}" || die
+	fperms -Rv +rx "/usr/share/${PN}" || die
 }
