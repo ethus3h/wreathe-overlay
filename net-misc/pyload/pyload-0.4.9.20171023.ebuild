@@ -60,6 +60,7 @@ pkg_setup() {
 src_install() {
 	dodir "/usr/share/${PN}"
 	insinto "/usr/share/${PN}"
+    # This is an ugly hack because fperms doesn't work on directories in recursive mode, and doins deletes the copies from here, so we need to keep them around to iterate over later
 	mkdir .temp
 	cp -r ./* .temp/
 	doins -r ./*
