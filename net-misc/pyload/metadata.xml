@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
+	<use>
+		<flag name="captcha">Enable support for solving some CAPTCHAs</flag>
+		<flag name="webinterface">Enable Web interface</flag>
+	</use>
 </pkgmetadata>
