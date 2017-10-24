@@ -9,11 +9,11 @@ inherit distutils-r1
 
 DESCRIPTION="Does single char input, like C getch/getche"
 HOMEPAGE="https://pypi.python.org/pypi/getch"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${MY_P}.tar.gz
-	mirror://pypi/${PN:0:1}/${PN}/${MY_P}-python2.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz
+	mirror://pypi/${PN:0:1}/${PN}/${P}-python2.tar.gz"
 
 LICENSE="public-domain"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${P}"

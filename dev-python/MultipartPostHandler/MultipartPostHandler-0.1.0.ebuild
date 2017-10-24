@@ -9,10 +9,10 @@ inherit distutils-r1
 
 DESCRIPTION="A handler for urllib2 to enable multipart form uploading"
 HOMEPAGE="https://pypi.python.org/pypi/getch"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${MY_P}.tar.gz"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.tar.gz"
 
 LICENSE="LGPL-2.1+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${P}"

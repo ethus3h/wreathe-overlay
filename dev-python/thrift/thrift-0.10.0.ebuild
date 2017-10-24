@@ -9,10 +9,10 @@ inherit distutils-r1
 
 DESCRIPTION="Python bindings for the Apache Thrift RPC system"
 HOMEPAGE="https://pypi.python.org/pypi/thrift"
-SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${MY_P}.zip"
+SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${P}.zip"
 
 LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${P}"
