@@ -3,7 +3,7 @@
 
 EAPI="6"
 
-inherit eutils user
+inherit eutils systemd user
 
 myCommit="ea099613e81b08a693b1f601eb5b38b753bd575e"
 
@@ -70,4 +70,7 @@ src_install() {
 		doicon icons/logo.png || die "doicon failed"
 		make_desktop_entry pyLoadGui PyLoad
 	fi
+	UNIT_DIR="$(systemd_get_unitdir)"
+	systemd_newunit "${FILESDIR}/pyload.service" 'pyload.service'
+	fperms -v +rx "/usr/share/${PN}" || die
 }
