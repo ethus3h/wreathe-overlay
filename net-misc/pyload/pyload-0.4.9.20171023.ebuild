@@ -60,6 +60,7 @@ pkg_setup() {
 src_install() {
 	dodir "/usr/share/${PN}"
 	insinto "/usr/share/${PN}"
+	diropts -m0755
 	insopts -m0755
 	doins -r ./*
 	make_wrapper pyload "/usr/share/${PN}/pyLoadCore.py"
