@@ -3,6 +3,7 @@
 <pkgmetadata>
 	<use>
 		<flag name="captcha">Enable support for solving some CAPTCHAs</flag>
+		<flag name="extra">Enable extra capabilities</flag>
 		<flag name="webinterface">Enable Web interface</flag>
 	</use>
 </pkgmetadata>
