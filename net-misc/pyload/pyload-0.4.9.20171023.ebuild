@@ -73,5 +73,5 @@ src_install() {
 	while IFS='' read -r -d '' filename; do
 		fowners -v pyload:pyload "/usr/share/${PN}/$filename"
 		fperms -v +rx "/usr/share/${PN}/$filename"
-	done < <(find . -print0)
+	done < <(find . -not -name '.*' -print0)
 }
