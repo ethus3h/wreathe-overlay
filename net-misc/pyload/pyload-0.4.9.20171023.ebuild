@@ -3,7 +3,9 @@
 
 EAPI="6"
 
-inherit eutils user
+PYTHON_COMPAT=( python2_7 )
+
+inherit distutils-r1 eutils user
 
 myCommit="ea099613e81b08a693b1f601eb5b38b753bd575e"
 
