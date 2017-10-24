@@ -70,7 +70,7 @@ src_install() {
 		doicon icons/logo.png || die "doicon failed"
 		make_desktop_entry pyLoadGui PyLoad
 	fi
-	UNIT_DIR="$(systemd_get_unitdir)"
+	UNIT_DIR="$(systemd_get_systemunitdir)"
 	systemd_newunit "${FILESDIR}/pyload.service" 'pyload.service'
 	fperms -v +rx "/usr/share/${PN}" || die
 }
