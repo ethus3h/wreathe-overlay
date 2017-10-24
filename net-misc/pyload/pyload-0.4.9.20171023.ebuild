@@ -15,14 +15,32 @@ LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~x86 ~amd64"
 
-IUSE="crypt +curl +captcha javascript qt4 ssl webinterface"
+IUSE="crypt +curl +captcha extra javascript qt4 ssl webinterface"
 RDEPEND=">=dev-lang/python-2.5[sqlite]
 	crypt? ( dev-python/pycrypto )
+	>=dev-python/jinja-2
+	<dev-python/jinja-3
+	dev-python/beaker
+	dev-python/colorama
+	dev-python/feedparser
+	dev-python/getch
+	dev-python/markupsafe
+	dev-python/multipartposthandler
+	dev-python/setuptools
+	dev-python/thrift
+	dev-python/WSGIserver
+	extra? (
+		dev-python/beautifulsoup
+		dev-python/bjoern
+		dev-python/colorlog
+		dev-python/simplejson
+	)
 	curl? ( dev-python/pycurl )
 	captcha? ( app-text/tesseract
 		dev-python/pillow
 		javascript? ( dev-lang/spidermonkey ) )
-	javascript? ( net-misc/pyload[captcha] )
+	javascript? ( net-libs/nodejs
+		net-misc/pyload[captcha] )
 	qt4? ( dev-python/PyQt4 )
 	ssl? ( dev-python/pyopenssl )
 	webinterface? ( dev-python/bottle )"
