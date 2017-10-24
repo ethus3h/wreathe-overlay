@@ -72,11 +72,4 @@ src_install() {
 	UNIT_DIR="$(systemd_get_systemunitdir)"
 	systemd_newunit "${FILESDIR}/pyload.service" 'pyload.service'
 	fowners -Rv pyload:pyload "/usr/share/${PN}"
-	fperms -Rv +rx "/usr/share/${PN}"
-	# For some reason, fperms doesn't work on directories in recursive mode.
-	while IFS='' read -r -d '' filename; do
-		filename="${filename/.\/}"
-		fowners -v pyload:pyload "/usr/share/${PN}/$filename"
-		fperms -v +rx "/usr/share/${PN}/$filename"
-	done < <(find . -type d -not -name '.*' -print0)
 }
