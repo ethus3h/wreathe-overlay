@@ -42,7 +42,7 @@ src_install() {
 	insinto "/usr/share/${PN}"
 	doins -r *
 	fowners -Rv pyload:pyload "/usr/share/${PN}" || die
-	fperms -Rv +x "/usr/share/${PN}" || die
+	fperms -Rv +rx "/usr/share/${PN}" || die
 	make_wrapper pyload "/usr/share/${PN}/pyLoadCore.py"
 	make_wrapper pyloadCli "/usr/share/${PN}/pyLoadCli.py"
 	if use qt4; then
