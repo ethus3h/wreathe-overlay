@@ -17,7 +17,7 @@ KEYWORDS="~amd64 ~x86"
 
 RDEPEND="dev-lang/python[ssl]
 	dev-python/backports-ssl-match-hostname[${PYTHON_USEDEP}]
-	python_targets_python2_7? ( dev-python/ipaddress[${PYTHON_USEDEP}] )
+	python_targets_python2_7? ( dev-python/ipaddress[python_targets_python2_7] )
 	dev-python/six[${PYTHON_USEDEP}]
 	dev-python/twisted[${PYTHON_USEDEP}]
 	www-servers/tornado[${PYTHON_USEDEP}]"
