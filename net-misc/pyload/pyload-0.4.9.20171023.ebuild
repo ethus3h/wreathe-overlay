@@ -25,7 +25,7 @@ RDEPEND=">=dev-lang/python-2.5[sqlite]
 	dev-python/feedparser
 	dev-python/getch
 	dev-python/markupsafe
-	dev-python/multipartposthandler
+	dev-python/MultipartPostHandler
 	dev-python/setuptools
 	dev-python/thrift
 	dev-python/WSGIserver
@@ -33,6 +33,8 @@ RDEPEND=">=dev-lang/python-2.5[sqlite]
 		dev-python/beautifulsoup
 		dev-python/bjoern
 		dev-python/colorlog
+		dev-python/flup
+		dev-python/notify-python
 		dev-python/simplejson
 	)
 	curl? ( dev-python/pycurl )
@@ -41,7 +43,7 @@ RDEPEND=">=dev-lang/python-2.5[sqlite]
 		javascript? ( dev-lang/spidermonkey ) )
 	javascript? ( net-libs/nodejs
 		net-misc/pyload[captcha] )
-	qt4? ( dev-python/PyQt4 )
+	qt4? ( dev-python/PyQt4[webkit] )
 	ssl? ( dev-python/pyopenssl )
 	webinterface? ( dev-python/bottle )"
 
