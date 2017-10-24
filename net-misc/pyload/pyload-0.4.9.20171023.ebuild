@@ -77,6 +77,6 @@ src_install() {
 		fowners -v pyload:pyload "/usr/share/${PN}/$filename"
 		fperms -v +rx "/usr/share/${PN}/$filename"
 	done < <(find . -type d -not -name '.*' -print0)
-    fowners -v pyload:pyload "/usr/share/${PN}/modules"
-    fperms -v +rx "/usr/share/${PN}/modules"
+    fowners -v pyload:pyload "/usr/share/${PN}/module"
+    fperms -v +rx "/usr/share/${PN}/module"
 }
