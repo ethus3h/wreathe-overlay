@@ -60,9 +60,7 @@ pkg_setup() {
 src_install() {
 	dodir "/usr/share/${PN}"
 	insinto "/usr/share/${PN}"
-    # This is an ugly hack because fperms doesn't work on directories in recursive mode, and doins deletes the copies from here, so we need to keep them around to iterate over later
-	mkdir .temp
-	cp -r ./* .temp/
+	find . -print0 > .temp
 	doins -r ./*
 	make_wrapper pyload "/usr/share/${PN}/pyLoadCore.py"
 	make_wrapper pyloadCli "/usr/share/${PN}/pyLoadCli.py"
@@ -77,5 +75,5 @@ src_install() {
 	while IFS='' read -r -d '' filename; do
 		fowners -v pyload:pyload "/usr/share/${PN}/$filename"
 		fperms -v +rx "/usr/share/${PN}/$filename"
-	done < <(find . -maxdepth 1 -type d -print0)
+	done < .temp
 }
