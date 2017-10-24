@@ -60,6 +60,8 @@ pkg_setup() {
 src_install() {
 	dodir "/usr/share/${PN}"
 	insinto "/usr/share/${PN}"
+	mkdir .temp
+	cp -r ./* .temp/
 	doins -r ./*
 	make_wrapper pyload "/usr/share/${PN}/pyLoadCore.py"
 	make_wrapper pyloadCli "/usr/share/${PN}/pyLoadCli.py"
@@ -70,6 +72,7 @@ src_install() {
 	fi
 	UNIT_DIR="$(systemd_get_systemunitdir)"
 	systemd_newunit "${FILESDIR}/pyload.service" 'pyload.service'
+	cd .temp
 	while IFS='' read -r -d '' filename; do
 		fowners -v pyload:pyload "/usr/share/${PN}/$filename"
 		fperms -v +rx "/usr/share/${PN}/$filename"
