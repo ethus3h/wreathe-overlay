@@ -61,8 +61,6 @@ src_install() {
 	dodir "/usr/share/${PN}"
 	insinto "/usr/share/${PN}"
 	doins -r *
-	fowners -Rv pyload:pyload "/usr/share/${PN}" || die
-	fperms -Rv +rx "/usr/share/${PN}" || die
 	make_wrapper pyload "/usr/share/${PN}/pyLoadCore.py"
 	make_wrapper pyloadCli "/usr/share/${PN}/pyLoadCli.py"
 	if use qt4; then
@@ -72,5 +70,8 @@ src_install() {
 	fi
 	UNIT_DIR="$(systemd_get_systemunitdir)"
 	systemd_newunit "${FILESDIR}/pyload.service" 'pyload.service'
-	fperms -Rv +rx "/usr/share/${PN}" || die
+	while IFS='' read -r -d '' filename; do
+		fowners -v pyload:pyload "/usr/share/${PN}/$filename"
+		fperms -v +rx "/usr/share/${PN}/$filename"
+	done < <(find . -maxdepth 1 -type d -print0)
 }
