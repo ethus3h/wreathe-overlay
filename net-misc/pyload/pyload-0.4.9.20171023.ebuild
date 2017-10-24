@@ -58,10 +58,10 @@ pkg_setup() {
 }
 
 src_install() {
-	dodir "/usr/share/${PN}"
-	insinto "/usr/share/${PN}"
 	diropts -m0755
 	insopts -m0755
+	dodir "/usr/share/${PN}"
+	insinto "/usr/share/${PN}"
 	doins -r ./*
 	make_wrapper pyload "/usr/share/${PN}/pyLoadCore.py"
 	make_wrapper pyloadCli "/usr/share/${PN}/pyLoadCli.py"
@@ -73,4 +73,5 @@ src_install() {
 	UNIT_DIR="$(systemd_get_systemunitdir)"
 	systemd_newunit "${FILESDIR}/pyload.service" 'pyload.service'
 	fowners -Rv pyload:pyload "/usr/share/${PN}"
+	stat "${D}/usr/share/${PN}/module"
 }
