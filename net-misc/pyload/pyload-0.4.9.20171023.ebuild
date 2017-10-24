@@ -60,7 +60,7 @@ pkg_setup() {
 src_install() {
 	dodir "/usr/share/${PN}"
 	insinto "/usr/share/${PN}"
-	doins -r *
+	doins -r ./*
 	make_wrapper pyload "/usr/share/${PN}/pyLoadCore.py"
 	make_wrapper pyloadCli "/usr/share/${PN}/pyLoadCli.py"
 	if use qt4; then
