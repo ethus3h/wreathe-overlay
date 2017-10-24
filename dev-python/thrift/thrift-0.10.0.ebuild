@@ -15,7 +15,12 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="dev-python/python-rethinkdb[${PYTHON_USEDEP}]"
+RDEPEND="dev-lang/python[ssl]
+	dev-python/backports-ssl-match-hostname[${PYTHON_USEDEP}]
+	dev-python/ipaddress[${PYTHON_USEDEP}]
+	dev-python/six[${PYTHON_USEDEP}]
+	dev-python/twisted[${PYTHON_USEDEP}]
+	www-servers/tornado[${PYTHON_USEDEP}]"
 
 DEPEND="${RDEPEND}"
 
