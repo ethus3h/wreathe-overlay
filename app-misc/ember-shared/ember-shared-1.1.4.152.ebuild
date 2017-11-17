@@ -10,7 +10,8 @@ SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-RDEPEND="dev-python/internetarchive"
+RDEPEND="dev-python/internetarchive
+	app-misc/jq"
 
 pkg_preinst() {
 	#Remove the temporary install prefix from scripts where it has been copied
