@@ -24,7 +24,7 @@ RDEPEND="app-misc/wreathe-base
 	sys-fs/zfs
 	sys-apps/pv
 	dev-vcs/git
-	app-crypt/md5deep
+	>=app-crypt/md5deep-4.4
 	net-misc/curl
 	net-misc/wget
 	sys-fs/ncdu
