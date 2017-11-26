@@ -4,7 +4,7 @@
 EAPI=6
 
 mozApps=(an fx)
-mozId=722157
+mozId=764482
 
 inherit moz-ext
 
