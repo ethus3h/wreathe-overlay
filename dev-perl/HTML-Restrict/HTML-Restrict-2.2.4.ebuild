@@ -21,7 +21,7 @@ DEPEND="
     dev-perl/Data-Dump
     dev-perl/URI
     dev-perl/Moo
-    dev-perl/Types-Standard
+    dev-perl/Type-Tiny
     dev-perl/namespace-clean
 	test? (
 		dev-perl/Test-Pod
