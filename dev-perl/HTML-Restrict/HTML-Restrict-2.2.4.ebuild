@@ -15,7 +15,14 @@ KEYWORDS="~amd64 ~x86"
 IUSE="test"
 
 DEPEND="
-	dev-perl/Module-Build
+	dev-perl/Test-Fatal
+    dev-perl/Sub-Quote
+    dev-perl/HTML-Entities #
+    dev-perl/Data-Dump
+    dev-perl/URI
+    dev-perl/Moo
+    dev-perl/Types-Standard
+    dev-perl/namespace-clean
 	test? (
 		dev-perl/Test-Pod
 		dev-perl/Test-Pod-Coverage
