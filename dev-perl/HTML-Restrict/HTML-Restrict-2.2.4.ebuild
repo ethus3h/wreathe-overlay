@@ -17,7 +17,7 @@ IUSE="test"
 DEPEND="
 	dev-perl/Test-Fatal
     dev-perl/Sub-Quote
-    dev-perl/HTML-Entities #
+    dev-perl/HTML-Parser
     dev-perl/Data-Dump
     dev-perl/URI
     dev-perl/Moo
