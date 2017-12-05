@@ -9,7 +9,7 @@ inherit perl-module
 
 DESCRIPTION="hypertoc - generate a table of contents for HTML documents"
 
-SRC_URI="https://cpan.metacpan.org/authors/id/${MODULE_AUTHOR:0:1}/${MODULE_AUTHOR:0:2}/$MODULE_AUTHOR/${P}.tar.gz"
+SRC_URI="https://cpan.metacpan.org/authors/id/${MODULE_AUTHOR:0:1}/${MODULE_AUTHOR:0:2}/${MODULE_AUTHOR}/${P}.tar.gz"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"

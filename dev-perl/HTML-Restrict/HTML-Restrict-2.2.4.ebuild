@@ -9,7 +9,7 @@ inherit perl-module
 
 DESCRIPTION="HTML::LinkList - Strip unwanted HTML tags and attributes"
 
-SRC_URI="https://cpan.metacpan.org/authors/id/R/RU/RUBYKAT/${P}.tar.gz"
+SRC_URI="https://cpan.metacpan.org/authors/id/${MODULE_AUTHOR:0:1}/${MODULE_AUTHOR:0:2}/${MODULE_AUTHOR}/${P}.tar.gz"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="test"
