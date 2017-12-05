@@ -11,6 +11,7 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 RDEPEND="dev-python/internetarchive
+	dev-perl/HTML-Restrict
 	app-misc/jq"
 
 pkg_preinst() {
