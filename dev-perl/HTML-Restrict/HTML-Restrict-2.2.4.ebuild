@@ -16,17 +16,13 @@ IUSE="test"
 
 DEPEND="
 	dev-perl/Test-Fatal
-    dev-perl/Sub-Quote
-    dev-perl/HTML-Parser
-    dev-perl/Data-Dump
-    dev-perl/URI
-    dev-perl/Moo
-    dev-perl/Type-Tiny
-    dev-perl/namespace-clean
-	test? (
-		dev-perl/Test-Pod
-		dev-perl/Test-Pod-Coverage
-	)
+	dev-perl/Sub-Quote
+	dev-perl/HTML-Parser
+	dev-perl/Data-Dump
+	dev-perl/URI
+	dev-perl/Moo
+	dev-perl/Type-Tiny
+	dev-perl/namespace-clean
 "
 
 SRC_TEST=do
