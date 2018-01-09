@@ -83,7 +83,7 @@ RDEPEND="
 	)
 	sdl? ( media-libs/libsdl[X] )
 	sdl-sound? ( media-libs/libsdl )
-	media-libs/speex[ogg]
+	media-libs/speex[utils]
 	sys-libs/zlib
 	>=sys-devel/libtool-2.2
 	mysql? ( virtual/mysql )
