@@ -8,6 +8,7 @@ HOMEPAGE="https://futuramerlin.com/"
 
 LICENSE="AGPL-3 BSD-2"
 SLOT="0"
-RDEPEND="=kde-apps/dolphin-4.7.4.7.3_pre2
+RDEPEND="kde-apps/dolphin:4
+	<kde-apps/dolphin-4.8
 	=kde-apps/dolphin-9999"
 DEPEND="${RDEPEND}"
