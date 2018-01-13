@@ -16,7 +16,7 @@ case "${PV}" in
 	(*)
 		KEYWORDS="~amd64 ~x86"
 		VCS_ECLASS=vcs-snapshot
-		SRC_URI="https://github.com/LADI/archive/${P}.tar.gz"
+		SRC_URI="https://github.com/LADI/ladish/archive/${P}.tar.gz"
 		;;
 esac
 inherit flag-o-matic l10n python-single-r1 waf-utils multilib-minimal ${VCS_ECLASS}
