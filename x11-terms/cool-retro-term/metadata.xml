@@ -17,6 +17,6 @@
 	</upstream>
 	<upstream>
 		<remote-id type="github">Swordfish90/cool-retro-term</remote-id>
+		<bugs-to>https://github.com/Swordfish90/cool-retro-term/issues</bugs-to>
 	</upstream>
-	<bugs-to>https://github.com/Swordfish90/cool-retro-term/issues</bugs-to>
 </pkgmetadata>
