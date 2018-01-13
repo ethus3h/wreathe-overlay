@@ -10,9 +10,9 @@ inherit eutils java-pkg-2 java-ant-2 nsplugins
 DESCRIPTION="The open-source framework for building expressive web and mobile applications."
 HOMEPAGE="https://flex.apache.org/"
 
-SRC_URI="https://www.apache.org/dyn/closer.lua/flex/4.15.0/apache-flex-sdk-4.15.0-src.tar.gz
+SRC_URI="https://archive.apache.org/dist/flex/4.15.0/apache-flex-sdk-4.15.0-src.tar.gz
 	doc? (
-		https://www.apache.org/dyn/closer.lua/flex/4.15.0/docs/apache-flex-sdk-4.15.0-asdocs.zip
+		https://archive.apache.org/dist/flex/4.15.0/docs/apache-flex-sdk-4.15.0-asdocs.zip
 	)"
 
 LICENSE="Apache-2.0"
