@@ -5,15 +5,15 @@
 	<use>
 		<flag name="remember">Remember terminal size and position</flag>
 	</use>
-  <maintainer status="inactive">
-    <email>tamas@gerczei.eu</email>
-    <name>Tamás Gérczei</name>
-	<description>This lame ebuild is provided as-is and exists only to extend availability to Gentoo.</description>
-  </maintainer>
-  <upstream>
-    <name>Filippo Scognamiglio</name>
-	<email>flscogna@gmail.com</email>
-	<description>Swordfish90@GitHub</description>
-  </upstream>
-  <bugs-to>https://github.com/Swordfish90/cool-retro-term/issues</bugs-to>
+	<maintainer status="inactive">
+		<email>tamas@gerczei.eu</email>
+		<name>Tamás Gérczei</name>
+		<description>This lame ebuild is provided as-is and exists only to extend availability to Gentoo.</description>
+	</maintainer>
+	<upstream>
+		<name>Filippo Scognamiglio</name>
+		<email>flscogna@gmail.com</email>
+		<description>Swordfish90@GitHub</description>
+	</upstream>
+	<bugs-to>https://github.com/Swordfish90/cool-retro-term/issues</bugs-to>
 </pkgmetadata>
