@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-  <longdescription lang="en">Cool-retro-term is a terminal emulator which mimics the look and feel of old cathode ray tube screens. It has been designed to be eye-candy, customizable, and reasonably lightweight. It uses the konsole engine which is powerful and mature. This terminal emulator requires Qt 5.2 or higher to run.
-</longdescription>
+	<longdescription lang="en">Cool-retro-term is a terminal emulator which mimics the look and feel of old cathode ray tube screens. It has been designed to be eye-candy, customizable, and reasonably lightweight. It uses the konsole engine which is powerful and mature. This terminal emulator requires Qt 5.2 or higher to run.</longdescription>
+	<use>
+		<flag name="remember">Remember terminal size and position</flag>
+	</use>
   <maintainer status="inactive">
     <email>tamas@gerczei.eu</email>
     <name>Tamás Gérczei</name>

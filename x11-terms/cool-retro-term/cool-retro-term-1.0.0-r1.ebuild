@@ -32,7 +32,7 @@ src_prepare() {
 	use remember && {
 		einfo "Applying 3rd party patch from GH PR #303"
 		epatch ${FILESDIR}/size_and_position.patch || die "could not apply patch"
-		}
+	}
 }
 
 src_configure() {
