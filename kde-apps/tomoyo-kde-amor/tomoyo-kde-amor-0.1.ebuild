@@ -5,7 +5,7 @@ EAPI=6
 
 DESCRIPTION="Tomoyo KDE AMOR"
 HOMEPAGE="http://kdelook.org/content/show.php/Tomoyo+KDE-AMOR?content=158273"
-SRC_URI="http://kdelook.org/CONTENT/content-files/158273-tomoyo%20KDE-AMOR.zip"
+SRC_URI="https://archive.org/download/Liquid-20180113183611895269270_2d303530300a52b6151a8a4d4c3cb5a81edd211b8a6f/158273-tomoyo%2520KDE-AMOR.zip"
 
 LICENSE="LGPL-2+"
 SLOT="0"
