@@ -4,8 +4,8 @@
 EAPI=6
 
 DESCRIPTION="Bitkeeper Scalable Version Control"
-HOMEPAGE="https://www.bitkeeper.org/"
-SRC_URI="https://www.bitkeeper.org/downloads/${PV}/${P}.src.tar.gz"
+HOMEPAGE="http://www.bitkeeper.org/"
+SRC_URI="http://www.bitkeeper.org/downloads/${PV}/${P}.src.tar.gz"
 
 LICENSE="Apache-2.0"
 SLOT="0"
