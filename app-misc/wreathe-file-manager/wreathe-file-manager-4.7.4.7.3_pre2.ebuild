@@ -8,6 +8,8 @@ HOMEPAGE="https://futuramerlin.com/"
 
 LICENSE="AGPL-3 BSD-2"
 SLOT="0"
+KEYWORDS="~amd64"
+
 RDEPEND="kde-apps/dolphin:4
 	<kde-apps/dolphin-4.8
 	=kde-apps/dolphin-9999"
