@@ -6,7 +6,6 @@
 		<flag name="remember">Remember terminal size and position</flag>
 	</use>
 	<upstream>
-		<description>Filippo Scognamiglio / flscogna@gmail.com / Swordfish90@GitHub</description>
 		<remote-id type="github">Swordfish90/cool-retro-term</remote-id>
 		<bugs-to>https://github.com/Swordfish90/cool-retro-term/issues</bugs-to>
 	</upstream>
