@@ -15,7 +15,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
-RDEPEND="dev-lang/python[ssl]:=
+RDEPEND="dev-lang/python:=[ssl]
 	$(python_gen_cond_dep '>=dev-python/backports-ssl-match-hostname-3.5[${PYTHON_USEDEP}]' 'python2_7' 'python3_4')
 	python_targets_python2_7? ( dev-python/ipaddress[python_targets_python2_7] )
 	dev-python/six[${PYTHON_USEDEP}]
