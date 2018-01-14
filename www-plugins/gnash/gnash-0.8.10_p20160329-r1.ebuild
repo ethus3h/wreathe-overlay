@@ -23,7 +23,7 @@ fi
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64 ppc ~ppc64 ~sparc x86"
+KEYWORDS="~amd64 ~x86"
 IUSE="X +agg cairo cygnal dbus directfb doc dump egl fbcon +ffmpeg libav libressl gnome gtk harden jemalloc lirc mysql +nls nsplugin opengl openvg python sdl +sdl-sound ssh ssl test vaapi"
 REQUIRED_USE="
 	dump? ( agg ffmpeg )

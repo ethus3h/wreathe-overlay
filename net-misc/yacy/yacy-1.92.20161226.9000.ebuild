@@ -42,7 +42,7 @@ src_install() {
 
 	yacy_home="${EROOT}usr/share/${PN}"
 	dodir "${yacy_home}"
-	cp -r ${S}/* ${D}${yacy_home} || die
+	cp -r "${S}"/* "${D}${yacy_home}" || die
 
 	rm -r "${D}${yacy_home}"/lib/*License
 
@@ -50,7 +50,7 @@ src_install() {
 	chown yacy:yacy "${D}/var/log/yacy" || die
 
 	rmdir "$D/$yacy_home/DATA"
-	dosym /var/lib/yacy /${yacy_home}/DATA
+	dosym /var/lib/yacy "/${yacy_home}/DATA"
 
 	use openrc && {
 		exeinto /etc/init.d
@@ -59,7 +59,7 @@ src_install() {
 		newins "${FILESDIR}/yacy.confd" yacy
 	}
 
-	use systemd && systemd_newunit "${FILESDIR}"/${PN}-ipv6.service ${PN}.service
+	use systemd && systemd_newunit "${FILESDIR}"/"${PN}"-ipv6.service "${PN}".service
 }
 
 pkg_postinst() {

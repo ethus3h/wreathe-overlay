@@ -28,7 +28,6 @@ DEPEND="${RDEPEND}
 
 S="${WORKDIR}/${MY_P}/src/${PN/m/M}"
 
-
 src_configure() {
 	local mycmakeargs=(
 		-DCMAKE_SKIP_RPATH=ON

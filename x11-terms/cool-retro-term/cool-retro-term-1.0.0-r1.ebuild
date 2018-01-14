@@ -27,11 +27,11 @@ DEPEND=">=dev-qt/qtcore-5.3.1
 
 src_prepare() {
 	einfo "Satisfying build-time dependency on QMLTermWidget by linking it into the source tree..."
-	rmdir ${WORKDIR}/${P}/qmltermwidget || die "Error deleting empty widget dir from source tree"
-	ln -s ${WORKDIR}/qmltermwidget-0.1.0 ${WORKDIR}/${P}/qmltermwidget || die "Error linking widget into source tree"
+	rmdir "${WORKDIR}/${P}/qmltermwidget" || die "Error deleting empty widget dir from source tree"
+	ln -s "${WORKDIR}/qmltermwidget-0.1.0" "${WORKDIR}/${P}/qmltermwidget" || die "Error linking widget into source tree"
 	use remember && {
 		einfo "Applying 3rd party patch from GH PR #303"
-		epatch ${FILESDIR}/size_and_position.patch || die "could not apply patch"
+		epatch "${FILESDIR}/size_and_position.patch" || die "could not apply patch"
 	}
 }
 
@@ -47,14 +47,14 @@ src_compile() {
 
 src_install() {
 	into /usr/
-		dobin ${S}/${PN} || die "Failed to install application binary"
+		dobin "${S}/${PN}" || die "Failed to install application binary"
 	insinto /usr/lib/qt5/qml/
-		doins -r ${S}/qmltermwidget/QMLTermWidget || die "Failed to install QML imports"
+		doins -r "${S}/qmltermwidget/QMLTermWidget" || die "Failed to install QML imports"
 	for size in 32 64 128 256; do
-		doicon --size ${size} ${S}/app/icons/${size}x${size}/${PN}.png
+		doicon --size "${size}" "${S}/app/icons/${size}x${size}/${PN}.png"
 	done
-	domenu ${S}/cool-retro-term.desktop
-	dodoc ${S}/README.md || die "Failed to install README"
+	domenu "${S}/cool-retro-term.desktop"
+	dodoc "${S}/README.md" || die "Failed to install README"
 }
 
 pkg_postinst() {

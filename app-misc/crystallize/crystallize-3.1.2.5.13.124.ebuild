@@ -34,8 +34,8 @@ RDEPEND="app-misc/wreathe-base
 DEPEND="${RDEPEND}"
 
 src_prepare() {
-    cp "${FILESDIR}"/crystallize-update "${S}"/scripts/
-    default
+	cp "${FILESDIR}"/crystallize-update "${S}"/scripts/
+	default
 }
 
 pkg_preinst() {
