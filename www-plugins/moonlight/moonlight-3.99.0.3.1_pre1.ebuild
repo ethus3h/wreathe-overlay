@@ -18,7 +18,7 @@ mesaRevision="3ed0a099c70e9d771e60e0ddf70bc0b5ba83a483"
 
 LICENSE="BSD-4 GPL-2 GPL-2-with-linking-exception IDPL LGPL-2 LGPL-2.1 MIT Ms-PL NPL-1.1"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE="alsa +curl +debug pax_kernel +nsplugin pulseaudio sdk test xen"
 
 SRC_URI="https://github.com/ethus3h/moon-1/archive/v${PV}.tar.gz -> ${P}.tar.gz
