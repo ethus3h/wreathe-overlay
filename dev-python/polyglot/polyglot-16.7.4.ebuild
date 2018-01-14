@@ -21,7 +21,7 @@ RDEPEND="dev-libs/icu
 	dev-python/pyicu[${PYTHON_USEDEP}]
 	dev-python/pycld2[${PYTHON_USEDEP}]
 	dev-python/six[${PYTHON_USEDEP}]
-	dev-python/futures[${PYTHON_USEDEP}]
+	virtual/python-futures[${PYTHON_USEDEP}]
 	dev-python/Morfessor[${PYTHON_USEDEP}]
 	dev-python/numpy[${PYTHON_USEDEP}]"
 
