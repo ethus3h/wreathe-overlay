@@ -3,11 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python{2_7,3_5} )
-
-inherit distutils-r1
-
-DESCRIPTION="Natural language pipeline"
+DESCRIPTION="Natural language pipeline: data"
 HOMEPAGE="https://pypi.python.org/pypi/polyglot"
 SRC_URI="http://polyglot.cs.stonybrook.edu/~polyglot/index.json
 	http://polyglot.cs.stonybrook.edu/~polyglot/sgns2/pam/pam.sgns.model.tar.bz2"
