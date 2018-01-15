@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -10,7 +10,6 @@ inherit cmake-utils kde4-meta git-r3
 DESCRIPTION="A KDE filemanager focusing on usability"
 HOMEPAGE="https://github.com/KDE/dolphin/releases/tag/v4.7.4"
 SRC_URI="mirror://kde/Attic/4.7.4/src/kde-baseapps-4.7.4.tar.bz2"
-EGIT_REPO_URI="git://github.com/ethus3h/wreathe-file-manager.git"
 
 LICENSE="GPL-2"
 SLOT="4"
