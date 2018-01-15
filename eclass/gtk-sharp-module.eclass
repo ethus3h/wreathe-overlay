@@ -283,10 +283,10 @@ IUSE="debug"
 S="${WORKDIR}/${TARBALL}-${PV}"
 # @ECLASS-VARIABLE: SRC_URI
 # @DESCRIPTION:
-# Default value: mirror://gnome/sources/${TARBALL}/${PV_MAJOR}/${TARBALL}-${PV}.tar.bz2
+# Default value: mirror://gnome/sources/${TARBALL}/${PV_MAJOR}/${TARBALL}-${PV}.tar.gz
 if [[ ${TARBALL} == "gtk-sharp" ]]; then
 	SRC_URI="${SRC_URI}
-		http://download.mono-project.com/sources/gtk-sharp212/${TARBALL}-${PV}.tar.bz2"
+		http://download.mono-project.com/sources/gtk-sharp212/${TARBALL}-${PV}.tar.gz"
 else
 	SRC_URI="${SRC_URI}
 		mirror://gnome/sources/${TARBALL}/${PV_MAJOR}/${TARBALL}-${PV}.tar.bz2"
