@@ -10,8 +10,7 @@ inherit cmake-utils kde4-meta
 baseappsVersion="4.7.4"
 DESCRIPTION="A KDE filemanager focusing on usability"
 HOMEPAGE="https://futuramerlin.com/"
-SRC_URI="mirror://kde/Attic/${baseappsVersion}/src/kde-baseapps-${baseappsVersion}.tar.bz2
-	https://github.com/ethus3h/wreathe-file-manager/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+SRC_URI="mirror://kde/Attic/${baseappsVersion}/src/kde-baseapps-${baseappsVersion}.tar.bz2"
 
 LICENSE="GPL-2"
 SLOT="4"
@@ -34,9 +33,3 @@ RESTRICT="test"
 # bug 393129
 
 S="${WORKDIR}/kde-baseapps-${baseappsVersion}"
-
-src_unpack() {
-	default_src_unpack
-	rm -rv "${WORKDIR}/kde-baseapps-${baseappsVersion}/${PN}"
-	rsync -av --checksum --progress "${WORKDIR}/wreathe-file-manager-${PV}/" "${WORKDIR}/kde-baseapps-${baseappsVersion}/${PN}"
-}
