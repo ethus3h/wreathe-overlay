@@ -16,7 +16,7 @@ IUSE="-qt3 +tqt"
 REQUIRED_USE="^^ ( qt3 tqt )"
 SLOT="0"
 
-DEPEND="qt3? ( >=dev-qt/qt-3.9999:3 )
+DEPEND="qt3? ( dev-qt/qt:3 )
 	tqt? ( dev-qt/tqt )
 	!!x11-libs/tqtinterface"
 RDEPEND="${DEPEND}"
