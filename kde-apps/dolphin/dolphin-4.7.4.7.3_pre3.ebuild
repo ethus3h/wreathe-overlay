@@ -38,5 +38,5 @@ S="${WORKDIR}/kde-baseapps-${baseappsVersion}"
 src_unpack() {
 	default_src_unpack
 	rm -rv "${WORKDIR}/kde-baseapps-${baseappsVersion}/${PN}"
-	rsync -av --checksum --progress "${WORKDIR}/${P}/" "${WORKDIR}/kde-baseapps-${baseappsVersion}/${PN}"
+	rsync -av --checksum --progress "${WORKDIR}/wreathe-file-manager-${PV}/" "${WORKDIR}/kde-baseapps-${baseappsVersion}/${PN}"
 }
