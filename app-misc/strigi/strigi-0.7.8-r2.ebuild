@@ -48,11 +48,11 @@ PATCHES=(
 )
 
 src_prepare() {
-	# fix bug 987654 by restoring pre-GCC5 inline semantics
-	append-cflags -std=gnu89
+	# won't compile with c++11
+	append-cppflags -std=c++98
 	default
 }
- 
+
 src_configure() {
 	# Enabled: POLLING (only reliable way to check for files changed.)
 	# Disabled: xine - recommended upstream to keep it this way
