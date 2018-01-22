@@ -5,7 +5,7 @@ EAPI=6
 
 SRC_URI="http://www.vandenoever.info/software/strigi/${P}.tar.bz2"
 KEYWORDS="~amd64 ~arm ~ppc ~ppc64 ~x86 ~amd64-linux ~x86-linux"
-inherit cmake-utils
+inherit cmake-utils flag-o-matic
 
 DESCRIPTION="Fast crawling desktop search engine with Qt4 GUI"
 HOMEPAGE="https://projects.kde.org/projects/kdesupport/strigi/strigi"
@@ -47,6 +47,12 @@ PATCHES=(
 	"${FILESDIR}/${P}-gcc6.patch"
 )
 
+src_prepare() {
+	# fix bug 987654 by restoring pre-GCC5 inline semantics
+	append-cflags -std=gnu89
+	default
+}
+ 
 src_configure() {
 	# Enabled: POLLING (only reliable way to check for files changed.)
 	# Disabled: xine - recommended upstream to keep it this way
