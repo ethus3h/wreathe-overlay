@@ -6,7 +6,7 @@ EAPI=6
 MY_PV="3.5.7"
 
 RC_VERSION="rc2" # CHECK ME WITH EVERY BUMP!
-BASE_SRC_URI="http://downloadarchive.documentfoundation.org/${PN/-l10n/}/old/${MY_PV}/rpm"
+BASE_SRC_URI="http://downloadarchive.documentfoundation.org/${PN/-l10n/}/old/${PV}/rpm"
 
 inherit rpm eutils multilib versionator
 
@@ -30,10 +30,10 @@ for lang in ${LANGUAGES}; do
 	langpack=""
 	if [[ "${LANGUAGES_HELP}" =~ "${lang}" ]]; then
 		[[ ${lang} == en ]] && lang2=${lang/en/en_US} || lang2=${lang}
-		helppack=" offlinehelp? ( ${BASE_SRC_URI}/x86/LibO_${MY_PV}_Linux_x86_helppack-rpm_${lang2/_/-}.tar.gz ) "
+		helppack=" offlinehelp? ( ${BASE_SRC_URI}/x86/LibO_${MY_PV}${RC_VERSION}_Linux_x86_helppack-rpm_${lang2/_/-}.tar.gz ) "
 	fi
 	[[ ${lang} == en ]] \
-		|| langpack=" ${BASE_SRC_URI}/x86/LibO_${MY_PV}_Linux_x86_langpack-rpm_${lang/_/-}.tar.gz "
+		|| langpack=" ${BASE_SRC_URI}/x86/LibO_${MY_PV}${RC_VERSION}_Linux_x86_langpack-rpm_${lang/_/-}.tar.gz "
 	SRC_URI+=" linguas_${lang}? (
 		${langpack}
 		${helppack}
