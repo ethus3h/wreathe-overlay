@@ -162,7 +162,7 @@ DEPEND="${COMMON_DEPEND}
 	dev-util/cppunit
 	>=dev-util/gperf-3
 	dev-util/intltool
-	dev-util/mdds
+	<dev-util/mdds-0.8.0
 	virtual/pkgconfig
 	media-libs/sampleicc
 	net-misc/npapi-sdk
