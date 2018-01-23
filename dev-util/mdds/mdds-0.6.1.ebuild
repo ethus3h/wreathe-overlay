@@ -8,7 +8,7 @@ inherit base
 
 DESCRIPTION="A collection of multi-dimensional data structure and indexing algorithm"
 HOMEPAGE="http://code.google.com/p/multidimalgorithm/"
-SRC_URI="http://multidimalgorithm.googlecode.com/files/${P/-/_}.tar.bz2"
+SRC_URI="https://web.archive.org/web/20160402025249im_/http://multidimalgorithm.googlecode.com/files/${P/-/_}.tar.bz2"
 
 LICENSE="MIT"
 SLOT="0"
