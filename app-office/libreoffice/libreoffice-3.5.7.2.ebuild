@@ -1,8 +1,7 @@
-# Copyright 1999-2012 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: /var/cvsroot/gentoo-x86/app-office/libreoffice/libreoffice-3.5.7.2.ebuild,v 1.2 2012/11/07 21:10:10 tetromino Exp $
 
-EAPI=4
+EAPI=6
 
 KDE_REQUIRED="optional"
 QT_MINIMAL="4.7.4"
@@ -17,8 +16,8 @@ PYTHON_USE_WITH="threads,xml"
 # everyone happy.
 DEV_URI="
 	http://dev-builds.libreoffice.org/pre-releases/src
-	http://download.documentfoundation.org/libreoffice/src/3.5.7/
-	http://download.documentfoundation.org/libreoffice/old/src
+	http://downloadarchive.documentfoundation.org/libreoffice/old/src/3.5.7/
+	http://downloadarchive.documentfoundation.org/libreoffice/old/src
 "
 EXT_URI="http://ooo.itc.hu/oxygenoffice/download/libreoffice"
 ADDONS_URI="http://dev-www.libreoffice.org/src/"
