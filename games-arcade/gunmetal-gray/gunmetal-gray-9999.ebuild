@@ -3,14 +3,24 @@
 
 EAPI=6
 
+inherit git-r3
+
 DESCRIPTION="Platformer computer game"
 HOMEPAGE="https://futuramerlin.com/"
 
-SRC_URI=""
+EGIT_REPO_URI="https://github.com/ethus3h/ember-information-technology-environment.git"
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS=""
 
 RDEPEND="dev-python/pygame
 	dev-games/tiled"
+DEPEND="${RDEPEND}"
+
+src_install() {
+	insinto /usr/local/games/gunmetal-grey/
+	GLOBIGNORE="README.md:.git:.egup.tags"
+	doins -r *
+	unset GLOBIGNORE
+}
