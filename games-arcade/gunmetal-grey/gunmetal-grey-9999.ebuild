@@ -8,7 +8,7 @@ inherit git-r3
 DESCRIPTION="Platformer computer game"
 HOMEPAGE="https://futuramerlin.com/"
 
-EGIT_REPO_URI="https://github.com/ethus3h/ember-information-technology-environment.git"
+EGIT_REPO_URI="https://github.com/ethus3h/gunmetal-grey.git"
 
 LICENSE="MIT"
 SLOT="0"
