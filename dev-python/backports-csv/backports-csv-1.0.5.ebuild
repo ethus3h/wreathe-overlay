@@ -20,3 +20,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
 S="${WORKDIR}/${MY_P}"
+
+RDEPEND="dev-python/setuptools[${PYTHON_USEDEP}]"
+
+DEPEND="${RDEPEND}"
