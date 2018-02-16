@@ -23,7 +23,7 @@ RDEPEND="
 	dev-python/netifaces
 	dev-python/pyasn1
 	dev-python/pycrypto
-	dev-python/twisted-core
+	dev-python/twisted
 	dev-python/wxpython
 	dev-libs/openssl:0[-bindist]
 	net-libs/libtorrent-rasterbar[python]
