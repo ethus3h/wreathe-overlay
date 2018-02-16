@@ -39,10 +39,6 @@ S="${WORKDIR}"
 
 QA_PREBUILT="/usr/lib/tribler/swift"
 
-src_prepare() {
-	epatch "${FILESDIR}/${PN}-6.2.0-fix-desktop.patch"
-}
-
 src_compile() { :; }
 
 src_install() {
