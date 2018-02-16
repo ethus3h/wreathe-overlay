@@ -8,9 +8,7 @@ inherit eutils unpacker
 DESCRIPTION="Bittorrent client that does not require a website to discover content"
 HOMEPAGE="http://www.tribler.org/"
 SRC_URI="
-	https://github.com/Tribler/tribler/releases/download/v${PV}/tribler_${PV}_all.deb
-	x86?   ( https://github.com/Tribler/tribler/releases/download/v${PV}/tribler-swift_${PV}_i386.deb )
-	amd64? ( https://github.com/Tribler/tribler/releases/download/v${PV}/tribler-swift_${PV}_amd64.deb )"
+	https://github.com/Tribler/tribler/releases/download/v7.0.1/Tribler-v${PV}.tar.xz )"
 
 LICENSE="GPL-2 LGPL-2.1+ PSF-2.4 openssl wxWinLL-3.1"
 SLOT="0"
