@@ -40,7 +40,6 @@ S="${WORKDIR}"
 QA_PREBUILT="/usr/lib/tribler/swift"
 
 src_prepare() {
-	epatch "${FILESDIR}/${PN}-log2homedir.patch"
 	epatch "${FILESDIR}/${PN}-6.2.0-fix-desktop.patch"
 }
 
