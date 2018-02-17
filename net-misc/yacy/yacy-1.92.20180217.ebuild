@@ -4,6 +4,7 @@
 EAPI=5
 
 inherit eutils java-pkg-2 java-ant-2 systemd versionator user
+myCommit="7c644090ff166b900919ab4cb223410b97b1d7fd"
 
 DESCRIPTION="YaCy - p2p based distributed web-search engine"
 HOMEPAGE="http://www.yacy.net/"
