@@ -18,6 +18,8 @@ IUSE="systemd +openrc"
 DEPEND=">=virtual/jdk-1.7:*"
 RDEPEND="${DEPEND}"
 
+S="${WORKDIR}/${PN}-${myCommit}"
+
 EANT_BUILD_TARGET="all"
 
 pkg_setup() {
