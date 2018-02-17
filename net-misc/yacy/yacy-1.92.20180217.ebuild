@@ -4,13 +4,10 @@
 EAPI=5
 
 inherit eutils java-pkg-2 java-ant-2 systemd versionator user
-MAJOR_PV="$(get_version_component_range 1-2)"
-REL_PV="$(get_version_component_range 3)"
-SVN_PV="$(get_version_component_range 4)"
 
 DESCRIPTION="YaCy - p2p based distributed web-search engine"
 HOMEPAGE="http://www.yacy.net/"
-SRC_URI="http://www.yacy.net/release/yacy_v${MAJOR_PV}_${REL_PV}_${SVN_PV}.tar.gz"
+SRC_URI="https://github.com/${PN}/yacy_search_server/archive/${myCommit}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -19,8 +16,6 @@ IUSE="systemd +openrc"
 
 DEPEND=">=virtual/jdk-1.7:*"
 RDEPEND="${DEPEND}"
-
-S="${WORKDIR}/${PN}"
 
 EANT_BUILD_TARGET="all"
 
