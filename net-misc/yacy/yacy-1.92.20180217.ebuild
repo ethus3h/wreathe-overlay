@@ -18,7 +18,7 @@ IUSE="systemd +openrc"
 DEPEND=">=virtual/jdk-1.7:*"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${PN}-${myCommit}"
+S="${WORKDIR}/yacy_search_server-${myCommit}"
 
 EANT_BUILD_TARGET="all"
 
