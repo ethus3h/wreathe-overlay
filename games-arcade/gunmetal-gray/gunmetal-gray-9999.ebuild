@@ -8,7 +8,7 @@ inherit git-r3
 DESCRIPTION="Platformer computer game"
 HOMEPAGE="https://futuramerlin.com/"
 
-EGIT_REPO_URI="https://github.com/ethus3h/gunmetal-grey.git"
+EGIT_REPO_URI="https://github.com/ethus3h/${PN}.git"
 
 LICENSE="MIT"
 SLOT="0"
@@ -19,7 +19,7 @@ RDEPEND="dev-python/pygame
 DEPEND="${RDEPEND}"
 
 src_install() {
-	insinto /usr/local/games/gunmetal-grey/
+	insinto "/usr/local/games/${PN}/"
 	GLOBIGNORE="README.md:.git:.egup.tags"
 	doins -r *
 	unset GLOBIGNORE
