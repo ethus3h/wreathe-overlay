@@ -14,4 +14,5 @@ KEYWORDS="~amd64"
 src_install() {
 	insinto "/usr/share/javascript/${PN}/"
 	rm papaparse.min.js bower.json Gruntfile.js
+	doins -r *
 }
