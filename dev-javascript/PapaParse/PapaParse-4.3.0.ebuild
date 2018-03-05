@@ -13,7 +13,5 @@ KEYWORDS="~amd64"
 
 src_install() {
 	insinto "/usr/share/javascript/${PN}/"
-	GLOBIGNORE="README.md:.git:.egup.tags"
-	doins -r *
-	unset GLOBIGNORE
+	rm papaparse.min.js pack
 }
