@@ -10,6 +10,7 @@ SRC_URI="https://github.com/mholt/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+# TODO: Add support for test suite (needs more dependencies)
 
 src_install() {
 	insinto "/usr/share/javascript/${PN}/"
