@@ -3,7 +3,7 @@
 
 EAPI=6
 
-DESCRIPTION=" Fast and powerful CSV (delimited text) parser that gracefully handles large files and malformed input "
+DESCRIPTION=" Fast and powerful CSV (delimited text) parser that gracefully handles large files and malformed input"
 HOMEPAGE="https://www.papaparse.com/"
 SRC_URI="https://github.com/mholt/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 
