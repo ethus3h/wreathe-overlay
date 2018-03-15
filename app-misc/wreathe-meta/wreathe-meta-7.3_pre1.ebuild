@@ -18,7 +18,6 @@ app-misc/crystallize
 app-misc/futuramerlin-web-toolkit
 app-misc/wreathe-media-resources
 x11-plugins/compiz-extra-snowflake-textures
-games-roguelike/behemmoth
 =kde-apps/dolphin-9999
 media-fonts/wreathe-typeface-family
 media-fonts/wreathe-typefaces-redist"
