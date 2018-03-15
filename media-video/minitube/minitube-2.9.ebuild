@@ -2,8 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
-PLOCALES="ar ca ca_ES da de_DE el en es es_AR es_ES fi fi_FI fr he_IL hr hu
-ia it nl pl pl_PL pt_BR ro ru sk sl tr zh_CN"
+# Updated based on list at https://github.com/flaviotordini/minitube/tree/master/locale
+PLOCALES="ar ast be bg_BG ca ca_ES cs_CZ da de_DE el en es es_AR es_ES es_MX fi fi_FI fr gl he_IL hr hu id it ja_JP ko_KR ky ms_MY nb nl nn pl pl_PL pt pt_BR ro ru sk sl sq sr sv_SE th tr uk uk_UA vi zh_CN zh_TW"
 PLOCALE_BACKUP="en"
 
 inherit l10n qmake-utils
