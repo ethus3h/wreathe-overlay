@@ -16,7 +16,7 @@ PYTHON_USE_WITH="threads,xml"
 # everyone happy.
 DEV_URI="
 	http://dev-builds.libreoffice.org/pre-releases/src
-	https://mirror.yandex.ru/libreoffice/libreoffice/src/3.5.7
+	http://download.documentfoundation.org/libreoffice/src/3.5.7
 	http://downloadarchive.documentfoundation.org/libreoffice/old/src/3.5.7/
 	http://downloadarchive.documentfoundation.org/libreoffice/old/src
 "
