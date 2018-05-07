@@ -26,7 +26,7 @@ BRANDING="${PN}-branding-gentoo-0.5.tar.xz"
 # PATCHSET="${P}-patchset-01.tar.xz"
 
 [[ ${PV} == *9999* ]] && SCM_ECLASS="git-2"
-inherit autotools bash-completion-r1 check-reqs eutils java-pkg-opt-2 kde4-base pax-utils python multilib toolchain-funcs flag-o-matic nsplugins ${SCM_ECLASS}
+inherit autotools bash-completion-r1 check-reqs eutils java-pkg-opt-2 kde4-base pax-utils python-r1 multilib toolchain-funcs flag-o-matic nsplugins ${SCM_ECLASS}
 unset SCM_ECLASS
 
 DESCRIPTION="LibreOffice, a full office productivity suite."
