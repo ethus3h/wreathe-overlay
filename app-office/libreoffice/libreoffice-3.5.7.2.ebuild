@@ -8,7 +8,7 @@ QT_MINIMAL="4.7.4"
 KDE_SCM="git"
 CMAKE_REQUIRED="never"
 
-PYTHON_COMPAT=(2.7)
+PYTHON_COMPAT=( python2_7 )
 PYTHON_USE_WITH="threads,xml"
 
 # experimental ; release ; old
