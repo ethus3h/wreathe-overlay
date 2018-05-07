@@ -15,7 +15,7 @@ PYTHON_USE_WITH="threads,xml"
 # Usually the tarballs are moved a lot so this should make
 # everyone happy.
 DEV_URI="
-	https://mirror.yandex.ru/libreoffice/libreoffice/src/${PV}
+	https://mirror.yandex.ru/libreoffice/libreoffice/src/3.5.7
 	http://downloadarchive.documentfoundation.org/libreoffice/old/src/3.5.7/
 	http://downloadarchive.documentfoundation.org/libreoffice/old/src
 "
