@@ -26,7 +26,7 @@ RESTRICT="test"
 # bug 392989
 
 src_configure() {
-	set -x
+	adddeny /usr/lib64/qt5
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package epub EPub)
 		$(cmake-utils_use_find_package exif Exiv2)
@@ -34,7 +34,6 @@ src_configure() {
 		$(cmake-utils_use_find_package migrator Baloo)
 		$(cmake-utils_use_find_package pdf PopplerQt4)
 		$(cmake-utils_use_find_package taglib Taglib)
-		QT_MOC_EXECUTABLE=/usr/lib/qt4/bin/moc
 	)
 
 	kde4-base_src_configure
