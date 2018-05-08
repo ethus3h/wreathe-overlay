@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
-
+set -x
 inherit kde4-base
 
 DESCRIPTION="Nepomuk core libraries"
@@ -27,9 +27,6 @@ RESTRICT="test"
 # bug 392989
 
 src_configure() {
-	export MOC4="/usr/lib/qt4/bin/moc"
-	export MOC5="/usr/lib/qt4/bin/moc"
-
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package epub EPub)
 		$(cmake-utils_use_find_package exif Exiv2)
@@ -40,6 +37,4 @@ src_configure() {
 	)
 
 	kde4-base_src_configure
-	export MOC4="/usr/lib/qt4/bin/moc"
-	export MOC5="/usr/lib/qt4/bin/moc"
 }
