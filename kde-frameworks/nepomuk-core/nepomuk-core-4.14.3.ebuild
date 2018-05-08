@@ -2,7 +2,6 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=5
-set -x
 inherit kde4-base
 
 DESCRIPTION="Nepomuk core libraries"
@@ -25,6 +24,11 @@ RDEPEND="${DEPEND}
 
 RESTRICT="test"
 # bug 392989
+
+src_unpack() {
+	set -x
+	default
+}
 
 src_configure() {
 	local mycmakeargs=(
