@@ -28,8 +28,8 @@ RESTRICT="test"
 src_configure() {
 	adddeny /usr/lib64/cmake/Qt5Core
 	adddeny /usr/lib64/qt5
-	#$(cmake-utils_use_find_package epub EPub)
 	local mycmakeargs=(
+		$(cmake-utils_use_find_package epub EPub)
 		$(cmake-utils_use_find_package exif Exiv2)
 		$(cmake-utils_use_find_package ffmpeg FFmpeg)
 		$(cmake-utils_use_find_package migrator Baloo)
