@@ -27,8 +27,7 @@ RESTRICT="test"
 # bug 392989
 
 src_configure() {
-	unset QTDIR
-	unset PKG_CONFIG_PATH
+	MOC4="/usr/lib/qt4/bin/moc"
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package epub EPub)
 		$(cmake-utils_use_find_package exif Exiv2)
