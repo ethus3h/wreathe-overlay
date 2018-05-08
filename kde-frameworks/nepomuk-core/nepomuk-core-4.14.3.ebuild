@@ -26,6 +26,7 @@ RESTRICT="test"
 # bug 392989
 
 src_configure() {
+	adddeny /usr/lib64/cmake/Qt5Core
 	adddeny /usr/lib64/qt5
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package epub EPub)
