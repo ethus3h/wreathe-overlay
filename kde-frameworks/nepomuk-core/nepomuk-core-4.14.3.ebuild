@@ -34,7 +34,7 @@ src_configure() {
 		$(cmake-utils_use_find_package migrator Baloo)
 		$(cmake-utils_use_find_package pdf PopplerQt4)
 		$(cmake-utils_use_find_package taglib Taglib)
-		QT_MOC_EXECUTABLE="/usr/lib/qt4/bin/moc"
+		QT_MOC_EXECUTABLE=/usr/lib/qt4/bin/moc
 	)
 
 	kde4-base_src_configure
