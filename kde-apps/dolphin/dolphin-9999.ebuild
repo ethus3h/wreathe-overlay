@@ -12,7 +12,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
-	kde-apps/dolphin:4
+	kde-apps/wreathe-file-manager
 "
 RDEPEND="${DEPEND}"
 PDEPEND="${DEPEND}"
