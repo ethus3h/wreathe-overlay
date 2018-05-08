@@ -11,5 +11,5 @@ HOMEPAGE="http://futuramerlin.com/"
 KEYWORDS=""
 EGIT_REPO_URI="https://github.com/ethus3h/wreathe-charselect.git"
 
-DEPEND="kde-apps/kcharselect"
+DEPEND="!kde-apps/kcharselect"
 RDEPEND="${DEPEND}"
