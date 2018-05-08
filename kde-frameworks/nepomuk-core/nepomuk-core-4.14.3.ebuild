@@ -15,7 +15,7 @@ DEPEND="
 	epub? ( app-text/ebook-tools )
 	exif? ( media-gfx/exiv2:= )
 	ffmpeg? ( virtual/ffmpeg )
-	kde-frameworks/baloo:4
+	kde-frameworks/baloo
 	pdf? ( app-text/poppler[qt4] )
 	taglib? ( media-libs/taglib )
 "
