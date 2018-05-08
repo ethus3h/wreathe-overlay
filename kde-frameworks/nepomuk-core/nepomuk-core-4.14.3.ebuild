@@ -26,8 +26,7 @@ RESTRICT="test"
 # bug 392989
 
 src_configure() {
-	adddeny /usr/lib64/cmake/Qt5Core
-	adddeny /usr/lib64/qt5
+	adddeny /usr/lib64/qt5/bin/moc
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package epub EPub)
 		$(cmake-utils_use_find_package exif Exiv2)
@@ -36,6 +35,6 @@ src_configure() {
 		$(cmake-utils_use_find_package pdf PopplerQt4)
 		$(cmake-utils_use_find_package taglib Taglib)
 	)
-
+	
 	kde4-base_src_configure
 }
