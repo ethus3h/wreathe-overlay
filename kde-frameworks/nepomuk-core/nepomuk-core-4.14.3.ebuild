@@ -25,12 +25,8 @@ RDEPEND="${DEPEND}
 RESTRICT="test"
 # bug 392989
 
-src_unpack() {
-	set -x
-	default
-}
-
 src_configure() {
+	set -x
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package epub EPub)
 		$(cmake-utils_use_find_package exif Exiv2)
