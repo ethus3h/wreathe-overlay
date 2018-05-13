@@ -44,14 +44,10 @@ RDEPEND="
 	!dev-qt/qt:3
 	!dev-qt/qt-meta:3"
 DEPEND="${RDEPEND}
-	x11-proto/inputproto
-	x11-proto/xextproto
-	xinerama? ( x11-proto/xineramaproto )"
+	x11-base/xorg-proto"
 
 S="${WORKDIR}/dependencies/${myPn}"
 
-#	immtqt? ( x11-proto/xineramaproto )
-#	immtqt-bc? ( x11-proto/xineramaproto )"
 #PDEPEND="odbc? ( ~dev-db/tqt-unixODBC-$PV )"
 
 TQTBASE="/usr/tqt3"

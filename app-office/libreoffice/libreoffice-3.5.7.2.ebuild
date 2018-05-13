@@ -177,10 +177,7 @@ DEPEND="${COMMON_DEPEND}
 	sys-libs/zlib
 	x11-libs/libXt
 	x11-libs/libXtst
-	x11-proto/randrproto
-	x11-proto/xextproto
-	x11-proto/xineramaproto
-	x11-proto/xproto
+	x11-base/xorg-proto
 	java? (
 		>=virtual/jdk-1.6
 		>=dev-java/ant-core-1.7

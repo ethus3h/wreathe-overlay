@@ -23,8 +23,7 @@ RDEPEND="media-libs/imlib2[X]
 	x11-libs/libXmu
 	x11-libs/libXft"
 DEPEND="${RDEPEND}
-	x11-proto/xproto
-	x11-proto/xineramaproto
+	x11-base/xorg-proto
 	virtual/pkgconfig"
 
 S="${WORKDIR}/${PN}-${MY_REV}"
