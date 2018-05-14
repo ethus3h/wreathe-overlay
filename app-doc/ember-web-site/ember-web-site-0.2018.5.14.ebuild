@@ -15,11 +15,6 @@ RDEPEND=""
 DEPEND="${RDEPEND}
 	app-misc/futuramerlin-web-toolkit"
 
-src_configure() {
-	#Disable local installation
-	perl -pi -e 's/localInstallation,true/localInstallation,false/g' .futuramerlin-web-toolkit/.futuramerlin-web-toolkit.cfg || die
-}
-
 src_compile() {
 	futuramerlin-web-toolkit-build || die
 }
