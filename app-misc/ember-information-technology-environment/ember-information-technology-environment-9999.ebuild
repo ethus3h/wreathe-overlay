@@ -13,12 +13,6 @@ LICENSE="AGPL-3"
 SLOT="0"
 KEYWORDS=""
 RDEPEND="app-misc/wreathe-meta
+	dev-javascript/PapaParse
 	virtual/perl6"
 DEPEND="${RDEPEND}"
-
-src_install() {
-	insinto /Wreathe/
-	GLOBIGNORE="README.md:.git:.egup.tags"
-	doins -r *
-	unset GLOBIGNORE
-}

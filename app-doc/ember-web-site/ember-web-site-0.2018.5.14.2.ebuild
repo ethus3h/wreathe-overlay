@@ -13,9 +13,13 @@ IUSE="local-install"
 KEYWORDS="~amd64"
 RDEPEND=""
 DEPEND="${RDEPEND}
-	app-misc/futuramerlin-web-toolkit"
+	app-misc/futuramerlin-web-toolkit
+	app-misc/ember-information-technology-environment"
 
 src_compile() {
+	rm -r information-technology/env || die
+	mkdir information-technology/env || die
+	cp -r /usr/share/eite/web/ information-technology/env || die
 	futuramerlin-web-toolkit-build || die
 }
 
