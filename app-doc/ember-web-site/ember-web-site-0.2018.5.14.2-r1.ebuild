@@ -11,10 +11,9 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="local-install"
 KEYWORDS="~amd64"
-RDEPEND=""
-DEPEND="${RDEPEND}
-	app-misc/futuramerlin-web-toolkit
+RDEPEND="app-misc/futuramerlin-web-toolkit
 	app-misc/ember-information-technology-environment"
+DEPEND="${RDEPEND}"
 
 src_compile() {
 	rm -r information-technology/env || die
