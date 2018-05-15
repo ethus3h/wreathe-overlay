@@ -7,7 +7,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 USE_DOTNET="net45"
 
-inherit gac dotnet
+inherit dotnet
 
 myPackageName="GoogleMaps.LocationServices"
 DESCRIPTION="Library for Google Maps geolocation and reverse geolocation"
@@ -41,6 +41,5 @@ src_install() {
 	else
 		DIR="Release"
 	fi
-	egacinstall "GoogleMaps.LocationServices/bin/${DIR}/GoogleMaps.LocationServices.dll"
 	einstall_pc_file "${PN}" "${PV}" "GoogleMaps.LocationServices"
 }
