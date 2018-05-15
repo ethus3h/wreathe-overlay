@@ -7,7 +7,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~ppc ~x86"
 USE_DOTNET="net45"
 
-inherit gac dotnet
+inherit dotnet
 
 SRC_URI="https://github.com/haf/DotNetZip.Semverd/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 S="${WORKDIR}/DotNetZip.Semverd-${PV}"
@@ -16,7 +16,7 @@ HOMEPAGE="https://github.com/haf/DotNetZip.Semverd"
 DESCRIPTION="create, extract, or update zip files with C# (=DotNetZip+SemVer)"
 LICENSE="Ms-PL" # https://github.com/haf/DotNetZip.Semverd/blob/master/LICENSE
 
-IUSE="net45 +gac +nupkg developer debug doc"
+IUSE="net45 +nupkg developer debug doc"
 
 COMMON_DEPEND=">=dev-lang/mono-4.0.2.5
 "
@@ -36,6 +36,5 @@ src_install() {
 	else
 		DIR="Release"
 	fi
-	egacinstall "src/Zip Reduced/bin/${DIR}/Ionic.Zip.Reduced.dll"
 	einstall_pc_file "${PN}" "${PV}" "Ionic.Zip.Reduced"
 }
