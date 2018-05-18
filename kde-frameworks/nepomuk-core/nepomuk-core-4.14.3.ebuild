@@ -11,6 +11,7 @@ IUSE="debug epub exif migrator ffmpeg pdf taglib"
 DEPEND="
 	>=dev-libs/shared-desktop-ontologies-0.11.0
 	>=dev-libs/soprano-2.9.3[dbus,raptor,redland,virtuoso]
+	<kde-apps/kdegraphics-mobipocket-16.12
 	epub? ( app-text/ebook-tools )
 	exif? ( media-gfx/exiv2:= )
 	ffmpeg? ( virtual/ffmpeg )
