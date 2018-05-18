@@ -28,6 +28,7 @@ RESTRICT="test"
 
 src_prepare() {
 	eapply "${FILESDIR}"/4.14...ethus3h\:2018may17a18n2-make.diff
+	default
 }
 
 src_configure() {
