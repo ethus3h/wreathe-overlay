@@ -12,6 +12,11 @@ KEYWORDS="~amd64 -*"
 RDEPEND=">=dev-libs/shared-desktop-ontologies-0.2
 	>=dev-libs/soprano-2.9.0[dbus,raptor,redland]
 	kde-frameworks/nepomuk-core
-	kde-frameworks/nepomuk-widgets
-	app-misc/wreathe-base"
+	kde-frameworks/nepomuk-widgets"
 DEPEND="${RDEPEND}"
+
+src_configure() {
+	QT_SELECT="4"
+	export QT_SELECT
+	default
+}
