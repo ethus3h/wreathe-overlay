@@ -32,9 +32,6 @@ RESTRICT="test"
 #}
 
 src_configure() {
-	QT_SELECT="4"
-	export QT_SELECT
-
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package epub EPub)
 		$(cmake-utils_use_find_package exif Exiv2)
@@ -45,6 +42,7 @@ src_configure() {
 	)
 	
 	kde4-base_src_configure
-	QT_MOC_EXECUTABLE="/usr/lib64/qt4/bin/moc"
-	export QT_MOC_EXECUTABLE
+
+	# It picks Qt5 moc for some weird reason
+	find . -exec perl -0777 -p -i -e 's/qt5\/bin\/moc/qt4\/bin\/moc/g' {} \;
 }
