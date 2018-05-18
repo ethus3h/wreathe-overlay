@@ -28,7 +28,7 @@ RESTRICT="test"
 
 src_configure() {
 	set -x
-	addeny /usr/share/qt5/bin/moc
+	addeny /usr/lib64/qt5/bin/moc
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package epub EPub)
 		$(cmake-utils_use_find_package exif Exiv2)
