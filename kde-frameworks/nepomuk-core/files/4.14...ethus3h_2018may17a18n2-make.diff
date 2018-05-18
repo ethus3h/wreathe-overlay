@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index f57a733a..dd36bc0b 100644
+index f57a733a..1a6bce6d 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -42,7 +42,7 @@ find_package(EPub)
@@ -7,7 +7,7 @@ index f57a733a..dd36bc0b 100644
  
  find_package(QMobipocket)
 -set_package_properties(QMobipocket PROPERTIES DESCRIPTION "Mobipocket epub reader" URL "https://projects.kde.org/projects/kde/kdegraphics/kdegraphics-mobipocket" TYPE OPTIONAL PURPOSE "Support for mobi metadata")
-+set_package_properties(QMobipocket PROPERTIES DESCRIPTION "Mobipocket epub reader" URL "https://projects.kde.org/projects/kde/kdegraphics/kdegraphics-mobipocket" TYPE OPTIONAL PURPOSE "Support for mobi metadata" PATHS /usr/kde4)
++set_package_properties(QMobipocket PROPERTIES DESCRIPTION "Mobipocket epub reader" URL "https://projects.kde.org/projects/kde/kdegraphics/kdegraphics-mobipocket" TYPE OPTIONAL PURPOSE "Support for mobi metadata" PATHS /usr/kde4 NO_DEFAULT_PATH)
  
  find_package(KFileMetaData)
  set_package_properties(KFileMetaData PROPERTIES DESCRIPTION "Library for extracting file metadata" URL "http://projects.kde.org/kfilemetadata" TYPE OPTIONAL)
