@@ -39,8 +39,8 @@ src_configure() {
 	kde4-base_src_configure
 
 	# It picks Qt5 moc for some weird reason
-	find . -type f -exec grep -C3 'qt5\/bin\/moc' {} \;
-	find . -exec perl -0777 -p -i -e 's/qt5\/bin\/moc/qt4\/bin\/moc/g' {} \; || die
+	find . -type f -exec grep -C3 'moc' {} \;
+	find . -type f -exec perl -0777 -p -i -e 's/qt5\/bin\/moc/qt4\/bin\/moc/g' {} \; || die
 	find . -type f -exec grep -C3 'qt5\/bin\/moc' {} \;
 	die
 }
