@@ -26,6 +26,9 @@ RESTRICT="test"
 # bug 392989
 
 src_configure() {
+	QT_SELECT="4"
+	export QT_SELECT
+
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package epub EPub)
 		$(cmake-utils_use_find_package exif Exiv2)

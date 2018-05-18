@@ -14,9 +14,3 @@ RDEPEND=">=dev-libs/shared-desktop-ontologies-0.2
 	kde-frameworks/nepomuk-core
 	kde-frameworks/nepomuk-widgets"
 DEPEND="${RDEPEND}"
-
-src_configure() {
-	QT_SELECT="4"
-	export QT_SELECT
-	default
-}
