@@ -15,8 +15,8 @@ SLOT="4.14"
 
 src_configure() {
 	# Put it in a separate path to avoid file collisions
-	#-DCMAKE_INSTALL_PREFIX:PATH=/usr/kde4
 	local mycmakeargs=(
+		-DCMAKE_INSTALL_PREFIX:PATH=/usr/kde4
 		-DCMAKE_DISABLE_FIND_PACKAGE_Strigi=ON
 	)
 
