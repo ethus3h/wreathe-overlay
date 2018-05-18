@@ -26,6 +26,11 @@ RDEPEND="${DEPEND}
 RESTRICT="test"
 # bug 392989
 
+src_prepare() {
+	eapply "${FILESDIR}"/'4.14...ethus3h_2018may17a18n2-make.diff'
+	default
+}
+
 src_configure() {
 	set -x
 	local mycmakeargs=(
