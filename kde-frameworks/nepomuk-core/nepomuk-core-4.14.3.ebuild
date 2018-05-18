@@ -26,11 +26,6 @@ RDEPEND="${DEPEND}
 RESTRICT="test"
 # bug 392989
 
-#src_prepare() {
-#	eapply "${FILESDIR}"/4.14...ethus3h_2018may17a18n2-make.diff
-#	default
-#}
-
 src_configure() {
 	local mycmakeargs=(
 		$(cmake-utils_use_find_package epub EPub)
@@ -44,5 +39,6 @@ src_configure() {
 	kde4-base_src_configure
 
 	# It picks Qt5 moc for some weird reason
+	find . -exec grep -C3 'qt5/bin/moc' {} \;
 	find . -exec perl -0777 -p -i -e 's/qt5\/bin\/moc/qt4\/bin\/moc/g' {} \;
 }
