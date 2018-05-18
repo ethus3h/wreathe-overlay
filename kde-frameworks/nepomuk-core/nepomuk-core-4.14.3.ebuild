@@ -11,7 +11,7 @@ IUSE="debug epub exif migrator ffmpeg pdf taglib"
 DEPEND="
 	>=dev-libs/shared-desktop-ontologies-0.11.0
 	>=dev-libs/soprano-2.9.3[dbus,raptor,redland,virtuoso]
-	<kde-apps/kdegraphics-mobipocket-16.12
+	kde-apps/kdegraphics-mobipocket:4.14
 	epub? ( app-text/ebook-tools )
 	exif? ( media-gfx/exiv2:= )
 	ffmpeg? ( virtual/ffmpeg )
@@ -27,7 +27,10 @@ RESTRICT="test"
 # bug 392989
 
 src_prepare() {
-	epatch "${FILESDIR}"/'4.14...ethus3h_2018may17a18n2-make.diff' || die
+	# KDE5 QMobipocket doesn't work with this (seems to cause nepomuk to
+	# be built using the Qt5 moc for some weird reason), so depend on an old
+	# version in a custom path and patch the CMakeLists.txt accordingly
+	epatch "${FILESDIR}"/'use-kde4-qmobipocket.diff' || die
 	default
 }
 
@@ -43,12 +46,4 @@ src_configure() {
 	)
 	
 	kde4-base_src_configure
-
-	adddeny /usr/lib64/qt5/bin/moc
-	# It picks Qt5 moc for some weird reason
-	find . -type f -exec grep -C3 'moc' {} \;
-	#find . -type f -exec perl -0777 -p -i -e 's/qt5\/bin\/moc/qt4\/bin\/moc/g' {} \; || die
-	find . -type f -exec grep -C3 'qt5\/bin\/moc' {} \;
-	env
-	#die
 }
