@@ -67,6 +67,9 @@ pkg_setup() {
 }
 
 src_configure() {
+	QT_SELECT="4"
+	export QT_SELECT
+
 	# Fix for missing pthread.h linking
 	# NOTE: temporarily fix until a better cmake files patch will be provided.
 	use elibc_FreeBSD && append-flags -pthread
