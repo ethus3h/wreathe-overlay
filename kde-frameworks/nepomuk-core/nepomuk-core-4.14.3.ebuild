@@ -26,10 +26,10 @@ RDEPEND="${DEPEND}
 RESTRICT="test"
 # bug 392989
 
-src_prepare() {
-	eapply "${FILESDIR}"/4.14...ethus3h_2018may17a18n2-make.diff
-	default
-}
+#src_prepare() {
+#	eapply "${FILESDIR}"/4.14...ethus3h_2018may17a18n2-make.diff
+#	default
+#}
 
 src_configure() {
 	QT_SELECT="4"
@@ -45,4 +45,6 @@ src_configure() {
 	)
 	
 	kde4-base_src_configure
+	QT_MOC_EXECUTABLE="/usr/lib64/qt4/bin/moc"
+	export QT_MOC_EXECUTABLE
 }
