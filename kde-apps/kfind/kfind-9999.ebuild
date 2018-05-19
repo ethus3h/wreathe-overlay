@@ -8,7 +8,7 @@ DESCRIPTION="File finder utility based on KDE Frameworks"
 HOMEPAGE="https://www.kde.org/applications/utilities/kfind/"
 
 LICENSE="GPL-2"
-SLOT="4"
+SLOT="4.14"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="
