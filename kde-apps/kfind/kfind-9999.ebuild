@@ -12,7 +12,7 @@ SLOT="4"
 KEYWORDS="~amd64 ~x86"
 
 DEPEND="
-	kde-apps/kfind
+	<kde-apps/kfind-9999
 "
 RDEPEND="${DEPEND}"
 PDEPEND="${DEPEND}"
