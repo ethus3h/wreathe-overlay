@@ -11,7 +11,6 @@ SLOT="0"
 KEYWORDS="~amd64"
 RDEPEND="app-misc/wreathe-base
 app-misc/wreathe-bootstrap
-app-misc/wreathe-overlays-redist
 app-misc/wreathe-backgrounds
 app-misc/wreathe-office-resources
 app-misc/crystallize
