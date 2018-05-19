@@ -20,4 +20,4 @@ x11-plugins/compiz-extra-snowflake-textures
 =kde-apps/dolphin-9999
 media-fonts/wreathe-typeface-family
 media-fonts/wreathe-typefaces-redist"
-DEPEND="app-misc/wreathe-overlays-redist"
+DEPEND=""
