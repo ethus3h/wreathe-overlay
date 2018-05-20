@@ -254,7 +254,6 @@ pkg_postinst() {
 		ewarn "rebuild Gnash with the ffmpeg and gnome use flags set."
 		ewarn ""
 	fi
-	ewarn "${PN} is still in heavy development"
+	ewarn "${PN} is still unifinished"
 	ewarn "Please first report bugs on upstream gnashdevs and deal with them"
-	ewarn "And then report a Gentoo bug to the maintainer"
 }
