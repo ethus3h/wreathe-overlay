@@ -40,6 +40,7 @@ src_prepare() {
 }
 
 pkg_preinst() {
+	default
 	#Remove the temporary install prefix from scripts where it has been copied
 	tempdir="${D}"
 	export tempdir
@@ -48,21 +49,7 @@ pkg_preinst() {
 }
 
 src_install() {
-	if [[ -f Makefile || -f GNUmakefile || -f makefile ]] ; then
-		emake DESTDIR="${D}" install
-	fi
-
-	if ! declare -p DOCS &>/dev/null ; then
-		local d
-		for d in README* ChangeLog AUTHORS NEWS TODO CHANGES \
-				THANKS BUGS FAQ CREDITS CHANGELOG ; do
-			[[ -s "${d}" ]] && dodoc "${d}"
-		done
-	elif [[ $(declare -p DOCS) == "declare -a "* ]] ; then
-		dodoc "${DOCS[@]}"
-	else
-		dodoc ${DOCS}
-	fi
+	default
 	if [[ ! -e /Ember\ Library ]]; then
 		dodir /Ember\ Library/Futuramerlin\ Projects/Data/Crystal\ Index/
 	fi
