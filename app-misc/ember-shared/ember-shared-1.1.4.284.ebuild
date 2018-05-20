@@ -9,10 +9,13 @@ SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
+IUSE="doc"
 KEYWORDS="~amd64 ~x86"
 RDEPEND="dev-python/internetarchive
 	dev-perl/HTML-Restrict
 	app-misc/jq"
+DEPEND="${RDEPEND}
+	doc? ( app-misc/futuramerlin-web-toolkit )"
 
 pkg_preinst() {
 	#Remove the temporary install prefix from scripts where it has been copied

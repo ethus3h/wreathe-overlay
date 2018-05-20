@@ -11,8 +11,10 @@ EGIT_REPO_URI="https://github.com/ethus3h/ember-information-technology-environme
 
 LICENSE="AGPL-3"
 SLOT="0"
+IUSE="doc"
 KEYWORDS=""
 RDEPEND="app-misc/wreathe-meta
 	dev-javascript/PapaParse
 	virtual/perl6"
-DEPEND="${RDEPEND}"
+DEPEND="${RDEPEND}
+	doc? ( app-misc/futuramerlin-web-toolkit )"

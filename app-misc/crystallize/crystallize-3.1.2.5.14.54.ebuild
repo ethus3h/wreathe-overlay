@@ -17,6 +17,7 @@ HOMEPAGE="https://futuramerlin.com/"
 
 LICENSE="AGPL-3 BSD-2"
 SLOT="0"
+IUSE="doc"
 RDEPEND="app-misc/wreathe-base
 	app-misc/ember-shared
 	app-misc/futuramerlin-web-toolkit
