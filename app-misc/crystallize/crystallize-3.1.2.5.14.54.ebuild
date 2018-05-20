@@ -38,19 +38,3 @@ src_prepare() {
 	cp "${FILESDIR}"/crystallize-update "${S}"/scripts/
 	default
 }
-
-pkg_preinst() {
-	default
-	#Remove the temporary install prefix from scripts where it has been copied
-	tempdir="${D}"
-	export tempdir
-	tempdirEsc="$(perl -0777 -e 'print(quotemeta($ENV{tempdir}))')"
-	find "$tempdir" -type f -exec perl -0777 -p -i -e "s/$tempdirEsc/\//g" {} \;
-}
-
-src_install() {
-	default
-	if [[ ! -e /Ember\ Library ]]; then
-		dodir /Ember\ Library/Futuramerlin\ Projects/Data/Crystal\ Index/
-	fi
-}
