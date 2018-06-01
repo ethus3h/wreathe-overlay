@@ -18,7 +18,8 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
-RDEPEND=">=dev-vcs/git-1.9"
+RDEPEND=">=dev-vcs/git-1.9
+	dev-vcs/git-lfs"
 
 DEPEND="${RDEPEND}"
 
