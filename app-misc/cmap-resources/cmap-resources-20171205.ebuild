@@ -19,6 +19,6 @@ src_compile() {
 
 src_install() {
 	default
-	mv "${P}-UTF-32.pdf" "UTF-32.pdf"
+	mv "${P}-UTF-32.pdf" "UTF-32.pdf" || die
 	dodoc "UTF-32.pdf"
 }
