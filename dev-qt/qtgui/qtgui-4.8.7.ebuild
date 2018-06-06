@@ -19,6 +19,7 @@ REQUIRED_USE="
 
 # cairo[-qt4] is needed because of bug 454066
 RDEPEND="
+	net-libs/libtirpc
 	app-eselect/eselect-qtgraphicssystem
 	~dev-qt/qtcore-${PV}[aqua=,debug=,glib=,qt3support=,${MULTILIB_USEDEP}]
 	~dev-qt/qtscript-${PV}[aqua=,debug=,${MULTILIB_USEDEP}]
@@ -52,7 +53,6 @@ RDEPEND="
 	nis? ( elibc_glibc? ( net-libs/libnsl:=[${MULTILIB_USEDEP}] ) )
 	tiff? ( >=media-libs/tiff-4.0.3-r2:0[${MULTILIB_USEDEP}] )
 	!<dev-qt/qthelp-4.8.5:4
-	net-libs/libtirpc
 "
 DEPEND="${RDEPEND}
 	!aqua? ( x11-base/xorg-proto )
