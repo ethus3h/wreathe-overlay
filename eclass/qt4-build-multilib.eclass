@@ -162,6 +162,9 @@ qt4-build-multilib_src_prepare() {
 	# See bugs 582522, 582618, 583662, 583744.
 	append-cxxflags -std=gnu++98
 
+	# rpc/rpc.h is now provided by libtirpc instead of glibc
+	append-cppflags -I/usr/include/tirpc
+
 	if [[ ${PN} == qtcore ]]; then
 		# Bug 373061
 		# qmake bus errors with -O2 or -O3 but -O1 works
