@@ -422,7 +422,8 @@ qt4_multilib_src_configure() {
 	)
 
 	# rpc/rpc.h is now provided by libtirpc instead of glibc
-	append-cppflags -I/usr/include/tirpc
+	conf+=(-I/usr/include/tirpc)
+	# append-cppflags -I/usr/include/tirpc
 
 	einfo "Configuring with: ${conf[@]}"
 	"${S}"/configure "${conf[@]}" || die "configure failed"
