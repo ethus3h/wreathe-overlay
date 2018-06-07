@@ -18,9 +18,9 @@ HOMEPAGE="https://phonon.kde.org/"
 
 LICENSE="|| ( LGPL-2.1 LGPL-3 )"
 SLOT="4"
-IUSE="debug designer gstreamer pulseaudio qt4 +qt5 +vlc"
+IUSE="debug designer gstreamer pulseaudio qt4 +vlc"
 
-REQUIRED_USE="|| ( qt4 qt5 )"
+REQUIRED_USE="qt4"
 
 RDEPEND="
 	!!dev-qt/qtphonon:4
@@ -34,17 +34,9 @@ RDEPEND="
 		>=dev-qt/qtgui-4.8.7:4[${MULTILIB_USEDEP}]
 		designer? ( >=dev-qt/designer-4.8.7:4[${MULTILIB_USEDEP}] )
 	)
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtdbus:5
-		dev-qt/qtgui:5
-		dev-qt/qtwidgets:5
-		designer? ( dev-qt/designer:5 )
-	)
 "
 DEPEND="${RDEPEND}
 	virtual/pkgconfig[${MULTILIB_USEDEP}]
-	qt5? ( kde-frameworks/extra-cmake-modules:5 )
 "
 PDEPEND="
 	gstreamer? ( >=media-libs/phonon-gstreamer-4.9.0[qt4?,qt5?] )
@@ -54,7 +46,7 @@ PDEPEND="
 PATCHES=( "${FILESDIR}/${PN}-4.7.0-plugin-install.patch" )
 
 pkg_setup() {
-	MULTIBUILD_VARIANTS=( $(usev qt4) $(usev qt5) )
+	MULTIBUILD_VARIANTS=( $(usev qt4) )
 }
 
 multilib_src_configure() {
@@ -73,12 +65,6 @@ multilib_src_configure() {
 			-DWITH_QZeitgeist=OFF
 		)
 	fi
-	if [[ ${QT_MULTIBUILD_VARIANT} = qt5 ]]; then
-		mycmakeargs+=(
-			-DPHONON_BUILD_PHONON4QT5=ON
-			-DCMAKE_DISABLE_FIND_PACKAGE_Qt5Declarative=ON
-		)
-	fi
 
 	cmake-utils_src_configure
 }
@@ -88,8 +74,6 @@ src_configure() {
 		local QT_MULTIBUILD_VARIANT=${MULTIBUILD_VARIANT}
 		if [[ ${QT_MULTIBUILD_VARIANT} = qt4 ]]; then
 			cmake-multilib_src_configure
-		elif [[ ${QT_MULTIBUILD_VARIANT} = qt5 ]]; then
-			multilib_src_configure
 		fi
 	}
 
@@ -100,8 +84,6 @@ src_compile() {
 	mycompile() {
 		if [[ ${MULTIBUILD_VARIANT} = qt4 ]]; then
 			cmake-multilib_src_compile
-		elif [[ ${MULTIBUILD_VARIANT} = qt5 ]]; then
-			cmake-utils_src_compile
 		fi
 	}
 
@@ -112,8 +94,6 @@ src_test() {
 	mytest() {
 		if [[ ${MULTIBUILD_VARIANT} = qt4 ]]; then
 			cmake-multilib_src_test
-		elif [[ ${MULTIBUILD_VARIANT} = qt5 ]]; then
-			cmake-utils_src_test
 		fi
 	}
 
@@ -124,8 +104,6 @@ src_install() {
 	myinstall() {
 		if [[ ${MULTIBUILD_VARIANT} = qt4 ]]; then
 			cmake-multilib_src_install
-		elif [[ ${MULTIBUILD_VARIANT} = qt5 ]]; then
-			cmake-utils_src_install
 		fi
 	}
 
