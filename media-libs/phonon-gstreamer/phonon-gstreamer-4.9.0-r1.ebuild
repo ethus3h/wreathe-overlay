@@ -20,7 +20,7 @@ DESCRIPTION="Phonon GStreamer backend"
 HOMEPAGE="https://phonon.kde.org/"
 
 LICENSE="LGPL-2.1+ || ( LGPL-2.1 LGPL-3 )"
-SLOT="0"
+SLOT="4"
 IUSE="alsa debug +network qt4 +qt5"
 
 REQUIRED_USE="|| ( qt4 qt5 )"
@@ -63,6 +63,7 @@ pkg_setup() {
 src_configure() {
 	myconfigure() {
 		local mycmakeargs=()
+		mycmakeargs+=( -DCMAKE_INSTALL_PREFIX:PATH=/usr/kde4 )
 		if [[ ${MULTIBUILD_VARIANT} = qt4 ]]; then
 			mycmakeargs+=( -DPHONON_BUILD_PHONON4QT5=OFF )
 		fi
