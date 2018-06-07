@@ -30,7 +30,7 @@ RDEPEND="
 	dev-libs/libxml2:2
 	media-libs/gstreamer:1.0
 	media-libs/gst-plugins-base:1.0
-	>=media-libs/phonon-4.9.0[qt4?,qt5?]
+	>=media-libs/phonon-4.9.0:4[qt4?,qt5?]
 	media-plugins/gst-plugins-meta:1.0[alsa?,ogg,vorbis]
 	virtual/opengl
 	network? ( media-plugins/gst-plugins-soup:1.0 )
