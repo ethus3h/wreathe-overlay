@@ -18,9 +18,9 @@ HOMEPAGE="https://phonon.kde.org/"
 
 LICENSE="|| ( LGPL-2.1 LGPL-3 )"
 SLOT="4"
-IUSE="debug designer gstreamer pulseaudio qt4 +vlc"
+IUSE="debug designer gstreamer pulseaudio qt4 +qt5 +vlc"
 
-REQUIRED_USE="qt4"
+REQUIRED_USE="|| ( qt4 qt5 )"
 
 RDEPEND="
 	!!dev-qt/qtphonon:4
@@ -33,6 +33,9 @@ RDEPEND="
 		>=dev-qt/qtdbus-4.8.7:4[${MULTILIB_USEDEP}]
 		>=dev-qt/qtgui-4.8.7:4[${MULTILIB_USEDEP}]
 		designer? ( >=dev-qt/designer-4.8.7:4[${MULTILIB_USEDEP}] )
+	)
+	qt5? (
+		media-libs/phonon:0[qt5]
 	)
 "
 DEPEND="${RDEPEND}
