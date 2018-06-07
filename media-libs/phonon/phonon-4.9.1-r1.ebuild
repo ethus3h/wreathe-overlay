@@ -35,7 +35,7 @@ RDEPEND="
 		designer? ( >=dev-qt/designer-4.8.7:4[${MULTILIB_USEDEP}] )
 	)
 	qt5? (
-		media-libs/phonon:0[qt5]
+		media-libs/phonon:0
 	)
 "
 DEPEND="${RDEPEND}
