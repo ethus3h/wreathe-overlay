@@ -22,16 +22,14 @@ IUSE="debug qt4"
 
 RDEPEND="
 	dev-libs/libdbusmenu-qt:0
-	qt4? (
-		>=dev-qt/qtcore-4.8.6:4[${MULTILIB_USEDEP}]
-		>=dev-qt/qtdbus-4.8.6:4[${MULTILIB_USEDEP}]
-		>=dev-qt/qtgui-4.8.6:4[${MULTILIB_USEDEP}]
-	)
+	>=dev-qt/qtcore-4.8.6:4[${MULTILIB_USEDEP}]
+	>=dev-qt/qtdbus-4.8.6:4[${MULTILIB_USEDEP}]
+	>=dev-qt/qtgui-4.8.6:4[${MULTILIB_USEDEP}]
 "
 DEPEND="${RDEPEND}
 	test? (
 		dev-libs/libdbusmenu-qt:0[test]
-		qt4? ( >=dev-qt/qttest-4.8.6:4[${MULTILIB_USEDEP}] )
+		>=dev-qt/qttest-4.8.6:4[${MULTILIB_USEDEP}]
 	)
 "
 
@@ -43,7 +41,7 @@ DOCS=( NEWS README )
 RESTRICT="test"
 
 pkg_setup() {
-	MULTIBUILD_VARIANTS=( $(usex qt4 4) )
+	MULTIBUILD_VARIANTS=( 4 )
 }
 
 src_prepare() {
