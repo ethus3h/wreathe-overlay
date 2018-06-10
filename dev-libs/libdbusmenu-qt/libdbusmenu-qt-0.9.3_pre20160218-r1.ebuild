@@ -21,7 +21,7 @@ SLOT="4"
 IUSE="debug qt4"
 
 RDEPEND="
-	dev-lib/libdbusmenu-qt:0
+	dev-libs/libdbusmenu-qt:0
 	qt4? (
 		>=dev-qt/qtcore-4.8.6:4[${MULTILIB_USEDEP}]
 		>=dev-qt/qtdbus-4.8.6:4[${MULTILIB_USEDEP}]
@@ -30,7 +30,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	test? (
-		dev-lib/libdbusmenu-qt:0[test]
+		dev-libs/libdbusmenu-qt:0[test]
 		qt4? ( >=dev-qt/qttest-4.8.6:4[${MULTILIB_USEDEP}] )
 	)
 "
