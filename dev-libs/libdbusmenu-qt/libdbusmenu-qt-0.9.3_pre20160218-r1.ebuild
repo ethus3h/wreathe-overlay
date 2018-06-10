@@ -17,14 +17,11 @@ if [[ ${PV} != 9999* ]] ; then
 fi
 
 LICENSE="LGPL-2"
-SLOT="0"
+SLOT="4"
 IUSE="debug qt4"
 
 RDEPEND="
-	dev-qt/qtcore:5
-	dev-qt/qtdbus:5
-	dev-qt/qtgui:5
-	dev-qt/qtwidgets:5
+	dev-lib/libdbusmenu-qt:0
 	qt4? (
 		>=dev-qt/qtcore-4.8.6:4[${MULTILIB_USEDEP}]
 		>=dev-qt/qtdbus-4.8.6:4[${MULTILIB_USEDEP}]
@@ -33,7 +30,7 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}
 	test? (
-		dev-qt/qttest:5
+		dev-lib/libdbusmenu-qt:0[test]
 		qt4? ( >=dev-qt/qttest-4.8.6:4[${MULTILIB_USEDEP}] )
 	)
 "
