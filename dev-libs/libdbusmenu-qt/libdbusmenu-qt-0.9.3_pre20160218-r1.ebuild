@@ -43,7 +43,7 @@ DOCS=( NEWS README )
 RESTRICT="test"
 
 pkg_setup() {
-	MULTIBUILD_VARIANTS=( $(usex qt4 4) 5 )
+	MULTIBUILD_VARIANTS=( $(usex qt4 4) )
 }
 
 src_prepare() {
@@ -66,10 +66,15 @@ multilib_src_configure() {
 src_configure() {
 	myconfigure() {
 		local QT_MULTIBUILD_VARIANT=${MULTIBUILD_VARIANT}
+
+		# Put it in a separate path to avoid file collisions
+		local mycmakeargs=(
+			-DCMAKE_INSTALL_PREFIX:PATH=/usr/kde4
+			-DCMAKE_DISABLE_FIND_PACKAGE_Strigi=ON
+		)
+
 		if [[ ${MULTIBUILD_VARIANT} = 4 ]] ; then
 			cmake-multilib_src_configure
-		elif [[ ${MULTIBUILD_VARIANT} = 5 ]] ; then
-			multilib_src_configure
 		fi
 	}
 
@@ -80,8 +85,6 @@ src_compile() {
 	mycompile() {
 		if [[ ${MULTIBUILD_VARIANT} = 4 ]] ; then
 			cmake-multilib_src_compile
-		elif [[ ${MULTIBUILD_VARIANT} = 5 ]] ; then
-			cmake-utils_src_compile
 		fi
 	}
 
@@ -92,8 +95,6 @@ src_install() {
 	myinstall() {
 		if [[ ${MULTIBUILD_VARIANT} = 4 ]] ; then
 			cmake-multilib_src_install
-		elif [[ ${MULTIBUILD_VARIANT} = 5 ]] ; then
-			cmake-utils_src_install
 		fi
 	}
 
@@ -104,8 +105,6 @@ src_test() {
 	mytest() {
 		if [[ ${MULTIBUILD_VARIANT} = 4 ]] ; then
 			cmake-multilib_src_test
-		elif [[ ${MULTIBUILD_VARIANT} = 5 ]] ; then
-			multilib_src_test
 		fi
 	}
 
