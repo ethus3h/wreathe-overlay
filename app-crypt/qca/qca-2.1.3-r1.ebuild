@@ -10,7 +10,7 @@ HOMEPAGE="https://userbase.kde.org/QCA"
 SRC_URI="mirror://kde/stable/${PN}/${PV}/src/${P}.tar.xz"
 
 LICENSE="LGPL-2.1"
-SLOT="2"
+SLOT="0.2.1.3.1"
 KEYWORDS="alpha amd64 ~arm ~arm64 ~hppa ~ia64 ppc ~ppc64 ~sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~x86-linux ~ppc-macos ~sparc-solaris"
 
 IUSE="botan debug doc examples gcrypt gpg libressl logger nss pkcs11 qt4 +qt5 sasl softstore +ssl test"
@@ -32,11 +32,7 @@ RDEPEND="
 		dev-libs/pkcs11-helper
 	)
 	qt4? ( >=dev-qt/qtcore-4.8.7-r2:4 )
-	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtconcurrent:5
-		dev-qt/qtnetwork:5
-	)
+	qt5? ( app-crypt/qca:2 )
 	sasl? ( dev-libs/cyrus-sasl:2 )
 	ssl? (
 		!libressl? ( >=dev-libs/openssl-1.0.1:0= )
@@ -47,7 +43,7 @@ DEPEND="${RDEPEND}
 	doc? ( app-doc/doxygen )
 	test? (
 		qt4? ( dev-qt/qttest:4 )
-		qt5? ( dev-qt/qttest:5 )
+		qt5? ( app-crypt/qca:2[test] )
 	)
 "
 
@@ -63,7 +59,7 @@ qca_plugin_use() {
 }
 
 pkg_setup() {
-	MULTIBUILD_VARIANTS=( $(usev qt4) $(usev qt5) )
+	MULTIBUILD_VARIANTS=( $(usev qt4) )
 }
 
 src_configure() {
