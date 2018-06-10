@@ -65,11 +65,6 @@ src_configure() {
 	myconfigure() {
 		local QT_MULTIBUILD_VARIANT=${MULTIBUILD_VARIANT}
 
-		# Put it in a separate path to avoid file collisions
-		local mycmakeargs=(
-			-DCMAKE_INSTALL_PREFIX:PATH=/usr/kde4
-		)
-
 		if [[ ${MULTIBUILD_VARIANT} = 4 ]] ; then
 			cmake-multilib_src_configure
 		fi
