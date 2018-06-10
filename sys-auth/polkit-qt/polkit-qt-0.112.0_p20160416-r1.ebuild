@@ -62,5 +62,7 @@ src_test() {
 }
 
 src_install() {
+	rm ./usr/share/dbus-1/system-services/org.qt.policykit.examples.service || die
+	rm ./usr/share/polkit-1/actions/org.qt.policykit.examples.policy || die
 	multibuild_foreach_variant cmake-utils_src_install
 }
