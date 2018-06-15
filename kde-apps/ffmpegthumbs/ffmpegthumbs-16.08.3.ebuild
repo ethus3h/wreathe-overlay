@@ -17,3 +17,9 @@ DEPEND="
 RDEPEND="${DEPEND}
 	$(add_kdeapps_dep kdebase-kioslaves)
 "
+
+src_install() {
+	rm -r "${D}/usr/lib64/qt5" || die
+	rm -r "${D}/usr/share/kservices5" || die
+	default
+}
