@@ -19,7 +19,7 @@ RDEPEND="${DEPEND}
 "
 
 src_install() {
-	default
+	kde4-base_src_install
 	rm -r "${D}/usr/lib64/qt5" || die
 	rm -r "${D}/usr/share/kservices5" || die
 }
