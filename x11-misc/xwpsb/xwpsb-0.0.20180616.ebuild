@@ -102,6 +102,8 @@ src_configure() {
 		myconf="--disable-simple-clients"
 	fi
 
+# rdp building is broken
+#		$(use_enable rdp rdp-compositor) \
 	econf \
 		$(use_enable examples demo-clients-install) \
 		$(use_enable fbdev fbdev-compositor) \
@@ -110,7 +112,6 @@ src_configure() {
 		$(use_enable headless headless-compositor) \
 		$(use_enable ivi ivi-shell) \
 		$(use_enable lcms) \
-		$(use_enable rdp rdp-compositor) \
 		$(use_enable wayland-compositor) \
 		$(use_enable X x11-compositor) \
 		$(use_enable launch weston-launch) \
