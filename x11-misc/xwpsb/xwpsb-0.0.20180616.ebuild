@@ -91,11 +91,7 @@ S="${WORKDIR}/weston-${MY_COMMIT}"
 
 src_prepare() {
 	default
-	if [[ ${PV} = 9999* ]]; then
-		eautoreconf
-	else
-		elibtoolize
-	fi
+	eautoreconf
 }
 
 src_configure() {
