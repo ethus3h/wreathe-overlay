@@ -39,6 +39,7 @@ REQUIRED_USE="
 
 RDEPEND="
 	>=dev-libs/libinput-0.8.0
+	!dev-libs/weston
 	>=dev-libs/wayland-1.12.0
 	>=dev-libs/wayland-protocols-1.8
 	lcms? ( media-libs/lcms:2 )
