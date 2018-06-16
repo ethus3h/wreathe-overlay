@@ -54,6 +54,7 @@ pkg_setup() {
 
 multilib_src_configure() {
 	local mycmakeargs=(
+		-DCMAKE_INSTALL_PREFIX:PATH=/usr/kde4
 		-DPHONON_BUILD_DESIGNER_PLUGIN=$(usex designer)
 		-DPHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT=TRUE
 		-DWITH_GLIB2=$(usex pulseaudio)
