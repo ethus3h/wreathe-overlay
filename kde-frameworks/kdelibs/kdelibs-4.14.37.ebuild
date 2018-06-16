@@ -153,7 +153,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_INSTALL_PREFIX:PATH=${ROOT}/usr/kde4
+		-DCMAKE_INSTALL_PREFIX:PATH=${ROOT}usr/kde4
 		-DWITH_HSPELL=OFF
 		-DWITH_ASPELL=OFF
 		-DKDE_DEFAULT_HOME=.kde4
