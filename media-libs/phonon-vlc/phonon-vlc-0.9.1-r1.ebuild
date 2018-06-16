@@ -54,7 +54,6 @@ pkg_setup() {
 src_configure() {
 	myconfigure() {
 		local mycmakeargs=()
-		mycmakeargs+=( -DCMAKE_INSTALL_PREFIX:PATH=/usr/kde4 )
 		if [[ ${MULTIBUILD_VARIANT} = qt4 ]]; then
 			mycmakeargs+=( -DPHONON_BUILD_PHONON4QT5=OFF )
 		fi
