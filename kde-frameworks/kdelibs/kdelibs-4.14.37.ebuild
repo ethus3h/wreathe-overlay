@@ -202,9 +202,9 @@ src_configure() {
 
 	tc-is-cross-compiler || cmakeargs+=( -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr" )
 	#qmake -query QT_INSTALL_LIBS unavailable when cross-compiling
-	tc-is-cross-compiler && cmakeargs+=( -DQT_LIBRARY_DIR="${ROOT}"/usr/$(get_libdir)/qt4 )
+	tc-is-cross-compiler && cmakeargs+=( -DQT_LIBRARY_DIR="${ROOT}"/usr/kde4/$(get_libdir)/qt4 )
 	#kde-config -path data unavailable when cross-compiling
-	tc-is-cross-compiler && cmakeargs+=( -DKDE4_DATA_DIR="${ROOT}"/usr/share/apps/ )
+	tc-is-cross-compiler && cmakeargs+=( -DKDE4_DATA_DIR="${ROOT}"/usr/kde4/share/apps/ )
 
 	cmake-utils_src_configure
 }
@@ -233,7 +233,7 @@ src_install() {
 		docompress -x /usr/share/doc/HTML
 
 	# use system certificates
-	rm -f "${ED}"/usr/share/apps/kssl/ca-bundle.crt || die
+	rm -f "${ED}"/usr/kde4/share/apps/kssl/ca-bundle.crt || die
 	dosym ../../../../etc/ssl/certs/ca-certificates.crt /usr/share/apps/kssl/ca-bundle.crt
 
 	if use doc; then
@@ -244,12 +244,12 @@ src_install() {
 	fi
 
 	# We don't package it, so don't install headers
-	rm -r "${ED}"/usr/include/KDE/Nepomuk || die
+	rm -r "${ED}"/usr/kde4/include/KDE/Nepomuk || die
 
 	einfo Installing environment file.
 	# Since 44qt4 is sourced earlier QT_PLUGIN_PATH is defined.
 	echo "COLON_SEPARATED=QT_PLUGIN_PATH" > "${T}/77kde"
-	echo "QT_PLUGIN_PATH=${EPREFIX}/usr/$(get_libdir)/kde4/plugins" >> "${T}/77kde"
+	echo "QT_PLUGIN_PATH=${EPREFIX}/usr/kde4/$(get_libdir)/kde4/plugins" >> "${T}/77kde"
 	doenvd "${T}/77kde"
 }
 
@@ -276,7 +276,7 @@ pkg_postinst() {
 
 pkg_prerm() {
 	# Remove ksycoca4 global database
-	rm -f "${EROOT%/}"/usr/share/kde4/services/ksycoca4 || die
+	rm -f "${EROOT%/}"/usr/kde4/share/kde4/services/ksycoca4 || die
 }
 
 pkg_postrm() {
