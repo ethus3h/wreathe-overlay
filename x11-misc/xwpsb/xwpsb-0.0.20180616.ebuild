@@ -71,6 +71,7 @@ RDEPEND="
 		>=sys-apps/systemd-209[pam]
 	)
 	launch? ( sys-auth/pambase )
+	unwind? ( sys-libs/libunwind )
 	X? (
 		>=x11-libs/libxcb-1.9
 		x11-libs/libX11
@@ -116,6 +117,7 @@ src_configure() {
 		$(use_enable launch weston-launch) \
 		$(use_enable colord) \
 		$(use_enable gles2 egl) \
+		$(use_enable unwind libunwind) \
 		$(use_enable resize-optimization) \
 		$(use_enable screen-sharing) \
 		$(use_enable suid setuid-install) \
@@ -141,10 +143,4 @@ src_test() {
 
 	cd "${BUILD_DIR}" || die
 	emake check
-}
-
-src_install() {
-	default
-
-	readme.gentoo_create_doc
 }
