@@ -87,6 +87,8 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 
+S="${WORKDIR}/${PN}-${MY_COMMIT}"
+
 src_prepare() {
 	default
 	if [[ ${PV} = 9999* ]]; then
