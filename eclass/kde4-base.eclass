@@ -807,6 +807,9 @@ kde4-base_src_configure() {
 	#kde-config -path data unavailable when cross-compiling
 	tc-is-cross-compiler && cmakeargs+=(-DKDE4_DATA_DIR=${ROOT}/usr/share/apps/)
 
+	# Include place for specific kde4 dependencies
+	cmakeargs+=(-DCMAKE_CXX_FLAGS=-isystem\ ${ROOT}/usr/kde4)
+
 	# sysconf needs to be /etc, not /usr/etc
 	cmakeargs+=(-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc)
 

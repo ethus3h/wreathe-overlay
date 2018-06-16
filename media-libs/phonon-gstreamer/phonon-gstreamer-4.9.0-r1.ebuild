@@ -41,11 +41,7 @@ RDEPEND="
 		!<dev-qt/qtwebkit-4.10.4:4[gstreamer]
 	)
 	qt5? (
-		dev-qt/qtcore:5
-		dev-qt/qtgui:5
-		dev-qt/qtopengl:5
-		dev-qt/qtwidgets:5
-		dev-qt/qtx11extras:5
+		media-libs/phonon-gstreamer:0[qt5]
 	)
 "
 DEPEND="${RDEPEND}
@@ -57,7 +53,7 @@ pkg_setup() {
 		ewarn "A GCC version older than 5 was detected. There may be trouble. See also Gentoo bug #595618"
 	fi
 
-	MULTIBUILD_VARIANTS=( $(usev qt4) $(usev qt5) )
+	MULTIBUILD_VARIANTS=( $(usev qt4) )
 }
 
 src_configure() {
@@ -66,9 +62,6 @@ src_configure() {
 		mycmakeargs+=( -DCMAKE_INSTALL_PREFIX:PATH=/usr/kde4 )
 		if [[ ${MULTIBUILD_VARIANT} = qt4 ]]; then
 			mycmakeargs+=( -DPHONON_BUILD_PHONON4QT5=OFF )
-		fi
-		if [[ ${MULTIBUILD_VARIANT} = qt5 ]]; then
-			mycmakeargs+=( -DPHONON_BUILD_PHONON4QT5=ON )
 		fi
 		cmake-utils_src_configure
 	}

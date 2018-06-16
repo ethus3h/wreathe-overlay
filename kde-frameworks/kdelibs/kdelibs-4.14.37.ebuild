@@ -46,6 +46,7 @@ COMMONDEPEND="
 	media-libs/giflib:=
 	media-libs/libpng:0=
 	media-libs/phonon[qt4]
+	kde-apps/phonon-kde:4
 	sys-libs/zlib
 	virtual/jpeg:0
 	x11-libs/libICE
