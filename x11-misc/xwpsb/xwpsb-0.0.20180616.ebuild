@@ -87,7 +87,7 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
 
-S="${WORKDIR}/${PN}-${MY_COMMIT}"
+S="${WORKDIR}/weston-${MY_COMMIT}"
 
 src_prepare() {
 	default
