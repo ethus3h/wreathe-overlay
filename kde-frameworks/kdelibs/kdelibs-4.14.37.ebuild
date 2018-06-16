@@ -153,7 +153,7 @@ src_prepare() {
 
 src_configure() {
 	local mycmakeargs=(
-		-DCMAKE_INSTALL_PREFIX:PATH="${ROOT/%\//}/"usr/kde4
+		-DCMAKE_INSTALL_PREFIX:PATH="${ROOT%/}/"usr/kde4
 		-DWITH_HSPELL=OFF
 		-DWITH_ASPELL=OFF
 		-DKDE_DEFAULT_HOME=.kde4
@@ -202,9 +202,9 @@ src_configure() {
 
 	tc-is-cross-compiler || cmakeargs+=( -DCMAKE_INSTALL_PREFIX="${EPREFIX}/usr" )
 	#qmake -query QT_INSTALL_LIBS unavailable when cross-compiling
-	tc-is-cross-compiler && cmakeargs+=( -DQT_LIBRARY_DIR="${ROOT/%\//}/"usr/kde4/$(get_libdir)/qt4 )
+	tc-is-cross-compiler && cmakeargs+=( -DQT_LIBRARY_DIR="${ROOT%/}/"usr/kde4/$(get_libdir)/qt4 )
 	#kde-config -path data unavailable when cross-compiling
-	tc-is-cross-compiler && cmakeargs+=( -DKDE4_DATA_DIR="${ROOT/%\//}/"usr/share/apps/ )
+	tc-is-cross-compiler && cmakeargs+=( -DKDE4_DATA_DIR="${ROOT%/}/"usr/share/apps/ )
 
 	cmake-utils_src_configure
 }
