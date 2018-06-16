@@ -9,17 +9,19 @@ if [[ ${PV} = 9999* ]]; then
 	EXPERIMENTAL="true"
 fi
 
+MY_COMMIT="c62d20867d87ae0d7af89c650290dbcf6930bdc6"
+
 inherit autotools readme.gentoo-r1 toolchain-funcs $GIT_ECLASS
 
-DESCRIPTION="Wayland reference compositor"
-HOMEPAGE="https://wayland.freedesktop.org/"
+DESCRIPTION="xwpsb: Run Wayland apps inside X11"
+HOMEPAGE="https://github.com/soreau/weston/tree/xwpsb"
 
 if [[ $PV = 9999* ]]; then
 	SRC_URI="${SRC_PATCHES}"
 	KEYWORDS="amd64 arm x86"
 else
-	SRC_URI="https://wayland.freedesktop.org/releases/${P}.tar.xz"
-	KEYWORDS="amd64 arm x86 ~arm-linux"
+	SRC_URI="https://github.com/soreau/weston/archive/${MY_COMMIT}.zip"
+	KEYWORDS="~amd64"
 fi
 
 LICENSE="MIT CC-BY-SA-3.0"
