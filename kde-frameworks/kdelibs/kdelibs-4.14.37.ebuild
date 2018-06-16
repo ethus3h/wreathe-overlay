@@ -204,7 +204,7 @@ src_configure() {
 	#qmake -query QT_INSTALL_LIBS unavailable when cross-compiling
 	tc-is-cross-compiler && cmakeargs+=( -DQT_LIBRARY_DIR="${ROOT}"/usr/kde4/$(get_libdir)/qt4 )
 	#kde-config -path data unavailable when cross-compiling
-	tc-is-cross-compiler && cmakeargs+=( -DKDE4_DATA_DIR="${ROOT}"/usr/kde4/share/apps/ )
+	tc-is-cross-compiler && cmakeargs+=( -DKDE4_DATA_DIR="${ROOT}"/usr/share/apps/ )
 
 	cmake-utils_src_configure
 }

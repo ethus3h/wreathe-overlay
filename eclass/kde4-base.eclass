@@ -803,12 +803,12 @@ kde4-base_src_configure() {
 	unset KDEDIRS
 
 	#qmake -query QT_INSTALL_LIBS unavailable when cross-compiling
-	tc-is-cross-compiler && cmakeargs+=(-DQT_LIBRARY_DIR=${ROOT}/usr/$(get_libdir)/qt4)
+	tc-is-cross-compiler && cmakeargs+=(-DQT_LIBRARY_DIR="${ROOT}/usr/kde4/$(get_libdir)/qt4")
 	#kde-config -path data unavailable when cross-compiling
-	tc-is-cross-compiler && cmakeargs+=(-DKDE4_DATA_DIR=${ROOT}/usr/share/apps/)
+	tc-is-cross-compiler && cmakeargs+=(-DKDE4_DATA_DIR="${ROOT}/usr/share/apps/")
 
 	# Include place for specific kde4 dependencies
-	cmakeargs+=( -DCMAKE_INSTALL_PREFIX:PATH=${ROOT}/usr/kde4 )
+	cmakeargs+=( -DCMAKE_INSTALL_PREFIX:PATH="${ROOT}"usr/kde4 )
 
 	# sysconf needs to be /etc, not /usr/etc
 	cmakeargs+=(-DSYSCONF_INSTALL_DIR="${EPREFIX}"/etc)
