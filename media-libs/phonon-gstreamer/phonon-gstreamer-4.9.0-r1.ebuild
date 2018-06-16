@@ -41,7 +41,7 @@ RDEPEND="
 		!<dev-qt/qtwebkit-4.10.4:4[gstreamer]
 	)
 	qt5? (
-		media-libs/phonon-gstreamer:0[qt5]
+		media-libs/phonon-gstreamer:0
 	)
 "
 DEPEND="${RDEPEND}

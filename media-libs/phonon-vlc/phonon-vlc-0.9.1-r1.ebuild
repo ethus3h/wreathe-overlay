@@ -34,7 +34,7 @@ RDEPEND="
 		>=dev-qt/qtgui-4.8.7:4
 	)
 	qt5? (
-		media-libs/phonon-vlc:0[qt5]
+		media-libs/phonon-vlc:0
 	)
 "
 DEPEND="${RDEPEND}
