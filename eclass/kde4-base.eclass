@@ -503,6 +503,12 @@ _calculate_src_uri() {
 				4.14.11*)
 					# KDEPIM 4.14 snapshot with Gentoo patches
 					SRC_URI="https://dev.gentoo.org/~asturm/distfiles/${_kmname_pv}.tar.xz" ;;
+				15.08.3)
+					SRC_URI="mirror://kde/Attic/applications/15.08.3/src/${_kmname_pv}.tar.xz" ;;
+				16.04.3)
+					SRC_URI="mirror://kde/Attic/applications/16.04.3/src/${_kmname_pv}.tar.xz" ;;
+				16.08.3)
+					SRC_URI="mirror://kde/Attic/applications/16.08.3/src/${_kmname_pv}.tar.xz" ;;
 				16.12.3)
 					SRC_URI="mirror://kde/Attic/applications/16.12.3/src/${_kmname_pv}.tar.xz" ;;
 				??.?.[6-9]? | ??.??.[4-9]?)
