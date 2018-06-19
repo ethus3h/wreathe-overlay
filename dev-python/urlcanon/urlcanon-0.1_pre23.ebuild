@@ -3,7 +3,7 @@
 
 EAPI=6
 
-PYTHON_COMPAT=( python2_7 python3_{4,5,6} )
+PYTHON_COMPAT=( python3_{4,5,6} )
 
 inherit distutils-r1
 
@@ -19,8 +19,7 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="doc test"
 
-RDEPEND="dev-python/idna[${PYTHON_USEDEP}]
-	python_targets_python2_7? ( dev-python/ipaddress[${PYTHON_USEDEP}] )"
+RDEPEND="dev-python/idna[${PYTHON_USEDEP}]"
 
 DEPEND="${RDEPEND}
 	test? ( dev-python/pytest[${PYTHON_USEDEP}] )"
