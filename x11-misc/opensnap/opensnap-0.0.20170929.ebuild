@@ -7,7 +7,7 @@ MYCOMMIT="b5a0a61d35abe26c46b1f890a94bd58bb17871bb"
 DESCRIPTION="Opensnap brings the Aero Snap feature to Openbox."
 HOMEPAGE="https://github.com/lawl/opensnap"
 
-SRC_URI="https://github.com/lawl/${PN}/archive/${myCommit}.zip -> ${P}-${myCommit}.zip"
+SRC_URI="https://github.com/lawl/${PN}/archive/${MYCOMMIT}.zip -> ${P}-${MYCOMMIT}.zip"
 
 LICENSE="GPL-2"
 SLOT="0"
