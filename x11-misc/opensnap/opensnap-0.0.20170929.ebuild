@@ -3,7 +3,7 @@
 
 EAPI=6
 
-myCommit="b5a0a61d35abe26c46b1f890a94bd58bb17871bb"
+MYCOMMIT="b5a0a61d35abe26c46b1f890a94bd58bb17871bb"
 DESCRIPTION="Opensnap brings the Aero Snap feature to Openbox."
 HOMEPAGE="https://github.com/lawl/opensnap"
 
@@ -17,6 +17,8 @@ RDEPEND="x11-misc/wmctrl
 		x11-libs/gtk+:3"
 
 DEPEND="${RDEPEND}"
+
+S="${WORKDIR}/${PN}-${MYCOMMIT}"
 
 src_install() {
 	exeinto /usr/bin/

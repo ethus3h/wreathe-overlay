@@ -31,6 +31,7 @@ src_prepare() {
 	use alsa	   || rm -f Plugins/vm-sound-ALSA
 	use oss		|| rm -f Plugins/vm-sound-OSS
 	use pulseaudio || rm -f Plugins/vm-sound-pulse
+	default
 }
 
 datadir="/usr/share/${PN}"
