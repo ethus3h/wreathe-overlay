@@ -18,9 +18,11 @@ IUSE="doc test"
 
 RDEPEND="dev-python/certauth[${PYTHON_USEDEP}]
 	dev-python/warctools[${PYTHON_USEDEP}]
-	dev-python/kafka-python[${PYTHON_USEDEP}]
-	dev-python/surt[${PYTHON_USEDEP}]
-	dev-python/rethinkstuff[${PYTHON_USEDEP}]
-	dev-python/doublethink[${PYTHON_USEDEP}]"
+	dev-python/urlcanon[${PYTHON_USEDEP}]
+	dev-python/doublethink[${PYTHON_USEDEP}]
+	dev-python/urllib3[${PYTHON_USEDEP}]
+	dev-python/requests[${PYTHON_USEDEP}]
+	dev-python/PySocks[${PYTHON_USEDEP}]
+	dev-python/cryptography[${PYTHON_USEDEP}]"
 
 DEPEND="${RDEPEND}"
