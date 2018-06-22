@@ -40,3 +40,8 @@ src_unpack() {
 	rm -rv "${WORKDIR}/kde-baseapps-${baseappsVersion}/${PN}"
 	rsync -av --checksum --progress "${WORKDIR}/wreathe-file-manager-${PV}/" "${WORKDIR}/kde-baseapps-${baseappsVersion}/${PN}"
 }
+
+src_install() {
+	dosym "${EPREFIX}/usr/bin/keditfiletype5" "${EPREFIX}/usr/bin/keditfiletype"
+	default
+}
