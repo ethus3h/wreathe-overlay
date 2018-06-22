@@ -43,5 +43,5 @@ src_unpack() {
 
 src_install() {
 	dosym "${EPREFIX}/usr/bin/keditfiletype5" "${EPREFIX}/usr/bin/keditfiletype"
-	default
+	kde4-base_src_install
 }
