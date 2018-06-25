@@ -40,3 +40,8 @@ src_unpack() {
 	rm -rv "${WORKDIR}/kde-baseapps-${baseappsVersion}/${PN}"
 	rsync -av --checksum --progress "${WORKDIR}/wreathe-file-manager-${PV}/" "${WORKDIR}/kde-baseapps-${baseappsVersion}/${PN}"
 }
+
+src_install() {
+	default
+	dosym /usr/bin/dolphin4 /usr/kde4/bin/dolphin
+}
