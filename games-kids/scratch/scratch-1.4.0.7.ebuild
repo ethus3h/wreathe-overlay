@@ -30,14 +30,37 @@ src_prepare() {
 	if ! use v4l; then
 		sed -i '/\/camera/d' "${S}/Makefile"
 	fi
-	use alsa	   || rm -f Plugins/vm-sound-ALSA
-	use oss		|| rm -f Plugins/vm-sound-OSS
+	use alsa       || rm -f Plugins/vm-sound-ALSA
+	use oss        || rm -f Plugins/vm-sound-OSS
 	use pulseaudio || rm -f Plugins/vm-sound-pulse
 	default
 }
 
 datadir="/usr/share/${PN}"
 libdir="${datadir}/lib"
+
+install_runner() {
+	if   use alsa;       then squeak_sound_plugin="ALSA"
+	elif use oss;        then squeak_sound_plugin="OSS"
+	elif use pulseaudio; then squeak_sound_plugin="pulse"
+	else                      squeak_sound_plugin="null"
+	fi
+
+	local tmpexe=$(emktemp)
+	cat << EOF > "${tmpexe}"
+#!/bin/sh
+cd
+exec \
+	"${libdir}/scratch_squeak_vm"	 \\
+	-plugins "${libdir}/Plugins" \\
+	-vm-sound-${squeak_sound_plugin}				  \\
+	"${libdir}/Scratch.image"	\\
+	"${@}"
+EOF
+	chmod go+rx "${tmpexe}"
+	newbin "${tmpexe}" "${PN}" || die
+}
+
 src_install() {
 	icondir="/usr/share/icons/hicolor"
 	insinto "${libdir}"
@@ -63,26 +86,4 @@ src_install() {
 	)
 	install_runner
 	make_desktop_entry scratch Scratch scratch "Education;Development" "MimeType=application/x-scratch-project"
-}
-
-install_runner() {
-	if   use alsa;	   then squeak_sound_plugin="ALSA"
-	elif use oss;		then squeak_sound_plugin="OSS"
-	elif use pulseaudio; then squeak_sound_plugin="pulse"
-	else					  squeak_sound_plugin="null"
-	fi
-
-	local tmpexe=$(emktemp)
-	cat << EOF > "${tmpexe}"
-#!/bin/sh
-cd
-exec \
-	"${libdir}/scratch_squeak_vm"	 \\
-	-plugins "${libdir}/Plugins" \\
-	-vm-sound-${squeak_sound_plugin}				  \\
-	"${libdir}/Scratch.image"	\\
-	"${@}"
-EOF
-	chmod go+rx "${tmpexe}"
-	newbin "${tmpexe}" "${PN}" || die
 }
