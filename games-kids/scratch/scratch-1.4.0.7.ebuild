@@ -67,6 +67,7 @@ src_install() {
 	doins -r Scratch.* Plugins
 	insinto "${datadir}"
 	doins -r Help locale Media Projects
+	gunzip src/man/*.gz
 	doman src/man/*
 	dodoc ACKNOWLEDGEMENTS KNOWN-BUGS README
 	exeinto /usr/bin
