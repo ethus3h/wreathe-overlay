@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit eutils xdg-utils
+inherit eutils xdg
 
 DESCRIPTION="Programming environment for creative/artistic work"
 HOMEPAGE="http://scratch.mit.edu/"
@@ -86,13 +86,4 @@ src_install() {
 	)
 	install_runner
 	make_desktop_entry scratch Scratch scratch "Education;Development" "MimeType=application/x-scratch-project"
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
-}
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_mimeinfo_database_update
 }
