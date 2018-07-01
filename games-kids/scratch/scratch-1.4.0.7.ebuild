@@ -3,6 +3,8 @@
 
 EAPI=6
 
+inherit eutils
+
 DESCRIPTION="Programming environment for creative/artistic work"
 HOMEPAGE="http://scratch.mit.edu/"
 SRC_URI="http://download.scratch.mit.edu/${P}.src.tar.gz"
