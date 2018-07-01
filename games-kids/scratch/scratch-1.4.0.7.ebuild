@@ -82,5 +82,5 @@ exec \
 	"${@}"
 EOF
 	chmod go+rx "${tmpexe}"
-	newbin "${tmpexe}" "${PN}" || die
+	dobin "${tmpexe}" "${PN}" || die
 }
