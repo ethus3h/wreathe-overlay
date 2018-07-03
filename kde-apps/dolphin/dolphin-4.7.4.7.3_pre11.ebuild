@@ -44,6 +44,6 @@ src_unpack() {
 }
 
 src_install() {
-	default
+	kde4-meta_src_install
 	dosym /usr/bin/dolphin4 /usr/kde4/bin/dolphin
 }
