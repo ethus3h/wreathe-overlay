@@ -23,6 +23,8 @@ DEPEND="kde-frameworks/kdelibs:4
 	semantic-desktop? ( kde-frameworks/nepomuk )
 	thumbnail? ( || ( kde-apps/thumbnailers:4 ) || ( kde-apps/ffmpegthumbs:4 kde-apps/mplayerthumbs:4 ) )
 	kde-apps/kfind
+	kde-frameworks/kio
+	kde-apps/kio-extras
 	media-gfx/icoutils
 	app-misc/strigi
 	app-misc/wreathe-base"
