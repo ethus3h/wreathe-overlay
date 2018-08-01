@@ -11,6 +11,7 @@ LICENSE="AGPL-3 GPL-2"
 SLOT="0"
 IUSE="doc"
 KEYWORDS="~amd64"
-RDEPEND="app-misc/wreathe-base"
+RDEPEND="app-misc/wreathe-base
+    dev-perl/HTML-GenToc"
 DEPEND="${RDEPEND}
 	doc? ( app-misc/futuramerlin-web-toolkit )"
