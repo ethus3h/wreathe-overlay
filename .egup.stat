@@ -1,11 +1,3 @@
-  File: .
-  Size: 79        	Blocks: 7          IO Block: 5120   directory
-Device: 32h/50d	Inode: 2511        Links: 66
-Access: (0755/drwxr-xr-x)  Uid: ( 1000/    kyan)   Gid: ( 1000/    kyan)
-Access: 2018-08-05 01:45:59.994623071 -0400
-Modify: 2018-08-05 01:46:04.124595426 -0400
-Change: 2018-08-05 01:46:04.124595426 -0400
- Birth: -
   File: ./games-action
   Size: 3         	Blocks: 1          IO Block: 512    directory
 Device: 32h/50d	Inode: 217788      Links: 3
@@ -2214,14 +2206,6 @@ Access: 2018-08-05 01:32:55.330538859 -0400
 Modify: 2018-01-14 15:05:30.399399365 -0500
 Change: 2018-01-14 15:05:30.399399365 -0500
  Birth: -
-  File: ./.egup.refs
-  Size: 167       	Blocks: 1          IO Block: 512    regular file
-Device: 32h/50d	Inode: 15730967    Links: 1
-Access: (0644/-rw-r--r--)  Uid: ( 1000/    kyan)   Gid: ( 1000/    kyan)
-Access: 2018-08-05 01:46:04.124595426 -0400
-Modify: 2018-08-05 01:46:04.124595426 -0400
-Change: 2018-08-05 01:46:04.124595426 -0400
- Birth: -
   File: ./net-analyzer
   Size: 3         	Blocks: 1          IO Block: 512    directory
 Device: 32h/50d	Inode: 578586      Links: 3
@@ -2533,14 +2517,6 @@ Access: (0644/-rw-r--r--)  Uid: ( 1000/    kyan)   Gid: ( 1000/    kyan)
 Access: 2018-08-05 01:32:53.350519739 -0400
 Modify: 2018-01-12 20:47:51.000000000 -0500
 Change: 2018-01-12 22:56:57.638910988 -0500
- Birth: -
-  File: ./.egup.branches
-  Size: 195       	Blocks: 1          IO Block: 512    regular file
-Device: 32h/50d	Inode: 15731083    Links: 1
-Access: (0644/-rw-r--r--)  Uid: ( 1000/    kyan)   Gid: ( 1000/    kyan)
-Access: 2018-08-05 01:46:04.114595493 -0400
-Modify: 2018-08-05 01:46:04.114595493 -0400
-Change: 2018-08-05 01:46:04.114595493 -0400
  Birth: -
   File: ./kde-apps
   Size: 19        	Blocks: 3          IO Block: 1536   directory
@@ -5746,9 +5722,9 @@ Change: 2018-01-12 20:47:51.376739233 -0500
   Size: 123       	Blocks: 1          IO Block: 512    regular file
 Device: 32h/50d	Inode: 10206195    Links: 1
 Access: (0644/-rw-r--r--)  Uid: ( 1000/    kyan)   Gid: ( 1000/    kyan)
-Access: 2018-08-05 01:46:00.004623004 -0400
-Modify: 2018-08-05 01:46:04.114595493 -0400
-Change: 2018-08-05 01:46:04.114595493 -0400
+Access: 2018-08-05 01:46:05.554585931 -0400
+Modify: 2018-08-05 01:49:16.903628993 -0400
+Change: 2018-08-05 01:49:16.903628993 -0400
  Birth: -
   File: ./games-roguelike
   Size: 4         	Blocks: 1          IO Block: 512    directory
@@ -5901,14 +5877,6 @@ Access: (0644/-rw-r--r--)  Uid: ( 1000/    kyan)   Gid: ( 1000/    kyan)
 Access: 2018-08-05 01:32:53.870524761 -0400
 Modify: 2016-10-29 15:40:29.000000000 -0400
 Change: 2016-12-18 00:19:07.744155484 -0500
- Birth: -
-  File: ./.egup.stat
-  Size: 274315    	Blocks: 96         IO Block: 131072 regular file
-Device: 32h/50d	Inode: 15730763    Links: 1
-Access: (0644/-rw-r--r--)  Uid: ( 1000/    kyan)   Gid: ( 1000/    kyan)
-Access: 2018-08-05 01:46:00.004623004 -0400
-Modify: 2018-08-05 01:46:04.724591439 -0400
-Change: 2018-08-05 01:46:04.724591439 -0400
  Birth: -
   File: ./media-plugins
   Size: 27        	Blocks: 5          IO Block: 2048   directory
@@ -7397,14 +7365,6 @@ Access: (0644/-rw-r--r--)  Uid: ( 1000/    kyan)   Gid: ( 1000/    kyan)
 Access: 2018-08-05 01:32:53.810524181 -0400
 Modify: 2017-01-06 11:05:58.216750642 -0500
 Change: 2017-01-06 11:05:58.216750642 -0500
- Birth: -
-  File: ./.egup.tags
-  Size: 0         	Blocks: 1          IO Block: 512    regular empty file
-Device: 32h/50d	Inode: 559892      Links: 1
-Access: (0644/-rw-r--r--)  Uid: ( 1000/    kyan)   Gid: ( 1000/    kyan)
-Access: 2018-07-31 23:21:53.165657092 -0400
-Modify: 2018-08-05 01:46:04.124595426 -0400
-Change: 2018-08-05 01:46:04.124595426 -0400
  Birth: -
   File: ./dev-perl
   Size: 6         	Blocks: 3          IO Block: 512    directory
