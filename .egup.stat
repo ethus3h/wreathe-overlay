@@ -1897,15 +1897,11 @@ f:644:1000:kyan:1000:kyan:2017:01:06:11:03:42.3956026560:EST:2017:01:06:11:03:42
 
 ./app-misc/futuramerlin-web-toolkit
 :
-d:755:1000:kyan:1000:kyan:2018:08:01:04:20:07.0000000000:EDT:2018:08:01:04:20:37.7854200080:EDT
+d:755:1000:kyan:1000:kyan:2018:08:08:00:20:55.6687872290:EDT:2018:08:08:00:20:55.6687872290:EDT
 
 ./app-misc/futuramerlin-web-toolkit/Manifest
 :
 f:644:1000:kyan:1000:kyan:2018:08:01:04:20:07.0000000000:EDT:2018:08:01:04:20:37.7854200080:EDT
-
-./app-misc/futuramerlin-web-toolkit/futuramerlin-web-toolkit-2.3.53.ebuild
-:
-f:644:1000:kyan:1000:kyan:2018:07:31:21:36:44.6729801740:EDT:2018:08:01:04:20:07.9950956560:EDT
 
 ./app-misc/futuramerlin-web-toolkit/.egup.tags
 :
@@ -1914,6 +1910,10 @@ f:644:1000:kyan:1000:kyan:2017:07:10:04:47:05.5975966310:EDT:2017:07:10:04:47:05
 ./app-misc/futuramerlin-web-toolkit/metadata.xml
 :
 f:644:1000:kyan:1000:kyan:2017:01:06:11:03:17.4453873750:EST:2017:01:06:11:03:17.4453873750:EST
+
+./app-misc/futuramerlin-web-toolkit/futuramerlin-web-toolkit-2.3.54.ebuild
+:
+f:644:1000:kyan:1000:kyan:2018:07:31:21:36:44.6729801740:EDT:2018:08:08:00:20:55.6687872290:EDT
 
 ./app-misc/onboard-emoji
 :
