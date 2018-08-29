@@ -1,1 +1,5 @@
-./eclass/.egup.branches
+./app-misc/crystallize
+:
+d:755:1000:kyan:1000:kyan:2018:08:27:04:02:54.0000000000:EDT:2018:08:27:04:02:58.4414306160:EDT
+
+./app-misc/crystallize/metadata.xml

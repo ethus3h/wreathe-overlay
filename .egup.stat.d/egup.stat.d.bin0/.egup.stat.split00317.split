@@ -1,1 +1,5 @@
-./eclass/kde4-meta.eclass
+./sys-apps/ioport/metadata.xml
+:
+f:644:1000:kyan:1000:kyan:2017:09:06:12:54:23.1894940430:EDT:2017:09:06:12:54:23.1894940430:EDT
+
+./sys-apps/rdwrmem

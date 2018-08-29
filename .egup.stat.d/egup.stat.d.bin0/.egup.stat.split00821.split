@@ -1,1 +1,5 @@
-./kde-frameworks/nepomuk-widgets/nepomuk-widgets-4.14.3.ebuild
+./x11-plugins/moz-ext-tab-scope
+:
+d:755:1000:kyan:1000:kyan:2018:01:12:20:47:51.0000000000:EST:2018:01:13:02:36:03.2114415270:EST
+
+./x11-plugins/moz-ext-tab-scope/moz-ext-tab-scope-1.6.3.ebuild

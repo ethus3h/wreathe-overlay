@@ -1,1 +1,5 @@
-./eclass/gac.eclass
+./kde-apps/akonadi/files
+:
+d:755:1000:kyan:1000:kyan:2018:01:14:18:39:00.2016855430:EST:2018:01:14:18:39:00.2016855430:EST
+
+./kde-apps/akonadi/files/akonadi-1.13.0-mysql56-crash.patch

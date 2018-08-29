@@ -1,1 +1,5 @@
-./dev-libs/libplatform/libplatform-9999.ebuild
+./net-misc/nitroshare/metadata.xml
+:
+f:644:1000:kyan:1000:kyan:2017:07:24:09:40:11.1811488380:EDT:2017:07:24:09:40:11.1811488380:EDT
+
+./net-misc/nitroshare/nitroshare-0.3.3.ebuild

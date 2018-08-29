@@ -1,1 +1,5 @@
-./kde-frameworks/kdelibs/files/kdelibs-4.10.0-udisks.patch
+./x11-plugins/moz-ext-menu-wizard/metadata.xml
+:
+f:644:1000:kyan:1000:kyan:2017:07:02:02:42:14.4844952130:EDT:2017:07:02:02:42:14.4844952130:EDT
+
+./x11-plugins/moz-ext-menu-wizard/moz-ext-menu-wizard-5.08.ebuild

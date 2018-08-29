@@ -1,1 +1,5 @@
-./dev-java/jd-gui/metadata.xml
+./sys-fabric/srptools
+:
+d:755:1000:kyan:1000:kyan:2018:01:12:20:47:51.0000000000:EST:2018:01:13:02:36:01.4715017450:EST
+
+./sys-fabric/srptools/srptools-1.0.2.ebuild

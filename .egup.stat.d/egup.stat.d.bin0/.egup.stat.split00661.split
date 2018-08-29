@@ -1,1 +1,5 @@
-./trinity-base/tdelibs
+./media-plugins/kodi-script-module-futures/kodi-script-module-futures-2.2.0.ebuild
+:
+f:644:1000:kyan:1000:kyan:2018:01:12:20:47:51.8067398640:EST:2018:01:12:20:47:51.8067398640:EST
+
+./media-plugins/tap-plugins

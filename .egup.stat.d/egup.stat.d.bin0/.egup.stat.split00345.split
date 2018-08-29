@@ -1,1 +1,5 @@
-./eclass/kde4-base.eclass
+./net-news
+:
+d:755:1000:kyan:1000:kyan:2017:01:26:22:59:48.0603975160:EST:2017:01:26:22:59:48.0603975160:EST
+
+./net-news/trn

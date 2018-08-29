@@ -1,1 +1,5 @@
-./trinity-base/amor
+./dev-lang/snap
+:
+d:755:1000:kyan:1000:kyan:2018:01:12:20:47:51.0000000000:EST:2018:01:13:02:35:50.6818746050:EST
+
+./dev-lang/snap/snap-4.0.10.ebuild

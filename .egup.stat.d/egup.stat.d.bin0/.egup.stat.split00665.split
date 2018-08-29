@@ -1,1 +1,5 @@
-./trinity-base/tdelibs/tdelibs-14.0.4.ebuild
+./media-plugins/tap-plugins/tap-plugins-0.7.3.ebuild
+:
+f:644:1000:kyan:1000:kyan:2018:01:12:20:47:51.8467399240:EST:2018:01:12:20:47:51.8467399240:EST
+
+./media-plugins/kodi-script-module-metahandler

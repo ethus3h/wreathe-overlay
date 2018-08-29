@@ -1,1 +1,5 @@
-./eclass/trinity-functions.eclass
+./kde-apps/libkdcraw/metadata.xml
+:
+f:644:1000:kyan:1000:kyan:2017:10:24:12:18:14.0000000000:EDT:2018:01:14:18:36:06.1788983570:EST
+
+./kde-apps/libkdcraw/libkdcraw-15.08.3.ebuild

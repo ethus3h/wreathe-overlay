@@ -1,1 +1,5 @@
-./dev-dotnet/dotnetcore-sdk/dotnetcore-sdk-1.0.0_pre2_p003121.ebuild
+./dev-libs/libdbusmenu-qt
+:
+d:755:1000:kyan:1000:kyan:2018:06:10:01:33:41.0000000000:EDT:2018:06:10:01:35:27.4020069990:EDT
+
+./dev-libs/libdbusmenu-qt/Manifest

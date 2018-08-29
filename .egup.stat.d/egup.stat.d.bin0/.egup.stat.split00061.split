@@ -1,1 +1,5 @@
-./dev-dotnet/gtk-sharp-gapi/gtk-sharp-gapi-2.12.21.ebuild
+./eclass/exteutils.eclass
+:
+f:644:1000:kyan:1000:kyan:2018:01:12:20:47:51.5867395420:EST:2018:01:12:20:47:51.5867395420:EST
+
+./eclass/virtuoso.eclass

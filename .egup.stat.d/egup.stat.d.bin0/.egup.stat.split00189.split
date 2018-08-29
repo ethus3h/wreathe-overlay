@@ -1,1 +1,5 @@
-./dev-dotnet/dotnetcore-sdk/files/coreclr-1.0.6-llvm4.patch
+./dev-vcs
+:
+d:755:1000:kyan:1000:kyan:2017:04:03:02:20:21.4564197960:EDT:2017:04:03:02:20:21.4564197960:EDT
+
+./dev-vcs/bk

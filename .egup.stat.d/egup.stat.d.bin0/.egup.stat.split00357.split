@@ -1,1 +1,5 @@
-./eclass/mono-env.eclass
+./net-p2p/tribler
+:
+d:755:1000:kyan:1000:kyan:2018:02:16:18:01:02.0000000000:EST:2018:02:16:18:01:09.1639920420:EST
+
+./net-p2p/tribler/Manifest

@@ -1,1 +1,5 @@
-./dev-dotnet/dotnetcore-sdk/files/corefx-1.1.1-run-script.patch
+./kde-frameworks/kdelibs-env/Manifest
+:
+f:644:1000:kyan:1000:kyan:2018:06:05:23:23:35.3144902450:EDT:2018:06:05:23:23:35.3144902450:EDT
+
+./kde-frameworks/kdelibs-env/kdelibs-env-4.14.3.ebuild

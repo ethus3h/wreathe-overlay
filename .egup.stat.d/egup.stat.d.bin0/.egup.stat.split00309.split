@@ -1,1 +1,5 @@
-./eclass/virtuoso.eclass
+./kde-apps/dolphin/dolphin-9999.ebuild
+:
+f:644:1000:kyan:1000:kyan:2018:06:25:19:11:00.1632899960:EDT:2018:06:25:19:11:00.1632899960:EDT
+
+./kde-apps/dolphin/metadata.xml

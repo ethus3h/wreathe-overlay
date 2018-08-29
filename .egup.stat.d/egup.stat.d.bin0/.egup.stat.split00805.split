@@ -1,1 +1,5 @@
-./kde-frameworks/nepomuk/nepomuk-4.14.3.ebuild
+./x11-plugins/moz-ext-saved-password-editor
+:
+d:755:1000:kyan:1000:kyan:2018:01:12:20:47:51.0000000000:EST:2018:01:13:02:36:03.0814460260:EST
+
+./x11-plugins/moz-ext-saved-password-editor/moz-ext-saved-password-editor-2.10.3.ebuild

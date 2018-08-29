@@ -1,1 +1,5 @@
-./eclass
+./kde-apps/kdebase-kioslaves/kdebase-kioslaves-16.04.3-r2.ebuild
+:
+f:644:1000:kyan:1000:kyan:2018:01:14:12:48:19.0000000000:EST:2018:01:14:12:51:44.9282127950:EST
+
+./kde-apps/kdebase-kioslaves/files

@@ -1,1 +1,5 @@
-./dev-dotnet/dotnetcore-sdk/files/corefx-1.0.4-werror.patch
+./kde-frameworks/kdelibs/files
+:
+d:755:1000:kyan:1000:kyan:2018:01:19:00:53:35.0000000000:EST:2018:01:19:00:55:20.7015540410:EST
+
+./kde-frameworks/kdelibs/files/kdelibs-4.6.3-no_suid_kdeinit.patch
