@@ -1,5 +1,4 @@
-./dev-qt/qtcore/files/qtcore-4.8.5-qeventdispatcher-recursive.patch
+./x11-plugins/moz-ext-link-alert/moz-ext-link-alert-1.0.6.ebuild
 :
-f:644:1000:kyan:1000:kyan:2018:05:13:23:40:34.0000000000:EDT:2018:06:06:01:13:51.0046252880:EDT
+f:644:1000:kyan:1000:kyan:2018:01:12:20:47:51.9567400860:EST:2018:01:12:20:47:51.9567400860:EST
 
-./dev-qt/qtcore/files/qtcore-4.8.5-honor-ExcludeSocketNotifiers-in-glib-event-loop.patch

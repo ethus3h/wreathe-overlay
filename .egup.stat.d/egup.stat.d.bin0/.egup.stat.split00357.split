@@ -1,5 +1,4 @@
-./net-p2p/tribler
+./kde-apps/akonadi/files/akonadi-1.13.0-mysql56-crash.patch
 :
-d:755:1000:kyan:1000:kyan:2018:02:16:18:01:02.0000000000:EST:2018:02:16:18:01:09.1639920420:EST
+f:644:1000:kyan:1000:kyan:2017:10:24:12:18:13.0000000000:EDT:2018:01:14:18:36:57.5598907650:EST
 
-./net-p2p/tribler/Manifest

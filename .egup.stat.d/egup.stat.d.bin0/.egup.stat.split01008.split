@@ -1,5 +1,4 @@
-
-./dev-qt/qtcore/qtcore-4.8.7-r4.ebuild
+./x11-plugins/moz-ext-saved-password-editor/moz-ext-saved-password-editor-2.10.3.ebuild
 :
-f:644:1000:kyan:1000:kyan:2018:05:12:18:30:46.0000000000:EDT:2018:06:06:01:13:50.9346252870:EDT
+f:644:1000:kyan:1000:kyan:2018:01:12:20:47:51.9967401440:EST:2018:01:12:20:47:51.9967401440:EST
 

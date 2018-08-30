@@ -1,5 +1,4 @@
-
-./dev-libs/redland-bindings/files/php-config.patch
+./dev-libs/libdbusmenu/Manifest
 :
-f:644:1000:kyan:1000:kyan:2017:01:03:15:58:18.0000000000:EST:2017:01:04:20:55:42.0290895860:EST
+f:644:1000:kyan:1000:kyan:2018:01:12:20:47:51.0000000000:EST:2018:01:14:15:55:17.9357966000:EST
 

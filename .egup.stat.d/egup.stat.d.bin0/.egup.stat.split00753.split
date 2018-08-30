@@ -1,5 +1,4 @@
-./x11-libs/bamf
+./media-plugins/kodi-skin-confluence/Manifest
 :
-d:755:1000:kyan:1000:kyan:2018:01:12:20:47:51.0000000000:EST:2018:01:13:02:36:02.5914629870:EST
+f:644:1000:kyan:1000:kyan:2018:01:12:20:47:51.0000000000:EST:2018:01:13:02:35:55.9816915820:EST
 
-./x11-libs/bamf/bamf-0.5.0.ebuild

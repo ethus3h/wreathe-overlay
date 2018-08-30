@@ -1,5 +1,4 @@
+./dev-dotnet/dotnetcore-sdk/Manifest
 :
-f:644:1000:kyan:1000:kyan:2018:01:14:15:01:11.0000000000:EST:2018:01:14:15:02:53.7362697160:EST
+f:644:1000:kyan:1000:kyan:2018:01:14:18:10:20.4997357750:EST:2018:01:14:18:10:20.4997357750:EST
 
-./dev-dotnet/dotnetcore-sdk/files/coreclr-1.0.6-llvm4-intsafe.patch
-:

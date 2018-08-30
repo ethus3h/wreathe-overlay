@@ -1,5 +1,4 @@
-./media-sound/ladish/files
+./media-libs
 :
-d:755:1000:kyan:1000:kyan:2017:01:06:12:03:42.2815649230:EST:2017:01:06:12:03:42.2815649230:EST
+d:755:1000:kyan:1000:kyan:2018:06:17:20:37:37.0780854580:EDT:2018:06:17:20:37:37.0780854580:EDT
 
-./media-sound/ladish/files/ladish-1-libdir.patch

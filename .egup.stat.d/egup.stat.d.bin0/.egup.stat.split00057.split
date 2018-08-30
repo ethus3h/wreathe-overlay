@@ -1,5 +1,4 @@
-./eclass/gac.eclass
+./dev-dotnet/wnck-sharp/Manifest
 :
-f:644:1000:kyan:1000:kyan:2018:01:12:20:47:51.5867395420:EST:2018:01:12:20:47:51.5867395420:EST
+f:644:1000:kyan:1000:kyan:2018:01:14:18:24:42.0000000000:EST:2018:01:14:18:34:55.9172721260:EST
 
-./eclass/kde4-functions.eclass

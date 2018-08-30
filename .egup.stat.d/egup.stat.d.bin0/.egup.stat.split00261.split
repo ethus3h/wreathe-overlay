@@ -1,5 +1,4 @@
-./kde-apps/libkexiv2
+./app-shells/fzf/metadata.xml
 :
-d:755:1000:kyan:1000:kyan:2018:01:14:19:13:49.0000000000:EST:2018:01:14:19:16:58.1182312440:EST
+f:644:1000:kyan:1000:kyan:2017:09:07:22:24:25.1528762410:EDT:2017:09:07:22:24:25.1528762410:EDT
 
-./kde-apps/libkexiv2/libkexiv2-15.08.3.ebuild

@@ -1,5 +1,4 @@
-./x11-misc/opensnap/opensnap-0.0.20170929.ebuild
+./x11-plugins/moz-ext-checkfox/moz-ext-checkfox-0.9.2.ebuild
 :
-f:644:1000:kyan:1000:kyan:2018:06:19:18:23:26.0311245050:EDT:2018:06:19:18:23:26.0311245050:EDT
+f:644:1000:kyan:1000:kyan:2018:01:12:20:47:51.9267400410:EST:2018:01:12:20:47:51.9267400410:EST
 
-./x11-misc/opensnap/Manifest

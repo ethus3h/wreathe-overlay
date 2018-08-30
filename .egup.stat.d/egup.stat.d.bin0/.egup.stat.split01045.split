@@ -1,5 +1,4 @@
-./app-laptop
+./x11-plugins/moz-ext-tab-mix-plus/moz-ext-tab-mix-plus-0.5.0.3.ebuild
 :
-d:755:1000:kyan:1000:kyan:2016:10:29:15:40:29.0000000000:EDT:2016:12:18:00:19:07.6941527820:EST
+f:644:1000:kyan:1000:kyan:2018:01:12:20:47:51.9967401440:EST:2018:01:12:20:47:51.9967401440:EST
 
-./app-laptop/configure-trackpoint

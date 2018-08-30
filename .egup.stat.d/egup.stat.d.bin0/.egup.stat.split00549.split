@@ -1,5 +1,4 @@
-./app-crypt/qca/files/qca-2.1.3-deps.patch
+./media-libs/phonon/files
 :
-f:644:1000:kyan:1000:kyan:2018:06:06:23:27:19.0000000000:EDT:2018:06:10:00:33:19.0771651610:EDT
+d:755:1000:kyan:1000:kyan:2018:05:13:23:40:35.0000000000:EDT:2018:06:06:20:44:44.3569506780:EDT
 
-./app-crypt/qca/metadata.xml

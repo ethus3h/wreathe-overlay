@@ -1,5 +1,4 @@
-./dev-python/pycld2/pycld2-0.31.ebuild
+./x11-misc/cairo-dock/files/fix_lib6464.patch
 :
-f:644:1000:kyan:1000:kyan:2018:01:14:16:16:52.9861822070:EST:2018:01:14:16:16:52.9861822070:EST
+f:644:1000:kyan:1000:kyan:2017:03:28:23:38:30.9037230200:EDT:2017:03:28:23:38:30.9037230200:EDT
 
-./dev-python/pycld2/metadata.xml

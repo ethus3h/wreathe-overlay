@@ -1,5 +1,4 @@
-./x11-plugins/moz-ext-saved-password-editor
+./media-plugins/kodi-script-covenant-metadata/metadata.xml
 :
-d:755:1000:kyan:1000:kyan:2018:01:12:20:47:51.0000000000:EST:2018:01:13:02:36:03.0814460260:EST
+f:644:1000:kyan:1000:kyan:2017:08:06:23:02:34.4787800990:EDT:2017:08:06:23:02:34.4787800990:EDT
 
-./x11-plugins/moz-ext-saved-password-editor/moz-ext-saved-password-editor-2.10.3.ebuild

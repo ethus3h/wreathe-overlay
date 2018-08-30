@@ -1,5 +1,4 @@
-./net-analyzer/linkchecker/files/linkchecker-8.4-help.patch
+./kde-frameworks/kdelibs/files/kdelibs-4.14.35-3dnow.patch
 :
-f:644:1000:kyan:1000:kyan:2016:12:29:22:32:26.0000000000:EST:2016:12:29:22:39:43.2149916400:EST
+f:644:1000:kyan:1000:kyan:2018:01:19:00:52:59.0000000000:EST:2018:01:19:00:55:20.7015540410:EST
 
-./net-analyzer/linkchecker/files/linkchecker-9.3-desktop.patch

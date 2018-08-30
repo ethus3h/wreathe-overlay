@@ -1,5 +1,4 @@
-./app-misc/strigi/files/strigi-0.7.8-gcc-4.8.patch
+./sys-apps/rdwrmem
 :
-f:644:1000:kyan:1000:kyan:2016:07:27:17:46:35.0000000000:EDT:2016:12:18:00:19:07.7341549430:EST
+d:755:1000:kyan:1000:kyan:2018:01:12:20:47:51.0000000000:EST:2018:01:13:02:36:01.1715121260:EST
 
-./app-misc/strigi/files/strigi-0.7.8-ffmpeg29.patch

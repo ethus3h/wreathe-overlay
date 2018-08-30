@@ -1,5 +1,4 @@
-./dev-qt/qtscript/metadata.xml
+./x11-plugins/moz-ext-save-to-read/metadata.xml
 :
-f:644:1000:kyan:1000:kyan:2018:05:13:23:40:34.0000000000:EDT:2018:06:06:01:13:55.6546257080:EDT
+f:644:1000:kyan:1000:kyan:2017:07:02:03:05:40.0540998880:EDT:2017:07:02:03:05:40.0540998880:EDT
 
-./dev-qt/qtscript/qtscript-4.8.7.ebuild

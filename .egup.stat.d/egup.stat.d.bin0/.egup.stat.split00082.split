@@ -1,5 +1,4 @@
+./eclass/golang-common.eclass
 :
-f:644:1000:kyan:1000:kyan:2018:01:12:20:47:51.4567393480:EST:2018:01:12:20:47:51.4567393480:EST
+f:644:1000:kyan:1000:kyan:2018:01:12:20:47:51.6467396300:EST:2018:01:12:20:47:51.6467396300:EST
 
-./dev-libs/libdbusmenu/metadata.xml
-:

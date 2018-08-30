@@ -1,5 +1,4 @@
+./kde-frameworks/kfilemetadata/files/kfilemetadata-5.26.0-odfextractor-segfault.patch
 :
-d:755:1000:kyan:1000:kyan:2018:05:10:18:34:37.0000000000:EDT:2018:05:10:18:40:17.3090798080:EDT
+f:644:1000:kyan:1000:kyan:2018:01:14:17:36:49.0000000000:EST:2018:01:14:18:23:18.6406412830:EST
 
-./app-shells/schily-tools/Manifest
-:

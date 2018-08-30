@@ -1,5 +1,4 @@
-./kde-frameworks/kdelibs-env/Manifest
+./dev-libs/libp8-platform/libp8-platform-9999.ebuild
 :
-f:644:1000:kyan:1000:kyan:2018:06:05:23:23:35.3144902450:EDT:2018:06:05:23:23:35.3144902450:EDT
+f:644:1000:kyan:1000:kyan:2018:01:12:20:47:51.4567393480:EST:2018:01:12:20:47:51.4567393480:EST
 
-./kde-frameworks/kdelibs-env/kdelibs-env-4.14.3.ebuild

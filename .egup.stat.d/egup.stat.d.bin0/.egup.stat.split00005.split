@@ -1,5 +1,4 @@
-./dev-dotnet/dotnetzip-semverd
+./dev-dotnet
 :
-d:755:1000:kyan:1000:kyan:2018:05:15:17:52:53.0000000000:EDT:2018:05:15:17:54:55.6593322720:EDT
+d:755:1000:kyan:1000:kyan:2018:01:14:19:12:42.3409385860:EST:2018:01:14:19:12:42.3409385860:EST
 
-./dev-dotnet/dotnetzip-semverd/dotnetzip-semverd-1.9.2.ebuild

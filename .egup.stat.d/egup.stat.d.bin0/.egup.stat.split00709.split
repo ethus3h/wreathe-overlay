@@ -1,5 +1,4 @@
-./media-fonts/dzongkha-fonts/metadata.xml
+./dev-db/virtuoso-server/files
 :
-f:644:1000:kyan:1000:kyan:2017:05:18:17:45:46.4036954870:EDT:2017:05:18:17:45:46.4036954870:EDT
+d:755:1000:kyan:1000:kyan:2016:12:14:15:43:26.1950767330:EST:2016:12:18:00:19:07.7441554840:EST
 
-./media-fonts/dzongkha-fonts/dzongkha-fonts-2009.09-r1.ebuild

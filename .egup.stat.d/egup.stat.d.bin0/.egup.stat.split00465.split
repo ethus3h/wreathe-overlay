@@ -1,5 +1,4 @@
-./net-misc/yacy/files/yacy.confd
+./app-misc/cmap-resources/cmap-resources-20180719.ebuild
 :
-f:644:1000:kyan:1000:kyan:2017:09:02:19:25:17.2052321420:EDT:2017:09:02:19:25:17.2052321420:EDT
+f:644:1000:kyan:1000:kyan:2018:07:19:14:19:02.9774873010:EDT:2018:07:19:14:19:02.9774873010:EDT
 
-./net-misc/yacy/files/yacy.service

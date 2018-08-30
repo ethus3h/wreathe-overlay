@@ -1,5 +1,4 @@
-./net-misc/dagr/Manifest
+./net-p2p/tribler/metadata.xml
 :
-f:644:1000:kyan:1000:kyan:2018:02:09:21:44:26.0000000000:EST:2018:02:09:21:46:58.8741783110:EST
+f:644:1000:kyan:1000:kyan:2017:12:20:13:09:25.0000000000:EST:2018:02:16:17:17:06.2536292260:EST
 
-./net-misc/dagr/dagr-9999.ebuild
