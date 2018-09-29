@@ -16,10 +16,10 @@ SRC_URI="mirror://pypi/${PN:0:1}/${PN}/${MY_P}.tar.gz"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="doc test"
+IUSE="doc test +git-lfs"
 
 RDEPEND=">=dev-vcs/git-1.9
-	dev-vcs/git-lfs"
+	git-lfs? ( dev-vcs/git-lfs )"
 
 DEPEND="${RDEPEND}"
 
