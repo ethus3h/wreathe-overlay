@@ -325,7 +325,7 @@ qt4_multilib_src_configure() {
 	# configure arguments
 	local conf=(
 		# Needs older ICU
-		-I/usr/kde4/include/unicode
+		-I/usr/kde4/include
 		# installation paths
 		-prefix "${QT4_PREFIX}"
 		-bindir "${QT4_BINDIR}"
