@@ -46,7 +46,6 @@ RDEPEND=">=dev-cpp/libxmlpp-2.33.1:2.6
 		media-video/rtmpdump
 	)
 	virtual/jpeg:=
-	www-plugins/gnash[gtk]"
 DEPEND="${RDEPEND}
 	>=sys-devel/gcc-4.6.0:=[cxx]
 	sys-devel/llvm
