@@ -324,6 +324,8 @@ qt4_multilib_src_configure() {
 
 	# configure arguments
 	local conf=(
+		# Needs older ICU
+		-I/usr/kde4/include/unicode
 		# installation paths
 		-prefix "${QT4_PREFIX}"
 		-bindir "${QT4_BINDIR}"
@@ -423,10 +425,6 @@ qt4_multilib_src_configure() {
 
 	# rpc/rpc.h is now provided by libtirpc instead of glibc
 	conf+=(-I/usr/include/tirpc)
-
-	# Needs older ICU
-	conf+=(-I/usr/kde4/include/unicode)
-	conf+=(ICU_PREFIX=/usr/kde4)
 
 	einfo "Configuring with: ${conf[@]}"
 	"${S}"/configure "${conf[@]}" || die "configure failed"
