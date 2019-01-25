@@ -30,8 +30,7 @@ RDEPEND="app-misc/wreathe-base
 	>=app-crypt/md5deep-4.4
 	net-misc/curl
 	net-misc/wget
-	sys-fs/ncdu
-	dev-python/awscli"
+	sys-fs/ncdu"
 DEPEND="${RDEPEND}"
 
 src_prepare() {

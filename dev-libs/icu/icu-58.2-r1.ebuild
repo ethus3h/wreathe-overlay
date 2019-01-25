@@ -94,7 +94,7 @@ src_configure() {
 		CFLAGS="" CXXFLAGS="" ASFLAGS="" LDFLAGS="" \
 		CC="$(tc-getBUILD_CC)" CXX="$(tc-getBUILD_CXX)" AR="$(tc-getBUILD_AR)" \
 		RANLIB="$(tc-getBUILD_RANLIB)" LD="$(tc-getBUILD_LD)" \
-		"${S}"/configure --disable-renaming --disable-debug \
+		"${S}"/configure --prefix="${ROOT%/}/"usr/kde4 --disable-renaming --disable-debug \
 			--disable-samples --enable-static || die
 		emake
 
@@ -106,6 +106,7 @@ src_configure() {
 
 multilib_src_configure() {
 	local myeconfargs=(
+		--prefix="${ROOT%/}/"usr/kde4
 		--disable-renaming
 		--disable-samples
 		--disable-layoutex
