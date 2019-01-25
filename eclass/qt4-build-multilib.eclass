@@ -426,6 +426,7 @@ qt4_multilib_src_configure() {
 
 	# Needs older ICU
 	conf+=(-I/usr/kde4/include/unicode)
+	conf+=(ICU_PREFIX=/usr/kde4)
 
 	einfo "Configuring with: ${conf[@]}"
 	"${S}"/configure "${conf[@]}" || die "configure failed"
