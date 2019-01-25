@@ -158,6 +158,8 @@ multilib_src_test() {
 }
 
 multilib_src_install() {
+	mv "${D}/usr/share/man" "${D}/usr/share/kde4/" || die
+
 	default
 
 	if multilib_is_native_abi && use doc; then
