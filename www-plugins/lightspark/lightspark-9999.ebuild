@@ -45,7 +45,7 @@ RDEPEND=">=dev-cpp/libxmlpp-2.33.1:2.6
 	rtmp? (
 		media-video/rtmpdump
 	)
-	virtual/jpeg:=
+	virtual/jpeg:="
 DEPEND="${RDEPEND}
 	>=sys-devel/gcc-4.6.0:=[cxx]
 	sys-devel/llvm
