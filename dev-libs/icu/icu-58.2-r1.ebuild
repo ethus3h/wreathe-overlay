@@ -165,7 +165,7 @@ multilib_src_install() {
 		dodoc -r doc/html/*
 	fi
 
-	mv "${D}/usr/share/man" "${D}/usr/share/kde4/" || die
+	mv "${D}/usr/share/man" "${D}/usr/kde4/share/" || die
 }
 
 multilib_src_install_all() {
