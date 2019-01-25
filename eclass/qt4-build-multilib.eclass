@@ -424,6 +424,9 @@ qt4_multilib_src_configure() {
 	# rpc/rpc.h is now provided by libtirpc instead of glibc
 	conf+=(-I/usr/include/tirpc)
 
+	# Needs older ICU
+	conf+=(-I/usr/kde4/include/unicode)
+
 	einfo "Configuring with: ${conf[@]}"
 	"${S}"/configure "${conf[@]}" || die "configure failed"
 

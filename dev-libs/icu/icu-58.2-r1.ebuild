@@ -26,7 +26,7 @@ DEPEND="
 S="${WORKDIR}/${PN}/source"
 
 MULTILIB_CHOST_TOOLS=(
-	/usr/bin/icu-config
+	/usr/kde4/bin/icu-config
 )
 
 PATCHES=(
