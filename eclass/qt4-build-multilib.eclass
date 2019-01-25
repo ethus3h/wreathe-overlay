@@ -328,7 +328,7 @@ qt4_multilib_src_configure() {
 		-I/usr/kde4/include
 		-L/usr/kde4/lib64
 		-L/usr/kde4/lib32
-		-prefix/usr/kde4
+		-prefix /usr/kde4
 		# installation paths
 		-prefix "${QT4_PREFIX}"
 		-bindir "${QT4_BINDIR}"
