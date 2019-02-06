@@ -14,7 +14,7 @@ SLOT="0"
 IUSE="doc"
 KEYWORDS=""
 RDEPEND="app-misc/wreathe-meta
+	app-misc/futuramerlin-web-toolkit
 	dev-javascript/PapaParse
 	virtual/perl6"
-DEPEND="${RDEPEND}
-	doc? ( app-misc/futuramerlin-web-toolkit )"
+DEPEND="${RDEPEND}"
