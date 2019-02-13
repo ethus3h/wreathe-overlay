@@ -5,16 +5,12 @@ EAPI=6
 
 DESCRIPTION="The WebAssembly Binary Toolkit"
 HOMEPAGE="https://github.com/WebAssembly/wabt"
-SRC_URI="https://github.com/WebAssembly/wabt/archive/1.0.8.tar.gz"
+SRC_URI="https://github.com/WebAssembly/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
 IUSE="doc"
 KEYWORDS=""
-RDEPEND="app-misc/wreathe-meta
-	app-misc/futuramerlin-web-toolkit
-	dev-javascript/PapaParse
-	virtual/perl6
-	sys-devel/clang[llvm_targets_WebAssembly]
+RDEPEND="sys-devel/clang[llvm_targets_WebAssembly]
 	sys-devel/lld"
 DEPEND="${RDEPEND}"
