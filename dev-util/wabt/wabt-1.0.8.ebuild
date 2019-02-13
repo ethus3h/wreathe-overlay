@@ -16,8 +16,7 @@ SRC_URI="https://github.com/WebAssembly/${PN}/archive/${PV}.tar.gz -> ${P}.tar.g
 
 LICENSE="Apache-2.0"
 SLOT="0"
-IUSE="doc"
-KEYWORDS=""
+KEYWORDS="~amd64"
 RDEPEND="dev-util/re2c
 	sys-devel/clang[llvm_targets_WebAssembly]
 	sys-devel/lld"
