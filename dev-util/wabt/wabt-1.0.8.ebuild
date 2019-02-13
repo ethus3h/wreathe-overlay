@@ -5,7 +5,7 @@ EAPI=6
 
 DESCRIPTION="The WebAssembly Binary Toolkit"
 HOMEPAGE="https://github.com/WebAssembly/wabt"
-SRC_URI="https://github.com/WebAssembly/wabt/releases/download/1.0.8/wabt-1.0.8-linux.tar.gz"
+SRC_URI="https://github.com/WebAssembly/wabt/archive/1.0.8.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
