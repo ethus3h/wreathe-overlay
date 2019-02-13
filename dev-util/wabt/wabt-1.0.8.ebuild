@@ -22,3 +22,18 @@ RDEPEND="dev-util/re2c
 	sys-devel/clang[llvm_targets_WebAssembly]
 	sys-devel/lld"
 DEPEND="${RDEPEND}"
+
+src_prepare() {
+	einfo "Satisfying build-time dependency on QMLTermWidget by linking it into the source tree..."
+	rmdir "${WORKDIR}/${P}/qmltermwidget" || die "Error deleting empty widget dir from source tree"
+	ln -s "${WORKDIR}/qmltermwidget-0.1.0" "${WORKDIR}/${P}/qmltermwidget" || die "Error linking widget into source tree"
+	use remember && {
+		einfo "Applying 3rd party patch from GH PR #303"
+		epatch "${FILESDIR}/size_and_position.patch" || die "could not apply patch"
+	}
+}
+
+src_configure() {
+	einfo "Preparing targets..."
+	eqmake5 || die "Failed to configure"
+}
