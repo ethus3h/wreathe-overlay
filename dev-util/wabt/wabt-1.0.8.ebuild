@@ -18,6 +18,7 @@ LICENSE="Apache-2.0"
 SLOT="0"
 KEYWORDS="~amd64"
 RDEPEND="dev-util/re2c
+	dev-lang/python
 	sys-devel/clang[llvm_targets_WebAssembly]
 	sys-devel/lld"
 DEPEND="${RDEPEND}"
@@ -33,7 +34,7 @@ src_prepare() {
 }
 
 src_configure() {
-	make update-wasm2c
-	make update-re2c
+	make update-wasm2c || die "Error running make update-wasm2c"
+	make update-re2c || die "Error running make update-re2c"
 	default
 }
