@@ -16,5 +16,7 @@ KEYWORDS=""
 RDEPEND="app-misc/wreathe-meta
 	app-misc/futuramerlin-web-toolkit
 	dev-javascript/PapaParse
-	virtual/perl6"
+	virtual/perl6
+	sys-devel/clang[llvm_targets_WebAssembly]
+	sys-devel/lld"
 DEPEND="${RDEPEND}"
