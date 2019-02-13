@@ -3,6 +3,10 @@
 
 EAPI=6
 
+myGoogletestVersion="47314d5aff654d8e315552fb106cf82508915747"
+myPlyVersion="47314d5aff654d8e315552fb106cf82508915747"
+myTestsuiteCommit="47314d5aff654d8e315552fb106cf82508915747"
+
 DESCRIPTION="Code shared between various Ember software"
 HOMEPAGE="https://futuramerlin.com/"
 SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
