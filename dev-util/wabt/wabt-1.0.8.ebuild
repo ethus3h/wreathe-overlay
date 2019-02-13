@@ -24,9 +24,9 @@ DEPEND="${RDEPEND}"
 
 src_prepare() {
 	rmdir "${WORKDIR}/${P}/third_party/"{gtest,ply,testsuite} || die "Error deleting placeholder directories"
-	mv "${WORKDIR}/googletest-${myGoogletestVersion}" "${WORKDIR}/${P}/third_party/gtest"
-	mv "${WORKDIR}/python-lex-yacc-${myPlyVersion}" "${WORKDIR}/${P}/third_party/ply"
-	mv "${WORKDIR}/WebAssembly-testsuite-${myTestsuiteCommit}" "${WORKDIR}/${P}/third_party/testsuite"
+	mv "${WORKDIR}/googletest-release-${myGoogletestVersion}" "${WORKDIR}/${P}/third_party/gtest" || die "Error moving gtest"
+	mv "${WORKDIR}/ply-${myPlyVersion}" "${WORKDIR}/${P}/third_party/ply" || die "Error moving ply"
+	mv "${WORKDIR}/testsuite-${myTestsuiteCommit}" "${WORKDIR}/${P}/third_party/testsuite" || die "Error moving testsuite"
 	default
 }
 
