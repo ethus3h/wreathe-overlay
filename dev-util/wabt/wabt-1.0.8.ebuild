@@ -24,7 +24,7 @@ RDEPEND="dev-util/re2c
 DEPEND="${RDEPEND}"
 
 src_prepare() {
-	rm -r "${WORKDIR}/${P}/third_party" || die "Error deleting placeholder directories"
+	rm -r "${WORKDIR}/${P}/third_party" || die "Error deleting third-party code"
 	rm -r "${WORKDIR}/${P}/src/prebuilt" || die "Error deleting pre-built code"
 	mkdir "${WORKDIR}/${P}/third_party" || die "Error creating empty third_party directory"
 	mkdir "${WORKDIR}/${P}/src/prebuilt" || die "Error creating empty src/prebuilt directory"
