@@ -24,9 +24,10 @@ RDEPEND="dev-util/re2c
 DEPEND="${RDEPEND}"
 
 src_prepare() {
-	rmdir "${WORKDIR}/${P}/third_party/"{gtest,ply,testsuite} || die "Error deleting placeholder directories"
-	rmdir "${WORKDIR}/${P}/src/prebuilt" || die "Error deleting pre-built code"
-	mkdir "${WORKDIR}/${P}/src/prebuilt" || die "Error creating empty directory"
+	rm -r "${WORKDIR}/${P}/third_party" || die "Error deleting placeholder directories"
+	rm -r "${WORKDIR}/${P}/src/prebuilt" || die "Error deleting pre-built code"
+	mkdir "${WORKDIR}/${P}/third_party" || die "Error creating empty third_party directory"
+	mkdir "${WORKDIR}/${P}/src/prebuilt" || die "Error creating empty src/prebuilt directory"
 	mv "${WORKDIR}/googletest-release-${myGoogletestVersion}" "${WORKDIR}/${P}/third_party/gtest" || die "Error moving gtest"
 	mv "${WORKDIR}/ply-${myPlyVersion}" "${WORKDIR}/${P}/third_party/ply" || die "Error moving ply"
 	mv "${WORKDIR}/testsuite-${myTestsuiteCommit}" "${WORKDIR}/${P}/third_party/testsuite" || die "Error moving testsuite"
