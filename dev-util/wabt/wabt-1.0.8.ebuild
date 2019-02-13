@@ -18,6 +18,7 @@ LICENSE="AGPL-3"
 SLOT="0"
 IUSE="doc"
 KEYWORDS=""
-RDEPEND="sys-devel/clang[llvm_targets_WebAssembly]
+RDEPEND="dev-util/re2c
+	sys-devel/clang[llvm_targets_WebAssembly]
 	sys-devel/lld"
 DEPEND="${RDEPEND}"
