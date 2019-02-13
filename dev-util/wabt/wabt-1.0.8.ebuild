@@ -24,6 +24,8 @@ DEPEND="${RDEPEND}"
 
 src_prepare() {
 	rmdir "${WORKDIR}/${P}/third_party/"{gtest,ply,testsuite} || die "Error deleting placeholder directories"
+	rmdir "${WORKDIR}/${P}/src/prebuilt" || die "Error deleting pre-built code"
+	mkdir "${WORKDIR}/${P}/src/prebuilt" || die "Error creating empty directory"
 	mv "${WORKDIR}/googletest-release-${myGoogletestVersion}" "${WORKDIR}/${P}/third_party/gtest" || die "Error moving gtest"
 	mv "${WORKDIR}/ply-${myPlyVersion}" "${WORKDIR}/${P}/third_party/ply" || die "Error moving ply"
 	mv "${WORKDIR}/testsuite-${myTestsuiteCommit}" "${WORKDIR}/${P}/third_party/testsuite" || die "Error moving testsuite"
@@ -31,6 +33,7 @@ src_prepare() {
 }
 
 src_configure() {
+	make update-wasm2c
 	make update-re2c
 	default
 }
