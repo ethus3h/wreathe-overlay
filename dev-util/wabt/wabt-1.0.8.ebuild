@@ -27,6 +27,7 @@ src_prepare() {
 	mv "${WORKDIR}/googletest-${myGoogletestVersion}" "${WORKDIR}/${P}/third_party/gtest"
 	mv "${WORKDIR}/python-lex-yacc-${myPlyVersion}" "${WORKDIR}/${P}/third_party/ply"
 	mv "${WORKDIR}/WebAssembly-testsuite-${myTestsuiteCommit}" "${WORKDIR}/${P}/third_party/testsuite"
+	default
 }
 
 src_configure() {
