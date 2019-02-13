@@ -3,11 +3,9 @@
 
 EAPI=6
 
-inherit git-r3
-
-DESCRIPTION="The Ember Information Technology Environment"
-HOMEPAGE="https://futuramerlin.com/"
-EGIT_REPO_URI="https://github.com/ethus3h/ember-information-technology-environment.git"
+DESCRIPTION="The WebAssembly Binary Toolkit"
+HOMEPAGE="https://github.com/WebAssembly/wabt"
+SRC_URI="https://github.com/WebAssembly/wabt/releases/download/1.0.8/wabt-1.0.8-linux.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
