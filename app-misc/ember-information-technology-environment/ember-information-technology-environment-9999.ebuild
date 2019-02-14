@@ -5,7 +5,6 @@ EAPI=6
 
 inherit git-r3
 
-myGccVersion="7.3.0"
 myGoogletestVersion="1.8.1"
 myWabtVersion="1.0.8"
 myPlyVersion="3.11"
