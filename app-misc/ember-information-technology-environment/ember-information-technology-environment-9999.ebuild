@@ -5,6 +5,7 @@ EAPI=6
 
 inherit git-r3
 
+myGccVersion="7.3.0"
 myGoogletestVersion="1.8.1"
 myWabtVersion="1.0.8"
 myPlyVersion="3.11"
@@ -15,8 +16,10 @@ HOMEPAGE="https://futuramerlin.com/"
 EGIT_REPO_URI="https://github.com/ethus3h/ember-information-technology-environment.git"
 SRC_URI=""
 # EITE WASM components
+# gcc: 
+SRC_URI="${SRC_URI} https://ftp.gnu.org/pub/pub/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
 # wabt:
-SRC_URI="https://github.com/WebAssembly/wabt/archive/${myWabtVersion}.tar.gz -> wabt-${myWabtVersion}.tar.gz
+SRC_URI="${SRC_URI} https://github.com/WebAssembly/wabt/archive/${myWabtVersion}.tar.gz -> wabt-${myWabtVersion}.tar.gz
 	https://github.com/google/googletest/archive/release-${myGoogletestVersion}.tar.gz -> googletest-${myGoogletestVersion}.tar.gz
 	https://github.com/dabeaz/ply/archive/${myPlyVersion}.tar.gz -> python-lex-yacc-${myPlyVersion}.tar.gz
 	https://github.com/WebAssembly/testsuite/archive/${myTestsuiteCommit}.tar.gz -> WebAssembly-testsuite-${myTestsuiteCommit}.tar.gz"
