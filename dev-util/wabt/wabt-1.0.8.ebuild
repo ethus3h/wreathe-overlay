@@ -39,3 +39,7 @@ src_configure() {
 	make update-re2c || die "Error running make update-re2c"
 	default
 }
+
+src_compile() {
+	emake VERBOSE=1
+}
