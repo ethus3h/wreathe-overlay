@@ -5,6 +5,8 @@ EAPI=6
 
 inherit git-r3
 
+myLlvmCommit="c39f8dfa7317f10923cf5ab2d650adde1abaa612"
+
 myGoogletestVersion="1.8.1"
 myWabtVersion="1.0.8"
 myPlyVersion="3.11"
@@ -14,7 +16,9 @@ DESCRIPTION="The Ember Information Technology Environment"
 HOMEPAGE="https://futuramerlin.com/"
 EGIT_REPO_URI="https://github.com/ethus3h/ember-information-technology-environment.git"
 SRC_URI=""
-# EITE third-party WASM components
+# EITE WASM components
+# llvm: 
+SRC_URI="${SRC_URI} https://github.com/llvm/llvm-project/archive/${myLlvmCommit}.tar.gz -> llvm-project-${myLlvmCommit}.tar.gz"
 # wabt:
 SRC_URI="${SRC_URI} https://github.com/WebAssembly/wabt/archive/${myWabtVersion}.tar.gz -> wabt-${myWabtVersion}.tar.gz
 	https://github.com/google/googletest/archive/release-${myGoogletestVersion}.tar.gz -> googletest-${myGoogletestVersion}.tar.gz
@@ -32,7 +36,7 @@ RDEPEND="app-misc/wreathe-meta
 	virtual/perl6
 	sys-devel/clang[llvm_targets_WebAssembly]
 	sys-devel/lld
-	sys-libs/libcxx"
+	>=sys-libs/libcxx-8"
 # EITE WASM component build-time dependencies
 # wabt dependencies, as of the version used for EITE WASM build:
 RDEPEND="${RDEPEND}
