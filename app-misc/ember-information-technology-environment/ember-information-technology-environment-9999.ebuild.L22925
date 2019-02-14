@@ -32,7 +32,7 @@ RDEPEND="app-misc/wreathe-meta
 	virtual/perl6
 	sys-devel/clang[llvm_targets_WebAssembly]
 	sys-devel/lld"
-# EITE WASM build-time dependencies
+# EITE WASM component build-time dependencies
 # wabt dependencies, as of the version used for EITE WASM build:
 RDEPEND="${RDEPEND}
 	dev-util/re2c
