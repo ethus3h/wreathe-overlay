@@ -6,6 +6,7 @@ EAPI=6
 inherit git-r3
 
 myLlvmCommit="c39f8dfa7317f10923cf5ab2d650adde1abaa612"
+
 myGoogletestVersion="1.8.1"
 myWabtVersion="1.0.8"
 myPlyVersion="3.11"
