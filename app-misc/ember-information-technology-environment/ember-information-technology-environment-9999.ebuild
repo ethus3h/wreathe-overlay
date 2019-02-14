@@ -6,7 +6,7 @@ EAPI=6
 inherit git-r3
 
 myGoogletestVersion="1.8.1"
-myWabtVersion="1.8.1"
+myWabtVersion="1.0.8"
 myPlyVersion="3.11"
 myTestsuiteCommit="89cc463fa1251449d7974086a34ef0dc100b1582"
 
@@ -29,7 +29,7 @@ RDEPEND="app-misc/wreathe-meta
 	virtual/perl6
 	sys-devel/clang[llvm_targets_WebAssembly]
 	sys-devel/lld"
-# wabt dependencies, as of the version used for EITE build:
+# wabt dependencies, as of the version used for EITE WASM build:
 RDEPEND="${RDEPEND}
 	dev-util/re2c
 	dev-lang/python
