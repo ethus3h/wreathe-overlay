@@ -29,4 +29,10 @@ RDEPEND="app-misc/wreathe-meta
 	virtual/perl6
 	sys-devel/clang[llvm_targets_WebAssembly]
 	sys-devel/lld"
+# wabt dependencies, as of the version used for EITE build:
+RDEPEND="${RDEPEND}
+	dev-util/re2c
+	dev-lang/python
+	sys-devel/clang[llvm_targets_WebAssembly]
+	sys-devel/lld"
 DEPEND="${RDEPEND}"
