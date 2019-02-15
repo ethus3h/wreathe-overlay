@@ -5,6 +5,8 @@ EAPI=6
 
 inherit git-r3
 
+myEmscriptenCommit="99d6e92d6c823bfc38199eceb5a8c32bd2bd7088"
+
 myLlvmCommit="c39f8dfa7317f10923cf5ab2d650adde1abaa612"
 
 myGoogletestVersion="1.8.1"
@@ -17,9 +19,11 @@ HOMEPAGE="https://futuramerlin.com/"
 EGIT_REPO_URI="https://github.com/ethus3h/ember-information-technology-environment.git"
 SRC_URI=""
 # EITE WASM components
-# llvm: 
+# Emscripten:
+SRC_URI="${SRC_URI} https://github.com/emscripten-core/emscripten/archive/${myEmscriptenCommit}.tar.gz -> emscripten-${myEmscriptenCommit}.tar.gz"
+# LLVM:
 SRC_URI="${SRC_URI} https://github.com/llvm/llvm-project/archive/${myLlvmCommit}.tar.gz -> llvm-project-${myLlvmCommit}.tar.gz"
-# wabt:
+# WABT:
 SRC_URI="${SRC_URI} https://github.com/WebAssembly/wabt/archive/${myWabtVersion}.tar.gz -> wabt-${myWabtVersion}.tar.gz
 	https://github.com/google/googletest/archive/release-${myGoogletestVersion}.tar.gz -> googletest-${myGoogletestVersion}.tar.gz
 	https://github.com/dabeaz/ply/archive/${myPlyVersion}.tar.gz -> python-lex-yacc-${myPlyVersion}.tar.gz
