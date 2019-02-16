@@ -26,7 +26,9 @@ DEPEND="${RDEPEND}"
 
 src_prepare() {
 	rm -r "${WORKDIR}/${P}/third_party" || die "Error deleting third-party code"
+	rm -r "${WORKDIR}/${P}/demo/third_party" || die "Error deleting demo third-party code"
 	rm -r "${WORKDIR}/${P}/src/prebuilt" || die "Error deleting pre-built code"
+	rm -r "${WORKDIR}/${P}/demo/libwabt.js" || die "Error deleting demo pre-built code"
 	mkdir "${WORKDIR}/${P}/third_party" || die "Error creating empty third_party directory"
 	mkdir "${WORKDIR}/${P}/src/prebuilt" || die "Error creating empty src/prebuilt directory"
 	mv "${WORKDIR}/googletest-release-${myGoogletestVersion}" "${WORKDIR}/${P}/third_party/gtest" || die "Error moving gtest"
