@@ -19,6 +19,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 RDEPEND="dev-util/re2c
 	dev-lang/python
+	dev-util/cmake
 	sys-devel/clang[llvm_targets_WebAssembly]
 	sys-devel/lld"
 DEPEND="${RDEPEND}"
