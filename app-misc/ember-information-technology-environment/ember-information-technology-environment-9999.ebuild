@@ -10,6 +10,7 @@ myBinaryenVersion="68"
 
 myLlvmCommit="c39f8dfa7317f10923cf5ab2d650adde1abaa612"
 
+myWabtVersion="1.0.8"
 myGoogletestVersion="1.8.1"
 myPlyVersion="3.11"
 myTestsuiteCommit="89cc463fa1251449d7974086a34ef0dc100b1582"
