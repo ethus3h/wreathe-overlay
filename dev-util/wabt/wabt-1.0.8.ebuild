@@ -3,6 +3,11 @@
 
 EAPI=6
 
+myEmscriptenCommit="99d6e92d6c823bfc38199eceb5a8c32bd2bd7088"
+myBinaryenVersion="68"
+
+myLlvmCommit="c39f8dfa7317f10923cf5ab2d650adde1abaa612"
+
 myGoogletestVersion="1.8.1"
 myPlyVersion="3.11"
 myTestsuiteCommit="89cc463fa1251449d7974086a34ef0dc100b1582"
@@ -12,10 +17,12 @@ HOMEPAGE="https://github.com/WebAssembly/wabt"
 SRC_URI="https://github.com/WebAssembly/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz
 	https://github.com/google/googletest/archive/release-${myGoogletestVersion}.tar.gz -> googletest-${myGoogletestVersion}.tar.gz
 	https://github.com/dabeaz/ply/archive/${myPlyVersion}.tar.gz -> python-lex-yacc-${myPlyVersion}.tar.gz
-	https://github.com/WebAssembly/testsuite/archive/${myTestsuiteCommit}.tar.gz -> WebAssembly-testsuite-${myTestsuiteCommit}.tar.gz"
+	https://github.com/WebAssembly/testsuite/archive/${myTestsuiteCommit}.tar.gz -> WebAssembly-testsuite-${myTestsuiteCommit}.tar.gz
+	javascript? ( https://github.com/WebAssembly/binaryen/archive/version_${myBinaryenVersion}.tar.gz )"
 
 LICENSE="Apache-2.0"
 SLOT="0"
+IUSE="javascript"
 KEYWORDS="~amd64"
 RDEPEND="dev-util/re2c
 	dev-lang/python
