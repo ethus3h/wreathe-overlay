@@ -56,17 +56,21 @@ RDEPEND="${RDEPEND}
 	net-libs/nodejs"
 DEPEND="${RDEPEND}"
 
+eiteEbuildDistfileCopy() {
+	cp "${DISTDIR}/$1" "${S}/build-temp/distfiles/"
+}
+
 src_unpack() {
 	default
 	mkdir "${S}/build-temp/distfiles"
-dist emscripten-"$myEmscriptenCommit".tar.gz
-dist binaryen-"$myBinaryenVersion".tar.gz
-dist binaryen-"$myBinaryenVersion".zip
-#dist llvm-project-"$myLlvmCommit".tar.gz
-# wabt and its build-time dependencies
-dist wabt-"$myWabtVersion".tar.gz
-dist googletest-"$myGoogletestVersion".tar.gz
-dist python-lex-yacc-"$myPlyVersion".tar.gz
-dist WebAssembly-testsuite-"$myTestsuiteCommit".tar.gz
-	cp "${DISTDIR}/"
+    dist emscripten-"$myEmscriptenCommit".tar.gz
+    dist binaryen-"$myBinaryenVersion".tar.gz
+    dist binaryen-"$myBinaryenVersion".zip
+    #dist llvm-project-"$myLlvmCommit".tar.gz
+    # wabt and its build-time dependencies
+    dist wabt-"$myWabtVersion".tar.gz
+    dist googletest-"$myGoogletestVersion".tar.gz
+    dist python-lex-yacc-"$myPlyVersion".tar.gz
+    dist WebAssembly-testsuite-"$myTestsuiteCommit".tar.gz
+	cp "${DISTDIR}/" "${S}/build-temp/distfiles/"
 }
