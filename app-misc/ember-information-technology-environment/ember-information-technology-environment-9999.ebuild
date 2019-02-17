@@ -8,8 +8,6 @@ inherit git-r3
 myEmscriptenCommit="99d6e92d6c823bfc38199eceb5a8c32bd2bd7088"
 myBinaryenVersion="68"
 
-myLlvmCommit="c39f8dfa7317f10923cf5ab2d650adde1abaa612"
-
 myWabtVersion="1.0.8"
 myGoogletestVersion="1.8.1"
 myPlyVersion="3.11"
@@ -24,8 +22,6 @@ SRC_URI=""
 SRC_URI="${SRC_URI} https://github.com/emscripten-core/emscripten/archive/${myEmscriptenCommit}.tar.gz -> emscripten-${myEmscriptenCommit}.tar.gz
 	https://github.com/WebAssembly/binaryen/archive/version_${myBinaryenVersion}.tar.gz -> binaryen-${myBinaryenVersion}.tar.gz
 	https://github.com/WebAssembly/binaryen/archive/version_${myBinaryenVersion}.zip -> binaryen-${myBinaryenVersion}.zip"
-# LLVM:
-SRC_URI="${SRC_URI} https://github.com/llvm/llvm-project/archive/${myLlvmCommit}.tar.gz -> llvm-project-${myLlvmCommit}.tar.gz"
 # WABT:
 SRC_URI="${SRC_URI} https://github.com/WebAssembly/wabt/archive/${myWabtVersion}.tar.gz -> wabt-${myWabtVersion}.tar.gz
 	https://github.com/google/googletest/archive/release-${myGoogletestVersion}.tar.gz -> googletest-${myGoogletestVersion}.tar.gz
