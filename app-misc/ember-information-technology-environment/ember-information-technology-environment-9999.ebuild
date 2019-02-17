@@ -21,16 +21,16 @@ EGIT_REPO_URI="https://github.com/ethus3h/ember-information-technology-environme
 SRC_URI=""
 # EITE WASM components
 # Emscripten:
-SRC_URI="${SRC_URI} https://github.com/emscripten-core/emscripten/archive/${myEmscriptenCommit}.tar.gz -> emscripten-${myEmscriptenCommit}.tar.gz"
+SRC_URI="${SRC_URI} https://github.com/emscripten-core/emscripten/archive/${myEmscriptenCommit}.tar.gz -> emscripten-${myEmscriptenCommit}.tar.gz
+	https://github.com/WebAssembly/binaryen/archive/version_${myBinaryenVersion}.tar.gz -> binaryen-${myBinaryenVersion}.tar.gz
+	https://github.com/WebAssembly/binaryen/archive/version_${myBinaryenVersion}.zip -> binaryen-${myBinaryenVersion}.zip"
 # LLVM:
 SRC_URI="${SRC_URI} https://github.com/llvm/llvm-project/archive/${myLlvmCommit}.tar.gz -> llvm-project-${myLlvmCommit}.tar.gz"
 # WABT:
 SRC_URI="${SRC_URI} https://github.com/WebAssembly/wabt/archive/${myWabtVersion}.tar.gz -> wabt-${myWabtVersion}.tar.gz
 	https://github.com/google/googletest/archive/release-${myGoogletestVersion}.tar.gz -> googletest-${myGoogletestVersion}.tar.gz
 	https://github.com/dabeaz/ply/archive/${myPlyVersion}.tar.gz -> python-lex-yacc-${myPlyVersion}.tar.gz
-	https://github.com/WebAssembly/testsuite/archive/${myTestsuiteCommit}.tar.gz -> WebAssembly-testsuite-${myTestsuiteCommit}.tar.gz
-	https://github.com/WebAssembly/binaryen/archive/version_${myBinaryenVersion}.tar.gz -> binaryen-${myBinaryenVersion}.tar.gz
-	https://github.com/WebAssembly/binaryen/archive/version_${myBinaryenVersion}.zip -> binaryen-${myBinaryenVersion}.zip"
+	https://github.com/WebAssembly/testsuite/archive/${myTestsuiteCommit}.tar.gz -> WebAssembly-testsuite-${myTestsuiteCommit}.tar.gz"
 
 LICENSE="AGPL-3"
 SLOT="0"
@@ -58,6 +58,6 @@ DEPEND="${RDEPEND}"
 
 src_unpack() {
 	default
-	mkdir "${WORKDIR}/"
+	mkdir "${S}/build-temp/distfiles"
 	cp "${DISTDIR}/"
 }
