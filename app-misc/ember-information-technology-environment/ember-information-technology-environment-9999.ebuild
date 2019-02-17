@@ -54,7 +54,6 @@ DEPEND="${RDEPEND}"
 
 eiteEbuildDistfileCopy() {
 	cp "${DISTDIR}/$1" "${S}/build-temp/distfiles/" || die
-	cp -r "${S}/build-temp/distfiles" "${S}/build-temp/unpacked" || die
 }
 
 src_prepare() {
