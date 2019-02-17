@@ -63,14 +63,12 @@ eiteEbuildDistfileCopy() {
 src_unpack() {
 	default
 	mkdir "${S}/build-temp/distfiles"
-    dist emscripten-"$myEmscriptenCommit".tar.gz
-    dist binaryen-"$myBinaryenVersion".tar.gz
-    dist binaryen-"$myBinaryenVersion".zip
-    #dist llvm-project-"$myLlvmCommit".tar.gz
-    # wabt and its build-time dependencies
-    dist wabt-"$myWabtVersion".tar.gz
-    dist googletest-"$myGoogletestVersion".tar.gz
-    dist python-lex-yacc-"$myPlyVersion".tar.gz
-    dist WebAssembly-testsuite-"$myTestsuiteCommit".tar.gz
-	cp "${DISTDIR}/" "${S}/build-temp/distfiles/"
+	# Code based on dist-build
+	eiteEbuildDistfileCopy emscripten-"$myEmscriptenCommit".tar.gz
+	eiteEbuildDistfileCopy binaryen-"$myBinaryenVersion".tar.gz
+	eiteEbuildDistfileCopy binaryen-"$myBinaryenVersion".zip
+	eiteEbuildDistfileCopy wabt-"$myWabtVersion".tar.gz
+	eiteEbuildDistfileCopy googletest-"$myGoogletestVersion".tar.gz
+	eiteEbuildDistfileCopy python-lex-yacc-"$myPlyVersion".tar.gz
+	eiteEbuildDistfileCopy WebAssembly-testsuite-"$myTestsuiteCommit".tar.gz
 }
