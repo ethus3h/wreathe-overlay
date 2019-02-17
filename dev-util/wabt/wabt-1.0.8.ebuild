@@ -31,7 +31,11 @@ RDEPEND="dev-util/re2c
 	dev-lang/python
 	dev-util/cmake
 	sys-devel/clang[llvm_targets_WebAssembly]
-	sys-devel/lld"
+	sys-devel/lld
+	javascript? (
+		sys-apps/moreutils
+		net-libs/nodejs
+	)"
 DEPEND="${RDEPEND}"
 
 src_prepare() {

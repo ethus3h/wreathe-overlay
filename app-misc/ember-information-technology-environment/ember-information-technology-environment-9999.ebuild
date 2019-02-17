@@ -49,6 +49,15 @@ RDEPEND="app-misc/wreathe-meta
 RDEPEND="${RDEPEND}
 	dev-util/re2c
 	dev-lang/python
+	dev-util/cmake
 	sys-devel/clang[llvm_targets_WebAssembly]
-	sys-devel/lld"
+	sys-devel/lld
+	sys-apps/moreutils
+	net-libs/nodejs"
 DEPEND="${RDEPEND}"
+
+src_unpack() {
+	default
+	mkdir "${WORKDIR}/"
+	cp "${DISTDIR}/"
+}
