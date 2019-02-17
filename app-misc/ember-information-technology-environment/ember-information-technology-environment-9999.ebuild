@@ -60,7 +60,7 @@ eiteEbuildDistfileCopy() {
 	cp "${DISTDIR}/$1" "${S}/build-temp/distfiles/"
 }
 
-src_unpack() {
+src_prepare() {
 	default
 	mkdir "${S}/build-temp/distfiles"
 	# Code based on dist-build
