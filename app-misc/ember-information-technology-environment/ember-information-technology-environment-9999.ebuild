@@ -58,7 +58,6 @@ eiteEbuildDistfileCopy() {
 
 src_prepare() {
 	default
-	rm -r "${S}/build-temp" || die
 	mkdir -p "${S}/build-temp/distfiles" || die
 	# Code based on dist-build
 	eiteEbuildDistfileCopy emscripten-"$myEmscriptenCommit".tar.gz
