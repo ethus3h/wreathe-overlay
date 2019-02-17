@@ -53,12 +53,13 @@ RDEPEND="${RDEPEND}
 DEPEND="${RDEPEND}"
 
 eiteEbuildDistfileCopy() {
-	cp "${DISTDIR}/$1" "${S}/build-temp/distfiles/"
+	cp "${DISTDIR}/$1" "${S}/build-temp/distfiles/" || die
 }
 
 src_prepare() {
 	default
-	mkdir "${S}/build-temp/distfiles"
+	rm -r "${S}/build-temp" || die
+	mkdir -p "${S}/build-temp/distfiles" || die
 	# Code based on dist-build
 	eiteEbuildDistfileCopy emscripten-"$myEmscriptenCommit".tar.gz
 	eiteEbuildDistfileCopy binaryen-"$myBinaryenVersion".tar.gz
