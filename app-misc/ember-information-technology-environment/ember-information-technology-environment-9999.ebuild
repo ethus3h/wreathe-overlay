@@ -48,6 +48,7 @@ RDEPEND="${RDEPEND}
 	dev-util/cmake
 	sys-devel/clang[llvm_targets_WebAssembly]
 	sys-devel/lld
+	virtual/jdk
 	sys-apps/moreutils
 	net-libs/nodejs"
 DEPEND="${RDEPEND}"
