@@ -7,6 +7,7 @@ inherit git-r3
 
 myEmscriptenCommit="99d6e92d6c823bfc38199eceb5a8c32bd2bd7088"
 myBinaryenVersion="68"
+mySyslibBuilderCommit="332b16bb1bc430673b26fca10d5a07569a7c8d13"
 
 myWabtVersion="1.0.8"
 myGoogletestVersion="1.8.1"
@@ -22,7 +23,7 @@ SRC_URI=""
 SRC_URI="${SRC_URI} https://github.com/emscripten-core/emscripten/archive/${myEmscriptenCommit}.tar.gz -> emscripten-${myEmscriptenCommit}.tar.gz
 	https://github.com/WebAssembly/binaryen/archive/version_${myBinaryenVersion}.tar.gz -> binaryen-${myBinaryenVersion}.tar.gz
 	https://github.com/WebAssembly/binaryen/archive/version_${myBinaryenVersion}.zip -> binaryen-${myBinaryenVersion}.zip
-	https://gist.github.com/mvogelsang/38b603136e59d07b87b9654869d9f45d/archive/332b16bb1bc430673b26fca10d5a07569a7c8d13.zip ->  adjusted syslib-builder Makefile "
+	https://gist.github.com/mvogelsang/38b603136e59d07b87b9654869d9f45d/archive/332b16bb1bc430673b26fca10d5a07569a7c8d13.tar.gz -> adjusted-syslib-builder-Makefile-${mySyslibBuilderCommit}.tar.gz"
 # WABT:
 SRC_URI="${SRC_URI} https://github.com/WebAssembly/wabt/archive/${myWabtVersion}.tar.gz -> wabt-${myWabtVersion}.tar.gz
 	https://github.com/google/googletest/archive/release-${myGoogletestVersion}.tar.gz -> googletest-${myGoogletestVersion}.tar.gz
