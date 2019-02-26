@@ -67,6 +67,7 @@ src_prepare() {
 	eiteEbuildDistfileCopy emscripten-"$myEmscriptenCommit".tar.gz
 	eiteEbuildDistfileCopy binaryen-"$myBinaryenVersion".tar.gz
 	eiteEbuildDistfileCopy binaryen-"$myBinaryenVersion".zip
+	eiteEbuildDistfileCopy WebAssembly-testsuite-"$myTestsuiteCommit".tar.gz
 	eiteEbuildDistfileCopy wabt-"$myWabtVersion".tar.gz
 	eiteEbuildDistfileCopy googletest-"$myGoogletestVersion".tar.gz
 	eiteEbuildDistfileCopy python-lex-yacc-"$myPlyVersion".tar.gz
