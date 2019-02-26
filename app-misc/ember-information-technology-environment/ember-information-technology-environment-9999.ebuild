@@ -64,12 +64,12 @@ src_prepare() {
 	rm -rf "${S}/build-temp/distfiles" || die
 	mkdir -p "${S}/build-temp/distfiles" || die
 	# Code shared with dist-fetch
-    eiteEbuildDistfileCopy "emscripten-${myEmscriptenCommit}.tar.gz"
-    eiteEbuildDistfileCopy "binaryen-${myBinaryenVersion}.tar.gz"
-    eiteEbuildDistfileCopy "binaryen-${myBinaryenVersion}.zip"
-    eiteEbuildDistfileCopy "adjusted-syslib-builder-Makefile-${mySyslibBuilderCommit}.tar.gz"
-    eiteEbuildDistfileCopy "wabt-${myWabtVersion}.tar.gz"
-    eiteEbuildDistfileCopy "googletest-${myGoogletestVersion}.tar.gz"
-    eiteEbuildDistfileCopy "python-lex-yacc-${myPlyVersion}.tar.gz"
-    eiteEbuildDistfileCopy "WebAssembly-testsuite-${myTestsuiteCommit}.tar.gz"
+	eiteEbuildDistfileCopy "emscripten-${myEmscriptenCommit}.tar.gz"
+	eiteEbuildDistfileCopy "binaryen-${myBinaryenVersion}.tar.gz"
+	eiteEbuildDistfileCopy "binaryen-${myBinaryenVersion}.zip"
+	eiteEbuildDistfileCopy "adjusted-syslib-builder-Makefile-${mySyslibBuilderCommit}.tar.gz"
+	eiteEbuildDistfileCopy "wabt-${myWabtVersion}.tar.gz"
+	eiteEbuildDistfileCopy "googletest-${myGoogletestVersion}.tar.gz"
+	eiteEbuildDistfileCopy "python-lex-yacc-${myPlyVersion}.tar.gz"
+	eiteEbuildDistfileCopy "WebAssembly-testsuite-${myTestsuiteCommit}.tar.gz"
 }
