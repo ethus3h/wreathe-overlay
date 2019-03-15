@@ -1,19 +1,19 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="5"
+EAPI="6"
 
 inherit eutils unpacker
 
 DESCRIPTION="Bittorrent client that does not require a website to discover content"
 HOMEPAGE="http://www.tribler.org/"
-SRC_URI="https://github.com/Tribler/tribler/releases/download/v7.0.1/Tribler-v${PV}.tar.xz"
+SRC_URI="https://github.com/Tribler/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
 LICENSE="GPL-2 LGPL-2.1+ PSF-2.4 openssl wxWinLL-3.1"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="vlc"
-
+pacman -S libsodium libtorrent-rasterbar python2-pyqt5 qt5-svg phonon-qt5-vlc python2-apsw python2-cherrypy python2-cryptography python2-decorator python2-feedparser python2-chardet python2-m2crypto python2-netifaces python2-plyvel python2-twisted python2-configobj python2-matplotlib python2-networkx python2-psutil python2-scipy python2-libnacl
 RDEPEND="
 	dev-lang/python:2.7[sqlite]
 	dev-python/apsw
