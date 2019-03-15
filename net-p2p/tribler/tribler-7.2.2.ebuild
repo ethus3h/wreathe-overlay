@@ -3,7 +3,7 @@
 
 EAPI="6"
 
-inherit eutils unpacker
+inherit eutils
 
 DESCRIPTION="Bittorrent client that does not require a website to discover content"
 HOMEPAGE="http://www.tribler.org/"
@@ -13,18 +13,31 @@ LICENSE="GPL-2 LGPL-2.1+ PSF-2.4 openssl wxWinLL-3.1"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE="vlc"
-pacman -S libsodium libtorrent-rasterbar python2-pyqt5 qt5-svg phonon-qt5-vlc python2-apsw python2-cherrypy python2-cryptography python2-decorator python2-feedparser python2-chardet python2-m2crypto python2-netifaces python2-plyvel python2-twisted python2-configobj python2-matplotlib python2-networkx python2-psutil python2-scipy python2-libnacl
 RDEPEND="
 	dev-lang/python:2.7[sqlite]
+	dev-libs/libsodium
 	dev-python/apsw
+	dev-python/chardet
+	dev-python/cherrypy
+	dev-python/configobj
+	dev-python/decorator
 	dev-python/feedparser
 	dev-python/gmpy
+	dev-python/libnacl
 	dev-python/m2crypto
+	dev-python/matplotlib
 	dev-python/netifaces
+	dev-python/networkx
+	dev-python/plyvel
+	dev-python/psutil
 	dev-python/pyasn1
 	dev-python/pycrypto
+	dev-python/PyQt5
 	dev-python/twisted
 	dev-python/wxpython
+	dev-qt/qtsvg
+	media-libs/phonon-vlc
+	sci-libs/scipy
 	dev-libs/openssl:0[-bindist]
 	net-libs/libtorrent-rasterbar[python]
 	vlc? (
