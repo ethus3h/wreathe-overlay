@@ -11,7 +11,8 @@ SRC_URI="https://github.com/Tribler/${PN}/releases/download/v${PV}/Tribler-v${PV
 
 LICENSE="GPL-3 LGPL-3 PSF-2.4 openssl wxWinLL-3.1"
 SLOT="0"
-KEYWORDS="amd64 x86"
+KEYWORDS="~amd64 ~x86"
+
 IUSE="vlc"
 RDEPEND="
 	dev-lang/python:2.7[sqlite]
