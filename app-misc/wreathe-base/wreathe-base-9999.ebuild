@@ -80,6 +80,5 @@ src_install() {
 	cgifile="$(echo -n "$phpfile" | perl -p -e 's/\/usr\/bin\/php: symbolic link to \/(.+)\/php([\d\.]+)\/bin\/php/\/$1\/php$2\/bin\/php-cgi/g')"
 	dosym "$cgifile" /usr/bin/php-cgi
 
-	fperms +x /etc/git/hooks/pre-commit
 	fperms +x /etc/bash/bashrc.d/wreathe.sh
 }
