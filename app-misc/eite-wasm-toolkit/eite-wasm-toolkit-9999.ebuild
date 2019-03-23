@@ -48,20 +48,20 @@ RDEPEND="app-misc/wreathe-meta
 	sys-devel/lld
 	>=sys-libs/libcxx-8"
 if [[ "true" == "$isWasmToolchainBuild" ]]
-    # EITE WASM component build-time dependencies
-    # wabt dependencies, as of the version used for EITE WASM build:
-    RDEPEND="${RDEPEND}
-        dev-util/re2c
-        dev-lang/python
-        dev-util/cmake
-        sys-devel/clang[llvm_targets_WebAssembly]
-        sys-devel/lld
-        virtual/jdk
-        sys-apps/moreutils
-        net-libs/nodejs"
+	# EITE WASM component build-time dependencies
+	# wabt dependencies, as of the version used for EITE WASM build:
+	RDEPEND="${RDEPEND}
+		dev-util/re2c
+		dev-lang/python
+		dev-util/cmake
+		sys-devel/clang[llvm_targets_WebAssembly]
+		sys-devel/lld
+		virtual/jdk
+		sys-apps/moreutils
+		net-libs/nodejs"
 else
-    RDEPEND="${RDEPEND}
-        =app-misc/eite-wasm-toolkit-${PV}"
+	RDEPEND="${RDEPEND}
+		=app-misc/eite-wasm-toolkit-${PV}"
 fi
 DEPEND="${RDEPEND}"
 
@@ -85,9 +85,9 @@ src_prepare() {
 }
 
 src_compile() {
-    if [[ "true" == "$isWasmToolchainBuild" ]]
-        
-    else
-        default
-    fi
+	if [[ "true" == "$isWasmToolchainBuild" ]]
+		
+	else
+		default
+	fi
 }
