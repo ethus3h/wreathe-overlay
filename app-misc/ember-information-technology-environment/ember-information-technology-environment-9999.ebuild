@@ -47,7 +47,7 @@ RDEPEND="app-misc/wreathe-meta
 	sys-devel/clang[llvm_targets_WebAssembly]
 	sys-devel/lld
 	>=sys-libs/libcxx-8"
-if [[ "true" == "$isWasmToolchainBuild" ]]
+if [[ "true" == "$isWasmToolchainBuild" ]]; then
 	# EITE WASM component build-time dependencies
 	# wabt dependencies, as of the version used for EITE WASM build:
 	RDEPEND="${RDEPEND}
@@ -85,7 +85,7 @@ src_prepare() {
 }
 
 src_compile() {
-	if [[ "true" == "$isWasmToolchainBuild" ]]
+	if [[ "true" == "$isWasmToolchainBuild" ]]; then
 		emake wasm-toolchain
 	else
 		default
@@ -93,7 +93,7 @@ src_compile() {
 }
 
 src_install() {
-	if [[ "true" == "$isWasmToolchainBuild" ]]
+	if [[ "true" == "$isWasmToolchainBuild" ]]; then
 		emake DESTDIR="${D}" wasm-toolchain-install
 	else
 		default
