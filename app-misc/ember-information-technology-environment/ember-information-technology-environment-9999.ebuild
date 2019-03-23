@@ -61,7 +61,7 @@ if [[ "true" == "$isWasmToolchainBuild" ]]; then
 		net-libs/nodejs"
 else
 	RDEPEND="${RDEPEND}
-		=app-misc/eite-wasm-toolkit-${PV}"
+		=app-misc/eite-wasm-toolchain-${PV}"
 fi
 DEPEND="${RDEPEND}"
 
