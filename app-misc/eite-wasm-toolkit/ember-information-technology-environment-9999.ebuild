@@ -5,6 +5,9 @@ EAPI=6
 
 inherit git-r3
 
+# The following value is all that differs from the main EITE ebuild
+isWasmToolchainBuild="true"
+
 myUnicodeVersion="12.0.0"
 
 myEmscriptenCommit="99d6e92d6c823bfc38199eceb5a8c32bd2bd7088"
