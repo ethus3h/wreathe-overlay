@@ -9,7 +9,6 @@ myUnicodeVersion="12.0.0"
 
 myEmscriptenCommit="99d6e92d6c823bfc38199eceb5a8c32bd2bd7088"
 myBinaryenVersion="68"
-mySyslibBuilderCommit="332b16bb1bc430673b26fca10d5a07569a7c8d13"
 
 myWabtVersion="1.0.8"
 myGoogletestVersion="1.8.1"
@@ -26,8 +25,7 @@ SRC_URI="${SRC_URI} https://www.unicode.org/Public/"${myUnicodeVersion}"/ucdxml/
 # Emscripten:
 SRC_URI="${SRC_URI} https://github.com/emscripten-core/emscripten/archive/${myEmscriptenCommit}.tar.gz -> emscripten-${myEmscriptenCommit}.tar.gz
 	https://github.com/WebAssembly/binaryen/archive/version_${myBinaryenVersion}.tar.gz -> binaryen-${myBinaryenVersion}.tar.gz
-	https://github.com/WebAssembly/binaryen/archive/version_${myBinaryenVersion}.zip -> binaryen-${myBinaryenVersion}.zip
-	https://gist.github.com/mvogelsang/38b603136e59d07b87b9654869d9f45d/archive/332b16bb1bc430673b26fca10d5a07569a7c8d13.tar.gz -> adjusted-syslib-builder-Makefile-${mySyslibBuilderCommit}.tar.gz"
+	https://github.com/WebAssembly/binaryen/archive/version_${myBinaryenVersion}.zip -> binaryen-${myBinaryenVersion}.zip"
 # WABT:
 SRC_URI="${SRC_URI} https://github.com/WebAssembly/wabt/archive/${myWabtVersion}.tar.gz -> wabt-${myWabtVersion}.tar.gz
 	https://github.com/google/googletest/archive/release-${myGoogletestVersion}.tar.gz -> googletest-${myGoogletestVersion}.tar.gz
@@ -72,7 +70,6 @@ src_prepare() {
 	eiteEbuildDistfileCopy "emscripten-${myEmscriptenCommit}.tar.gz"
 	eiteEbuildDistfileCopy "binaryen-${myBinaryenVersion}.tar.gz"
 	eiteEbuildDistfileCopy "binaryen-${myBinaryenVersion}.zip"
-	eiteEbuildDistfileCopy "adjusted-syslib-builder-Makefile-${mySyslibBuilderCommit}.tar.gz"
 	eiteEbuildDistfileCopy "wabt-${myWabtVersion}.tar.gz"
 	eiteEbuildDistfileCopy "googletest-${myGoogletestVersion}.tar.gz"
 	eiteEbuildDistfileCopy "python-lex-yacc-${myPlyVersion}.tar.gz"
