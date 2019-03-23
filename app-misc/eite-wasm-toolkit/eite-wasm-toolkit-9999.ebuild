@@ -86,7 +86,15 @@ src_prepare() {
 
 src_compile() {
 	if [[ "true" == "$isWasmToolchainBuild" ]]
-		
+		emake wasm-toolchain
+	else
+		default
+	fi
+}
+
+src_install() {
+	if [[ "true" == "$isWasmToolchainBuild" ]]
+		emake DESTDIR="${D}" wasm-toolchain-install
 	else
 		default
 	fi
