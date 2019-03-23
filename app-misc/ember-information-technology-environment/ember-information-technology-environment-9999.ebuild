@@ -5,6 +5,8 @@ EAPI=6
 
 inherit git-r3
 
+myUnicodeVersion="12.0.0"
+
 myEmscriptenCommit="99d6e92d6c823bfc38199eceb5a8c32bd2bd7088"
 myBinaryenVersion="68"
 mySyslibBuilderCommit="332b16bb1bc430673b26fca10d5a07569a7c8d13"
@@ -18,6 +20,8 @@ DESCRIPTION="The Ember Information Technology Environment"
 HOMEPAGE="https://futuramerlin.com/"
 EGIT_REPO_URI="https://github.com/ethus3h/ember-information-technology-environment.git"
 SRC_URI=""
+# Unicode
+SRC_URI="${SRC_URI} https://www.unicode.org/Public/"${myUnicodeVersion}"/ucdxml/ucd.all.flat.zip -> ucd.all.flat-${myUnicodeVersion}.zip"
 # EITE WASM components
 # Emscripten:
 SRC_URI="${SRC_URI} https://github.com/emscripten-core/emscripten/archive/${myEmscriptenCommit}.tar.gz -> emscripten-${myEmscriptenCommit}.tar.gz
@@ -64,9 +68,11 @@ src_prepare() {
 	rm -rf "${S}/build-temp/distfiles" || die
 	mkdir -p "${S}/build-temp/distfiles" || die
 	# Code shared with dist-fetch
+	eiteEbuildDistfileCopy "ucd.all.flat-${myUnicodeVersion}.zip"
 	eiteEbuildDistfileCopy "emscripten-${myEmscriptenCommit}.tar.gz"
 	eiteEbuildDistfileCopy "binaryen-${myBinaryenVersion}.tar.gz"
 	eiteEbuildDistfileCopy "binaryen-${myBinaryenVersion}.zip"
+	eiteEbuildDistfileCopy "adjusted-syslib-builder-Makefile-${mySyslibBuilderCommit}.tar.gz"
 	eiteEbuildDistfileCopy "wabt-${myWabtVersion}.tar.gz"
 	eiteEbuildDistfileCopy "googletest-${myGoogletestVersion}.tar.gz"
 	eiteEbuildDistfileCopy "python-lex-yacc-${myPlyVersion}.tar.gz"
