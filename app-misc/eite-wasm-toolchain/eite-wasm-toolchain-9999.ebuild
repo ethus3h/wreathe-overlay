@@ -68,6 +68,7 @@ DEPEND="${RDEPEND}"
 eiteEbuildDistfileCopy() {
 	cp "${DISTDIR}/$1" "${S}/build-temp/distfiles/" || die
 }
+
 src_prepare() {
 	default
 	rm -rf "${S}/build-temp/distfiles" || die
