@@ -68,7 +68,7 @@ DEPEND="${RDEPEND}"
 eiteEbuildDistfileCopy() {
 	cp "${DISTDIR}/$1" "${S}/build-temp/distfiles/" || die
 }
-
+set -x
 src_prepare() {
 	default
 	rm -rf "${S}/build-temp/distfiles" || die
@@ -86,7 +86,7 @@ src_prepare() {
 
 src_compile() {
 	if [[ "true" == "$isWasmToolchainBuild" ]]; then
-		emake wasm-toolchain
+		#emake wasm-toolchain
 	else
 		default
 	fi
