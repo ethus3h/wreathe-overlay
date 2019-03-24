@@ -13,7 +13,7 @@ myUnicodeVersion="12.0.0"
 myEmscriptenCommit="99d6e92d6c823bfc38199eceb5a8c32bd2bd7088"
 myBinaryenVersion="68"
 
-myWabtVersion="1.0.8"
+myWabtVersion="1.0.10"
 myGoogletestVersion="1.8.1"
 myPlyVersion="3.11"
 myTestsuiteCommit="89cc463fa1251449d7974086a34ef0dc100b1582"
