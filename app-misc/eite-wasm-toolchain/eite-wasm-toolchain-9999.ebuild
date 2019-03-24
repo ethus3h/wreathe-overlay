@@ -87,6 +87,7 @@ src_prepare() {
 src_compile() {
 	if [[ "true" == "$isWasmToolchainBuild" ]]; then
 		#emake wasm-toolchain
+		true
 	else
 		default
 	fi
