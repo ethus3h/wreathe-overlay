@@ -46,7 +46,8 @@ RDEPEND="app-misc/wreathe-meta
 	virtual/perl6
 	sys-devel/clang[llvm_targets_WebAssembly]
 	sys-devel/lld
-	>=sys-libs/libcxx-8"
+	>=sys-libs/libcxx-8
+	net-libs/nodejs"
 if [[ "true" == "$isWasmToolchainBuild" ]]; then
 	# EITE WASM component build-time dependencies
 	# wabt dependencies, as of the version used for EITE WASM build:
