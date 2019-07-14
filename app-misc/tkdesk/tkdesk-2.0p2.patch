@@ -1,0 +1,4941 @@
+#############################################################################
+# Patch File
+#
+# Application:. TkDesk
+# Version:      2.0
+# Patch ID:     2.0p2
+# Release Date: April 20, 2004
+# Description:
+#
+#     Some Linux distributions are using newer "unofficial" versions of
+#     Incr Tcl (Itcl).  Though TkDesk 2.0 works with the official
+#     Itcl 3.2.1 release, these newer Itcl installations disable backwards
+#     compatibility for some older Itcl syntax that TkDesk still requires.
+#     The typical symptom of this problem is this error message when
+#     TkDesk is started:
+#
+#        Error in startup script: can't rename "itcl_class": command
+#        doesn't exist...
+#
+# Instructions:
+#
+#   1. Download the patch file to a handy spot on your hard drive.
+#
+#   2. Go to the root of your TkDesk source tree:
+#
+#      cd {PATH_TO_SRC}/tkdesk-2.0
+#
+#      where {PATH_TO_SRC} is wherever you have untarred the
+#      TkDesk 2.0 source.
+#
+#   3. Then use the "patch" command:
+#
+#      patch -p1 < {PATH_TO_PATCH}/tkdesk-2.0p2.patch
+#
+#      where {PATH_TO_PATCH} is the directory path to that handy spot
+#      on your hard drive where you stored the patch file in step #1. 
+#
+#   4. Follow the build instructions in the TkDesk "INSTALL" file
+#      to recompile and install TkDesk.  It would be a good idea, after
+#      applying a patch, to always use the "testdrive" script to test
+#      TkDesk prior to doing a "make install".
+#
+#      Note:  Patches that ONLY EFFECT TKDESK'S TCL SOURCE FILES may be
+#      applied directly to an installed version of the TkDesk library
+#      (e.g. "/usr/local/lib/TkDesk").  In this case, cd to the
+#      installed TkDesk library directory and use the patch
+#      command option "-p2" instead of the usual "-p1".
+#      APPLYING PATCHES IN THIS MANNER IS NOT RECOMMENDED, but
+#      may be necessary if TkDesk has been installed from a pre-compiled
+#      package (RPM, etc.).
+#
+#############################################################################
+Index: tkdesk/ChangeLog
+diff -c tkdesk/ChangeLog:1.8 tkdesk/ChangeLog:1.9
+*** tkdesk/ChangeLog:1.8	Fri Apr 16 23:03:37 2004
+--- tkdesk/ChangeLog	Tue Apr 20 12:28:02 2004
+***************
+*** 1,6 ****
+--- 1,39 ----
+  
+  TkDesk Change Log for Version 2.x:
+  
++ 2004-04-20  J. Chris Coppick <jchris@users.sourceforge.net>
++ 
++         * tkdesk.main, tcldesk/Common.tcl, tcldesk/Desktop.tcl,
++         tcldesk/DiskUsage.tcl, tcldesk/Editor.tcl, tcldesk/FileInfo.tcl,
++         tcldesk/FileListbox.tcl, tcldesk/Frame.tcl, tcldesk/HistEntry.tcl,
++         tcldesk/List.tcl, tcldesk/Periodic.tcl, tcldesk/Toplevel.tcl,
++         tcldesk/Viewer.tcl, tcldesk/action.tcl, tcldesk/appbar-dialup.tcl,
++         tcldesk/appbar.tcl, tcldesk/config.tcl, tcldesk/copy.tcl,
++         tcldesk/cpanels.tcl, tcldesk/delete.tcl, tcldesk/dsk_Listbox.tcl,
++         tcldesk/file_ops.tcl, tcldesk/find.tcl, tcldesk/history.tcl,
++         tcldesk/itcl_reload.tcl, tcldesk/popup.tcl, tcldesk/update.tcl,
++         tcldesk/util.tcl, tcldesk/cb_tools/help.tcl,
++         tcldesk/cb_tools/itcl_reload.tcl, tcldesk/cb_tools/tools.tcl:
++ 
++ 
++         For Itcl 3.3 compatibility, removed obsolete Itcl syntax:
++ 
++           Use itcl::class instead of deprecated itcl_class
++           Fixed deprecated "class :: method" syntax (removed spaces)
++           Use "itcl::delete object $obj" instead of deprecated
++ 	    "$obj delete"
++           Use "itcl::delete class $class" instead of "rename $class {}"
++           Use direct method calls instead of deprecated "virtual" command
++           Use "eval configure $args" in place of deprecated magic
++ 	    "config" arg
++           Use correct protection declaration syntax:
++               "public variable $var" instead of "public $var"
++               "protected variable $var" instead of "protected $var"
++               etc.
++           Use itcl::find instead of deprecated itcl_info
++           Use "$obj info variable ..." instead of "$obj info public ..."
++ 
++ 
+  2004-04-16  J. Chris Coppick <jchris@users.sourceforge.net>
+  
+          * libdesk/tixImgXpm.c:
+Index: tkdesk/tkdesk.main
+diff -c tkdesk/tkdesk.main:1.3 tkdesk/tkdesk.main:1.4
+*** tkdesk/tkdesk.main:1.3	Wed Apr 14 11:58:22 2004
+--- tkdesk/tkdesk.main	Tue Apr 20 11:21:54 2004
+***************
+*** 460,494 ****
+  proc dsk_widget_config {} {
+      global tkdesk
+      
+!     dsk_Listbox :: selcolor [cb_col $tkdesk(color,listsel)]
+!     dsk_Listbox :: modifier $tkdesk(use_old_modifiers)
+  
+      # "System" Settings
+!     dsk_FileListbox :: font [cb_font $tkdesk(font,file_lbs)]
+  
+!     dsk_FileListbox :: tag config dir \
+  	    [cb_col $tkdesk(color,directories)] \
+  	    [cb_font $tkdesk(font,directories)]
+!     dsk_FileListbox :: tag config exec \
+  	    [cb_col $tkdesk(color,executables)] \
+  	    [cb_font $tkdesk(font,executables)]
+!     dsk_FileListbox :: tag config sym \
+  	    [cb_col $tkdesk(color,symlinks)] \
+  	    [cb_font $tkdesk(font,symlinks)]
+!     dsk_FileListbox :: tag config symdir \
+  	    [cb_col $tkdesk(color,symdirectories)] \
+  	    [cb_font $tkdesk(font,symdirectories)]
+!     dsk_FileListbox :: tag config symexec \
+  	    [cb_col $tkdesk(color,symexecutables)] \
+  	    [cb_font $tkdesk(font,symexecutables)]
+  
+      # "Preferences" Settings
+!     dsk_FileListbox :: showall $tkdesk(show_all_files)
+!     dsk_FileListbox :: longlist $tkdesk(long_listing)
+!     dsk_FileListbox :: topfolders $tkdesk(folders_on_top)
+!     dsk_FileListbox :: typechar $tkdesk(append_type_char)
+!     dsk_FileListbox :: addicons $tkdesk(add_icons)
+!     dsk_FileListbox :: sort $tkdesk(default_sort)
+  
+      # "FileTags" Settings
+      dsk_FileListbox_fileTags
+--- 460,494 ----
+  proc dsk_widget_config {} {
+      global tkdesk
+      
+!     dsk_Listbox::selcolor [cb_col $tkdesk(color,listsel)]
+!     dsk_Listbox::modifier $tkdesk(use_old_modifiers)
+  
+      # "System" Settings
+!     dsk_FileListbox::font [cb_font $tkdesk(font,file_lbs)]
+  
+!     dsk_FileListbox::tag config dir \
+  	    [cb_col $tkdesk(color,directories)] \
+  	    [cb_font $tkdesk(font,directories)]
+!     dsk_FileListbox::tag config exec \
+  	    [cb_col $tkdesk(color,executables)] \
+  	    [cb_font $tkdesk(font,executables)]
+!     dsk_FileListbox::tag config sym \
+  	    [cb_col $tkdesk(color,symlinks)] \
+  	    [cb_font $tkdesk(font,symlinks)]
+!     dsk_FileListbox::tag config symdir \
+  	    [cb_col $tkdesk(color,symdirectories)] \
+  	    [cb_font $tkdesk(font,symdirectories)]
+!     dsk_FileListbox::tag config symexec \
+  	    [cb_col $tkdesk(color,symexecutables)] \
+  	    [cb_font $tkdesk(font,symexecutables)]
+  
+      # "Preferences" Settings
+!     dsk_FileListbox::showall $tkdesk(show_all_files)
+!     dsk_FileListbox::longlist $tkdesk(long_listing)
+!     dsk_FileListbox::topfolders $tkdesk(folders_on_top)
+!     dsk_FileListbox::typechar $tkdesk(append_type_char)
+!     dsk_FileListbox::addicons $tkdesk(add_icons)
+!     dsk_FileListbox::sort $tkdesk(default_sort)
+  
+      # "FileTags" Settings
+      dsk_FileListbox_fileTags
+***************
+*** 587,598 ****
+      }
+  }
+  
+! if {[info command itcl_class-orig] == ""} {
+!     rename itcl_class itcl_class-orig
+!     proc itcl_class {name def} {
+! 	 catch {rename $name {}}
+! 	 uplevel 1 itcl_class-orig $name [list $def]
+!     }
+  }
+  
+  # Provide backward-compatibility for "history:"
+--- 587,602 ----
+      }
+  }
+  
+! #if {[info command itcl_class-orig] == ""} {
+! #    rename itcl_class itcl_class-orig
+! #    proc itcl_class {name def} {
+! #	 catch {rename $name {}}
+! #	 uplevel 1 itcl_class-orig $name [list $def]
+! #    }
+! #}
+! proc itcl_class {name def} {
+!     catch {itcl::delete class $name}
+!     uplevel 1 itcl::class $name [list $def]
+  }
+  
+  # Provide backward-compatibility for "history:"
+***************
+*** 619,626 ****
+  }
+  
+  dsk_progress "Initializing tcldesk..."
+! foreach c [itcl_info classes dsk_*] {
+!     catch {rename $c {}}
+  }
+  
+  if $tkdesk(no_auto_loading) {
+--- 623,630 ----
+  }
+  
+  dsk_progress "Initializing tcldesk..."
+! foreach c [itcl::find classes dsk_*] {
+!     catch {itcl::delete class $c}
+  }
+  
+  if $tkdesk(no_auto_loading) {
+***************
+*** 834,840 ****
+  
+  if {[winfo depth .] == 1} {
+      set tkdesk(append_type_char) 1
+!     dsk_FileListbox :: typechar $tkdesk(append_type_char)
+  }
+  
+  #
+--- 838,844 ----
+  
+  if {[winfo depth .] == 1} {
+      set tkdesk(append_type_char) 1
+!     dsk_FileListbox::typechar $tkdesk(append_type_char)
+  }
+  
+  #
+***************
+*** 936,947 ****
+      }
+      set tkdesk(geometry,fbrowser) \
+  	    $tkdesk(file_lb,width)x$tkdesk(file_lb,height)+100+50
+!     dsk_FileViewer .fv[dsk_FileViewer :: id] \
+  	    -dir $dir -num_lbs $tkdesk(num_lbs)
+      set tkdesk(geometry,fbrowser) ""
+  
+      # create the Trash window:
+!     #set twin .dfl[dsk_FileList :: id]
+      #dsk_progress "Creating the trash window..."
+      #dsk_FileList $twin -dir $tkdesk(configdir)/.trash -dontmap 1
+      #update
+--- 940,951 ----
+      }
+      set tkdesk(geometry,fbrowser) \
+  	    $tkdesk(file_lb,width)x$tkdesk(file_lb,height)+100+50
+!     dsk_FileViewer .fv[dsk_FileViewer::id] \
+  	    -dir $dir -num_lbs $tkdesk(num_lbs)
+      set tkdesk(geometry,fbrowser) ""
+  
+      # create the Trash window:
+!     #set twin .dfl[dsk_FileList::id]
+      #dsk_progress "Creating the trash window..."
+      #dsk_FileList $twin -dir $tkdesk(configdir)/.trash -dontmap 1
+      #update
+***************
+*** 1013,1019 ****
+  	}
+      }
+  
+!     foreach obj [itcl_info objects -class dsk_Editor] {
+  	if [winfo exists [$obj getToplevel]] {
+  	    if {[$obj close_win] == "cancel"} {
+  		return
+--- 1017,1023 ----
+  	}
+      }
+  
+!     foreach obj [itcl::find objects -class dsk_Editor] {
+  	if [winfo exists [$obj getToplevel]] {
+  	    if {[$obj close_win] == "cancel"} {
+  		return
+***************
+*** 1049,1060 ****
+  
+      # clean up
+      cb_image !reset
+!     foreach obj [itcl_info objects -class dsk_Editor] {
+  	if {[$obj close_win] == "cancel"} {
+  	    return
+  	}
+      }
+!     catch {eval itcl_unload [itcl_info classes]}
+      foreach w [winfo children .] {destroy $w}
+  
+      # and now restart
+--- 1053,1064 ----
+  
+      # clean up
+      cb_image !reset
+!     foreach obj [itcl::find objects -class dsk_Editor] {
+  	if {[$obj close_win] == "cancel"} {
+  	    return
+  	}
+      }
+!     catch {eval itcl_unload [itcl::find classes]}
+      foreach w [winfo children .] {destroy $w}
+  
+      # and now restart
+Index: tkdesk/tcldesk/Common.tcl
+diff -c tkdesk/tcldesk/Common.tcl:1.1.1.1 tkdesk/tcldesk/Common.tcl:1.2
+*** tkdesk/tcldesk/Common.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/Common.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 54,61 ****
+  
+  itcl_class dsk_Common {
+      
+!     constructor {config} {
+! 	set topl [virtual getToplevel]
+      }
+  
+      destructor {
+--- 54,62 ----
+  
+  itcl_class dsk_Common {
+      
+!     constructor {args} {
+!         eval configure $args
+! 	set topl [$this getToplevel]
+      }
+  
+      destructor {
+***************
+*** 65,75 ****
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {config} {}
+!     method configure {config} {}
+!     
+      method cget {pubvar} {
+! 	return [virtual set [string trimleft $pubvar -]]
+      }
+  
+      method status {str {do_update 1}} {
+--- 66,77 ----
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {args} {
+!        eval configure $args
+!     }
+! 
+      method cget {pubvar} {
+! 	return [$this set [string trimleft $pubvar -]]
+      }
+  
+      method status {str {do_update 1}} {
+***************
+*** 89,95 ****
+  	pack propagate $topl 0
+  	if ![winfo exists $topl.fStatus.l] return
+  	$topl.fStatus.l config -text \
+!           "Ready. [dsk_fs_status [_make_path_valid [virtual cget -directory]]]"
+  	if $do_update {
+  	    update ;# idletasks
+  	}
+--- 91,97 ----
+  	pack propagate $topl 0
+  	if ![winfo exists $topl.fStatus.l] return
+  	$topl.fStatus.l config -text \
+!           "Ready. [dsk_fs_status [_make_path_valid [$this cget -directory]]]"
+  	if $do_update {
+  	    update ;# idletasks
+  	}
+***************
+*** 99,109 ****
+  	global tkdesk
+  	
+  	if ![winfo exists $topl.fStatus.l] return
+! 	set sfl [virtual select get]
+  	dsk_debug "selstatus: sfl $sfl"
+  	set l [llength $sfl]
+  	if {$l == 0} {
+! 	    $this status "Ready. [dsk_fs_status [virtual cget -directory]]"
+  	    #$this status "Ready."
+  	} elseif {$l == 1} {
+  	    set fi ""
+--- 101,111 ----
+  	global tkdesk
+  	
+  	if ![winfo exists $topl.fStatus.l] return
+! 	set sfl [$this select get]
+  	dsk_debug "selstatus: sfl $sfl"
+  	set l [llength $sfl]
+  	if {$l == 0} {
+! 	    $this status "Ready. [dsk_fs_status [$this cget -directory]]"
+  	    #$this status "Ready."
+  	} elseif {$l == 1} {
+  	    set fi ""
+***************
+*** 180,190 ****
+  		-command "dsk_ask_dir browser"
+  	if [$this isa dsk_FileViewer] {
+  	    $m add command -label "Clone Window" -underline 2 \
+! 		    -command "dsk_FileViewer .fv\[dsk_FileViewer :: id\] \
+! 		    -dir \[$this curdir\] -num_lbs \[$this cget num_lbs\]"
+  	} else {
+  	    $m add command -label "Clone Window" -underline 2 \
+! 		    -command "dsk_FileList .fl\[dsk_FileList :: id\] \
+  		    -dir \[$this curdir\]"
+  	}
+  	if [winfo exists .dsk_appbar] {
+--- 182,192 ----
+  		-command "dsk_ask_dir browser"
+  	if [$this isa dsk_FileViewer] {
+  	    $m add command -label "Clone Window" -underline 2 \
+! 		    -command "dsk_FileViewer .fv\[dsk_FileViewer::id\] \
+! 		    -dir \[$this curdir\] -num_lbs \[$this cget -num_lbs\]"
+  	} else {
+  	    $m add command -label "Clone Window" -underline 2 \
+! 		    -command "dsk_FileList .fl\[dsk_FileList::id\] \
+  		    -dir \[$this curdir\]"
+  	}
+  	if [winfo exists .dsk_appbar] {
+***************
+*** 303,309 ****
+  	bind $m.mhf <Control-ButtonRelease-3> "
+  	set tkdesk(file_lb,control) 1
+  	[bind Menu <ButtonRelease-3>]"
+! 	$m add command -label "Close Window" -command "$this delete"
+  	
+  	# ---- Directories Menu
+  	menubutton $frame.mbDirs -text "Directory" -underline 0 \
+--- 305,311 ----
+  	bind $m.mhf <Control-ButtonRelease-3> "
+  	set tkdesk(file_lb,control) 1
+  	[bind Menu <ButtonRelease-3>]"
+! 	$m add command -label "Close Window" -command "itcl::delete object $this"
+  	
+  	# ---- Directories Menu
+  	menubutton $frame.mbDirs -text "Directory" -underline 0 \
+***************
+*** 329,341 ****
+  	$m add separator
+  	
+  	$m add command -label "Open Trash Can" -underline 0 \
+! 		-command "dsk_FileList .dfl\[dsk_FileList :: id\] \
+  			-directory $tkdesk(trashdir)"
+  	$m add command -label "Empty Trash Can" -underline 0 \
+  		-command "dsk_empty_trash"
+  	if {[info exists tkdesk(deskdir)]} {
+  	    $m add command -label "Open Desktop" -underline 0 \
+! 		    -command "dsk_FileList .dfl\[dsk_FileList :: id\] \
+  		                     -directory $tkdesk(deskdir)"
+  	}
+  	
+--- 331,343 ----
+  	$m add separator
+  	
+  	$m add command -label "Open Trash Can" -underline 0 \
+! 		-command "dsk_FileList .dfl\[dsk_FileList::id\] \
+  			-directory $tkdesk(trashdir)"
+  	$m add command -label "Empty Trash Can" -underline 0 \
+  		-command "dsk_empty_trash"
+  	if {[info exists tkdesk(deskdir)]} {
+  	    $m add command -label "Open Desktop" -underline 0 \
+! 		    -command "dsk_FileList .dfl\[dsk_FileList::id\] \
+  		                     -directory $tkdesk(deskdir)"
+  	}
+  	
+***************
+*** 378,384 ****
+  
+  	    set m $frame.mbOthers.menu
+  	    #$m add command -label "Open Browser View" -underline 0 \
+! 		    -command "dsk_FileViewer .fv\[dsk_FileViewer :: id\] \
+  		    -dir \[$this curdir\] -num_lbs \$tkdesk(num_lbs)"
+  	    $m add cascade -label "TkDesk" -menu $frame.mbOthers.menu.tkdesk
+  	    $m add cascade -label "Commands" -menu $frame.mbOthers.menu.cmd
+--- 380,386 ----
+  
+  	    set m $frame.mbOthers.menu
+  	    #$m add command -label "Open Browser View" -underline 0 \
+! 		    -command "dsk_FileViewer .fv\[dsk_FileViewer::id\] \
+  		    -dir \[$this curdir\] -num_lbs \$tkdesk(num_lbs)"
+  	    $m add cascade -label "TkDesk" -menu $frame.mbOthers.menu.tkdesk
+  	    $m add cascade -label "Commands" -menu $frame.mbOthers.menu.cmd
+***************
+*** 387,394 ****
+  	    $m add cascade -label "Help" -menu $frame.mbOthers.menu.help
+  	    $m add separator
+  	    $m add command -label "Open Browser " \
+! 	    	     -command "dsk_FileViewer .fv\[dsk_FileViewer :: id\] \
+! 	    		 -directory \[$this info public directory -value\]"
+  	}
+  
+  	# ---- Commands Menu
+--- 389,396 ----
+  	    $m add cascade -label "Help" -menu $frame.mbOthers.menu.help
+  	    $m add separator
+  	    $m add command -label "Open Browser " \
+! 	    	     -command "dsk_FileViewer .fv\[dsk_FileViewer::id\] \
+! 	    		 -directory \[$this info variable directory -value\]"
+  	}
+  
+  	# ---- Commands Menu
+***************
+*** 418,424 ****
+  		-command {eval [_expand_pc {dsk_edit %B}]}
+  	$m add cascade -label "Buffers" -menu $m.bufs
+  	menu [set tm $m.bufs] -postcommand \
+! 		"dsk_Editor :: bufferMenu $tm"
+  	$m add separator
+  	if [info exists tkdesk(commands)] {
+  	    foreach cmd $tkdesk(commands) {
+--- 420,426 ----
+  		-command {eval [_expand_pc {dsk_edit %B}]}
+  	$m add cascade -label "Buffers" -menu $m.bufs
+  	menu [set tm $m.bufs] -postcommand \
+! 		"dsk_Editor::bufferMenu $tm"
+  	$m add separator
+  	if [info exists tkdesk(commands)] {
+  	    foreach cmd $tkdesk(commands) {
+***************
+*** 482,524 ****
+  	menu $m
+  	$m add checkbutton -label " Long Listing " -underline 1 \
+  	    -variable tkdesk(long_listing) \
+! 	    -command "dsk_FileListbox :: longlist \$tkdesk(long_listing)"
+  	$m add checkbutton -label " Show All Files " -underline 1 \
+  	    -variable tkdesk(show_all_files) \
+! 	    -command "dsk_FileListbox :: showall \$tkdesk(show_all_files)"
+  	$m add checkbutton -label " Add Icons " -underline 1 \
+  	    -variable tkdesk(add_icons) \
+! 	    -command "dsk_FileListbox :: addicons \$tkdesk(add_icons)"
+  	$m add checkbutton -label " Folders On Top " -underline 1 \
+  	    -variable tkdesk(folders_on_top) \
+! 	    -command "dsk_FileListbox :: topfolders \$tkdesk(folders_on_top)"
+  	$m add checkbutton -label " Append Type Char " -underline 2 \
+  	    -variable tkdesk(append_type_char) \
+! 	    -command "dsk_FileListbox :: typechar \$tkdesk(append_type_char)"
+  	$m add checkbutton -label " Dot: Execs Regular " -underline 1 \
+  	    -variable tkdesk(dot_regular) \
+! 	    -command "dsk_FileListbox :: dotregular \$tkdesk(dot_regular)"
+  	$m add separator
+  	$m add cascade -label "Sort by ..." -menu [set m $m.smenu]
+  	menu $m
+  	$m add radiobutton -label " Name " \
+  		-variable tkdesk(default_sort) -value name \
+! 		-command "dsk_FileListbox :: sort \$tkdesk(default_sort)"
+  	$m add radiobutton -label " Name (fold) " \
+  		-variable tkdesk(default_sort) -value fold \
+! 		-command "dsk_FileListbox :: sort \$tkdesk(default_sort)"
+  	$m add radiobutton -label " Size " \
+  		-variable tkdesk(default_sort) -value size \
+! 		-command "dsk_FileListbox :: sort \$tkdesk(default_sort)"
+  	$m add radiobutton -label " Date " \
+  		-variable tkdesk(default_sort) -value date \
+! 		-command "dsk_FileListbox :: sort \$tkdesk(default_sort)"
+  	$m add radiobutton -label " Extension " \
+  		-variable tkdesk(default_sort) -value ext \
+! 		-command "dsk_FileListbox :: sort \$tkdesk(default_sort)"
+  	$m add radiobutton -label " Don't sort " \
+  		-variable tkdesk(default_sort) -value not \
+! 		-command "dsk_FileListbox :: sort \$tkdesk(default_sort)"
+  
+  	# "Appearance" menu
+  	$optm add cascade -label "Appearance" -menu [set m $optm.map]
+--- 484,526 ----
+  	menu $m
+  	$m add checkbutton -label " Long Listing " -underline 1 \
+  	    -variable tkdesk(long_listing) \
+! 	    -command "dsk_FileListbox::longlist \$tkdesk(long_listing)"
+  	$m add checkbutton -label " Show All Files " -underline 1 \
+  	    -variable tkdesk(show_all_files) \
+! 	    -command "dsk_FileListbox::showall \$tkdesk(show_all_files)"
+  	$m add checkbutton -label " Add Icons " -underline 1 \
+  	    -variable tkdesk(add_icons) \
+! 	    -command "dsk_FileListbox::addicons \$tkdesk(add_icons)"
+  	$m add checkbutton -label " Folders On Top " -underline 1 \
+  	    -variable tkdesk(folders_on_top) \
+! 	    -command "dsk_FileListbox::topfolders \$tkdesk(folders_on_top)"
+  	$m add checkbutton -label " Append Type Char " -underline 2 \
+  	    -variable tkdesk(append_type_char) \
+! 	    -command "dsk_FileListbox::typechar \$tkdesk(append_type_char)"
+  	$m add checkbutton -label " Dot: Execs Regular " -underline 1 \
+  	    -variable tkdesk(dot_regular) \
+! 	    -command "dsk_FileListbox::dotregular \$tkdesk(dot_regular)"
+  	$m add separator
+  	$m add cascade -label "Sort by ..." -menu [set m $m.smenu]
+  	menu $m
+  	$m add radiobutton -label " Name " \
+  		-variable tkdesk(default_sort) -value name \
+! 		-command "dsk_FileListbox::sort \$tkdesk(default_sort)"
+  	$m add radiobutton -label " Name (fold) " \
+  		-variable tkdesk(default_sort) -value fold \
+! 		-command "dsk_FileListbox::sort \$tkdesk(default_sort)"
+  	$m add radiobutton -label " Size " \
+  		-variable tkdesk(default_sort) -value size \
+! 		-command "dsk_FileListbox::sort \$tkdesk(default_sort)"
+  	$m add radiobutton -label " Date " \
+  		-variable tkdesk(default_sort) -value date \
+! 		-command "dsk_FileListbox::sort \$tkdesk(default_sort)"
+  	$m add radiobutton -label " Extension " \
+  		-variable tkdesk(default_sort) -value ext \
+! 		-command "dsk_FileListbox::sort \$tkdesk(default_sort)"
+  	$m add radiobutton -label " Don't sort " \
+  		-variable tkdesk(default_sort) -value not \
+! 		-command "dsk_FileListbox::sort \$tkdesk(default_sort)"
+  
+  	# "Appearance" menu
+  	$optm add cascade -label "Appearance" -menu [set m $optm.map]
+***************
+*** 532,538 ****
+  	    -variable tkdesk(at_pointer)
+  	$m add checkbutton -label " Status in List Windows " -underline 5 \
+  	    -variable tkdesk(list_statbar) \
+! 	    -command "dsk_FileList :: status_bar \$tkdesk(list_statbar)"
+  	$m add checkbutton -label " Expand Dir Bookmarks " -underline 1 \
+  	    -variable tkdesk(expand_dir_bookmarks)
+  	$m add checkbutton -label " Tear-off Menus " -underline 3 \
+--- 534,540 ----
+  	    -variable tkdesk(at_pointer)
+  	$m add checkbutton -label " Status in List Windows " -underline 5 \
+  	    -variable tkdesk(list_statbar) \
+! 	    -command "dsk_FileList::status_bar \$tkdesk(list_statbar)"
+  	$m add checkbutton -label " Expand Dir Bookmarks " -underline 1 \
+  	    -variable tkdesk(expand_dir_bookmarks)
+  	$m add checkbutton -label " Tear-off Menus " -underline 3 \
+***************
+*** 546,552 ****
+  	    $m add cascade -label "Number Of Listboxes" \
+  		    -menu [set m $m.numlbs]
+  	    menu $m
+! 	    set num_lbs [virtual cget -num_lbs]
+  	    set [set this](num_lbs) $num_lbs
+  	    $m add radiobutton -label " 1 Listbox" \
+  		    -variable [set this](num_lbs) \
+--- 548,554 ----
+  	    $m add cascade -label "Number Of Listboxes" \
+  		    -menu [set m $m.numlbs]
+  	    menu $m
+! 	    set num_lbs [$this cget -num_lbs]
+  	    set [set this](num_lbs) $num_lbs
+  	    $m add radiobutton -label " 1 Listbox" \
+  		    -variable [set this](num_lbs) \
+***************
+*** 844,856 ****
+  	if {[string first "%d" $title] > -1} {
+  	    regsub "%d" $title \
+  		    [file tail [string trimright \
+! 		    [virtual cget -directory] "/"]]/ title
+  	}
+  	if {[string first "%h" $title] > -1} {
+  	    regsub "%h" $title [dsk_hostname] title
+  	}
+  	if {[string first "%p" $title] > -1} {
+! 	    regsub "%p" $title [cb_tilde [virtual cget -directory] collapse] \
+  		    title
+  	}
+  	if {[string first "%u" $title] > -1} {
+--- 846,858 ----
+  	if {[string first "%d" $title] > -1} {
+  	    regsub "%d" $title \
+  		    [file tail [string trimright \
+! 		    [$this cget -directory] "/"]]/ title
+  	}
+  	if {[string first "%h" $title] > -1} {
+  	    regsub "%h" $title [dsk_hostname] title
+  	}
+  	if {[string first "%p" $title] > -1} {
+! 	    regsub "%p" $title [cb_tilde [$this cget -directory] collapse] \
+  		    title
+  	}
+  	if {[string first "%u" $title] > -1} {
+***************
+*** 877,883 ****
+  		[bind Menu <ButtonRelease-3>]"
+  	
+  	set p [cb_tilde [string trimright \
+! 		[virtual cget -directory] "/"] collapse]
+  	if {$p != ""} {
+  	    set op $p
+  	    while {1} {
+--- 879,885 ----
+  		[bind Menu <ButtonRelease-3>]"
+  	
+  	set p [cb_tilde [string trimright \
+! 		[$this cget -directory] "/"] collapse]
+  	if {$p != ""} {
+  	    set op $p
+  	    while {1} {
+***************
+*** 937,956 ****
+  	global tkdesk
+  
+  	if ![info exists tkdesk(soundcmd)] {
+! 	    foreach obj [itcl_info objects -class dsk_FileList] {
+  		set m [$obj getToplevel].fMenu.mbOthers.menu.opts
+  		$m entryconfig [$m index *Sound*] -state disabled
+  	    }
+! 	    foreach obj [itcl_info objects -class dsk_FileViewer] {
+  		set m [$obj getToplevel].fMenu.mbOpts.menu
+  		$m entryconfig [$m index *Sound*] -state disabled
+  	    }
+  	} else {
+! 	    foreach obj [itcl_info objects -class dsk_FileList] {
+  		set m [$obj getToplevel].fMenu.mbOthers.menu.opts
+  		$m entryconfig [$m index *Sound*] -state normal
+  	    }
+! 	    foreach obj [itcl_info objects -class dsk_FileViewer] {
+  		set m [$obj getToplevel].fMenu.mbOpts.menu
+  		$m entryconfig [$m index *Sound*] -state normal
+  	    }
+--- 939,958 ----
+  	global tkdesk
+  
+  	if ![info exists tkdesk(soundcmd)] {
+! 	    foreach obj [itcl::find objects -class dsk_FileList] {
+  		set m [$obj getToplevel].fMenu.mbOthers.menu.opts
+  		$m entryconfig [$m index *Sound*] -state disabled
+  	    }
+! 	    foreach obj [itcl::find objects -class dsk_FileViewer] {
+  		set m [$obj getToplevel].fMenu.mbOpts.menu
+  		$m entryconfig [$m index *Sound*] -state disabled
+  	    }
+  	} else {
+! 	    foreach obj [itcl::find objects -class dsk_FileList] {
+  		set m [$obj getToplevel].fMenu.mbOthers.menu.opts
+  		$m entryconfig [$m index *Sound*] -state normal
+  	    }
+! 	    foreach obj [itcl::find objects -class dsk_FileViewer] {
+  		set m [$obj getToplevel].fMenu.mbOpts.menu
+  		$m entryconfig [$m index *Sound*] -state normal
+  	    }
+***************
+*** 965,976 ****
+  	    set l "Display AppBar"
+  	    set m "Hide AppBar"
+  	}
+! 	foreach fv [itcl_info objects -class dsk_FileViewer] {
+  	    if [winfo exists [$fv getToplevel]] {
+  		$fv _adjust_menu $m $l
+  	    }
+  	}
+! 	foreach fl [itcl_info objects -class dsk_FileList] {
+  	    if [winfo exists [$fl getToplevel]] {
+  		$fl _adjust_menu $m $l
+  	    }
+--- 967,978 ----
+  	    set l "Display AppBar"
+  	    set m "Hide AppBar"
+  	}
+! 	foreach fv [itcl::find objects -class dsk_FileViewer] {
+  	    if [winfo exists [$fv getToplevel]] {
+  		$fv _adjust_menu $m $l
+  	    }
+  	}
+! 	foreach fl [itcl::find objects -class dsk_FileList] {
+  	    if [winfo exists [$fl getToplevel]] {
+  		$fl _adjust_menu $m $l
+  	    }
+***************
+*** 981,988 ****
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     protected textviewer ""
+!     protected tkdesk_menu
+!     protected topl
+  }
+  
+--- 983,990 ----
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     protected variable textviewer ""
+!     protected variable tkdesk_menu
+!     protected variable topl
+  }
+  
+Index: tkdesk/tcldesk/Desktop.tcl
+diff -c tkdesk/tcldesk/Desktop.tcl:1.1.1.1 tkdesk/tcldesk/Desktop.tcl:1.2
+*** tkdesk/tcldesk/Desktop.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/Desktop.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 100,106 ****
+  	set flist $flb
+      }
+      foreach file $flist {
+! 	set di .di[dsk_DeskItem :: id]
+  	dsk_DeskItem $di -file $file -dontmap 1
+  	set di [$di getToplevel]
+  	update idletasks
+--- 100,106 ----
+  	set flist $flb
+      }
+      foreach file $flist {
+! 	set di .di[dsk_DeskItem::id]
+  	dsk_DeskItem $di -file $file -dontmap 1
+  	set di [$di getToplevel]
+  	update idletasks
+***************
+*** 124,130 ****
+  proc dsk_desktop_update {} {
+      global tkdesk
+  
+!     set dilist [itcl_info objects -class dsk_DeskItem]
+      set xoff 0
+      set yoff 0
+  	
+--- 124,130 ----
+  proc dsk_desktop_update {} {
+      global tkdesk
+  
+!     set dilist [itcl::find objects -class dsk_DeskItem]
+      set xoff 0
+      set yoff 0
+  	
+***************
+*** 140,146 ****
+  	    continue
+  	}
+  	
+! 	set di .di[dsk_DeskItem :: id]
+  	dsk_DeskItem $di -file $file -dontmap 1
+  	set di [$di getToplevel]
+  	update idletasks
+--- 140,146 ----
+  	    continue
+  	}
+  	
+! 	set di .di[dsk_DeskItem::id]
+  	dsk_DeskItem $di -file $file -dontmap 1
+  	set di [$di getToplevel]
+  	update idletasks
+***************
+*** 237,243 ****
+  	}
+  	wm geometry $top +[winfo pointerx $top]+[winfo pointery $top]
+  
+! 	eval config $args
+  
+  	if [file isdirectory $file] {
+  	    blt_drag&drop target $top.i handler file "$this _dd_drop dir %v"
+--- 237,243 ----
+  	}
+  	wm geometry $top +[winfo pointerx $top]+[winfo pointery $top]
+  
+! 	eval configure $args
+  
+  	if [file isdirectory $file] {
+  	    blt_drag&drop target $top.i handler file "$this _dd_drop dir %v"
+***************
+*** 285,295 ****
+      
+      # ---- Methods -----------------------------------------------------------
+  
+!     method config {config} {}
+!     method configure {config} {}
+      
+      method cget {pubvar} {
+! 	return [virtual set [string trimleft $pubvar -]]
+      }
+  
+      method drag {cmd args} {
+--- 285,296 ----
+      
+      # ---- Methods -----------------------------------------------------------
+  
+!     method config {args} {
+!        eval configure $args
+!     }
+      
+      method cget {pubvar} {
+! 	return [$this set [string trimleft $pubvar -]]
+      }
+  
+      method drag {cmd args} {
+***************
+*** 322,328 ****
+  	    }
+  	}
+  
+! 	delete
+      }
+  
+      method open {} {
+--- 323,329 ----
+  	    }
+  	}
+  
+! 	itcl::delete object $this
+      }
+  
+      method open {} {
+***************
+*** 335,341 ****
+  	} else {
+  	    dsk_bell
+  	    if {[cb_yesno "The associated file/directory has been deleted from outside TkDesk. Remove desk item?"] == 0} {
+! 		$this delete
+  	    }
+  	}
+      }
+--- 336,342 ----
+  	} else {
+  	    dsk_bell
+  	    if {[cb_yesno "The associated file/directory has been deleted from outside TkDesk. Remove desk item?"] == 0} {
+! 		itcl::delete object $this
+  	    }
+  	}
+      }
+***************
+*** 515,521 ****
+  
+      proc move {ofile nfile} {
+  	# $rfile has been moved -> adjust associated icons
+! 	foreach di [itcl_info objects -class dsk_DeskItem] {
+  	    if ![winfo exists [$di getToplevel]] continue
+  	    set file [$di cget -file]
+  	    if {$file == $ofile} {
+--- 516,522 ----
+  
+      proc move {ofile nfile} {
+  	# $rfile has been moved -> adjust associated icons
+! 	foreach di [itcl::find objects -class dsk_DeskItem] {
+  	    if ![winfo exists [$di getToplevel]] continue
+  	    set file [$di cget -file]
+  	    if {$file == $ofile} {
+***************
+*** 529,541 ****
+      
+      proc remove {rfile} {
+  	# $rfile has been deleted -> remove associated icons
+! 	foreach di [itcl_info objects -class dsk_DeskItem] {
+  	    if ![winfo exists [$di getToplevel]] continue
+  	    set file [$di cget -file]
+  	    if {$file == $rfile} {
+! 		$di delete
+  	    } elseif {[string first $rfile/ $file] == 0} {
+! 		$di delete
+  	    }
+  	}
+      }
+--- 530,542 ----
+      
+      proc remove {rfile} {
+  	# $rfile has been deleted -> remove associated icons
+! 	foreach di [itcl::find objects -class dsk_DeskItem] {
+  	    if ![winfo exists [$di getToplevel]] continue
+  	    set file [$di cget -file]
+  	    if {$file == $rfile} {
+! 		itcl::delete object $di
+  	    } elseif {[string first $rfile/ $file] == 0} {
+! 		itcl::delete object $di
+  	    }
+  	}
+      }
+***************
+*** 543,549 ****
+  
+      # ---- Variables ---------------------------------------------------------
+  
+!     public file "no name" {
+  	global tkdesk
+  
+  	set havematch 0
+--- 544,550 ----
+  
+      # ---- Variables ---------------------------------------------------------
+  
+!     public variable file "no name" {
+  	global tkdesk
+  
+  	set havematch 0
+***************
+*** 605,614 ****
+  	}
+  	$top.l config -text [_break_name [file tail $file]]
+      }
+!     public dontmap 0
+  
+!     protected move_x
+!     protected move_y
+  
+      common id_counter 0
+      common width 12
+--- 606,615 ----
+  	}
+  	$top.l config -text [_break_name [file tail $file]]
+      }
+!     public variable dontmap 0
+  
+!     protected variable move_x
+!     protected variable move_y
+  
+      common id_counter 0
+      common width 12
+Index: tkdesk/tcldesk/DiskUsage.tcl
+diff -c tkdesk/tcldesk/DiskUsage.tcl:1.1.1.1 tkdesk/tcldesk/DiskUsage.tcl:1.2
+*** tkdesk/tcldesk/DiskUsage.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/DiskUsage.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 84,90 ****
+  	frame $top.fb -bd 1 -relief raised
+  	pack $top.fb -fill x
+  
+! 	button $top.bClose -text " Close " -command "$this delete"
+  	button $top.bRefresh -text " Refresh " -command "$this refresh"
+  	pack $top.bClose $top.bRefresh -in $top.fb -side left \
+  		-padx $tkdesk(pad) -pady $tkdesk(pad) -ipady 2
+--- 84,90 ----
+  	frame $top.fb -bd 1 -relief raised
+  	pack $top.fb -fill x
+  
+! 	button $top.bClose -text " Close " -command "itcl::delete object $this"
+  	button $top.bRefresh -text " Refresh " -command "$this refresh"
+  	pack $top.bClose $top.bRefresh -in $top.fb -side left \
+  		-padx $tkdesk(pad) -pady $tkdesk(pad) -ipady 2
+***************
+*** 92,100 ****
+  	wm minsize $top 40 16
+  	#wm geometry $top 40x15
+  	wm title $top "Disk Usage"
+! 	wm protocol $top WM_DELETE_WINDOW "$this delete"
+  
+! 	eval config $args
+      }
+  
+      destructor {
+--- 92,100 ----
+  	wm minsize $top 40 16
+  	#wm geometry $top 40x15
+  	wm title $top "Disk Usage"
+! 	wm protocol $top WM_DELETE_WINDOW "itcl::delete object $this"
+  
+! 	eval configure $args
+      }
+  
+      destructor {
+***************
+*** 104,110 ****
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {config} {
+      }
+  
+      method refresh {} {
+--- 104,111 ----
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {args} {
+!        eval configure $args
+      }
+  
+      method refresh {} {
+***************
+*** 121,131 ****
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public dir "/" {
+  	$this config -directory $dir
+      }
+  
+!     public directory "/" {
+  	global tkdesk
+  	
+  	#dsk_busy
+--- 122,132 ----
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public variable dir "/" {
+  	$this config -directory $dir
+      }
+  
+!     public variable directory "/" {
+  	global tkdesk
+  	
+  	#dsk_busy
+***************
+*** 167,173 ****
+  	    }
+  	} else {
+  	    if {[wm state $top] == "withdrawn"} {
+! 		after 200 $this delete
+  	    }
+  	}
+  	dsk_status "Ready."
+--- 168,174 ----
+  	    }
+  	} else {
+  	    if {[wm state $top] == "withdrawn"} {
+! 		after 200 itcl::delete object $this
+  	    }
+  	}
+  	dsk_status "Ready."
+***************
+*** 193,199 ****
+      }
+  
+      if {$dir != ""} {
+!     	dsk_DiskUsage .du[dsk_DiskUsage :: id] -directory $dir
+      }
+  }
+  
+--- 194,200 ----
+      }
+  
+      if {$dir != ""} {
+!     	dsk_DiskUsage .du[dsk_DiskUsage::id] -directory $dir
+      }
+  }
+  
+Index: tkdesk/tcldesk/Editor.tcl
+diff -c tkdesk/tcldesk/Editor.tcl:1.2 tkdesk/tcldesk/Editor.tcl:1.3
+*** tkdesk/tcldesk/Editor.tcl:1.2	Wed Mar 10 22:23:40 2004
+--- tkdesk/tcldesk/Editor.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 186,192 ****
+  	$m add command -label "Save as...  " -underline 5 \
+  		-command "$this save as"
+  	$m add command -label "Save all" -underline 2 \
+! 		-command "dsk_Editor :: save_all"
+  	$m add command -label "Print... " -underline 0 \
+  		-command "$this print" \
+  		-accelerator [lindex $accel(file,print) 0]
+--- 186,192 ----
+  	$m add command -label "Save as...  " -underline 5 \
+  		-command "$this save as"
+  	$m add command -label "Save all" -underline 2 \
+! 		-command "dsk_Editor::save_all"
+  	$m add command -label "Print... " -underline 0 \
+  		-command "$this print" \
+  		-accelerator [lindex $accel(file,print) 0]
+***************
+*** 349,355 ****
+  	pack $top.fMenu.mbBuffer -side left
+  
+  	menu $top.fMenu.mbBuffer.menu \
+! 		-postcommand "dsk_Editor :: bufferMenu $top.fMenu.mbBuffer.menu $this"
+  	# add dummy entry to work around bug in pre Tk 4.0p2:
+  	$top.fMenu.mbBuffer.menu add command -label "dummy"
+  	
+--- 349,355 ----
+  	pack $top.fMenu.mbBuffer -side left
+  
+  	menu $top.fMenu.mbBuffer.menu \
+! 		-postcommand "dsk_Editor::bufferMenu $top.fMenu.mbBuffer.menu $this"
+  	# add dummy entry to work around bug in pre Tk 4.0p2:
+  	$top.fMenu.mbBuffer.menu add command -label "dummy"
+  	
+***************
+*** 524,530 ****
+  	    update idletasks
+  	    wm geometry $top-icon \
+  		    [winfo reqwidth $top-icon]x[winfo reqheight $top-icon]
+! 	    wm protocol $top-icon WM_DELETE_WINDOW "$this delete"
+  	    wm iconwindow $top $top-icon
+  	    update idletasks
+  	} else {
+--- 524,530 ----
+  	    update idletasks
+  	    wm geometry $top-icon \
+  		    [winfo reqwidth $top-icon]x[winfo reqheight $top-icon]
+! 	    wm protocol $top-icon WM_DELETE_WINDOW "itcl::delete object $this"
+  	    wm iconwindow $top $top-icon
+  	    update idletasks
+  	} else {
+***************
+*** 550,556 ****
+  	}
+  
+  	if {$args != {}} {
+! 	    eval config $args
+  	}
+  	if {!$files_set} {
+  	    cb_deiconify $top
+--- 550,556 ----
+  	}
+  
+  	if {$args != {}} {
+! 	    eval configure $args
+  	}
+  	if {!$files_set} {
+  	    cb_deiconify $top
+***************
+*** 571,577 ****
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {config} {
+      }
+  
+      method cget {var} {
+--- 571,578 ----
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {args} {
+!        eval configure $args
+      }
+  
+      method cget {var} {
+***************
+*** 1169,1175 ****
+  	    return ""
+  	} else {
+  	    if !$dontdel {
+! 		$this delete
+  	    }
+  	}
+      }
+--- 1170,1176 ----
+  	    return ""
+  	} else {
+  	    if !$dontdel {
+! 		itcl::delete object $this
+  	    }
+  	}
+      }
+***************
+*** 2358,2364 ****
+  	    if ![info exists buffer($id,file)] continue
+  	    if ![info exists changed($id)] continue
+  	    if {$win != ""} {
+! 		set currentid [$win info protected currentid -value]
+  	    } else {
+  		set currentid -1
+  	    }
+--- 2359,2365 ----
+  	    if ![info exists buffer($id,file)] continue
+  	    if ![info exists changed($id)] continue
+  	    if {$win != ""} {
+! 		set currentid [$win info variable currentid -value]
+  	    } else {
+  		set currentid -1
+  	    }
+***************
+*** 2418,2424 ****
+  	    }
+  	}
+  	
+! 	if {[itcl_info objects $w] != {}} {
+  	    $w buffer create $file 0 0
+  	}
+      }
+--- 2419,2425 ----
+  	    }
+  	}
+  	
+! 	if {[itcl::find objects $w] != {}} {
+  	    $w buffer create $file 0 0
+  	}
+      }
+***************
+*** 2431,2437 ****
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public files "" {
+  	set files_set 1
+  	set dont_display 1
+  	set id -1
+--- 2432,2438 ----
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public variable files "" {
+  	set files_set 1
+  	set dont_display 1
+  	set id -1
+***************
+*** 2452,2474 ****
+  	dsk_status_ready
+      }
+  
+!     public name "" {
+  	
+  	set buffer($currentid,file) $name
+  	wm title $top [cb_tilde $name collapse]
+  	wm iconname $top "[file tail $name]"
+      }
+  
+!     protected currentid -1
+!     protected match_range ""
+!     protected search_regexp ""
+!     protected hsearch_lnr ""
+!     protected autosavecount 0
+!     protected autosaveperiod 500
+!     protected undo_size 500
+!     protected dont_display 0
+!     protected files_set 0
+!     protected stat_label
+  
+      common buffer
+      common bufcount 0
+--- 2453,2475 ----
+  	dsk_status_ready
+      }
+  
+!     public variable name "" {
+  	
+  	set buffer($currentid,file) $name
+  	wm title $top [cb_tilde $name collapse]
+  	wm iconname $top "[file tail $name]"
+      }
+  
+!     protected variable currentid -1
+!     protected variable match_range ""
+!     protected variable search_regexp ""
+!     protected variable hsearch_lnr ""
+!     protected variable autosavecount 0
+!     protected variable autosaveperiod 500
+!     protected variable undo_size 500
+!     protected variable dont_display 0
+!     protected variable files_set 0
+!     protected variable stat_label
+  
+      common buffer
+      common bufcount 0
+***************
+*** 2503,2521 ****
+      set w ""
+      switch -- $cmd {
+  	new {
+!     	    set w .de[dsk_Editor :: id]
+  	    dsk_Editor $w
+  	    $w buffer new {}
+  	}
+  	load {
+! 	    set w .de[dsk_Editor :: id]
+  	    dsk_Editor $w
+  	    foreach file $args {
+  		$w buffer create $file
+  	    }
+  	}
+  	string {
+! 	    set w .de[dsk_Editor :: id]
+  	    dsk_Editor $w
+  	    $w buffer new {}
+  	    eval [$w getToplevel].ft.text insert end $args
+--- 2504,2522 ----
+      set w ""
+      switch -- $cmd {
+  	new {
+!     	    set w .de[dsk_Editor::id]
+  	    dsk_Editor $w
+  	    $w buffer new {}
+  	}
+  	load {
+! 	    set w .de[dsk_Editor::id]
+  	    dsk_Editor $w
+  	    foreach file $args {
+  		$w buffer create $file
+  	    }
+  	}
+  	string {
+! 	    set w .de[dsk_Editor::id]
+  	    dsk_Editor $w
+  	    $w buffer new {}
+  	    eval [$w getToplevel].ft.text insert end $args
+***************
+*** 2523,2537 ****
+  	    # $w _changing
+  	}	    
+  	delall {
+! 	    foreach obj [itcl_info objects -class dsk_Editor] {
+  		catch {$obj close_win}
+  	    }
+  	}
+  	fileview {
+  	    set w [lindex $args 0]
+  	    set file [lindex $args 1]
+! 	    if {[itcl_info objects $w] == {}} {
+! 		set w .de[dsk_Editor :: id]
+  		dsk_Editor $w
+  		set dsk_editor($w,viewerid) ""
+  	    }
+--- 2524,2538 ----
+  	    # $w _changing
+  	}	    
+  	delall {
+! 	    foreach obj [itcl::find objects -class dsk_Editor] {
+  		catch {$obj close_win}
+  	    }
+  	}
+  	fileview {
+  	    set w [lindex $args 0]
+  	    set file [lindex $args 1]
+! 	    if {[itcl::find objects $w] == {}} {
+! 		set w .de[dsk_Editor::id]
+  		dsk_Editor $w
+  		set dsk_editor($w,viewerid) ""
+  	    }
+***************
+*** 2543,2554 ****
+  	}
+  	quickload {
+  	    set w [lindex $args 0]
+! 	    if {[itcl_info objects $w] == {}} {
+  		catch {unset tkdesk(quick_load_editor)}
+  		return
+  	    }
+  	    set file [lindex $args 1]
+! 	    dsk_Editor :: load_or_display $w $file
+  	}
+  	cmd {
+  	    set cnt [incr dsk_editor(cnt)]
+--- 2544,2555 ----
+  	}
+  	quickload {
+  	    set w [lindex $args 0]
+! 	    if {[itcl::find objects $w] == {}} {
+  		catch {unset tkdesk(quick_load_editor)}
+  		return
+  	    }
+  	    set file [lindex $args 1]
+! 	    dsk_Editor::load_or_display $w $file
+  	}
+  	cmd {
+  	    set cnt [incr dsk_editor(cnt)]
+***************
+*** 2600,2606 ****
+  	    cd ~
+  	    if $tkdesk(exec_as_root) return
+  
+! 	    set w .de[dsk_Editor :: id]
+  	    dsk_Editor $w
+  	    set win [$w getToplevel]
+  	    $w buffer new {}
+--- 2601,2607 ----
+  	    cd ~
+  	    if $tkdesk(exec_as_root) return
+  
+! 	    set w .de[dsk_Editor::id]
+  	    dsk_Editor $w
+  	    set win [$w getToplevel]
+  	    $w buffer new {}
+Index: tkdesk/tcldesk/FileInfo.tcl
+diff -c tkdesk/tcldesk/FileInfo.tcl:1.1.1.1 tkdesk/tcldesk/FileInfo.tcl:1.2
+*** tkdesk/tcldesk/FileInfo.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/FileInfo.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 163,169 ****
+  	wm title $top "File Information"
+  	wm protocol $top WM_DELETE_WINDOW "$this close"
+  
+! 	eval config $args
+      }
+  
+      destructor {
+--- 163,169 ----
+  	wm title $top "File Information"
+  	wm protocol $top WM_DELETE_WINDOW "$this close"
+  
+! 	eval configure $args
+      }
+  
+      destructor {
+***************
+*** 186,199 ****
+  	}
+  
+  	if {[info tclversion] >= 8.0} {
+! 	    $this delete
+  	} else {
+  	    wm withdraw $top
+  	    dsk_FileInfo::cache add $this
+  	}
+      }
+  
+!     method config {config} {
+      }
+  
+      method touch {} {
+--- 186,200 ----
+  	}
+  
+  	if {[info tclversion] >= 8.0} {
+! 	    itcl::delete object $this
+  	} else {
+  	    wm withdraw $top
+  	    dsk_FileInfo::cache add $this
+  	}
+      }
+  
+!     method config {args} {
+!        eval configure $args
+      }
+  
+      method touch {} {
+***************
+*** 513,519 ****
+  	switch $cmd {
+  	    "get" {
+  		if {$objectCache == {}} {
+! 		    return [eval dsk_FileInfo .fi[dsk_FileInfo :: id] $args]
+  		} else {
+  		    #puts "objectCache before: $objectCache"
+  		    set obj [lindex $objectCache 0]
+--- 514,520 ----
+  	switch $cmd {
+  	    "get" {
+  		if {$objectCache == {}} {
+! 		    return [eval dsk_FileInfo .fi[dsk_FileInfo::id] $args]
+  		} else {
+  		    #puts "objectCache before: $objectCache"
+  		    set obj [lindex $objectCache 0]
+***************
+*** 533,539 ****
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public file "" {
+  
+  	set file [cb_tilde $file expand]
+  	dsk_debug "dsk_FileInfo config file: $file"	
+--- 534,540 ----
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public variable file "" {
+  
+  	set file [cb_tilde $file expand]
+  	dsk_debug "dsk_FileInfo config file: $file"	
+***************
+*** 542,550 ****
+  	}
+      }
+  
+!     protected owner
+!     protected group
+!     protected fmode
+  
+      common id 0
+      common objectCache {}
+--- 543,551 ----
+  	}
+      }
+  
+!     protected variable owner
+!     protected variable group
+!     protected variable fmode
+  
+      common id 0
+      common objectCache {}
+***************
+*** 588,596 ****
+  	    if {[info tclversion] >= 8.0} {
+  		# itcl 3.x seems to disallow object creation through
+  		# class procs
+! 		dsk_FileInfo .fi[dsk_FileInfo :: id] -file $file
+  	    } else {
+! 		dsk_FileInfo :: cache get -file $file
+  	    }
+  	}
+      }
+--- 589,597 ----
+  	    if {[info tclversion] >= 8.0} {
+  		# itcl 3.x seems to disallow object creation through
+  		# class procs
+! 		dsk_FileInfo .fi[dsk_FileInfo::id] -file $file
+  	    } else {
+! 		dsk_FileInfo::cache get -file $file
+  	    }
+  	}
+      }
+Index: tkdesk/tcldesk/FileListbox.tcl
+diff -c tkdesk/tcldesk/FileListbox.tcl:1.1.1.1 tkdesk/tcldesk/FileListbox.tcl:1.2
+*** tkdesk/tcldesk/FileListbox.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/FileListbox.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 162,169 ****
+  	$frame.mb.menu add cascade -label "Sort by ... " -menu $frame.mb.menu.smenu
+  	$frame.mb.menu add separator
+  	$frame.mb.menu add command -label "Open List Window" \
+! 		-command "dsk_FileList .dfl\[dsk_FileList :: id\] \
+! 			-directory \[$this info public directory -value\]"
+  	
+  	menu $frame.mb.menu.smenu
+  	$frame.mb.menu.smenu add radiobutton -label " Name " \
+--- 162,169 ----
+  	$frame.mb.menu add cascade -label "Sort by ... " -menu $frame.mb.menu.smenu
+  	$frame.mb.menu add separator
+  	$frame.mb.menu add command -label "Open List Window" \
+! 		-command "dsk_FileList .dfl\[dsk_FileList::id\] \
+! 			-directory \[$this info variable directory -value\]"
+  	
+  	menu $frame.mb.menu.smenu
+  	$frame.mb.menu.smenu add radiobutton -label " Name " \
+***************
+*** 486,492 ****
+  	bind listimg-$frame <Control-3> {# nothing}
+  
+  	$this _build_ls_cmd
+! 	eval config $args
+  	
+  	$frame.dlb show_hsb $longlist
+      }
+--- 486,492 ----
+  	bind listimg-$frame <Control-3> {# nothing}
+  
+  	$this _build_ls_cmd
+! 	eval configure $args
+  	
+  	$frame.dlb show_hsb $longlist
+      }
+***************
+*** 494,500 ****
+      destructor {
+  	global [set this]
+  	
+! 	$frame.dlb delete
+  	::unset [set this]
+      }
+  
+--- 494,500 ----
+      destructor {
+  	global [set this]
+  	
+! 	itcl::delete object $frame.dlb
+  	::unset [set this]
+      }
+  
+***************
+*** 502,508 ****
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {config} {
+      }
+  
+      method cget {var} {
+--- 502,509 ----
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {args} {
+!        eval configure $args
+      }
+  
+      method cget {var} {
+***************
+*** 668,674 ****
+  
+      method _ask_mask {} {
+  	
+! 	dsk_HistEntry .he[dsk_HistEntry :: id] \
+  		-title " Set Mask " \
+  		-label "Mask for files to show or select:" \
+  		-history mask_history \
+--- 669,675 ----
+  
+      method _ask_mask {} {
+  	
+! 	dsk_HistEntry .he[dsk_HistEntry::id] \
+  		-title " Set Mask " \
+  		-label "Mask for files to show or select:" \
+  		-history mask_history \
+***************
+*** 1020,1026 ****
+  	}
+  	dsk_debug "_quick_info file: $file"
+  
+! 	set o [lindex [itcl_info objects -class dsk_FileInfo] 0]
+  	if {$o != {}} {
+  	    set w [$o getToplevel]
+  	    if [winfo exists $w] {
+--- 1021,1027 ----
+  	}
+  	dsk_debug "_quick_info file: $file"
+  
+! 	set o [lindex [itcl::find objects -class dsk_FileInfo] 0]
+  	if {$o != {}} {
+  	    set w [$o getToplevel]
+  	    if [winfo exists $w] {
+***************
+*** 1224,1230 ****
+      }
+  
+      proc font {fnt} {
+! 	foreach obj [itcl_info objects -class dsk_FileListbox] {
+  	    if [winfo exists $obj.dlb.text] {
+  		$obj.dlb.text config -font [cb_font $fnt]
+  	    }
+--- 1225,1231 ----
+      }
+  
+      proc font {fnt} {
+! 	foreach obj [itcl::find objects -class dsk_FileListbox] {
+  	    if [winfo exists $obj.dlb.text] {
+  		$obj.dlb.text config -font [cb_font $fnt]
+  	    }
+***************
+*** 1233,1239 ****
+      }
+  
+      proc color {col} {
+! 	foreach obj [itcl_info objects -class dsk_FileListbox] {
+  	    if [winfo exists $obj.dlb.text] {
+  		$obj.dlb.text config -foreground $col
+  	    }
+--- 1234,1240 ----
+      }
+  
+      proc color {col} {
+! 	foreach obj [itcl::find objects -class dsk_FileListbox] {
+  	    if [winfo exists $obj.dlb.text] {
+  		$obj.dlb.text config -foreground $col
+  	    }
+***************
+*** 1251,1257 ****
+  
+      proc showall {val} {
+  	set _showall $val
+! 	foreach object [itcl_info objects -class dsk_FileListbox] {
+  	    if {[$object cget -showall] != $val} {
+  		$object config -showall $val
+  	    }
+--- 1252,1258 ----
+  
+      proc showall {val} {
+  	set _showall $val
+! 	foreach object [itcl::find objects -class dsk_FileListbox] {
+  	    if {[$object cget -showall] != $val} {
+  		$object config -showall $val
+  	    }
+***************
+*** 1260,1266 ****
+  
+      proc longlist {val} {
+  	set _longlist $val
+! 	foreach object [itcl_info objects -class dsk_FileListbox] {
+  	    #if {[$object cget -longlist] != $val} {
+  		$object config -longlist $val
+  	    #}
+--- 1261,1267 ----
+  
+      proc longlist {val} {
+  	set _longlist $val
+! 	foreach object [itcl::find objects -class dsk_FileListbox] {
+  	    #if {[$object cget -longlist] != $val} {
+  		$object config -longlist $val
+  	    #}
+***************
+*** 1269,1296 ****
+  
+      proc topfolders {val} {
+  	set _topfolders $val
+! 	foreach object [itcl_info objects -class dsk_FileListbox] {
+  	    $object config -topfolders $val
+  	}
+      }
+  
+      proc typechar {val} {
+  	set _typechar $val
+! 	foreach object [itcl_info objects -class dsk_FileListbox] {
+  	    $object config -typechar $val
+  	}
+      }
+  
+      proc dotregular {val} {
+  	set _dotreg $val
+! 	foreach object [itcl_info objects -class dsk_FileListbox] {
+  	    $object config -dotregular $val
+  	}
+      }
+  
+      proc addicons {val} {
+  	set _addicons $val
+! 	foreach object [itcl_info objects -class dsk_FileListbox] {
+  	    if {[$object cget -add_icons] != $val} {
+  		$object config -add_icons $val
+  	    }
+--- 1270,1297 ----
+  
+      proc topfolders {val} {
+  	set _topfolders $val
+! 	foreach object [itcl::find objects -class dsk_FileListbox] {
+  	    $object config -topfolders $val
+  	}
+      }
+  
+      proc typechar {val} {
+  	set _typechar $val
+! 	foreach object [itcl::find objects -class dsk_FileListbox] {
+  	    $object config -typechar $val
+  	}
+      }
+  
+      proc dotregular {val} {
+  	set _dotreg $val
+! 	foreach object [itcl::find objects -class dsk_FileListbox] {
+  	    $object config -dotregular $val
+  	}
+      }
+  
+      proc addicons {val} {
+  	set _addicons $val
+! 	foreach object [itcl::find objects -class dsk_FileListbox] {
+  	    if {[$object cget -add_icons] != $val} {
+  		$object config -add_icons $val
+  	    }
+***************
+*** 1299,1305 ****
+  
+      proc sort {val} {
+  	set _sort $val
+! 	foreach object [itcl_info objects -class dsk_FileListbox] {
+  	    $object config -sort $val
+  	}
+      }
+--- 1300,1306 ----
+  
+      proc sort {val} {
+  	set _sort $val
+! 	foreach object [itcl::find objects -class dsk_FileListbox] {
+  	    $object config -sort $val
+  	}
+      }
+***************
+*** 1354,1360 ****
+  		set di [lsearch $taglist dir]
+  		set taglist [linsert $taglist $di $tname]
+  		foreach this \
+! 			[itcl_info objects -class dsk_FileListbox] {
+  		    [$this getLbObj] tag config $tname \
+  			    -foreground $tags($tname,color) \
+  			    -font $tags($tname,font)
+--- 1355,1361 ----
+  		set di [lsearch $taglist dir]
+  		set taglist [linsert $taglist $di $tname]
+  		foreach this \
+! 			[itcl::find objects -class dsk_FileListbox] {
+  		    [$this getLbObj] tag config $tname \
+  			    -foreground $tags($tname,color) \
+  			    -font $tags($tname,font)
+***************
+*** 1384,1390 ****
+  		    set tags($tname,image) $default_image
+  		}
+  		foreach this \
+! 			[itcl_info objects -class dsk_FileListbox] {
+  		    [$this getLbObj] tag config $tname \
+  			    -foreground $tags($tname,color) \
+  			    -font $tags($tname,font)
+--- 1385,1391 ----
+  		    set tags($tname,image) $default_image
+  		}
+  		foreach this \
+! 			[itcl::find objects -class dsk_FileListbox] {
+  		    [$this getLbObj] tag config $tname \
+  			    -foreground $tags($tname,color) \
+  			    -font $tags($tname,font)
+***************
+*** 1449,1463 ****
+      #  Options for dskC_ls:
+      #
+  
+!     protected ls_cmd
+  
+!     public invert {0} {
+  	$this _build_ls_cmd
+  	$this refresh
+  	::set [set this](invert) $invert
+      }
+  
+!     public sort {name} {
+  	global [set this]
+  	
+  	$this _build_ls_cmd
+--- 1450,1464 ----
+      #  Options for dskC_ls:
+      #
+  
+!     protected variable ls_cmd
+  
+!     public variable invert {0} {
+  	$this _build_ls_cmd
+  	$this refresh
+  	::set [set this](invert) $invert
+      }
+  
+!     public variable sort {name} {
+  	global [set this]
+  	
+  	$this _build_ls_cmd
+***************
+*** 1465,1476 ****
+  	::set [set this](sort) $sort
+      }
+  
+!     public notrivialdirs {0} {
+  	$this _build_ls_cmd
+  	$this refresh
+      }
+  
+!     public showall {0} {
+  	global [set this]
+  
+  	$this _build_ls_cmd
+--- 1466,1477 ----
+  	::set [set this](sort) $sort
+      }
+  
+!     public variable notrivialdirs {0} {
+  	$this _build_ls_cmd
+  	$this refresh
+      }
+  
+!     public variable showall {0} {
+  	global [set this]
+  
+  	$this _build_ls_cmd
+***************
+*** 1478,1484 ****
+  	::set [set this](showall) $showall
+      }
+  
+!     public longlist {0} {
+  	global [set this]
+  
+  	$this _build_ls_cmd
+--- 1479,1485 ----
+  	::set [set this](showall) $showall
+      }
+  
+!     public variable longlist {0} {
+  	global [set this]
+  
+  	$this _build_ls_cmd
+***************
+*** 1487,1513 ****
+  	$frame.dlb show_hsb $longlist
+      }
+  
+!     public topfolders {0} {
+  	$this _build_ls_cmd
+  	$this refresh
+      }
+  
+!     public typechar {0}	{
+  	$this _build_ls_cmd
+  	$this refresh
+      }
+  
+!     public dotregular {0} {
+  	#$this _build_ls_cmd
+  	$this refresh
+      }
+  
+!     public add_icons {1} {
+  	$this refresh
+  	::set [set this](add_icons) $add_icons
+      }
+  
+!     public dont_refresh 0
+  
+      common _showall 0
+      common _longlist 0
+--- 1488,1514 ----
+  	$frame.dlb show_hsb $longlist
+      }
+  
+!     public variable topfolders {0} {
+  	$this _build_ls_cmd
+  	$this refresh
+      }
+  
+!     public variable typechar {0}	{
+  	$this _build_ls_cmd
+  	$this refresh
+      }
+  
+!     public variable dotregular {0} {
+  	#$this _build_ls_cmd
+  	$this refresh
+      }
+  
+!     public variable add_icons {1} {
+  	$this refresh
+  	::set [set this](add_icons) $add_icons
+      }
+  
+!     public variable dont_refresh 0
+  
+      common _showall 0
+      common _longlist 0
+***************
+*** 1521,1527 ****
+      #  Other
+      #
+  
+!     public toplevel "" {	# a hack for the file list windows
+  	global [set this]
+  
+  	if {$toplevel != ""} {
+--- 1522,1528 ----
+      #  Other
+      #
+  
+!     public variable toplevel "" {	# a hack for the file list windows
+  	global [set this]
+  
+  	if {$toplevel != ""} {
+***************
+*** 1546,1561 ****
+  
+  	    $frame.mb.menu add separator
+  	    $frame.mb.menu add command -label "Open Browser " \
+! 		-command "dsk_FileViewer .fv\[dsk_FileViewer :: id\] \
+! 			-directory \[$this info public directory -value\]"
+  	}
+      }
+  
+!     public dir {} {
+  	$this config -directory $dir
+      }
+  
+!     public directory {} {
+  	global tkdesk
+  	
+  	if {[string index $directory 0] == "~"} {
+--- 1547,1562 ----
+  
+  	    $frame.mb.menu add separator
+  	    $frame.mb.menu add command -label "Open Browser " \
+! 		-command "dsk_FileViewer .fv\[dsk_FileViewer::id\] \
+! 			-directory \[$this info variable directory -value\]"
+  	}
+      }
+  
+!     public variable dir {} {
+  	$this config -directory $dir
+      }
+  
+!     public variable directory {} {
+  	global tkdesk
+  	
+  	if {[string index $directory 0] == "~"} {
+***************
+*** 1569,1594 ****
+  	}
+      }
+  
+!     public mask {*} {
+  	$this config -directory $directory
+  	if {$toplevel == ""} {	
+  	    $viewer status "Ready."
+  	}
+      }
+  
+!     public width {10} {
+  	$frame.dlb config -width $width
+      }
+  
+!     public height {10} {
+  	$frame.dlb config -height $height
+      }
+  
+!     public pad {4} {
+  	$frame.dlb config -pad $pad
+      }
+  
+!     public viewer {} {
+  	bind $framedlb.text <1> "
+  		$viewer _selecting $this
+  		[bind $framedlb.text <1>]
+--- 1570,1595 ----
+  	}
+      }
+  
+!     public variable mask {*} {
+  	$this config -directory $directory
+  	if {$toplevel == ""} {	
+  	    $viewer status "Ready."
+  	}
+      }
+  
+!     public variable width {10} {
+  	$frame.dlb config -width $width
+      }
+  
+!     public variable height {10} {
+  	$frame.dlb config -height $height
+      }
+  
+!     public variable pad {4} {
+  	$frame.dlb config -pad $pad
+      }
+  
+!     public variable viewer {} {
+  	bind $framedlb.text <1> "
+  		$viewer _selecting $this
+  		[bind $framedlb.text <1>]
+***************
+*** 1607,1620 ****
+  		[bind $framedlb.text <3>]"
+      }
+  
+!     protected _last_mask {*}
+!     protected _last_size_stat ""
+!     protected mtime 0
+!     protected refreshing 0
+!     protected old_selection ""
+!     protected closed_image ""
+!     protected invert_mask 0
+!     protected framedlb
+      
+      common default_image ficons16/file.xpm
+      common path_image ficons16/diropen.xpm
+--- 1608,1621 ----
+  		[bind $framedlb.text <3>]"
+      }
+  
+!     protected variable _last_mask {*}
+!     protected variable _last_size_stat ""
+!     protected variable mtime 0
+!     protected variable refreshing 0
+!     protected variable old_selection ""
+!     protected variable closed_image ""
+!     protected variable invert_mask 0
+!     protected variable framedlb
+      
+      common default_image ficons16/file.xpm
+      common path_image ficons16/diropen.xpm
+***************
+*** 1671,1687 ****
+  	    if {$pats == "!default"} {
+  		set tkdesk(color,directories) $col
+  		set tkdesk(font,directories) $font
+! 		dsk_FileListbox :: tag config "dir" [cb_col $col] $font $licon
+! 		dsk_DeskItem :: defimg dir $dicon
+  	    } elseif {$pats == "!symlink"} {
+  		set tkdesk(color,symdirectories) $col
+  		set tkdesk(font,symdirectories) $font
+! 		dsk_FileListbox :: tag config "symdir" [cb_col $col] $font $licon
+  	    } elseif {$pats == "!opened"} {
+! 		dsk_FileListbox :: pathimage $licon
+  	    } else {
+  		foreach pat $pats {
+! 		    dsk_FileListbox :: tag create "dir $pat" [cb_col $col] $font $licon
+  		}
+  	    }
+  	}
+--- 1672,1688 ----
+  	    if {$pats == "!default"} {
+  		set tkdesk(color,directories) $col
+  		set tkdesk(font,directories) $font
+! 		dsk_FileListbox::tag config "dir" [cb_col $col] $font $licon
+! 		dsk_DeskItem::defimg dir $dicon
+  	    } elseif {$pats == "!symlink"} {
+  		set tkdesk(color,symdirectories) $col
+  		set tkdesk(font,symdirectories) $font
+! 		dsk_FileListbox::tag config "symdir" [cb_col $col] $font $licon
+  	    } elseif {$pats == "!opened"} {
+! 		dsk_FileListbox::pathimage $licon
+  	    } else {
+  		foreach pat $pats {
+! 		    dsk_FileListbox::tag create "dir $pat" [cb_col $col] $font $licon
+  		}
+  	    }
+  	}
+***************
+*** 1699,1713 ****
+  	    if {$pats == "!default"} {
+  		set tkdesk(color,executables) $col
+  		set tkdesk(font,executables) $font
+! 		dsk_FileListbox :: tag config "exec" [cb_col $col] $font $licon
+! 		dsk_DeskItem :: defimg exec $dicon
+  	    } elseif {$pats == "!symlink"} {
+  		set tkdesk(color,symexecutables) $col
+  		set tkdesk(font,symexecutables) $font
+! 		dsk_FileListbox :: tag config "symexec" [cb_col $col] $font $licon
+  	    } else {
+  		foreach pat $pats {
+! 		    dsk_FileListbox :: tag create "exec $pat" [cb_col $col] $font $licon
+  		}
+  	    }
+  	}
+--- 1700,1714 ----
+  	    if {$pats == "!default"} {
+  		set tkdesk(color,executables) $col
+  		set tkdesk(font,executables) $font
+! 		dsk_FileListbox::tag config "exec" [cb_col $col] $font $licon
+! 		dsk_DeskItem::defimg exec $dicon
+  	    } elseif {$pats == "!symlink"} {
+  		set tkdesk(color,symexecutables) $col
+  		set tkdesk(font,symexecutables) $font
+! 		dsk_FileListbox::tag config "symexec" [cb_col $col] $font $licon
+  	    } else {
+  		foreach pat $pats {
+! 		    dsk_FileListbox::tag create "exec $pat" [cb_col $col] $font $licon
+  		}
+  	    }
+  	}
+***************
+*** 1724,1775 ****
+  	    catch {set licon [subst $licon]}
+  	    catch {set dicon [subst $dicon]}
+  	    if {$pats == "!default"} {
+! 		dsk_FileListbox :: font $font
+! 		dsk_FileListbox :: color [cb_col $col]
+! 		dsk_FileListbox :: defimage $licon
+! 		dsk_DeskItem :: defimg file $dicon
+  	    } elseif {$pats == "!symlink"} {
+  		set tkdesk(color,symlinks) $col
+  		set tkdesk(font,symlinks) $font
+! 		dsk_FileListbox :: tag config "sym" [cb_col $col] $font $licon
+  	    } else {
+  		foreach pat $pats {
+! 		    dsk_FileListbox :: tag create $pat [cb_col $col] $font $licon
+  		}
+  	    }
+  	}
+      }
+      
+      if [info exists tkdesk(file_tags,ignore)] {
+! 	dsk_FileListbox :: ignore $tkdesk(file_tags,ignore)
+      }
+  
+!     dsk_FileListbox :: initC
+  }
+  
+  
+  # "System" Settings
+! dsk_FileListbox :: font [cb_font $tkdesk(font,file_lbs)]
+  
+! dsk_FileListbox :: tag config dir \
+      	[cb_col $tkdesk(color,directories)] [cb_font $tkdesk(font,directories)]
+! dsk_FileListbox :: tag config exec \
+  	[cb_col $tkdesk(color,executables)] [cb_font $tkdesk(font,executables)]
+! dsk_FileListbox :: tag config sym \
+      	[cb_col $tkdesk(color,symlinks)] [cb_font $tkdesk(font,symlinks)]
+! dsk_FileListbox :: tag config symdir \
+      	[cb_col $tkdesk(color,symdirectories)] [cb_font $tkdesk(font,symdirectories)]
+! dsk_FileListbox :: tag config symexec \
+      	[cb_col $tkdesk(color,symexecutables)] [cb_font $tkdesk(font,symexecutables)]
+  
+  # "Preferences" Settings
+! dsk_FileListbox :: showall $tkdesk(show_all_files)
+! dsk_FileListbox :: longlist $tkdesk(long_listing)
+! dsk_FileListbox :: topfolders $tkdesk(folders_on_top)
+! dsk_FileListbox :: typechar $tkdesk(append_type_char)
+! dsk_FileListbox :: dotregular $tkdesk(dot_regular)
+! dsk_FileListbox :: addicons $tkdesk(add_icons)
+! dsk_FileListbox :: sort $tkdesk(default_sort)
+  
+  # "FileTags" Settings
+  dsk_FileListbox_fileTags
+--- 1725,1776 ----
+  	    catch {set licon [subst $licon]}
+  	    catch {set dicon [subst $dicon]}
+  	    if {$pats == "!default"} {
+! 		dsk_FileListbox::font $font
+! 		dsk_FileListbox::color [cb_col $col]
+! 		dsk_FileListbox::defimage $licon
+! 		dsk_DeskItem::defimg file $dicon
+  	    } elseif {$pats == "!symlink"} {
+  		set tkdesk(color,symlinks) $col
+  		set tkdesk(font,symlinks) $font
+! 		dsk_FileListbox::tag config "sym" [cb_col $col] $font $licon
+  	    } else {
+  		foreach pat $pats {
+! 		    dsk_FileListbox::tag create $pat [cb_col $col] $font $licon
+  		}
+  	    }
+  	}
+      }
+      
+      if [info exists tkdesk(file_tags,ignore)] {
+! 	dsk_FileListbox::ignore $tkdesk(file_tags,ignore)
+      }
+  
+!     dsk_FileListbox::initC
+  }
+  
+  
+  # "System" Settings
+! dsk_FileListbox::font [cb_font $tkdesk(font,file_lbs)]
+  
+! dsk_FileListbox::tag config dir \
+      	[cb_col $tkdesk(color,directories)] [cb_font $tkdesk(font,directories)]
+! dsk_FileListbox::tag config exec \
+  	[cb_col $tkdesk(color,executables)] [cb_font $tkdesk(font,executables)]
+! dsk_FileListbox::tag config sym \
+      	[cb_col $tkdesk(color,symlinks)] [cb_font $tkdesk(font,symlinks)]
+! dsk_FileListbox::tag config symdir \
+      	[cb_col $tkdesk(color,symdirectories)] [cb_font $tkdesk(font,symdirectories)]
+! dsk_FileListbox::tag config symexec \
+      	[cb_col $tkdesk(color,symexecutables)] [cb_font $tkdesk(font,symexecutables)]
+  
+  # "Preferences" Settings
+! dsk_FileListbox::showall $tkdesk(show_all_files)
+! dsk_FileListbox::longlist $tkdesk(long_listing)
+! dsk_FileListbox::topfolders $tkdesk(folders_on_top)
+! dsk_FileListbox::typechar $tkdesk(append_type_char)
+! dsk_FileListbox::dotregular $tkdesk(dot_regular)
+! dsk_FileListbox::addicons $tkdesk(add_icons)
+! dsk_FileListbox::sort $tkdesk(default_sort)
+  
+  # "FileTags" Settings
+  dsk_FileListbox_fileTags
+Index: tkdesk/tcldesk/Frame.tcl
+diff -c tkdesk/tcldesk/Frame.tcl:1.1.1.1 tkdesk/tcldesk/Frame.tcl:1.2
+*** tkdesk/tcldesk/Frame.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/Frame.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 40,49 ****
+  
+  itcl_class Frame {
+  
+!     constructor {config} {
+  	#puts "Frame $this"
+  	#puts "class [::$this info class]"
+  	
+  	if {[info tclversion] >= 8.0} {
+  	    set frame [::frame [namespace tail $this]-frame \
+  		    -class [namespace tail [$this info class]]]
+--- 40,51 ----
+  
+  itcl_class Frame {
+  
+!     constructor {args} {
+  	#puts "Frame $this"
+  	#puts "class [::$this info class]"
+  	
++ 	eval configure $args
++ 
+  	if {[info tclversion] >= 8.0} {
+  	    set frame [::frame [namespace tail $this]-frame \
+  		    -class [namespace tail [$this info class]]]
+***************
+*** 61,67 ****
+  
+      # ----- Methods and Procs -------------------------------------------------
+  
+!     method config {config} {
+      }
+      
+      method cget {var} {
+--- 63,70 ----
+  
+      # ----- Methods and Procs -------------------------------------------------
+  
+!     method config {args} {
+!        eval configure $args
+      }
+      
+      method cget {var} {
+***************
+*** 74,98 ****
+      
+      # ----- Class Variables --------------------------------------------------
+  
+!     protected frame ""
+  
+!     public bd {} {
+  	config -borderwidth $bd
+      }
+!     public borderwidth {} {
+  	if [winfo exists $frame] {
+  	    $frame config -bd $borderwidth
+  	}
+      }
+!     public bg {} {
+  	config -background $bg
+      }
+!     public background {} {
+  	if [winfo exists $frame] {
+  	    $frame config -bg $background
+  	}
+      }
+!     public relief {} {
+  	if [winfo exists $frame] {
+  	    $frame config -relief $relief
+  	}
+--- 77,101 ----
+      
+      # ----- Class Variables --------------------------------------------------
+  
+!     protected variable frame ""
+  
+!     public variable bd {} {
+  	config -borderwidth $bd
+      }
+!     public variable borderwidth {} {
+  	if [winfo exists $frame] {
+  	    $frame config -bd $borderwidth
+  	}
+      }
+!     public variable bg {} {
+  	config -background $bg
+      }
+!     public variable background {} {
+  	if [winfo exists $frame] {
+  	    $frame config -bg $background
+  	}
+      }
+!     public variable relief {} {
+  	if [winfo exists $frame] {
+  	    $frame config -relief $relief
+  	}
+Index: tkdesk/tcldesk/HistEntry.tcl
+diff -c tkdesk/tcldesk/HistEntry.tcl:1.1.1.1 tkdesk/tcldesk/HistEntry.tcl:1.2
+*** tkdesk/tcldesk/HistEntry.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/HistEntry.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 53,61 ****
+  itcl_class dsk_HistEntry {
+      inherit Toplevel
+  
+!     constructor {config} {
+  	global tkdesk [set this]
+  
+  	if {$tkdesk(tcl_version) < 8.0} {
+  	    Toplevel::constructor
+  	}
+--- 53,63 ----
+  itcl_class dsk_HistEntry {
+      inherit Toplevel
+  
+!     constructor {args} {
+  	global tkdesk [set this]
+  
++ 	eval configure $args
++ 
+  	if {$tkdesk(tcl_version) < 8.0} {
+  	    Toplevel::constructor
+  	}
+***************
+*** 162,168 ****
+  	cb_button $top.bCancel -text " Cancel " \
+  		-underline 1 -command "
+  	    set tkdesk(geometry,hist_entry) \[wm geometry $top\]
+! 	    $this delete
+  	"
+  
+  	pack $top.bOK $top.bApply -in $top.fb -side left \
+--- 164,170 ----
+  	cb_button $top.bCancel -text " Cancel " \
+  		-underline 1 -command "
+  	    set tkdesk(geometry,hist_entry) \[wm geometry $top\]
+! 	    itcl::delete object $this
+  	"
+  
+  	pack $top.bOK $top.bApply -in $top.fb -side left \
+***************
+*** 214,220 ****
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {config} {
+      }
+  
+      method ok_pressed {{delete 1}} {
+--- 216,223 ----
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {args} {
+!         eval configure $args
+      }
+  
+      method ok_pressed {{delete 1}} {
+***************
+*** 225,231 ****
+  		    [list [set [set this](entry)]] [set [set this](cbvar)]
+  	}
+  	if $delete {
+! 	    delete
+  	}
+      }
+  
+--- 228,234 ----
+  		    [list [set [set this](entry)]] [set [set this](cbvar)]
+  	}
+  	if $delete {
+! 	    itcl::delete object $this ;#???
+  	}
+      }
+  
+***************
+*** 236,242 ****
+  	    eval $addcallback \
+  		    [list [set [set this](entry)]] [set [set this](cbvar)]
+  	}
+! 	delete
+      }
+  
+      method histmenu {} {
+--- 239,245 ----
+  	    eval $addcallback \
+  		    [list [set [set this](entry)]] [set [set this](cbvar)]
+  	}
+!         itcl::delete object $this ;#???
+      }
+  
+      method histmenu {} {
+***************
+*** 284,300 ****
+  
+      common id              0
+  
+!     public label           "dummy"
+!     public title           ""
+!     public checklabel      ""
+!     public checkvalue      0
+!     public entrydefault    ""
+!     public entrypopupproc  ""
+!     public history         ""
+!     public callback        ""
+!     public addbutton       ""
+!     public addcallback     ""
+!     public nograb          0
+!     public noapply         0
+  }
+  
+--- 287,303 ----
+  
+      common id              0
+  
+!     public variable label           "dummy"
+!     public variable title           ""
+!     public variable checklabel      ""
+!     public variable checkvalue      0
+!     public variable entrydefault    ""
+!     public variable entrypopupproc  ""
+!     public variable history         ""
+!     public variable callback        ""
+!     public variable addbutton       ""
+!     public variable addcallback     ""
+!     public variable nograb          0
+!     public variable noapply         0
+  }
+  
+Index: tkdesk/tcldesk/List.tcl
+diff -c tkdesk/tcldesk/List.tcl:1.2 tkdesk/tcldesk/List.tcl:1.3
+*** tkdesk/tcldesk/List.tcl:1.2	Wed Mar 10 23:47:42 2004
+--- tkdesk/tcldesk/List.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 204,216 ****
+  	    update idletasks
+  	    wm geometry $top-icon \
+  		    [winfo reqwidth $top-icon]x[winfo reqheight $top-icon]
+! 	    wm protocol $top-icon WM_DELETE_WINDOW "$this delete"
+  	    wm iconwindow $top $top-icon
+  	} else {
+  	    wm iconbitmap $top @$tkdesk(library)/images/xbm/filing_open.xbm
+  	}
+  
+! 	eval config $args
+  	dsk_sound dsk_new_filelist
+  
+  	if {$isFileSel} {
+--- 204,216 ----
+  	    update idletasks
+  	    wm geometry $top-icon \
+  		    [winfo reqwidth $top-icon]x[winfo reqheight $top-icon]
+! 	    wm protocol $top-icon WM_DELETE_WINDOW "itcl::delete object $this"
+  	    wm iconwindow $top $top-icon
+  	} else {
+  	    wm iconbitmap $top @$tkdesk(library)/images/xbm/filing_open.xbm
+  	}
+  
+! 	eval configure $args
+  	dsk_sound dsk_new_filelist
+  
+  	if {$isFileSel} {
+***************
+*** 238,247 ****
+  	    pack $f.fButs -fill x
+  
+  	    button $f.bOK \
+! 		    -command "$this _fs_ok; $this delete" \
+  		    -text " OK " -width 7
+  	    button $f.bCancel \
+! 		    -command "$this _fs_cancel; $this delete" \
+  		    -text "Cancel" -width 7
+  	    pack $f.bOK $f.bCancel -in $f.fButs -side left -expand y \
+  		    -padx $tkdesk(pad) -pady $tkdesk(pad) -ipady 1
+--- 238,247 ----
+  	    pack $f.fButs -fill x
+  
+  	    button $f.bOK \
+! 		    -command "$this _fs_ok; itcl::delete object $this" \
+  		    -text " OK " -width 7
+  	    button $f.bCancel \
+! 		    -command "$this _fs_cancel; itcl::delete object $this" \
+  		    -text "Cancel" -width 7
+  	    pack $f.bOK $f.bCancel -in $f.fButs -side left -expand y \
+  		    -padx $tkdesk(pad) -pady $tkdesk(pad) -ipady 1
+***************
+*** 254,260 ****
+  	       set tkdesk(single_click) 0
+  	       set tkdesk(config_nostat) 1
+  	       set tkdesk(_doubleclick) 1
+! 	       $this _fs_ok; $this delete;
+  	       set tkdesk(config_nostat) 0
+  	       catch {set tkdesk(single_click) \$tmpsc}
+  	       catch {unset tmpsc}
+--- 254,260 ----
+  	       set tkdesk(single_click) 0
+  	       set tkdesk(config_nostat) 1
+  	       set tkdesk(_doubleclick) 1
+! 	       $this _fs_ok; itcl::delete object $this;
+  	       set tkdesk(config_nostat) 0
+  	       catch {set tkdesk(single_click) \$tmpsc}
+  	       catch {unset tmpsc}
+***************
+*** 262,268 ****
+  	    "
+  
+  	    wm protocol $top WM_DELETE_WINDOW \
+! 		    "$this _fs_cancel; $this delete"
+  	    wm title $top $fileSelTitle
+  	    catch {wm transient $top [[dsk_active win] getToplevel]}
+  	    raise $top
+--- 262,268 ----
+  	    "
+  
+  	    wm protocol $top WM_DELETE_WINDOW \
+! 		    "$this _fs_cancel; itcl::delete object $this"
+  	    wm title $top $fileSelTitle
+  	    catch {wm transient $top [[dsk_active win] getToplevel]}
+  	    raise $top
+***************
+*** 296,306 ****
+  	    }
+  	}
+  	
+! 	$top.flb delete
+  	catch {destroy $top-icon}
+  	set tkdesk(active_viewer) ""
+! 	foreach fv "[itcl_info objects -class dsk_FileViewer] \
+! 		[itcl_info objects -class dsk_FileList]" {
+  	    if {"$fv" != "$this"} {
+  		set tkdesk(active_viewer) $fv
+  	    }
+--- 296,306 ----
+  	    }
+  	}
+  	
+! 	itcl::delete object $top.flb
+  	catch {destroy $top-icon}
+  	set tkdesk(active_viewer) ""
+! 	foreach fv "[itcl::find objects -class dsk_FileViewer] \
+! 		[itcl::find objects -class dsk_FileList]" {
+  	    if {"$fv" != "$this"} {
+  		set tkdesk(active_viewer) $fv
+  	    }
+***************
+*** 311,317 ****
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {config} {
+      }
+  
+      method cget {var} {
+--- 311,318 ----
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {args} {
+!        eval configure $args
+      }
+  
+      method cget {var} {
+***************
+*** 329,340 ****
+  	}
+  	
+  	if [winfo exists .dsk_appbar] {
+! 	    $this delete
+  	} elseif {[dsk_active viewer] == 1} {
+  	    # about to close last window
+  	    dsk_exit 1
+  	} else {
+! 	    $this delete
+  	}
+      }
+  
+--- 330,341 ----
+  	}
+  	
+  	if [winfo exists .dsk_appbar] {
+! 	    itcl::delete object $this
+  	} elseif {[dsk_active viewer] == 1} {
+  	    # about to close last window
+  	    dsk_exit 1
+  	} else {
+! 	    itcl::delete object $this
+  	}
+      }
+  
+***************
+*** 402,408 ****
+  
+      method refresh {{mode ""}} {
+  	if {$mode == "all"} {
+! 	    foreach fv [itcl_info objects -class dsk_FileViewer] {
+  	    	$fv refresh
+  	    }
+  	}
+--- 403,409 ----
+  
+      method refresh {{mode ""}} {
+  	if {$mode == "all"} {
+! 	    foreach fv [itcl::find objects -class dsk_FileViewer] {
+  	    	$fv refresh
+  	    }
+  	}
+***************
+*** 489,495 ****
+  	    return
+  	}
+  
+! 	set dir [string trimright [$lb info public directory -value] "/"]
+  	#set file [lindex [lindex [$lb.dlb get] [lindex $sel 0]] 0]
+  	set file [string trimright [lindex [split \
+  		[lindex [[$lb getLbObj] get] \
+--- 490,496 ----
+  	    return
+  	}
+  
+! 	set dir [string trimright [$lb info variable directory -value] "/"]
+  	#set file [lindex [lindex [$lb.dlb get] [lindex $sel 0]] 0]
+  	set file [string trimright [lindex [split \
+  		[lindex [[$lb getLbObj] get] \
+***************
+*** 510,516 ****
+  	if {$sel == "" || $lb == ""} {
+  	    return
+  	}
+! 	set dir [string trimright [$lb info public directory -value] "/"]
+  	#set file [lindex [lindex [$lb.dlb get] [lindex $sel 0]] 0]
+  	set file [string trimright [lindex [split \
+  		[lindex [[$lb getLbObj] get] \
+--- 511,517 ----
+  	if {$sel == "" || $lb == ""} {
+  	    return
+  	}
+! 	set dir [string trimright [$lb info variable directory -value] "/"]
+  	#set file [lindex [lindex [$lb.dlb get] [lindex $sel 0]] 0]
+  	set file [string trimright [lindex [split \
+  		[lindex [[$lb getLbObj] get] \
+***************
+*** 614,620 ****
+  	}
+  
+  	if $tkdesk(menu,control) {
+! 	    dsk_FileList .dfl[dsk_FileList :: id] -directory $dir
+      	    set tkdesk(menu,control) 0
+  	} else {
+  	    $this config -directory $dir
+--- 615,621 ----
+  	}
+  
+  	if $tkdesk(menu,control) {
+! 	    dsk_FileList .dfl[dsk_FileList::id] -directory $dir
+      	    set tkdesk(menu,control) 0
+  	} else {
+  	    $this config -directory $dir
+***************
+*** 634,640 ****
+      proc status_bar {display} {
+  	global tkdesk
+  
+! 	foreach fl [itcl_info objects -class dsk_FileList] {
+  	    $fl display_statbar $display
+  	}
+  	if $display {
+--- 635,641 ----
+      proc status_bar {display} {
+  	global tkdesk
+  
+! 	foreach fl [itcl::find objects -class dsk_FileList] {
+  	    $fl display_statbar $display
+  	}
+  	if $display {
+***************
+*** 646,652 ****
+      proc fileSelector {args} {
+  	
+  	set fs ::.flFileSel
+! 	catch {$fs delete}
+  	eval dsk_FileList $fs -isFileSel 1 $args
+  	set w [$fs getToplevel]
+  	grab $w
+--- 647,653 ----
+      proc fileSelector {args} {
+  	
+  	set fs ::.flFileSel
+! 	catch {itcl::delete object $fs}
+  	eval dsk_FileList $fs -isFileSel 1 $args
+  	set w [$fs getToplevel]
+  	grab $w
+***************
+*** 659,674 ****
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public dontmap 0
+  
+!     public dir {} {
+  
+  	if [winfo exists $top] {
+  	    _configDir
+  	}
+      }
+  
+!     public directory {} {
+  	global env tkdesk
+  
+  	if ![string match {[~/]*} $directory] {
+--- 660,675 ----
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public variable dontmap 0
+  
+!     public variable dir {} {
+  
+  	if [winfo exists $top] {
+  	    _configDir
+  	}
+      }
+  
+!     public variable directory {} {
+  	global env tkdesk
+  
+  	if ![string match {[~/]*} $directory] {
+***************
+*** 774,789 ****
+  	}
+      }
+  
+!     public pad {4} {
+      }
+!     public isFileSel 0
+!     public fileSelTitle "Select File"
+!     public fileSelLabel "Selection:"
+! 
+!     protected height_set 0
+!     protected last_directory ""
+!     protected ypos
+!     protected lbname
+  
+      common id 0
+      common statbar 0
+--- 775,790 ----
+  	}
+      }
+  
+!     public variable pad {4} {
+      }
+!     public variable isFileSel 0
+!     public variable fileSelTitle "Select File"
+!     public variable fileSelLabel "Selection:"
+! 
+!     protected variable height_set 0
+!     protected variable last_directory ""
+!     protected variable ypos
+!     protected variable lbname
+  
+      common id 0
+      common statbar 0
+Index: tkdesk/tcldesk/Periodic.tcl
+diff -c tkdesk/tcldesk/Periodic.tcl:1.1.1.1 tkdesk/tcldesk/Periodic.tcl:1.2
+*** tkdesk/tcldesk/Periodic.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/Periodic.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 137,143 ****
+  	wm title $top "Periodic Execution"
+  	wm protocol $top WM_DELETE_WINDOW "$this close"
+  
+! 	eval config $args
+  	wm deiconify $top
+      }
+  
+--- 137,143 ----
+  	wm title $top "Periodic Execution"
+  	wm protocol $top WM_DELETE_WINDOW "$this close"
+  
+! 	eval configure $args
+  	wm deiconify $top
+      }
+  
+***************
+*** 148,161 ****
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {config} {
+      }
+  
+      method close {} {
+  	global tkdesk
+  
+  	set tkdesk(geometry,periodic) [wm geometry $top]
+! 	delete
+      }
+  
+      method execute {} {
+--- 148,162 ----
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {args} {
+!        eval configure $args
+      }
+  
+      method close {} {
+  	global tkdesk
+  
+  	set tkdesk(geometry,periodic) [wm geometry $top]
+! 	itcl::delete object $this
+      }
+  
+      method execute {} {
+***************
+*** 224,230 ****
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public command "" {
+  	if {$command != ""} {
+  	    if !$update_started {
+  	    	$this update
+--- 225,231 ----
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public variable command "" {
+  	if {$command != ""} {
+  	    if !$update_started {
+  	    	$this update
+***************
+*** 238,249 ****
+  	}
+      }
+  
+!     public period 10 {
+  	$top.eSec delete 0 end
+  	$top.eSec insert end $period
+      }
+  
+!     protected update_started 0
+  
+      common id 0
+  }
+--- 239,250 ----
+  	}
+      }
+  
+!     public variable period 10 {
+  	$top.eSec delete 0 end
+  	$top.eSec insert end $period
+      }
+  
+!     protected variable update_started 0
+  
+      common id 0
+  }
+***************
+*** 261,269 ****
+  proc dsk_periodic {{cmd ""} {period 10}} {
+  
+      if {$cmd != ""} {
+!     	dsk_Periodic .pe[dsk_Periodic :: id] -command $cmd -period $period
+      } else {
+!     	dsk_Periodic .pe[dsk_Periodic :: id] -period $period
+      }
+      return
+  }
+--- 262,270 ----
+  proc dsk_periodic {{cmd ""} {period 10}} {
+  
+      if {$cmd != ""} {
+!     	dsk_Periodic .pe[dsk_Periodic::id] -command $cmd -period $period
+      } else {
+!     	dsk_Periodic .pe[dsk_Periodic::id] -period $period
+      }
+      return
+  }
+Index: tkdesk/tcldesk/Toplevel.tcl
+diff -c tkdesk/tcldesk/Toplevel.tcl:1.1.1.1 tkdesk/tcldesk/Toplevel.tcl:1.2
+*** tkdesk/tcldesk/Toplevel.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/Toplevel.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 40,48 ****
+  
+  itcl_class Toplevel {
+  
+!     constructor {config} {
+  	#puts "Toplevel $this"
+  	#puts "class [$this info class]"
+  	
+  	if {[info tclversion] >= 8.0} {
+  	    set top [::toplevel [namespace tail $this]-top \
+--- 40,50 ----
+  
+  itcl_class Toplevel {
+  
+!     constructor {args} {
+  	#puts "Toplevel $this"
+  	#puts "class [$this info class]"
++ 
++ 	eval configure $args
+  	
+  	if {[info tclversion] >= 8.0} {
+  	    set top [::toplevel [namespace tail $this]-top \
+***************
+*** 61,67 ****
+  
+      # ----- Methods and Procs -------------------------------------------------
+  
+!     method config {config} {
+      }
+      
+      method cget {var} {
+--- 63,70 ----
+  
+      # ----- Methods and Procs -------------------------------------------------
+  
+!     method config {args} {
+!        eval configure $args
+      }
+      
+      method cget {var} {
+***************
+*** 74,78 ****
+      
+      # ----- Class Variables --------------------------------------------------
+  
+!     protected top "x"
+  }
+--- 77,81 ----
+      
+      # ----- Class Variables --------------------------------------------------
+  
+!     protected variable top "x"
+  }
+Index: tkdesk/tcldesk/Viewer.tcl
+diff -c tkdesk/tcldesk/Viewer.tcl:1.2 tkdesk/tcldesk/Viewer.tcl:1.3
+*** tkdesk/tcldesk/Viewer.tcl:1.2	Wed Mar 10 23:47:42 2004
+--- tkdesk/tcldesk/Viewer.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 69,75 ****
+  itcl_class dsk_FileViewer {
+      inherit dsk_Common Toplevel
+      
+!     constructor {config} {
+  	global [set this] tkdesk env cb_tools
+  
+  	if {$tkdesk(tcl_version) < 8.0} {
+--- 69,75 ----
+  itcl_class dsk_FileViewer {
+      inherit dsk_Common Toplevel
+      
+!     constructor {args} {
+  	global [set this] tkdesk env cb_tools
+  
+  	if {$tkdesk(tcl_version) < 8.0} {
+***************
+*** 264,270 ****
+  	    update idletasks
+  	    wm geometry $top-icon \
+  		    [winfo reqwidth $top-icon]x[winfo reqheight $top-icon]
+! 	    wm protocol $top-icon WM_DELETE_WINDOW "$this delete"
+  	    wm iconwindow $top $top-icon
+  	} else {
+  	    wm iconbitmap $top @$tkdesk(library)/images/xbm/bigfiling.xbm
+--- 264,270 ----
+  	    update idletasks
+  	    wm geometry $top-icon \
+  		    [winfo reqwidth $top-icon]x[winfo reqheight $top-icon]
+! 	    wm protocol $top-icon WM_DELETE_WINDOW "itcl::delete object $this"
+  	    wm iconwindow $top $top-icon
+  	} else {
+  	    wm iconbitmap $top @$tkdesk(library)/images/xbm/bigfiling.xbm
+***************
+*** 277,285 ****
+          #                          
+          #  Explicitly handle config's that may have been ignored earlier
+          #                            
+!         foreach attr $config {
+!             config -$attr [set $attr]
+!         }
+  
+  	dsk_sound dsk_new_filebrowser
+  	if !$dontmap {
+--- 277,283 ----
+          #                          
+          #  Explicitly handle config's that may have been ignored earlier
+          #                            
+! 	eval configure $args
+  
+  	dsk_sound dsk_new_filebrowser
+  	if !$dontmap {
+***************
+*** 301,313 ****
+  	global tkdesk
+  	
+  	for {set i 0} {$i < $num_lbs_created} {incr i} {
+! 	    catch "$top.lb$i delete"
+  	}
+  	incr count -1
+  	catch {destroy $top-icon}
+  	set tkdesk(active_viewer) ""
+! 	foreach fv "[itcl_info objects -class dsk_FileViewer] \
+! 		[itcl_info objects -class dsk_FileList]" {
+  	    if {"$fv" != "$this"} {
+  		set tkdesk(active_viewer) $fv
+  	    }
+--- 299,311 ----
+  	global tkdesk
+  	
+  	for {set i 0} {$i < $num_lbs_created} {incr i} {
+! 	    catch "itcl::delete object $top.lb$i"
+  	}
+  	incr count -1
+  	catch {destroy $top-icon}
+  	set tkdesk(active_viewer) ""
+! 	foreach fv "[itcl::find objects -class dsk_FileViewer] \
+! 		[itcl::find objects -class dsk_FileList]" {
+  	    if {"$fv" != "$this"} {
+  		set tkdesk(active_viewer) $fv
+  	    }
+***************
+*** 318,324 ****
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {config} {
+      }
+  
+      method cget {var} {
+--- 316,323 ----
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {args} {
+!        eval configure $args
+      }
+  
+      method cget {var} {
+***************
+*** 336,347 ****
+  	}
+  	
+  	if [winfo exists .dsk_appbar] {
+! 	    $this delete
+  	} elseif {[dsk_active viewer] == 1} {
+  	    # about to close last window
+  	    dsk_exit 1
+  	} else {
+! 	    $this delete
+  	}
+      }
+  
+--- 335,346 ----
+  	}
+  	
+  	if [winfo exists .dsk_appbar] {
+! 	    itcl::delete object $this
+  	} elseif {[dsk_active viewer] == 1} {
+  	    # about to close last window
+  	    dsk_exit 1
+  	} else {
+! 	    itcl::delete object $this
+  	}
+      }
+  
+***************
+*** 351,357 ****
+  
+      method refresh {{mode ""}} {
+  	if {$mode == "all"} {
+! 	    foreach fv [itcl_info objects -class dsk_FileViewer] {
+  	    	$fv refresh
+  	    }
+  	} else {
+--- 350,356 ----
+  
+      method refresh {{mode ""}} {
+  	if {$mode == "all"} {
+! 	    foreach fv [itcl::find objects -class dsk_FileViewer] {
+  	    	$fv refresh
+  	    }
+  	} else {
+***************
+*** 591,597 ****
+  	    return
+  	}
+  
+! 	set dir [string trimright [$lb info public directory -value] "/"]
+  	#set file [lindex [lindex [$lb.dlb get] [lindex $sel 0]] 0]
+  	set file [string trimright [lindex [split \
+  		[lindex [::[$lb getLbObj] get] \
+--- 590,596 ----
+  	    return
+  	}
+  
+! 	set dir [string trimright [$lb info variable directory -value] "/"]
+  	#set file [lindex [lindex [$lb.dlb get] [lindex $sel 0]] 0]
+  	set file [string trimright [lindex [split \
+  		[lindex [::[$lb getLbObj] get] \
+***************
+*** 616,622 ****
+  	if {$sel == "" || $lb == ""} {
+  	    return
+  	}
+! 	set dir [string trimright [$lb info public directory -value] "/"]
+  	#set file [lindex [lindex [$lb.dlb get] [lindex $sel 0]] 0]
+  	set file [string trimright [lindex [split \
+  		[lindex [::[$lb getLbObj] get] \
+--- 615,621 ----
+  	if {$sel == "" || $lb == ""} {
+  	    return
+  	}
+! 	set dir [string trimright [$lb info variable directory -value] "/"]
+  	#set file [lindex [lindex [$lb.dlb get] [lindex $sel 0]] 0]
+  	set file [string trimright [lindex [split \
+  		[lindex [::[$lb getLbObj] get] \
+***************
+*** 772,778 ****
+  	#
+  	# fill list boxes
+  	#
+! 	dsk_FileListbox :: print_ready 0
+  	for {set i $first_i} {$i < $dir_depth} {incr i} {
+  	    if {$i >= $num_lbs_created && ![winfo exists $top.lb$i]} {
+  		if {$tkdesk(tcl_version) >= 8.0} {
+--- 771,777 ----
+  	#
+  	# fill list boxes
+  	#
+! 	dsk_FileListbox::print_ready 0
+  	for {set i $first_i} {$i < $dir_depth} {incr i} {
+  	    if {$i >= $num_lbs_created && ![winfo exists $top.lb$i]} {
+  		if {$tkdesk(tcl_version) >= 8.0} {
+***************
+*** 832,838 ****
+  	    $this status "Ready. [dsk_fs_status $directory]"
+  	    #$this status "Ready."
+  	}
+! 	dsk_FileListbox :: print_ready 1
+  	dsk_status_ready 0
+      }
+  
+--- 831,837 ----
+  	    $this status "Ready. [dsk_fs_status $directory]"
+  	    #$this status "Ready."
+  	}
+! 	dsk_FileListbox::print_ready 1
+  	dsk_status_ready 0
+      }
+  
+***************
+*** 851,861 ****
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public num_lbs 3
+  
+!     public dontmap 0
+  
+!     public dir {} {
+  	global tkdesk
+  
+  	set access_ok 1
+--- 850,860 ----
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public variable num_lbs 3
+  
+!     public variable dontmap 0
+  
+!     public variable dir {} {
+  	global tkdesk
+  
+  	set access_ok 1
+***************
+*** 889,897 ****
+  	    if {$access_ok} {
+  		if $tkdesk(menu,control) {
+  		    if {$tkdesk(tcl_version) >= 8.0} {
+! 			set lname ::.dfl[dsk_FileList :: id]
+  		    } else {
+! 			set lname .dfl[dsk_FileList :: id]
+  		    }
+  		    dsk_FileList $lname -directory $dir
+  		    set tkdesk(menu,control) 0
+--- 888,896 ----
+  	    if {$access_ok} {
+  		if $tkdesk(menu,control) {
+  		    if {$tkdesk(tcl_version) >= 8.0} {
+! 			set lname ::.dfl[dsk_FileList::id]
+  		    } else {
+! 			set lname .dfl[dsk_FileList::id]
+  		    }
+  		    dsk_FileList $lname -directory $dir
+  		    set tkdesk(menu,control) 0
+***************
+*** 902,908 ****
+  	}
+      }
+  
+!     public directory "/" {
+  	global tkdesk env
+  
+  	if {[winfo exists $top]} {
+--- 901,907 ----
+  	}
+      }
+  
+!     public variable directory "/" {
+  	global tkdesk env
+  
+  	if {[winfo exists $top]} {
+***************
+*** 912,924 ****
+  	}
+      }
+  
+!     protected dir_depth 0	;# depth of the current directory
+!     protected first_lb 0        ;# number of leftmost listbox
+!     protected num_lbs_created 0	;# number of created listboxes (>= num_lbs)
+!     protected lbdirs		;# array of each lb's directory
+!     protected sb_state "packed"
+!     protected last_directory ""
+!     protected ls_proc {}
+  
+      common count 0
+      common id 0
+--- 911,923 ----
+  	}
+      }
+  
+!     protected variable dir_depth 0	 ;# depth of the current directory
+!     protected variable first_lb 0        ;# number of leftmost listbox
+!     protected variable num_lbs_created 0 ;# number of created listboxes (>= num_lbs)
+!     protected variable lbdirs		 ;# array of each lb's directory
+!     protected variable sb_state "packed"
+!     protected variable last_directory ""
+!     protected variable ls_proc {}
+  
+      common count 0
+      common id 0
+Index: tkdesk/tcldesk/action.tcl
+diff -c tkdesk/tcldesk/action.tcl:1.1.1.1 tkdesk/tcldesk/action.tcl:1.2
+*** tkdesk/tcldesk/action.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/action.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 124,133 ****
+  	dsk_debug "tkdesk(file_lb,control) $tkdesk(file_lb,control), viewer $viewer"
+  	if $tkdesk(file_lb,control) {
+  	    if $tkdesk(in_browser) {
+! 		dsk_FileViewer .fv[dsk_FileViewer :: id] \
+  			-dir "$file" -num_lbs $tkdesk(num_lbs)
+  	    } else {
+! 		dsk_FileList .dfl[dsk_FileList :: id] -dir "$file"
+  	    }
+  	    set tkdesk(file_lb,control) 0
+  	} elseif {$viewer != ""} {
+--- 124,133 ----
+  	dsk_debug "tkdesk(file_lb,control) $tkdesk(file_lb,control), viewer $viewer"
+  	if $tkdesk(file_lb,control) {
+  	    if $tkdesk(in_browser) {
+! 		dsk_FileViewer .fv[dsk_FileViewer::id] \
+  			-dir "$file" -num_lbs $tkdesk(num_lbs)
+  	    } else {
+! 		dsk_FileList .dfl[dsk_FileList::id] -dir "$file"
+  	    }
+  	    set tkdesk(file_lb,control) 0
+  	} elseif {$viewer != ""} {
+***************
+*** 186,192 ****
+  	    
+  	} elseif {$tkdesk(file_lb,control) == 2} {
+  	    # called from one of the appbar special menus with Shift pressed
+! 	    dsk_DeskItem .di[dsk_DeskItem :: id] \
+  		    -file [cb_tilde $file expand]
+  	    set tkdesk(file_lb,control) 0
+  	    
+--- 186,192 ----
+  	    
+  	} elseif {$tkdesk(file_lb,control) == 2} {
+  	    # called from one of the appbar special menus with Shift pressed
+! 	    dsk_DeskItem .di[dsk_DeskItem::id] \
+  		    -file [cb_tilde $file expand]
+  	    set tkdesk(file_lb,control) 0
+  	    
+***************
+*** 612,618 ****
+      }
+  
+      # cope with a bug in itcl 1.5
+!     if {[itcl_info objects $t] != {}} {
+  	incr dsk_ask_exec(cnt)
+  	set t "$t$dsk_ask_exec(cnt)"
+      }
+--- 612,623 ----
+      }
+  
+      # cope with a bug in itcl 1.5
+!     #
+!     # Update 04/19/2004: I just ported an itcl 1.5 workaround so
+!     # that it will work with itcl 3.x.  That can't be a good thing...
+!     #    -- JCC
+!     #
+!     if {[itcl::find objects $t] != {}} {
+  	incr dsk_ask_exec(cnt)
+  	set t "$t$dsk_ask_exec(cnt)"
+      }
+***************
+*** 702,708 ****
+  proc dsk_ask_dir {{browser ""}} {
+      global tkdesk
+      
+!     dsk_HistEntry .he[dsk_HistEntry :: id] \
+  	    -title "Open Directory" \
+  	    -label "Directory to open:" \
+  	    -checklabel "In Browser" \
+--- 707,713 ----
+  proc dsk_ask_dir {{browser ""}} {
+      global tkdesk
+      
+!     dsk_HistEntry .he[dsk_HistEntry::id] \
+  	    -title "Open Directory" \
+  	    -label "Directory to open:" \
+  	    -checklabel "In Browser" \
+***************
+*** 727,736 ****
+  	if [file readable $tmpdir] {
+  	    dsk_busy
+  	    if $val {
+! 		dsk_FileViewer .fv[dsk_FileViewer :: id] \
+  			-dir $tmpdir -num_lbs $tkdesk(num_lbs)
+  	    } else {
+! 		dsk_FileList .dfl[dsk_FileList :: id] -dir $tmpdir
+  	    }
+  	    dsk_lazy
+  	} else {
+--- 732,741 ----
+  	if [file readable $tmpdir] {
+  	    dsk_busy
+  	    if $val {
+! 		dsk_FileViewer .fv[dsk_FileViewer::id] \
+  			-dir $tmpdir -num_lbs $tkdesk(num_lbs)
+  	    } else {
+! 		dsk_FileList .dfl[dsk_FileList::id] -dir $tmpdir
+  	    }
+  	    dsk_lazy
+  	} else {
+***************
+*** 753,759 ****
+  proc dsk_ask_dir {{browser ""}} {
+      global tkdesk
+      
+!     dsk_HistEntry .he[dsk_HistEntry :: id] \
+  	    -title "Open Directory" \
+  	    -label "Directory to open:" \
+  	    -checklabel "In Browser" \
+--- 758,764 ----
+  proc dsk_ask_dir {{browser ""}} {
+      global tkdesk
+      
+!     dsk_HistEntry .he[dsk_HistEntry::id] \
+  	    -title "Open Directory" \
+  	    -label "Directory to open:" \
+  	    -checklabel "In Browser" \
+***************
+*** 778,787 ****
+  	if [file readable $tmpdir] {
+  	    dsk_busy
+  	    if $val {
+! 		dsk_FileViewer .fv[dsk_FileViewer :: id] \
+  			-dir $tmpdir -num_lbs $tkdesk(num_lbs)
+  	    } else {
+! 		dsk_FileList .dfl[dsk_FileList :: id] -dir $tmpdir
+  	    }
+  	    dsk_lazy
+  	} else {
+--- 783,792 ----
+  	if [file readable $tmpdir] {
+  	    dsk_busy
+  	    if $val {
+! 		dsk_FileViewer .fv[dsk_FileViewer::id] \
+  			-dir $tmpdir -num_lbs $tkdesk(num_lbs)
+  	    } else {
+! 		dsk_FileList .dfl[dsk_FileList::id] -dir $tmpdir
+  	    }
+  	    dsk_lazy
+  	} else {
+***************
+*** 818,824 ****
+  	set dsk_filesel(saving) 0
+      }
+  
+!     dsk_HistEntry .he[dsk_HistEntry :: id] \
+  	    -title "Select A File" \
+  	    -entrydefault [string trimright [file dirname $filter] /]/ \
+  	    -entrypopupproc dsk_filesel_file_menu \
+--- 823,829 ----
+  	set dsk_filesel(saving) 0
+      }
+  
+!     dsk_HistEntry .he[dsk_HistEntry::id] \
+  	    -title "Select A File" \
+  	    -entrydefault [string trimright [file dirname $filter] /]/ \
+  	    -entrypopupproc dsk_filesel_file_menu \
+***************
+*** 1000,1006 ****
+      }
+  
+      if {$dir != "" && \
+! 	    [string length [itcl_info objects $tkdesk(active_viewer)]] > 0} {
+  	if {![file isdirectory $dir] && $special == ""} {
+  	    set dir [_make_path_valid $dir]
+  	    catch {dsk_bell}
+--- 1005,1011 ----
+      }
+  
+      if {$dir != "" && \
+! 	    [string length [itcl::find objects $tkdesk(active_viewer)]] > 0} {
+  	if {![file isdirectory $dir] && $special == ""} {
+  	    set dir [_make_path_valid $dir]
+  	    catch {dsk_bell}
+***************
+*** 1034,1043 ****
+      
+      if [file readable $dir] {
+  	if $tkdesk(in_browser) {
+! 	    set f [dsk_FileViewer .fv[dsk_FileViewer :: id] \
+  		    -directory "$dir" -num_lbs $tkdesk(num_lbs)]
+  	} else {
+! 	    set f [dsk_FileList .dfl[dsk_FileList :: id] -directory "$dir"]
+  	}
+      } else {
+  	dsk_errbell
+--- 1039,1048 ----
+      
+      if [file readable $dir] {
+  	if $tkdesk(in_browser) {
+! 	    set f [dsk_FileViewer .fv[dsk_FileViewer::id] \
+  		    -directory "$dir" -num_lbs $tkdesk(num_lbs)]
+  	} else {
+! 	    set f [dsk_FileList .dfl[dsk_FileList::id] -directory "$dir"]
+  	}
+      } else {
+  	dsk_errbell
+***************
+*** 1061,1067 ****
+      global tkdesk
+      
+      if [file readable $dir] {
+! 	dsk_FileViewer .fv[dsk_FileViewer :: id] -dir $dir \
+  		-num_lbs $tkdesk(num_lbs)
+      } else {
+  	dsk_errbell
+--- 1066,1072 ----
+      global tkdesk
+      
+      if [file readable $dir] {
+! 	dsk_FileViewer .fv[dsk_FileViewer::id] -dir $dir \
+  		-num_lbs $tkdesk(num_lbs)
+      } else {
+  	dsk_errbell
+***************
+*** 1324,1331 ****
+  	    eval dsk_exec $tkdesk(editor,cmd) $files
+  	} else {
+  	    if {$files != ""} {
+! 		dsk_Editor [set e .de[dsk_Editor :: id]] -files $files
+! 		if {[string length [$e cget -files]] == 0} {$e delete}
+  		#dsk_editor load $files
+  	    } else {
+  		set e [dsk_editor new]
+--- 1329,1338 ----
+  	    eval dsk_exec $tkdesk(editor,cmd) $files
+  	} else {
+  	    if {$files != ""} {
+! 		dsk_Editor [set e .de[dsk_Editor::id]] -files $files
+! 		if {[string length [$e cget -files]] == 0} {
+! 		   itcl::delete object $e
+! 		}
+  		#dsk_editor load $files
+  	    } else {
+  		set e [dsk_editor new]
+***************
+*** 1336,1343 ****
+  	    if {$tkdesk(editor,cmd) != "builtin"} {
+  		dsk_exec $tkdesk(editor,cmd) $file
+  	    } else {
+! 		dsk_Editor [set e .de[dsk_Editor :: id]] -files $file
+! 		if {[string length [$e cget -files]] == 0} {$e delete}
+  		#dsk_editor load $file
+  	    }
+  	}
+--- 1343,1352 ----
+  	    if {$tkdesk(editor,cmd) != "builtin"} {
+  		dsk_exec $tkdesk(editor,cmd) $file
+  	    } else {
+! 		dsk_Editor [set e .de[dsk_Editor::id]] -files $file
+! 		if {[string length [$e cget -files]] == 0} {
+! 		   itcl::delete object $e
+! 		}
+  		#dsk_editor load $file
+  	    }
+  	}
+***************
+*** 1452,1458 ****
+  	set noapply 0
+      }
+  
+!     dsk_HistEntry .he[dsk_HistEntry :: id] \
+  	    -title "Enter String" \
+  	    -label $msg \
+  	    -entrydefault $tmpvar \
+--- 1461,1467 ----
+  	set noapply 0
+      }
+  
+!     dsk_HistEntry .he[dsk_HistEntry::id] \
+  	    -title "Enter String" \
+  	    -label $msg \
+  	    -entrydefault $tmpvar \
+***************
+*** 1554,1560 ****
+  	}
+      }
+  
+!     dsk_HistEntry .he[dsk_HistEntry :: id] \
+  	    -title "Print" \
+  	    -label "Print command (file names will be appended):" \
+  	    -entrydefault $cmd \
+--- 1563,1569 ----
+  	}
+      }
+  
+!     dsk_HistEntry .he[dsk_HistEntry::id] \
+  	    -title "Print" \
+  	    -label "Print command (file names will be appended):" \
+  	    -entrydefault $cmd \
+***************
+*** 1579,1585 ****
+  	set cmd "lpr"
+      }
+  
+!     dsk_HistEntry .he[dsk_HistEntry :: id] \
+  	    -title "Print" \
+  	    -label "Print command (pipe):" \
+  	    -entrydefault $cmd \
+--- 1588,1594 ----
+  	set cmd "lpr"
+      }
+  
+!     dsk_HistEntry .he[dsk_HistEntry::id] \
+  	    -title "Print" \
+  	    -label "Print command (pipe):" \
+  	    -entrydefault $cmd \
+Index: tkdesk/tcldesk/appbar-dialup.tcl
+diff -c tkdesk/tcldesk/appbar-dialup.tcl:1.1.1.1 tkdesk/tcldesk/appbar-dialup.tcl:1.2
+*** tkdesk/tcldesk/appbar-dialup.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/appbar-dialup.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 77,83 ****
+      if {$dsk_appbar(dialup,state) == "down" \
+  	    && !$dsk_appbar(dialup,offhook)} {
+  	if {$phonenr == {}} {
+! 	    dsk_HistEntry .he[dsk_HistEntry :: id] \
+  		    -title "Connect to ISP" \
+  		    -label "Phone number to dial:" \
+  		    -history dialup_history \
+--- 77,83 ----
+      if {$dsk_appbar(dialup,state) == "down" \
+  	    && !$dsk_appbar(dialup,offhook)} {
+  	if {$phonenr == {}} {
+! 	    dsk_HistEntry .he[dsk_HistEntry::id] \
+  		    -title "Connect to ISP" \
+  		    -label "Phone number to dial:" \
+  		    -history dialup_history \
+Index: tkdesk/tcldesk/appbar.tcl
+diff -c tkdesk/tcldesk/appbar.tcl:1.2 tkdesk/tcldesk/appbar.tcl:1.3
+*** tkdesk/tcldesk/appbar.tcl:1.2	Wed Mar 10 16:27:49 2004
+--- tkdesk/tcldesk/appbar.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 380,386 ****
+      wm deiconify $t
+      _appbar_bind_global
+  
+!     dsk_Common :: adjustAppBarMenuEntry 1
+      dsk_lazy
+  }
+  
+--- 380,386 ----
+      wm deiconify $t
+      _appbar_bind_global
+  
+!     dsk_Common::adjustAppBarMenuEntry 1
+      dsk_lazy
+  }
+  
+***************
+*** 553,559 ****
+      } elseif {$me == "buffers"} {
+  	$m add cascade -label "Buffers" -menu $m.bufs
+  	menu [set tm $m.bufs] -postcommand \
+! 		"dsk_Editor :: bufferMenu $tm"
+      } elseif [regexp {^\*[^ ]} $me] {
+  	set cm $m.cas$_appbar_special(cas)
+  	incr _appbar_special(cas)
+--- 553,559 ----
+      } elseif {$me == "buffers"} {
+  	$m add cascade -label "Buffers" -menu $m.bufs
+  	menu [set tm $m.bufs] -postcommand \
+! 		"dsk_Editor::bufferMenu $tm"
+      } elseif [regexp {^\*[^ ]} $me] {
+  	set cm $m.cas$_appbar_special(cas)
+  	incr _appbar_special(cas)
+***************
+*** 741,747 ****
+      } else {
+  	cb_info "The application bar cannot be closed because there is no file browser window on screen."
+      }
+!     dsk_Common :: adjustAppBarMenuEntry 0
+  }
+  
+  #
+--- 741,747 ----
+      } else {
+  	cb_info "The application bar cannot be closed because there is no file browser window on screen."
+      }
+!     dsk_Common::adjustAppBarMenuEntry 0
+  }
+  
+  #
+Index: tkdesk/tcldesk/config.tcl
+diff -c tkdesk/tcldesk/config.tcl:1.4 tkdesk/tcldesk/config.tcl:1.5
+*** tkdesk/tcldesk/config.tcl:1.4	Tue Apr 13 19:41:51 2004
+--- tkdesk/tcldesk/config.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 224,230 ****
+  	}
+      }
+  
+!     #dsk_Editor .de[dsk_Editor :: id] -files $clist
+      set ed $tkdesk(editor,cmd)
+      if [info exists tkdesk(conf_editor,cmd)] {
+  	set tkdesk(editor,cmd) $tkdesk(conf_editor,cmd)
+--- 224,230 ----
+  	}
+      }
+  
+!     #dsk_Editor .de[dsk_Editor::id] -files $clist
+      set ed $tkdesk(editor,cmd)
+      if [info exists tkdesk(conf_editor,cmd)] {
+  	set tkdesk(editor,cmd) $tkdesk(conf_editor,cmd)
+***************
+*** 501,512 ****
+      }
+      set tkdesk(trashdir) [cb_tilde $tkdesk(trashdir) expand]
+  
+!     dsk_Listbox :: selcolor [cb_col $tkdesk(color,listsel)]
+!     dsk_Listbox :: modifier $tkdesk(use_old_modifiers)
+!     dsk_Listbox :: scrollbarside $tkdesk(side_of_scrollbars)
+      
+      #set tkdesk(file_lb,minwidth) $tkdesk(file_lb,width)
+!     dsk_DeskItem :: set_width $tkdesk(desk_items,label_width)
+  
+      # Backward compatibility:
+      set tkdesk(strict_motif) $tk_strictMotif
+--- 501,512 ----
+      }
+      set tkdesk(trashdir) [cb_tilde $tkdesk(trashdir) expand]
+  
+!     dsk_Listbox::selcolor [cb_col $tkdesk(color,listsel)]
+!     dsk_Listbox::modifier $tkdesk(use_old_modifiers)
+!     dsk_Listbox::scrollbarside $tkdesk(side_of_scrollbars)
+      
+      #set tkdesk(file_lb,minwidth) $tkdesk(file_lb,width)
+!     dsk_DeskItem::set_width $tkdesk(desk_items,label_width)
+  
+      # Backward compatibility:
+      set tkdesk(strict_motif) $tk_strictMotif
+***************
+*** 679,686 ****
+  	dsk_setup_server
+      }
+      
+!     dsk_FileList :: status_bar $tkdesk(list_statbar)
+!     dsk_FileListbox :: dotregular $tkdesk(dot_regular)
+  
+      option add *Menu.tearOff $tkdesk(tearoff-menus)
+      set tk_strictMotif $tkdesk(strict_motif)
+--- 679,686 ----
+  	dsk_setup_server
+      }
+      
+!     dsk_FileList::status_bar $tkdesk(list_statbar)
+!     dsk_FileListbox::dotregular $tkdesk(dot_regular)
+  
+      option add *Menu.tearOff $tkdesk(tearoff-menus)
+      set tk_strictMotif $tkdesk(strict_motif)
+***************
+*** 865,871 ****
+      if ![info exists tkdesk(soundcmd)] {
+  	set tkdesk(use_sound) 0
+      }
+!     dsk_Common :: setSoundEntryState
+  
+      return
+  }
+--- 865,871 ----
+      if ![info exists tkdesk(soundcmd)] {
+  	set tkdesk(use_sound) 0
+      }
+!     dsk_Common::setSoundEntryState
+  
+      return
+  }
+***************
+*** 1102,1108 ****
+  	    dsk_status "Saving Layout ..."
+  	    foreach class {dsk_FileViewer dsk_FileList dsk_DeskItem \
+  		    dsk_HistEntry} {
+! 		set obj_list [itcl_info objects -class $class]
+  		foreach obj $obj_list {
+  		    set top [$obj getToplevel]
+  		    if ![winfo exists $top] continue
+--- 1102,1108 ----
+  	    dsk_status "Saving Layout ..."
+  	    foreach class {dsk_FileViewer dsk_FileList dsk_DeskItem \
+  		    dsk_HistEntry} {
+! 		set obj_list [itcl::find objects -class $class]
+  		foreach obj $obj_list {
+  		    set top [$obj getToplevel]
+  		    if ![winfo exists $top] continue
+***************
+*** 1307,1313 ****
+  	    	dsk_FileViewer {
+  		    set tkdesk(have_window) 1
+  		    dsk_progress "Creating a file browser..."
+! 		    set win .fv[dsk_FileViewer :: id]
+  		    set nlb [lindex $l 4]
+  		    if {$nlb == ""} {
+  			set nlb $tkdesk(num_lbs)
+--- 1307,1313 ----
+  	    	dsk_FileViewer {
+  		    set tkdesk(have_window) 1
+  		    dsk_progress "Creating a file browser..."
+! 		    set win .fv[dsk_FileViewer::id]
+  		    set nlb [lindex $l 4]
+  		    if {$nlb == ""} {
+  			set nlb $tkdesk(num_lbs)
+***************
+*** 1336,1342 ****
+  	    	dsk_FileList {
+  		    set tkdesk(have_window) 1
+  		    dsk_progress "Creating a file list..."
+! 		    set win .dfl[dsk_FileList :: id]
+  		    dsk_FileList $win -dir [lindex $l 1] -dontmap 1
+  		    set win [$win getToplevel]
+  		    #wm withdraw $win
+--- 1336,1342 ----
+  	    	dsk_FileList {
+  		    set tkdesk(have_window) 1
+  		    dsk_progress "Creating a file list..."
+! 		    set win .dfl[dsk_FileList::id]
+  		    dsk_FileList $win -dir [lindex $l 1] -dontmap 1
+  		    set win [$win getToplevel]
+  		    #wm withdraw $win
+***************
+*** 1360,1366 ****
+  			set tkdesk(have_window) 1
+  		    }
+  		    dsk_progress "Creating a desk item..."
+! 		    set win .di[dsk_DeskItem :: id]
+  		    dsk_DeskItem $win -file $itemname -dontmap 1
+  		    set win [$win getToplevel]
+  		    #wm withdraw $win
+--- 1360,1366 ----
+  			set tkdesk(have_window) 1
+  		    }
+  		    dsk_progress "Creating a desk item..."
+! 		    set win .di[dsk_DeskItem::id]
+  		    dsk_DeskItem $win -file $itemname -dontmap 1
+  		    set win [$win getToplevel]
+  		    #wm withdraw $win
+***************
+*** 1432,1441 ****
+  	    ButtonBar {
+  		cb_image !reset
+  		read_ButtonBar
+! 		foreach br [itcl_info objects -class dsk_FileViewer] {
+  		    $br _button_bar
+  		}
+! 		foreach fl [itcl_info objects -class dsk_FileList] {
+  		    $fl _button_bar
+  		}
+  	    }
+--- 1432,1441 ----
+  	    ButtonBar {
+  		cb_image !reset
+  		read_ButtonBar
+! 		foreach br [itcl::find objects -class dsk_FileViewer] {
+  		    $br _button_bar
+  		}
+! 		foreach fl [itcl::find objects -class dsk_FileList] {
+  		    $fl _button_bar
+  		}
+  	    }
+***************
+*** 1449,1463 ****
+  	    }
+  	    FileTags {
+  		#dsk_reread_config		
+! 		dsk_FileListbox :: tag reset
+  		cb_image !reset
+  		read_FileTags
+! 		foreach fl [itcl_info objects -class dsk_FileListbox] {
+  		    if [winfo exists [$fl getFrame]] {
+  			$fl refresh
+  		    }
+  		}
+! 		foreach di [itcl_info objects -class dsk_DeskItem] {
+  		    if [winfo exists [$di getToplevel]] {
+  			$di refresh
+  		    }
+--- 1449,1463 ----
+  	    }
+  	    FileTags {
+  		#dsk_reread_config		
+! 		dsk_FileListbox::tag reset
+  		cb_image !reset
+  		read_FileTags
+! 		foreach fl [itcl::find objects -class dsk_FileListbox] {
+  		    if [winfo exists [$fl getFrame]] {
+  			$fl refresh
+  		    }
+  		}
+! 		foreach di [itcl::find objects -class dsk_DeskItem] {
+  		    if [winfo exists [$di getToplevel]] {
+  			$di refresh
+  		    }
+***************
+*** 1525,1533 ****
+  #	foreach obj [itcl_info objects -class $class] {
+  #	    $obj delete
+  #	}
+! #	$class :: id reset
+  #    }
+! #    dsk_Editor :: id reset
+  #    foreach topname {dsk_ask_exec dsk_ask_dir dsk_jobs dsk_copy \
+  #		dsk_delete dsk_appbar dsk_find_annotation} {
+  #	catch "destroy .$topname"
+--- 1525,1533 ----
+  #	foreach obj [itcl_info objects -class $class] {
+  #	    $obj delete
+  #	}
+! #	$class::id reset
+  #    }
+! #    dsk_Editor::id reset
+  #    foreach topname {dsk_ask_exec dsk_ask_dir dsk_jobs dsk_copy \
+  #		dsk_delete dsk_appbar dsk_find_annotation} {
+  #	catch "destroy .$topname"
+***************
+*** 1553,1559 ****
+  proc dsk_persave_config {} {
+      global tkdesk
+  
+!     if {[itcl_info objects -class dsk_FileViewer] != ""} {
+      	dsk_save_config
+      	after [expr $tkdesk(update,config) * 60000] dsk_persave_config
+      }
+--- 1553,1559 ----
+  proc dsk_persave_config {} {
+      global tkdesk
+  
+!     if {[itcl::find objects -class dsk_FileViewer] != ""} {
+      	dsk_save_config
+      	after [expr $tkdesk(update,config) * 60000] dsk_persave_config
+      }
+***************
+*** 1620,1626 ****
+      set tkdesk(_cmdmenu,cnt) 0
+      if [info exists tkdesk(commands)] {
+  	foreach class "dsk_FileViewer dsk_FileList" {
+! 	    foreach t [itcl_info objects -class $class] {
+  		if {$class == "dsk_FileViewer"} {
+  		    set m [$t getToplevel].fMenu.mbCmds.menu
+  		} else {
+--- 1620,1626 ----
+      set tkdesk(_cmdmenu,cnt) 0
+      if [info exists tkdesk(commands)] {
+  	foreach class "dsk_FileViewer dsk_FileList" {
+! 	    foreach t [itcl::find objects -class $class] {
+  		if {$class == "dsk_FileViewer"} {
+  		    set m [$t getToplevel].fMenu.mbCmds.menu
+  		} else {
+***************
+*** 1725,1731 ****
+      set tkdesk(_dirmenu,cnt) 0
+      if [info exists tkdesk(directories)] {
+  	foreach class "dsk_FileViewer dsk_FileList" {
+! 	    foreach t [itcl_info objects -class $class] {
+  		set m [$t getToplevel].fMenu.mbDirs.menu
+  		set fe [expr [$m cget -tearoff] ? 11 : 10]
+  		catch "$m delete $fe last"
+--- 1725,1731 ----
+      set tkdesk(_dirmenu,cnt) 0
+      if [info exists tkdesk(directories)] {
+  	foreach class "dsk_FileViewer dsk_FileList" {
+! 	    foreach t [itcl::find objects -class $class] {
+  		set m [$t getToplevel].fMenu.mbDirs.menu
+  		set fe [expr [$m cget -tearoff] ? 11 : 10]
+  		catch "$m delete $fe last"
+Index: tkdesk/tcldesk/copy.tcl
+diff -c tkdesk/tcldesk/copy.tcl:1.1.1.1 tkdesk/tcldesk/copy.tcl:1.2
+*** tkdesk/tcldesk/copy.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/copy.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 600,608 ****
+  	    }
+  	    if {$cmd == "move"} {
+  		if [file isdirectory $dest] {
+! 		    dsk_DeskItem :: move $f $dest/[file tail $f]
+  		} else {
+! 		    dsk_DeskItem :: move $f $dest
+  		}
+  	    }
+  	}
+--- 600,608 ----
+  	    }
+  	    if {$cmd == "move"} {
+  		if [file isdirectory $dest] {
+! 		    dsk_DeskItem::move $f $dest/[file tail $f]
+  		} else {
+! 		    dsk_DeskItem::move $f $dest
+  		}
+  	    }
+  	}
+Index: tkdesk/tcldesk/cpanels.tcl
+diff -c tkdesk/tcldesk/cpanels.tcl:1.2 tkdesk/tcldesk/cpanels.tcl:1.3
+*** tkdesk/tcldesk/cpanels.tcl:1.2	Tue Apr 13 19:44:31 2004
+--- tkdesk/tcldesk/cpanels.tcl	Tue Apr 20 11:22:18 2004
+***************
+*** 319,325 ****
+  	    -padx $tkdesk(pad) -pady $tkdesk(pad) \
+  	    -expand yes -ipady 2
+  
+!     catch {$f.dlb delete}
+      dsk_Listbox $f.dlb -width $tkdesk(file_lb,width) -height 10 \
+  	    -font [cb_font $tkdesk(font,file_lbs)] \
+  	    -bg [cb_col $tkdesk(color,filelb)] \
+--- 319,325 ----
+  	    -padx $tkdesk(pad) -pady $tkdesk(pad) \
+  	    -expand yes -ipady 2
+  
+!     catch {itcl::delete object $f.dlb}
+      dsk_Listbox $f.dlb -width $tkdesk(file_lb,width) -height 10 \
+  	    -font [cb_font $tkdesk(font,file_lbs)] \
+  	    -bg [cb_col $tkdesk(color,filelb)] \
+Index: tkdesk/tcldesk/delete.tcl
+diff -c tkdesk/tcldesk/delete.tcl:1.1.1.1 tkdesk/tcldesk/delete.tcl:1.2
+*** tkdesk/tcldesk/delete.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/delete.tcl	Tue Apr 20 11:22:19 2004
+***************
+*** 349,355 ****
+  	    dsk_refresh "$alist $dest"
+  	}
+  	foreach f $alist {
+! 	    dsk_DeskItem :: remove $f
+  	}
+  	if ![winfo exists $t] return
+  	if !$dsk_delete(all) {
+--- 349,355 ----
+  	    dsk_refresh "$alist $dest"
+  	}
+  	foreach f $alist {
+! 	    dsk_DeskItem::remove $f
+  	}
+  	if ![winfo exists $t] return
+  	if !$dsk_delete(all) {
+Index: tkdesk/tcldesk/dsk_Listbox.tcl
+diff -c tkdesk/tcldesk/dsk_Listbox.tcl:1.2 tkdesk/tcldesk/dsk_Listbox.tcl:1.3
+*** tkdesk/tcldesk/dsk_Listbox.tcl:1.2	Thu Apr  8 16:34:21 2004
+--- tkdesk/tcldesk/dsk_Listbox.tcl	Tue Apr 20 11:22:19 2004
+***************
+*** 148,154 ****
+  	bind $frame.text <Control-ButtonRelease-1> "$this _sel_drag stop"
+  	set drag(afterId) {}
+          bind $frame.text <Double-1> "
+! 	    set tmp_cb \[$this info public callback -value\]
+  	    if {\$tmp_cb != \"\"} {
+  		eval \$tmp_cb $this \[$this select get\]
+  	    }
+--- 148,154 ----
+  	bind $frame.text <Control-ButtonRelease-1> "$this _sel_drag stop"
+  	set drag(afterId) {}
+          bind $frame.text <Double-1> "
+! 	    set tmp_cb \[$this info variable callback -value\]
+  	    if {\$tmp_cb != \"\"} {
+  		eval \$tmp_cb $this \[$this select get\]
+  	    }
+***************
+*** 193,199 ****
+  	    pack $frame.sb -side right -padx $pad -fill y
+  	}
+  	
+! 	eval config $args
+  	update ;# idletasks
+      }
+  
+--- 193,199 ----
+  	    pack $frame.sb -side right -padx $pad -fill y
+  	}
+  	
+! 	eval configure $args
+  	update ;# idletasks
+      }
+  
+***************
+*** 206,212 ****
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {config} { 
+      }
+  
+      method textconfig {args} {
+--- 206,213 ----
+      # ----- Methods and Procs -------------------------------------------------
+      #
+  
+!     method config {args} { 
+!        eval configure $args
+      }
+  
+      method textconfig {args} {
+***************
+*** 779,791 ****
+  	set autosb $activate
+  	if $autosb {
+  	    # (un)packing of the sb while resizing works not too well:
+! 	    foreach this [itcl_info objects -class dsk_Listbox] {
+  	    	bind $frame.text <Configure> \
+  			"after 200 \{catch \"$this _pack_sb\"\}; break"
+  	    	$this _pack_sb
+  	    }
+  	} else {
+! 	    foreach this [itcl_info objects -class dsk_Listbox] {
+  	        bind $frame.text <Configure> {break}
+  		$this _pack_sb 1
+  	    }
+--- 780,792 ----
+  	set autosb $activate
+  	if $autosb {
+  	    # (un)packing of the sb while resizing works not too well:
+! 	    foreach this [itcl::find objects -class dsk_Listbox] {
+  	    	bind $frame.text <Configure> \
+  			"after 200 \{catch \"$this _pack_sb\"\}; break"
+  	    	$this _pack_sb
+  	    }
+  	} else {
+! 	    foreach this [itcl::find objects -class dsk_Listbox] {
+  	        bind $frame.text <Configure> {break}
+  		$this _pack_sb 1
+  	    }
+***************
+*** 819,825 ****
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public pad 4 {
+  	pack $frame.hsb -side bottom -padx $pad -pady $pad -fill x
+  	if {$sb_packed} {
+  	    pack $frame.sb -side left -padx $pad -fill y
+--- 820,826 ----
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public variable pad 4 {
+  	pack $frame.hsb -side bottom -padx $pad -pady $pad -fill x
+  	if {$sb_packed} {
+  	    pack $frame.sb -side left -padx $pad -fill y
+***************
+*** 834,840 ****
+  	}
+      }
+  
+!     public list {} {
+  
+  	$frame.text delete 1.0 end
+  	foreach entry $list {
+--- 835,841 ----
+  	}
+      }
+  
+!     public variable list {} {
+  
+  	$frame.text delete 1.0 end
+  	foreach entry $list {
+***************
+*** 846,852 ****
+  	}
+      }
+  
+!     public listtext {} {
+  
+  	# substitute \t:
+  	#set list [subst -nocommands -novariables $list]
+--- 847,853 ----
+  	}
+      }
+  
+!     public variable listtext {} {
+  
+  	# substitute \t:
+  	#set list [subst -nocommands -novariables $list]
+***************
+*** 858,904 ****
+  	$frame.text insert end $listtext
+      }
+  
+!     public font fixed {
+  	$frame.text config -font [cb_font $font]
+      }
+  
+!     public width 20 {
+  	$frame.text config -width $width
+      }
+  
+!     public height 10 {
+  	$frame.text config -height $height
+      }
+  
+!     public bg \#d9d9d9 {
+  	if {[winfo depth .] > 1} {
+  	    $frame.text config -background $bg
+  	}
+      }
+  
+!     public fg black {
+  	if {[winfo depth .] > 1} {
+  	    $frame.text config -foreground $fg
+  	}
+      }
+  
+!     public seltag {} {
+  	eval $frame.text tag config seltag $seltag
+      }
+  
+!     public mode "multi"
+!     public callback ""
+!     public has_dots 0
+  
+      # this is only for internal use
+!     public stop_dragging 1
+  
+!     protected sb_packed 1
+!     protected _pack_sb_working 0
+!     protected sel_start ""
+!     protected sel_select ""
+!     protected was_selected 0
+!     protected drag
+      set drag(afterId) ""
+  
+      common mod_toggle
+--- 859,905 ----
+  	$frame.text insert end $listtext
+      }
+  
+!     public variable font fixed {
+  	$frame.text config -font [cb_font $font]
+      }
+  
+!     public variable width 20 {
+  	$frame.text config -width $width
+      }
+  
+!     public variable height 10 {
+  	$frame.text config -height $height
+      }
+  
+!     public variable bg \#d9d9d9 {
+  	if {[winfo depth .] > 1} {
+  	    $frame.text config -background $bg
+  	}
+      }
+  
+!     public variable fg black {
+  	if {[winfo depth .] > 1} {
+  	    $frame.text config -foreground $fg
+  	}
+      }
+  
+!     public variable seltag {} {
+  	eval $frame.text tag config seltag $seltag
+      }
+  
+!     public variable mode "multi"
+!     public variable callback ""
+!     public variable has_dots 0
+  
+      # this is only for internal use
+!     public variable stop_dragging 1
+  
+!     protected variable sb_packed 1
+!     protected variable _pack_sb_working 0
+!     protected variable sel_start ""
+!     protected variable sel_select ""
+!     protected variable was_selected 0
+!     protected variable drag
+      set drag(afterId) ""
+  
+      common mod_toggle
+Index: tkdesk/tcldesk/file_ops.tcl
+diff -c tkdesk/tcldesk/file_ops.tcl:1.2 tkdesk/tcldesk/file_ops.tcl:1.3
+*** tkdesk/tcldesk/file_ops.tcl:1.2	Fri Apr  9 18:41:51 2004
+--- tkdesk/tcldesk/file_ops.tcl	Tue Apr 20 11:22:19 2004
+***************
+*** 182,188 ****
+      }
+  
+      if {$type == "file"} {
+! 	set dsk_create(win,file) [dsk_HistEntry .dhe[dsk_HistEntry :: id] \
+  		-label "Name of new file:" \
+  		-title "New File" \
+  		-checklabel "Open in Editor" \
+--- 182,188 ----
+      }
+  
+      if {$type == "file"} {
+! 	set dsk_create(win,file) [dsk_HistEntry .dhe[dsk_HistEntry::id] \
+  		-label "Name of new file:" \
+  		-title "New File" \
+  		-checklabel "Open in Editor" \
+***************
+*** 190,196 ****
+  		-callback {dsk_create_callback file} \
+  		-nograb 1]
+      } else {
+! 	set dsk_create(win,directory) [dsk_HistEntry .dhe[dsk_HistEntry :: id] \
+  		-label "Name of new directory:" \
+  		-title "New Directory" \
+  		-checklabel "Open after Creation" \
+--- 190,196 ----
+  		-callback {dsk_create_callback file} \
+  		-nograb 1]
+      } else {
+! 	set dsk_create(win,directory) [dsk_HistEntry .dhe[dsk_HistEntry::id] \
+  		-label "Name of new directory:" \
+  		-title "New Directory" \
+  		-checklabel "Open after Creation" \
+***************
+*** 264,283 ****
+  	file {
+  	    set d [file dirname $args]
+  	    set t [file tail $args]
+! 	    foreach fl [itcl_info objects -class dsk_FileListbox] {
+  		if {$d == [string trimright \
+! 			[$fl info public directory -value] "/"]} {
+  		    [$fl getLbObj] select name $t
+  		}
+  	    }
+  	}
+  	X {
+! 	    if {[itcl_info objects $tkdesk(active_viewer)] != ""} {
+  		$tkdesk(active_viewer) select X $args
+  	    }
+  	}
+     	clear {
+! 	    if {[itcl_info objects $tkdesk(active_viewer)] != ""} {
+  		$tkdesk(active_viewer) select clear
+  	    }
+  	}
+--- 264,283 ----
+  	file {
+  	    set d [file dirname $args]
+  	    set t [file tail $args]
+! 	    foreach fl [itcl::find objects -class dsk_FileListbox] {
+  		if {$d == [string trimright \
+! 			[$fl info variable directory -value] "/"]} {
+  		    [$fl getLbObj] select name $t
+  		}
+  	    }
+  	}
+  	X {
+! 	    if {[itcl::find objects $tkdesk(active_viewer)] != ""} {
+  		$tkdesk(active_viewer) select X $args
+  	    }
+  	}
+     	clear {
+! 	    if {[itcl::find objects $tkdesk(active_viewer)] != ""} {
+  		$tkdesk(active_viewer) select clear
+  	    }
+  	}
+***************
+*** 621,627 ****
+  		} else {
+  		    dsk_refresh $path/
+  		    dsk_select file [list $path/$tmpnewname]
+! 		    dsk_DeskItem :: move [list $file] [list $path/$tmpnewname]
+  		    # move annotations:
+  		    if [info exists tkdesk_anno($file)] {
+  			set tkdesk_anno($path/$tmpnewname) $tkdesk_anno($file)
+--- 621,627 ----
+  		} else {
+  		    dsk_refresh $path/
+  		    dsk_select file [list $path/$tmpnewname]
+! 		    dsk_DeskItem::move [list $file] [list $path/$tmpnewname]
+  		    # move annotations:
+  		    if [info exists tkdesk_anno($file)] {
+  			set tkdesk_anno($path/$tmpnewname) $tkdesk_anno($file)
+Index: tkdesk/tcldesk/find.tcl
+diff -c tkdesk/tcldesk/find.tcl:1.1.1.1 tkdesk/tcldesk/find.tcl:1.2
+*** tkdesk/tcldesk/find.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/find.tcl	Tue Apr 20 11:22:19 2004
+***************
+*** 654,660 ****
+  proc _dsk_find_lb {name} {
+      global tkdesk
+  
+!     catch {$name delete}
+      
+      dsk_Listbox $name -width 10 -height 2 \
+  	    -font [cb_font $tkdesk(font,file_lbs)] \
+--- 654,660 ----
+  proc _dsk_find_lb {name} {
+      global tkdesk
+  
+!     catch {itcl::delete object $name}
+      
+      dsk_Listbox $name -width 10 -height 2 \
+  	    -font [cb_font $tkdesk(font,file_lbs)] \
+Index: tkdesk/tcldesk/history.tcl
+diff -c tkdesk/tcldesk/history.tcl:1.1.1.1 tkdesk/tcldesk/history.tcl:1.2
+*** tkdesk/tcldesk/history.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/history.tcl	Tue Apr 20 11:22:19 2004
+***************
+*** 35,41 ****
+  
+  itcl_class dsk_history {
+  
+!     constructor {config} {
+      }
+  
+      destructor {
+--- 35,42 ----
+  
+  itcl_class dsk_history {
+  
+!     constructor {args} {
+!         eval configure $args
+      }
+  
+      destructor {
+***************
+*** 264,279 ****
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public size 20
+!     public command ""
+!     public callback ""
+! 
+!     protected list {}
+!     protected changed 1
+!     protected last_menu ""
+!     protected pointer 0
+!     protected lock 0
+!     protected dirbuf ""
+  
+      common max_entry_length 80
+  }
+--- 265,280 ----
+      # ----- Variables ---------------------------------------------------------
+      #
+  
+!     public variable size 20
+!     public variable command ""
+!     public variable callback ""
+! 
+!     protected variable list {}
+!     protected variable changed 1
+!     protected variable last_menu ""
+!     protected variable pointer 0
+!     protected variable lock 0
+!     protected variable dirbuf ""
+  
+      common max_entry_length 80
+  }
+Index: tkdesk/tcldesk/itcl_reload.tcl
+diff -c tkdesk/tcldesk/itcl_reload.tcl:1.1.1.1 tkdesk/tcldesk/itcl_reload.tcl:1.2
+*** tkdesk/tcldesk/itcl_reload.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/itcl_reload.tcl	Tue Apr 20 11:22:19 2004
+***************
+*** 35,51 ****
+  # ----------------------------------------------------------------------
+  proc itcl_unload {args} {
+  	foreach class [eval itcl_dependencies $args] {
+! 		foreach o [itcl_info objects -class $class] {
+! 			$o delete
+  		}
+! 		rename $class {}
+  	}
+  
+  	foreach class $args {
+! 		foreach o [itcl_info objects -class $class] {
+! 			$o delete
+  		}
+! 		rename $class {}
+  	}
+  }
+  
+--- 35,51 ----
+  # ----------------------------------------------------------------------
+  proc itcl_unload {args} {
+  	foreach class [eval itcl_dependencies $args] {
+! 		foreach o [itcl::find objects -class $class] {
+! 			itcl::delete object $o
+  		}
+! 		itcl::delete class $class
+  	}
+  
+  	foreach class $args {
+! 		foreach o [itcl::find objects -class $class] {
+! 			itcl::delete object $o
+  		}
+! 		itcl::delete class $class
+  	}
+  }
+  
+***************
+*** 86,96 ****
+  	set depends(x) make-this-an-array
+  	unset depends(x)
+  
+! 	set classes [itcl_info classes]
+  	foreach class $args {
+  		foreach dclass $classes {
+  			if {$dclass != $class} {
+! 				set hier [$dclass :: info heritage]
+  				if {[lsearch $hier $class] >= 0} {
+  					set depends($dclass) $class
+  				}
+--- 86,96 ----
+  	set depends(x) make-this-an-array
+  	unset depends(x)
+  
+! 	set classes [itcl::find classes]
+  	foreach class $args {
+  		foreach dclass $classes {
+  			if {$dclass != $class} {
+! 				set hier [$dclass::info heritage]
+  				if {[lsearch $hier $class] >= 0} {
+  					set depends($dclass) $class
+  				}
+Index: tkdesk/tcldesk/popup.tcl
+diff -c tkdesk/tcldesk/popup.tcl:1.1.1.1 tkdesk/tcldesk/popup.tcl:1.2
+*** tkdesk/tcldesk/popup.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/popup.tcl	Tue Apr 20 11:22:19 2004
+***************
+*** 206,212 ****
+  		if ![string match "deskitem*" $opt] {
+  		    $m add separator
+  		    $m add command -label "Put on Desk " -command \
+! 			    "dsk_DeskItem .di\[dsk_DeskItem :: id\] \
+  			    -file \"$sfile\""
+  		}
+  
+--- 206,212 ----
+  		if ![string match "deskitem*" $opt] {
+  		    $m add separator
+  		    $m add command -label "Put on Desk " -command \
+! 			    "dsk_DeskItem .di\[dsk_DeskItem::id\] \
+  			    -file \"$sfile\""
+  		}
+  
+Index: tkdesk/tcldesk/update.tcl
+diff -c tkdesk/tcldesk/update.tcl:1.2 tkdesk/tcldesk/update.tcl:1.3
+*** tkdesk/tcldesk/update.tcl:1.2	Thu Mar  4 14:27:00 2004
+--- tkdesk/tcldesk/update.tcl	Tue Apr 20 11:22:19 2004
+***************
+*** 64,75 ****
+  	if {[lsearch $refreshed_dirs $dir] < 0} {
+  	    lappend refreshed_dirs $dir
+  
+! 	    foreach fv [itcl_info objects -class dsk_FileViewer] {
+  		catch {$fv refreshdir $dir}
+  		#$fv refreshdir $dir
+  	    }
+  
+! 	    foreach fl [itcl_info objects -class dsk_FileList] {
+  		catch {$fl refreshdir $dir}
+  	    }
+  	    
+--- 64,75 ----
+  	if {[lsearch $refreshed_dirs $dir] < 0} {
+  	    lappend refreshed_dirs $dir
+  
+! 	    foreach fv [itcl::find objects -class dsk_FileViewer] {
+  		catch {$fv refreshdir $dir}
+  		#$fv refreshdir $dir
+  	    }
+  
+! 	    foreach fl [itcl::find objects -class dsk_FileList] {
+  		catch {$fl refreshdir $dir}
+  	    }
+  	    
+***************
+*** 109,115 ****
+      set refreshed_toplevels ""
+  
+      if {[llength $lblist] == 0} {
+! 	set lblist [itcl_info objects -class dsk_FileListbox]
+  	set revisit 1
+      } else {
+  	set revisit 0
+--- 109,115 ----
+      set refreshed_toplevels ""
+  
+      if {[llength $lblist] == 0} {
+! 	set lblist [itcl::find objects -class dsk_FileListbox]
+  	set revisit 1
+      } else {
+  	set revisit 0
+***************
+*** 119,129 ****
+  	if {!$tkdesk(bgexec,working)} {
+  	    foreach lb $lblist {
+  		set dir ""
+! 		catch {set dir [$lb info public directory -value]}
+  		if {$dir == ""} {
+  		    continue
+  		}
+! 		set mtime [$lb info protected mtime -value]
+  		if [file exists $dir] {
+  		    # take care of a possible race condition
+  		    set rmtime [expr $mtime + 1]
+--- 119,129 ----
+  	if {!$tkdesk(bgexec,working)} {
+  	    foreach lb $lblist {
+  		set dir ""
+! 		catch {set dir [$lb info variable directory -value]}
+  		if {$dir == ""} {
+  		    continue
+  		}
+! 		set mtime [$lb info variable mtime -value]
+  		if [file exists $dir] {
+  		    # take care of a possible race condition
+  		    set rmtime [expr $mtime + 1]
+Index: tkdesk/tcldesk/util.tcl
+diff -c tkdesk/tcldesk/util.tcl:1.2 tkdesk/tcldesk/util.tcl:1.3
+*** tkdesk/tcldesk/util.tcl:1.2	Fri Apr  9 18:42:55 2004
+--- tkdesk/tcldesk/util.tcl	Tue Apr 20 11:22:19 2004
+***************
+*** 129,135 ****
+      
+      foreach class {dsk_FileViewer dsk_FileList dsk_DiskUsage dsk_FileInfo
+                     dsk_Periodic dsk_Editor dsk_DeskItem} {
+! 	foreach obj [itcl_info objects -class $class] {
+  	    lappend dsk_busy(busy) [$obj getToplevel]
+  	}
+      }
+--- 129,135 ----
+      
+      foreach class {dsk_FileViewer dsk_FileList dsk_DiskUsage dsk_FileInfo
+                     dsk_Periodic dsk_Editor dsk_DeskItem} {
+! 	foreach obj [itcl::find objects -class $class] {
+  	    lappend dsk_busy(busy) [$obj getToplevel]
+  	}
+      }
+***************
+*** 234,243 ****
+  	dsk_progress $str
+      }
+      
+!     foreach fv [itcl_info objects -class dsk_FileViewer] {
+  	catch {$fv status $str $do_update}
+      }
+!     foreach fv [itcl_info objects -class dsk_FileList] {
+  	catch {$fv status $str $do_update}
+      }
+  }
+--- 234,243 ----
+  	dsk_progress $str
+      }
+      
+!     foreach fv [itcl::find objects -class dsk_FileViewer] {
+  	catch {$fv status $str $do_update}
+      }
+!     foreach fv [itcl::find objects -class dsk_FileList] {
+  	catch {$fv status $str $do_update}
+      }
+  }
+***************
+*** 251,260 ****
+  	dsk_progress "Waiting..."
+      }
+      
+!     foreach fv [itcl_info objects -class dsk_FileViewer] {
+  	catch {$fv status_ready $do_update}
+      }
+!     foreach fv [itcl_info objects -class dsk_FileList] {
+  	catch {$fv status_ready $do_update}
+      }
+  }
+--- 251,260 ----
+  	dsk_progress "Waiting..."
+      }
+      
+!     foreach fv [itcl::find objects -class dsk_FileViewer] {
+  	catch {$fv status_ready $do_update}
+      }
+!     foreach fv [itcl::find objects -class dsk_FileList] {
+  	catch {$fv status_ready $do_update}
+      }
+  }
+***************
+*** 471,482 ****
+  proc dsk_active {what {arg ""}} {
+      global tkdesk env
+  
+!     if {[itcl_info objects $tkdesk(active_viewer)] == ""} {
+! 	set fvl "[itcl_info objects -class dsk_FileViewer] \
+! 		[itcl_info objects -class dsk_FileList]"
+  	set tkdesk(active_viewer) [lindex $fvl 0]
+      }
+!     if {[itcl_info objects $tkdesk(active_viewer)] == ""} {
+  	set tkdesk(active_viewer) ""
+      }
+      dsk_debug "tkdesk(active_viewer) $tkdesk(active_viewer)"
+--- 471,482 ----
+  proc dsk_active {what {arg ""}} {
+      global tkdesk env
+  
+!     if {[itcl::find objects $tkdesk(active_viewer)] == ""} {
+! 	set fvl "[itcl::find objects -class dsk_FileViewer] \
+! 		[itcl::find objects -class dsk_FileList]"
+  	set tkdesk(active_viewer) [lindex $fvl 0]
+      }
+!     if {[itcl::find objects $tkdesk(active_viewer)] == ""} {
+  	set tkdesk(active_viewer) ""
+      }
+      dsk_debug "tkdesk(active_viewer) $tkdesk(active_viewer)"
+***************
+*** 509,516 ****
+  	    }
+  	}
+  	viewer {
+! 	    return [llength "[itcl_info objects -class dsk_FileViewer] \
+! 		[itcl_info objects -class dsk_FileList]"]
+  	}
+      }
+  }
+--- 509,516 ----
+  	    }
+  	}
+  	viewer {
+! 	    return [llength "[itcl::find objects -class dsk_FileViewer] \
+! 		[itcl::find objects -class dsk_FileList]"]
+  	}
+      }
+  }
+Index: tkdesk/tcldesk/cb_tools/help.tcl
+diff -c tkdesk/tcldesk/cb_tools/help.tcl:1.2 tkdesk/tcldesk/cb_tools/help.tcl:1.3
+*** tkdesk/tcldesk/cb_tools/help.tcl:1.2	Thu Mar 11 21:26:23 2004
+--- tkdesk/tcldesk/cb_tools/help.tcl	Tue Apr 20 11:22:52 2004
+***************
+*** 41,47 ****
+  #               since the functionality is provided at a higher level through
+  #               the following class procs:
+  #
+! #               cb_Help :: show <file> ?<regexp>? ?<indent>?
+  #                   If <file> has not yet been loaded this creates a new help
+  #                   window that displays <file>, else the respective window
+  #                   is made visible. <regexp> is used to define the "headings"
+--- 41,47 ----
+  #               since the functionality is provided at a higher level through
+  #               the following class procs:
+  #
+! #               cb_Help::show <file> ?<regexp>? ?<indent>?
+  #                   If <file> has not yet been loaded this creates a new help
+  #                   window that displays <file>, else the respective window
+  #                   is made visible. <regexp> is used to define the "headings"
+***************
+*** 52,67 ****
+  #                   should be indented depending on their respective level.
+  #                   This is only used if <regexp> is a true regular expression.
+  #
+! #               cb_Help :: bind_for_context <widgets> <refs> ?<fallback>?
+  #                   Binds all widgets in <widgets> so that F1 invokes the
+  #                   "show" proc on the value of the respective array-variable
+  #                   of <refs>. <refs> is a global array whose indices are the
+  #                   widget names for whom there is help available.
+  #                   <fallback> is a list like {<file> ?<regexp>?} and will
+! #                   be passed to cb_Help :: show when there is no item for
+  #                   the current widget.
+  #
+! #               cb_Help :: setfont <font>
+  #                   Makes <font> the standard font for help windows.
+  #
+  
+--- 52,67 ----
+  #                   should be indented depending on their respective level.
+  #                   This is only used if <regexp> is a true regular expression.
+  #
+! #               cb_Help::bind_for_context <widgets> <refs> ?<fallback>?
+  #                   Binds all widgets in <widgets> so that F1 invokes the
+  #                   "show" proc on the value of the respective array-variable
+  #                   of <refs>. <refs> is a global array whose indices are the
+  #                   widget names for whom there is help available.
+  #                   <fallback> is a list like {<file> ?<regexp>?} and will
+! #                   be passed to cb_Help::show when there is no item for
+  #                   the current widget.
+  #
+! #               cb_Help::setfont <font>
+  #                   Makes <font> the standard font for help windows.
+  #
+  
+***************
+*** 266,272 ****
+  	    update idletasks
+  	    wm geometry $this-icon \
+  		    [winfo reqwidth $this-icon]x[winfo reqheight $this-icon]
+! 	    wm protocol $this-icon WM_DELETE_WINDOW "$this delete"
+  	    wm iconwindow $this $this-icon
+  	} else {
+  	    wm iconbitmap $this @$cb_tools(path)/bitmaps/help.xbm
+--- 266,272 ----
+  	    update idletasks
+  	    wm geometry $this-icon \
+  		    [winfo reqwidth $this-icon]x[winfo reqheight $this-icon]
+! 	    wm protocol $this-icon WM_DELETE_WINDOW "itcl::delete object $this"
+  	    wm iconwindow $this $this-icon
+  	} else {
+  	    wm iconbitmap $this @$cb_tools(path)/bitmaps/help.xbm
+Index: tkdesk/tcldesk/cb_tools/itcl_reload.tcl
+diff -c tkdesk/tcldesk/cb_tools/itcl_reload.tcl:1.1.1.1 tkdesk/tcldesk/cb_tools/itcl_reload.tcl:1.2
+*** tkdesk/tcldesk/cb_tools/itcl_reload.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/cb_tools/itcl_reload.tcl	Tue Apr 20 11:22:52 2004
+***************
+*** 35,51 ****
+  # ----------------------------------------------------------------------
+  proc itcl_unload {args} {
+  	foreach class [eval itcl_dependencies $args] {
+! 		foreach o [itcl_info objects -class $class] {
+! 		    $o delete
+  		}
+! 		rename $class {}
+  	}
+  
+  	foreach class $args {
+! 		foreach o [itcl_info objects -class $class] {
+! 		    $o delete
+  		}
+! 		rename $class {}
+  	}
+  }
+  
+--- 35,51 ----
+  # ----------------------------------------------------------------------
+  proc itcl_unload {args} {
+  	foreach class [eval itcl_dependencies $args] {
+! 		foreach o [itcl::find objects -class $class] {
+! 		    itcl::delete object $o
+  		}
+! 		itcl::delete class $class
+  	}
+  
+  	foreach class $args {
+! 		foreach o [itcl::find objects -class $class] {
+! 		    itcl::delete object $o
+  		}
+! 		itcl::delete class $class
+  	}
+  }
+  
+***************
+*** 86,96 ****
+  	set depends(x) make-this-an-array
+  	unset depends(x)
+  
+! 	set classes [itcl_info classes]
+  	foreach class $args {
+  		foreach dclass $classes {
+  			if {$dclass != $class} {
+! 				set hier [$dclass :: info heritage]
+  				if {[lsearch $hier $class] >= 0} {
+  					set depends($dclass) $class
+  				}
+--- 86,96 ----
+  	set depends(x) make-this-an-array
+  	unset depends(x)
+  
+! 	set classes [itcl::find classes]
+  	foreach class $args {
+  		foreach dclass $classes {
+  			if {$dclass != $class} {
+! 				set hier [$dclass::info heritage]
+  				if {[lsearch $hier $class] >= 0} {
+  					set depends($dclass) $class
+  				}
+Index: tkdesk/tcldesk/cb_tools/tools.tcl
+diff -c tkdesk/tcldesk/cb_tools/tools.tcl:1.1.1.1 tkdesk/tcldesk/cb_tools/tools.tcl:1.2
+*** tkdesk/tcldesk/cb_tools/tools.tcl:1.1.1.1	Sun Feb 29 13:52:24 2004
+--- tkdesk/tcldesk/cb_tools/tools.tcl	Tue Apr 20 11:22:52 2004
+***************
+*** 306,312 ****
+  
+      set cb_tools(restarting) 1
+      if {[info commands "itcl_class"] == "itcl_class"} {
+! 	eval itcl_unload [itcl_info classes]
+      }
+  
+      foreach w [winfo children .] {catch {destroy $w}}
+--- 306,312 ----
+  
+      set cb_tools(restarting) 1
+      if {[info commands "itcl_class"] == "itcl_class"} {
+! 	eval itcl_unload [itcl::find classes]
+      }
+  
+      foreach w [winfo children .] {catch {destroy $w}}

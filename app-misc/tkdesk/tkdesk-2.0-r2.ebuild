@@ -1,8 +1,7 @@
-# Copyright 1999-2005 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Header: $
 
-DESCRIPTION=" TkDesk is a graphical file manager for Unix and the X-Window System."
+DESCRIPTION="TkDesk is a graphical file manager for Unix and the X-Window System."
 HOMEPAGE="http://tkdesk.sourceforge.net/"
 SRC_URI="mirror://sourceforge/tkdesk/${P}.tar.gz"
 

@@ -1,0 +1,99 @@
+#############################################################################
+# Patch File
+#
+# Application:. TkDesk
+# Version:      2.0
+# Patch ID:     2.0p1
+# Release Date: April 16, 2004
+# Description:
+#
+#   Compilation of the file "libdesk/tixImgXpm.c" fails when
+#   using a Tk version lower than 8.3.
+#
+# Instructions:
+#
+#   1. Download the patch file to a handy spot on your hard drive.
+#
+#   2. Go to the root of your TkDesk source tree:
+#
+#      cd {PATH_TO_SRC}/tkdesk-2.0
+#
+#      where {PATH_TO_SRC} is wherever you have untarred the
+#      TkDesk 2.0 source.
+#
+#   3. Then use the "patch" command:
+#
+#      patch -p1 < {PATH_TO_PATCH}/tkdesk-2.0p1.patch
+#
+#      where {PATH_TO_PATCH} is the directory path to that handy spot
+#      on your hard drive where you stored the patch file in step #1. 
+#
+#   4. Follow the build instructions in the TkDesk "INSTALL" file
+#      to recompile and install TkDesk.  It would be a good idea, after
+#      applying a patch, to always use the "testdrive" script to test
+#      TkDesk prior to doing a "make install".
+#
+#      Note:  Patches that ONLY EFFECT TKDESK'S TCL SOURCE FILES may be
+#      applied directly to an installed version of the TkDesk library
+#      (e.g. "/usr/local/lib/TkDesk").  In this case, cd to the
+#      installed TkDesk library directory and use the patch
+#      command option "-p2" instead of the usual "-p1".
+#      APPLYING PATCHES IN THIS MANNER IS NOT RECOMMENDED, but
+#      may be necessary if TkDesk has been installed from a pre-compiled
+#      package (RPM, etc.).
+#
+#############################################################################
+Index: tkdesk/ChangeLog
+diff -c tkdesk/ChangeLog:1.6 tkdesk/ChangeLog:1.8
+*** tkdesk/ChangeLog:1.6	Thu Apr 15 20:53:50 2004
+--- tkdesk/ChangeLog	Fri Apr 16 23:03:37 2004
+***************
+*** 1,6 ****
+--- 1,16 ----
+  
+  TkDesk Change Log for Version 2.x:
+  
++ 2004-04-16  J. Chris Coppick <jchris@users.sourceforge.net>
++ 
++         * libdesk/tixImgXpm.c:
++ 
++         The Tk_ImageType structure member Tk_ImagePostscriptProc wasn't
++         added until Tk 8.3, so now we only reference it if TK_MINOR_VERSION
++         >= 3.
++ 
++         Removed HAVE_TCL8_0_H cpp conditional.
++ 
+  2004-04-15  J. Chris Coppick <jchris@users.sourceforge.net>
+  
+          Released version 2.0 (Lazarus):
+Index: tkdesk/libdesk/tixImgXpm.c
+diff -c tkdesk/libdesk/tixImgXpm.c:1.2 tkdesk/libdesk/tixImgXpm.c:1.3
+*** tkdesk/libdesk/tixImgXpm.c:1.2	Tue Apr 13 19:32:20 2004
+--- tkdesk/libdesk/tixImgXpm.c	Fri Apr 16 22:54:49 2004
+***************
+*** 52,63 ****
+  #include <sys/stat.h>
+  #include <fcntl.h>
+  #include <unistd.h>
+- #ifdef HAVE_TCL8_0_H
+- #include <tcl8.0.h>
+- #include <tk8.0.h>
+- #else
+  #include <tk.h>
+- #endif
+  #include <X11/Xutil.h>
+  /*#include "tkInt.h"
+  #include "tkPort.h"*/
+--- 52,58 ----
+***************
+*** 176,182 ****
+--- 171,179 ----
+      ImgXpmDisplay,		/* displayProc */
+      ImgXpmFree,			/* freeProc */
+      ImgXpmDelete,		/* deleteProc */
++ #if TK_MINOR_VERSION >= 3
+      (Tk_ImagePostscriptProc *) NULL, /* postscriptProc ?? */
++ #endif
+      (struct Tk_ImageType *) NULL /* nextPtr */
+  };
+  

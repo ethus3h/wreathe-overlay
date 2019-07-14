@@ -1,0 +1,28 @@
+diff -Nur tkdesk-2.0.org/libdesk/tixImgXpm.c tkdesk-2.0/libdesk/tixImgXpm.c
+--- tkdesk-2.0.org/libdesk/tixImgXpm.c	2004-04-14 04:32:20.000000000 +0200
++++ tkdesk-2.0/libdesk/tixImgXpm.c	2006-04-05 14:06:04.000000000 +0200
+@@ -63,7 +63,7 @@
+ #include "tkPort.h"*/
+ /*#include <tix.h>*/
+ 
+-EXTERN void		panic();
++/* EXTERN void		panic(); */
+ 
+ /* constants used only in this file */
+ 
+diff -Nur tkdesk-2.0.org/Makefile.in tkdesk-2.0/Makefile.in
+--- tkdesk-2.0.org/Makefile.in	2004-04-15 00:31:17.000000000 +0200
++++ tkdesk-2.0/Makefile.in	2006-04-05 14:05:25.000000000 +0200
+@@ -161,10 +161,10 @@
+ tkdesk_script:
+ 	@echo '#!/bin/sh' >tkdesk
+ 	@echo '#-*- tcl -*- \' >>tkdesk
+-	@echo "PATH=$(BIN_SEARCH_DIR):"'$$PATH ;#\' >>tkdesk
++	@echo "PATH=/usr/bin:"'$$PATH ;#\' >>tkdesk
+ 	@echo "exec tkdesksh \"\$$0\" \"\$$@\"" >>tkdesk
+ 	@echo "" >>tkdesk
+-	@echo "set tkdesk(library) \"$(SCRIPT_SEARCH_DIR)\"" >>tkdesk
++	@echo "set tkdesk(library) /usr/lib/TkDesk" >>tkdesk
+ 	@echo "set tkdesk(in_development) 0" >>tkdesk
+ 	@echo "set tkdesk(debug) 0" >>tkdesk
+ 	@cat tkdesk.main >>tkdesk
