@@ -37,3 +37,11 @@ src_prepare() {
 	cp "${FILESDIR}"/crystallize-update "${S}"/scripts/
 	default
 }
+
+src_install() {
+	default
+	rm "${D}/usr/etc/crystallize.conf"
+	rm "${D}/usr/var/crystallize"
+	dosym /usr/etc/crystallize.conf /usr/etc/ember.conf
+	dosym /usr/var/crystallize /usr/var/ember
+}
