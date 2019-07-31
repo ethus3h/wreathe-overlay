@@ -22,5 +22,5 @@ src_install() {
 	rm "${D}/usr/etc/ember.conf"
 	rm "${D}/usr/share/ember"
 	dosym /usr/etc/ember.conf /usr/etc/ember-shared.conf
-	dosym /usr/share/ember /usr/share/ember-shared/data
+	ln -s "${EPREFIX}"/usr/share/ember "${ED%/}"/usr/share/ember-shared/data
 }
