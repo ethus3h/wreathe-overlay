@@ -22,7 +22,7 @@ RDEPEND="app-misc/wreathe-base"
 
 src_prepare() {
 	default
-	rm -r ./*.patch ./*.txt ./*.md config config.gz build debian-package-generate etc/asound.conf etc/bash etc/cron.d etc/env.d etc/genkernel.conf etc/gitconfig etc/gtk-3.0 etc/kernels etc/portage etc/sddm.conf etc/xprofile etc/portage etc/kernels etc/skel etc/systemd etc/wreathe etc/xdg man usr var Wreathe Wreathe-WIP-and-reference
+	rm -r ./*.patch ./*.txt ./*.md config config.gz build debian-package-generate etc/asound.conf etc/bash etc/cron.d etc/env.d etc/genkernel.conf etc/gitconfig etc/gtk-3.0 etc/kernels etc/portage etc/sddm.conf etc/skel etc/systemd etc/wreathe etc/xdg etc/xprofile man usr var Wreathe Wreathe-WIP-and-reference
 }
 
 src_install() {
