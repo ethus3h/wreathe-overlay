@@ -1,7 +1,7 @@
 # Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 if [[ "${PV}" == "9999" ]]; then
 	inherit git-r3 xdg-utils
@@ -41,15 +41,19 @@ src_install() {
 	GLOBIGNORE="README.md:.git:.gitattributes:.gitconfig:usr:Makefile:build:.egup.tags:Wreathe"
 	insinto /
 	doins -r ./*
+	unset GLOBIGNORE
 
 	fperms +x /etc/bash/bashrc.d/wreathe.sh
 
-	GLOBIGNORE="usr/bin:usr/man:usr/doc"
+	dodoc usr/share/doc/wreathe-base/*
+	rm -rv usr/share/doc
+
+	doman usr/share/man/man1/*
+	rm -rv usr/man
+
+	GLOBIGNORE="usr/bin"
 	insinto /usr/
 	doins -r usr/*
-
-	dodoc usr/share/doc/wreathe-base/*
-	rm -rv usr/share/doc/wreathe-base
 
 	unset GLOBIGNORE
 	dobin usr/bin/*
@@ -77,8 +81,6 @@ src_install() {
 	doexe Wreathe/.Resources/7r2-Compatibility/Scripts/*
 
 	unset GLOBIGNORE
-
-	doman usr/share/man/man1/*
 
 	# Provide symlinks to provide compatibility with not-yet-updated apps looking for Mono 2
 	dosym /usr/bin/mcs /usr/bin/gmcs
