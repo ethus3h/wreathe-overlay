@@ -31,6 +31,7 @@ src_prepare() {
 }
 
 src_install() {
+    rm -r ./*.patch ./*.txt ./*.md config config.gz build debian-package-generate etc/asound.conf etc/bash etc/cron.d etc/env.d etc/genkernel.conf etc/gitconfig etc/gtk-3.0 etc/kernels etc/portage etc/sddm.conf etc/xprofile etc/portage etc/kernels etc/skel etc/systemd etc/wreathe etc/xdg man usr var Wreathe Wreathe-WIP-and-reference
 	GLOBIGNORE="README.md:.git:.gitattributes:.gitconfig:usr:man:Makefile:build:.egup.tags:Wreathe"
 	insinto /
 	doins -r ./*
