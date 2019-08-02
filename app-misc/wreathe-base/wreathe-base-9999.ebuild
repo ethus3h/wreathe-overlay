@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -26,7 +26,7 @@ src_prepare() {
 		rm -rv "${S}/build/onscreen-keyboard/onboard-emoji"
 		mv "${WORKDIR}/onboard-emoji-$onboardEmojiRevision" "${S}/build/onscreen-keyboard/onboard-emoji"
 	fi
-	eapply_user
+	default
 	rm -rv var/lib/portage
 }
 
