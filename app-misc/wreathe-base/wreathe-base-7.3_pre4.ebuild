@@ -23,11 +23,13 @@ RDEPEND="app-misc/ember-shared"
 
 src_prepare() {
 	if [[ "${PV}" != "9999" ]]; then
-		rm -rv "${S}/build/onscreen-keyboard/onboard-emoji"
+		rm -rv "${S}/build/onscreen-keyboard/onboard-emoji" || die
 		mv "${WORKDIR}/onboard-emoji-$onboardEmojiRevision" "${S}/build/onscreen-keyboard/onboard-emoji"
 	fi
 	default
-	rm -rv var/lib/portage
+	rm -r README.md .git .egup.* || die
+	rm -rv var/lib/portage || die
+	rm -rv ./etc/sandbox.d ./etc/security ./etc/modules-load.d
 }
 
 src_install() {
