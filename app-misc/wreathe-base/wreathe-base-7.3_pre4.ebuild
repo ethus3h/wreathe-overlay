@@ -27,25 +27,28 @@ src_prepare() {
 		mv "${WORKDIR}/onboard-emoji-$onboardEmojiRevision" "${S}/build/onscreen-keyboard/onboard-emoji"
 	fi
 	default
-	rm -r README.md .git .gitmodules .egup.* || die
+	rm -r ./*.md .git .gitmodules .egup.* || die
 	# Not needed to be installed
 	rm -r debian-package-generate || die
-	rm -rv var/lib/portage || die
+	rm -rv Makefile var || die
 	# Provided by wreathe-base-special
 	rm -rv ./etc/sandbox.d ./etc/security ./etc/modules-load.d || die
 }
 
 src_install() {
 	rm -r build || die
-	GLOBIGNORE="README.md:.git:.gitattributes:.gitconfig:usr:man:Makefile:build:.egup.tags:Wreathe"
+	GLOBIGNORE="README.md:.git:.gitattributes:.gitconfig:usr:Makefile:build:.egup.tags:Wreathe"
 	insinto /
 	doins -r ./*
 
 	fperms +x /etc/bash/bashrc.d/wreathe.sh
 
-	GLOBIGNORE="usr/bin"
+	GLOBIGNORE="usr/bin:usr/man:usr/doc"
 	insinto /usr/
 	doins -r usr/*
+
+	dodoc usr/share/doc/wreathe-base/*
+	rm -rv usr/share/doc/wreathe-base
 
 	unset GLOBIGNORE
 	dobin usr/bin/*
@@ -74,7 +77,7 @@ src_install() {
 
 	unset GLOBIGNORE
 
-	doman man/*
+	doman usr/man/man1/*
 
 	# Provide symlinks to provide compatibility with not-yet-updated apps looking for Mono 2
 	dosym /usr/bin/mcs /usr/bin/gmcs
