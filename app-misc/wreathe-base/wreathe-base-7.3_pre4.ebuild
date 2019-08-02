@@ -4,10 +4,11 @@
 EAPI=6
 
 if [[ "${PV}" == "9999" ]]; then
-	inherit git-r3
+	inherit git-r3 xdg-utils
 	EGIT_REPO_URI="https://github.com/ethus3h/${PN}.git"
 	KEYWORDS=""
 else
+	inherit xdg-utils
 	onboardEmojiRevision="47314d5aff654d8e315552fb106cf82508915747"
 	SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
 		https://github.com/qnub/onboard-emoji/archive/$onboardEmojiRevision.zip -> onboard-emoji-git-$onboardEmojiRevision.zip"
