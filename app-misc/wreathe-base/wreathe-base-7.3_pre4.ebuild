@@ -27,13 +27,16 @@ src_prepare() {
 		mv "${WORKDIR}/onboard-emoji-$onboardEmojiRevision" "${S}/build/onscreen-keyboard/onboard-emoji"
 	fi
 	default
-	rm -r README.md .git .egup.* || die
+	rm -r README.md .git .gitmodules .egup.* || die
+	# Not needed to be installed
+	rm -r debian-package-generate || die
 	rm -rv var/lib/portage || die
-	rm -rv ./etc/sandbox.d ./etc/security ./etc/modules-load.d
+	# Provided by wreathe-base-special
+	rm -rv ./etc/sandbox.d ./etc/security ./etc/modules-load.d || die
 }
 
 src_install() {
-	rm -r .git .gitmodules build
+	rm -r build || die
 	GLOBIGNORE="README.md:.git:.gitattributes:.gitconfig:usr:man:Makefile:build:.egup.tags:Wreathe"
 	insinto /
 	doins -r ./*

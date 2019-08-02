@@ -22,8 +22,9 @@ RDEPEND="app-misc/wreathe-base"
 
 src_prepare() {
 	default
-	rm -r README.md .git .egup.* || die
-	rm -r ./*.patch ./*.txt ./*.md config config.gz build debian-package-generate etc/asound.conf etc/bash etc/cron.d etc/env.d etc/genkernel.conf etc/gitconfig etc/gtk-3.0 etc/kernels etc/portage etc/pulse etc/sddm.conf etc/skel etc/systemd etc/wreathe etc/xdg etc/xprofile man usr var Wreathe Wreathe-WIP-and-reference || die
+	rm -r README.md .git .gitmodules .egup.* || die
+	rm -r ./*.md build debian-package-generate man usr var Wreathe Wreathe-WIP-and-reference || die
+	rm -r etc/asound.conf etc/bash etc/cron.d etc/env.d etc/genkernel.conf etc/gitconfig etc/gtk-3.0 etc/kernels etc/portage etc/pulse etc/sddm.conf etc/skel etc/systemd etc/wreathe etc/xdg etc/xprofile || die
 	rm Makefile || die
 }
 
