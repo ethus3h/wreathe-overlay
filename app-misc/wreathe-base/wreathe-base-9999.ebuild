@@ -77,7 +77,7 @@ src_install() {
 
 	unset GLOBIGNORE
 
-	doman usr/man/man1/*
+	doman usr/share/man/man1/*
 
 	# Provide symlinks to provide compatibility with not-yet-updated apps looking for Mono 2
 	dosym /usr/bin/mcs /usr/bin/gmcs
