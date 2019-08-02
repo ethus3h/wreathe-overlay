@@ -90,3 +90,11 @@ src_install() {
 
 	fperms +x /etc/bash/bashrc.d/wreathe.sh
 }
+
+pkg_postinst() {
+	xdg_desktop_database_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
+}
