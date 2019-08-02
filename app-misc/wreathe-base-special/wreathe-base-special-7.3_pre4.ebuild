@@ -13,7 +13,8 @@ else
 	KEYWORDS="~amd64"
 fi
 
-DESCRIPTION="Wreathe: extra configuration files"
+DESCRIPTION="Wreathe: extra configuration files (Careful! See warning in ebuild)"
+# WARNING: This package provides /etc/security/limits.conf. Installing this package will overwrite that file, and removing this package will remove that file, the absence of which may break use of the "sudo" and "su" commands.
 HOMEPAGE="https://futuramerlin.com/"
 LICENSE="AGPL-3"
 SLOT="0"
@@ -23,7 +24,7 @@ RDEPEND="app-misc/wreathe-base"
 src_prepare() {
 	default
 	rm -r README.md .git .gitmodules .egup.* || die
-	rm -r ./*.md build debian-package-generate man usr var Wreathe Wreathe-WIP-and-reference || die
+	rm -r ./*.md build debian-package-generate man usr var Wreathe || die
 	rm -r etc/asound.conf etc/bash etc/cron.d etc/env.d etc/genkernel.conf etc/gitconfig etc/gtk-3.0 etc/kernels etc/portage etc/pulse etc/sddm.conf etc/skel etc/systemd etc/wreathe etc/xdg etc/xprofile || die
 	rm Makefile || die
 }
