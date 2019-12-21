@@ -26,8 +26,8 @@ DEPEND="kde-frameworks/kdelibs:4
 	kde-frameworks/kio
 	kde-apps/kio-extras
 	media-gfx/icoutils
-	app-misc/strigi
 	app-misc/wreathe-base"
+# 	app-misc/strigi
 
 RDEPEND="${DEPEND}"
 PDEPEND="${DEPEND}"
