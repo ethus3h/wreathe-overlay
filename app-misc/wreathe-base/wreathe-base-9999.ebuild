@@ -25,7 +25,6 @@ SLOT="0"
 RDEPEND="app-misc/ember-shared"
 
 src_prepare() {
-	rm -rv "${S}/build/onscreen-keyboard/onboard-emoji" || die
 	mv "${WORKDIR}/onboard-emoji-$onboardEmojiRevision" "${S}/build/onscreen-keyboard/onboard-emoji"
 	default
 	rm -r ./*.md .git .egup.* || die
