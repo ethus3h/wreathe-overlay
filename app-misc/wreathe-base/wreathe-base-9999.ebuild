@@ -9,11 +9,13 @@ if [[ "${PV}" == "9999" ]]; then
 	KEYWORDS=""
 else
 	inherit xdg-utils
-	onboardEmojiRevision="47314d5aff654d8e315552fb106cf82508915747"
-	SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz
-		https://github.com/qnub/onboard-emoji/archive/$onboardEmojiRevision.zip -> onboard-emoji-git-$onboardEmojiRevision.zip"
+	SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	KEYWORDS="~amd64"
 fi
+
+onboardEmojiRevision="47314d5aff654d8e315552fb106cf82508915747"
+SRC_URI="${SRC_URI}
+	https://github.com/qnub/onboard-emoji/archive/$onboardEmojiRevision.zip -> onboard-emoji-git-$onboardEmojiRevision.zip"
 
 DESCRIPTION="Wreathe"
 HOMEPAGE="https://futuramerlin.com/"
@@ -28,7 +30,7 @@ src_prepare() {
 		mv "${WORKDIR}/onboard-emoji-$onboardEmojiRevision" "${S}/build/onscreen-keyboard/onboard-emoji"
 	fi
 	default
-	rm -r ./*.md .git .gitmodules .egup.* || die
+	rm -r ./*.md .git .egup.* || die
 	# Not needed to be installed
 	rm -r debian-package-generate || die
 	rm -rv Makefile var || die
