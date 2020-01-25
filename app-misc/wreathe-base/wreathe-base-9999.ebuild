@@ -25,10 +25,8 @@ SLOT="0"
 RDEPEND="app-misc/ember-shared"
 
 src_prepare() {
-	if [[ "${PV}" != "9999" ]]; then
-		rm -rv "${S}/build/onscreen-keyboard/onboard-emoji" || die
-		mv "${WORKDIR}/onboard-emoji-$onboardEmojiRevision" "${S}/build/onscreen-keyboard/onboard-emoji"
-	fi
+	rm -rv "${S}/build/onscreen-keyboard/onboard-emoji" || die
+	mv "${WORKDIR}/onboard-emoji-$onboardEmojiRevision" "${S}/build/onscreen-keyboard/onboard-emoji"
 	default
 	rm -r ./*.md .git .egup.* || die
 	# Not needed to be installed
