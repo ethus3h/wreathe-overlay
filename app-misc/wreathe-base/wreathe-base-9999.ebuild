@@ -82,6 +82,8 @@ src_install() {
 
 	unset GLOBIGNORE
 
+	keepdir /Ember\ Library/Futuramerlin\ Projects/Data/Crystal\ Index/
+
 	# Provide symlinks to provide compatibility with not-yet-updated apps looking for Mono 2
 	dosym /usr/bin/mcs /usr/bin/gmcs
 	dosym /usr/bin/mono /usr/bin/cli
