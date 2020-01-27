@@ -1,4 +1,4 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -43,7 +43,6 @@ RDEPEND="app-misc/wreathe-meta
 	app-misc/futuramerlin-web-toolkit
 	dev-javascript/PapaParse
 	dev-util/wabt
-	virtual/perl6
 	sys-devel/clang[llvm_targets_WebAssembly]
 	sys-devel/lld
 	>=sys-libs/libcxx-8"
