@@ -7,7 +7,7 @@ DESCRIPTION="Code shared between various Ember software"
 HOMEPAGE="https://futuramerlin.com/"
 SRC_URI="https://github.com/ethus3h/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 
-LICENSE="AGPL-3"
+LICENSE="AGPL-3 GPL-3"
 SLOT="0"
 IUSE="doc"
 KEYWORDS="~amd64 ~x86"
