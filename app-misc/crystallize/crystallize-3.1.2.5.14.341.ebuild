@@ -15,7 +15,7 @@ fi
 DESCRIPTION="A collection of tools for working with files and filesystems"
 HOMEPAGE="https://futuramerlin.com/"
 
-LICENSE="AGPL-3 BSD-2"
+LICENSE="AGPL-3 GPL-3 BSD-2"
 SLOT="0"
 IUSE="doc"
 RDEPEND="app-misc/wreathe-base
