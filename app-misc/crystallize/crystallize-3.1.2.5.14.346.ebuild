@@ -15,8 +15,6 @@ fi
 DESCRIPTION="A collection of tools for working with files and filesystems"
 HOMEPAGE="https://futuramerlin.com/"
 
-set -x
-
 LICENSE="AGPL-3 BSD-2"
 SLOT="0"
 IUSE="doc"
