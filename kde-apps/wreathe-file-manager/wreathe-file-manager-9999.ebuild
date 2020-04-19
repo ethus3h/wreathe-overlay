@@ -11,5 +11,5 @@ HOMEPAGE="http://futuramerlin.com/"
 KEYWORDS=""
 EGIT_REPO_URI="https://github.com/ethus3h/wreathe-file-manager.git"
 
-DEPEND="!<kde-apps/dolphin-9999"
+#DEPEND="!<kde-apps/dolphin-9999"
 RDEPEND="${DEPEND}"
