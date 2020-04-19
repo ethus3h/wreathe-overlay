@@ -4,7 +4,7 @@
 EAPI=7
 
 KDE_AUTODEPS="false"
-inherit kde.org git-r3
+inherit ecm kde.org git-r3
 
 DESCRIPTION="Wreathe file manager"
 HOMEPAGE="http://futuramerlin.com/"
